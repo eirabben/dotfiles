@@ -4,6 +4,7 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias la="ls -lah"
+alias c="clear"
 
 # Folder shortcuts
 alias dl="cd ~/Downloads"
