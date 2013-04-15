@@ -11,6 +11,7 @@ alias dl="cd ~/Downloads"
 alias db="cd ~/Dropbox"
 alias dt="cd ~/Desktop"
 alias pr="cd ~/Projects"
+alias ht="cd /Applications/MAMP/htdocs"
 alias o="open"
 alias oo="open ."
 
