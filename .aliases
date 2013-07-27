@@ -15,6 +15,9 @@ alias ht="cd /Applications/MAMP/htdocs"
 alias o="open"
 alias oo="open ."
 
+# Other shortcuts
+alias pingg="ping -c 4 www.google.com"
+
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
 	colorflag="--color"
