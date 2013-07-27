@@ -9,6 +9,7 @@ set history=500
 " Set to autoread file when it is changed outside of VIM
 set autoread
 
+" Fix distro presets
 set nocompatible
 
 set hidden
