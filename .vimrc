@@ -75,6 +75,7 @@ highlight Visual       ctermbg=3   ctermfg=0
 highlight Pmenu        ctermbg=240 ctermfg=12
 highlight PmenuSel     ctermbg=0   ctermfg=3
 highlight SpellBad     ctermbg=0   ctermfg=1
+highlight ModeMsg      ctermbg=0   ctermfg=4
 
 "================================================
 " Navigation, tabs and windows
