@@ -1,82 +1,63 @@
 
-"""""""""""""""""""""""""""""""""""""""""""""""""
-" General
-"""""""""""""""""""""""""""""""""""""""""""""""""
-
-" Turn off compatible mode
+" Use vim settings instead of Vi settings to enable functionality.
+" This must always be first.
 set nocompatible
 
-" Sets number of lines of history to remember
-set history=500
+"================================================
+" General
+"================================================
 
-" Set to autoread file when it is changed outside of VIM
-set autoread
+set history=500                 " Remember 500 lines of history.
+set autoread                    " Autoread files when changed outside of Vim.
+set hidden                      " Buffer becomes hidden when abandoned instead of unloaded.
+set backspace=eol,start,indent  " Configure backspace to work properly.
 
-" Buffer becomes hidden when abandoned
-set hidden
-
-"""""""""""""""""""""""""""""""""""""""""""""""""
+"================================================
 " User interface
-"""""""""""""""""""""""""""""""""""""""""""""""""
+"================================================
 
-" Turn on WiLd menu
-set wildmenu
+set number                      " Always show line numbers.
+set showmatch                   " Show matching bracket when cursor is on one.
+set scrolloff=4                 " Minimum lines above/below cursor.
+set gcr=a:blinkon0              " Disable cursor blink
+set visualbell                  " Turn off sounds
 
-" Always show current position
-set ruler
-
-" Always show command bar
-set showcmd
-
-" Height of command bar
-set cmdheight=2
-
-" Always show status line
-set laststatus=2
-
-" Always show line numbers
-set number
-
-" Highlight current line 
-set cursorline
-
-" Configure backspace
-set backspace=eol,start,indent
-
-" Show matching bracket when cursor is on one
-set showmatch
-
-" Highlight statusbar in insert mode
-if version >= 700
+" ========== Status bar ========== "
+set wildmenu                    " Turn on WiLd menu.
+set ruler                       " Always show current cursor position.
+set showcmd                     " Always show command bar.
+set showmode                    " Show current mode.
+set cmdheight=2                 " Height of command bar.
+set laststatus=2                " Always show status line.
+set cursorline                  " Highlight current line.
+if version >= 700               " Highlight statusbar in insert mode.
   au InsertEnter * hi StatusLine ctermfg=235 ctermbg=2
   au InsertLeave * hi StatusLine ctermbg=240 ctermfg=12
 endif
 
-"---Searching---"
+" ========== Searching ========== "
+set ignorecase          " Ignore case when searching.
+set smartcase           " Be smart about case when searching.
+set incsearch           " Incremental searching.
+set hlsearch            " Highlight search phrase.
 
-" Ignore case when searching
-set ignorecase
+" ========== Tabs and indents ========== "
+set autoindent      " Auto indent
+set smartindent     " Smart indent
+set smarttab        " Smart tabs.
+set expandtab       " Use spaces instead of tabs.
+set shiftwidth=4    " Number of spaces for autoindent.
+set softtabstop=4   " Number of spaces a tab counts for (when editing).
+set tabstop=4       " Number of spaces a tab counts for (in a file).
+set wrap            " Wrap lines that are longer than the window.
 
-" Be smart about case when searching
-set smartcase
-
-" Incremental searching
-set incsearch
-
-" Highlight search phrase
-set hlsearch
-
-" Minimum lines above/below cursor
-set scrolloff=4
-
-"""""""""""""""""""""""""""""""""""""""""""""""""
+"================================================
 " Colors and fonts
-"""""""""""""""""""""""""""""""""""""""""""""""""
+"================================================
 
-" Turn on syntax highlighting
-syntax on
+syntax on               " Turn on syntax highlighting.
 
-" Use Railscasts theme
+" ========== Theme ========== "
 set background=dark
 colorscheme base16-railscasts
 
@@ -95,29 +76,17 @@ highlight Pmenu        ctermbg=240 ctermfg=12
 highlight PmenuSel     ctermbg=0   ctermfg=3
 highlight SpellBad     ctermbg=0   ctermfg=1
 
-"""""""""""""""""""""""""""""""""""""""""""""""""
-" Text, tabs and indents
-"""""""""""""""""""""""""""""""""""""""""""""""""
-
-" Spaces instead of tabs
-set expandtab
-
-" Smart tabs
-set smarttab
-
-" Set tab length
-set shiftwidth=4
-set tabstop=4
-
-" Indenting
-set autoindent
-set smartindent
-set wrap
-
-"""""""""""""""""""""""""""""""""""""""""""""""""
+"================================================
 " Navigation, tabs and windows
-"""""""""""""""""""""""""""""""""""""""""""""""""
+"================================================
 
 " Map JK to Escape key
 :imap jk <Esc>
+
+" Make new line after current line without entering insert mode
+nmap <S-Enter> o<Esc>
+
+
+
+
 
