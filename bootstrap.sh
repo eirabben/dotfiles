@@ -1,6 +1,8 @@
 #!/bin/bash
 
-# TODO: copy color schemes and other files.
+# TODO: Copy color schemes for terminals, vim and tmux
+# TODO: Add vundle to vim
+# TODO: Make update mode for bootstrap.sh
 
 for file in ~/.{bash_profile,bashrc,vimrc,tmux.conf}; do
     if [ -f $file ]; then

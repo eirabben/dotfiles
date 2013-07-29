@@ -11,6 +11,7 @@ set history=500                 " Remember 500 lines of history.
 set autoread                    " Autoread files when changed outside of Vim.
 set hidden                      " Buffer becomes hidden when abandoned instead of unloaded.
 set backspace=eol,start,indent  " Configure backspace to work properly.
+filetype off                    " Required for Vundle
 
 "================================================
 " User interface
@@ -88,6 +89,23 @@ highlight ModeMsg      ctermbg=0   ctermfg=4
 " Make new line after current line without entering insert mode
 nmap <S-Enter> o<Esc>
 
+
+"================================================
+" Vundle configuration
+"================================================
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" Let Vundle manage Vundle
+" Required
+Bundle 'gmarik/vundle'
+
+" ========== Bundles ========== "
+
+Bundle 'kien/ctrlp.vim'
+
+filetype plugin indent on       " Required for Vundle
 
 
 
