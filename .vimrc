@@ -2,6 +2,8 @@
 " Use vim settings instead of Vi settings to enable functionality.
 " This must always be first.
 set nocompatible
+filetype on
+filetype off                    " Required for Vundle
 
 "================================================
 " General
@@ -11,7 +13,6 @@ set history=500                 " Remember 500 lines of history.
 set autoread                    " Autoread files when changed outside of Vim.
 set hidden                      " Buffer becomes hidden when abandoned instead of unloaded.
 set backspace=eol,start,indent  " Configure backspace to work properly.
-filetype off                    " Required for Vundle
 
 "================================================
 " User interface
