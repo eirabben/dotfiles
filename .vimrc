@@ -105,6 +105,7 @@ Bundle 'gmarik/vundle'
 " ========== Bundles ========== "
 
 Bundle 'kien/ctrlp.vim'
+let g:ctrlp_show_hidden = 1
 
 filetype plugin indent on       " Required for Vundle
 
