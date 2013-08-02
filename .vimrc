@@ -22,8 +22,10 @@ set number                      " Always show line numbers.
 set showmatch                   " Show matching bracket when cursor is on one.
 set mat=2                       " How many tenths of a second to blink when matching brackets.
 set scrolloff=4                 " Minimum lines above/below cursor.
-set gcr=a:blinkon0              " Disable cursor blink
-set visualbell                  " Turn off sounds
+set gcr=a:blinkon0              " Disable cursor blink.
+set visualbell                  " Turn off sounds.
+set splitbelow                  " Horizontal splits below.
+set splitright                  " Vertical splits to the right.
 
 " ========== Status bar ========== "
 set wildmenu                    " Turn on WiLd menu.
