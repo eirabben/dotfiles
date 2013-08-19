@@ -23,6 +23,9 @@ alias ga="git add ."
 alias gca="git add -A && git commit -av"
 alias gps="git push origin master"
 
+# Tmux shortcuts
+alias play="tmux attach -t play"
+
 # Other shortcuts
 alias pingg="ping -c 4 www.google.com"
 
