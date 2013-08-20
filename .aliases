@@ -25,6 +25,7 @@ alias gps="git push origin master"
 
 # Tmux shortcuts
 alias play="tmux attach -t play"
+alias work="tmux attach -t work"
 
 # Other shortcuts
 alias pingg="ping -c 4 www.google.com"
