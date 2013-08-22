@@ -5,4 +5,3 @@ for file in ~/.dotfiles/.{bash_prompt,aliases,functions}; do
 done
 unset file
 
-stty -ixon

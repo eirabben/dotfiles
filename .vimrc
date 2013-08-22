@@ -92,9 +92,6 @@ highlight ModeMsg      ctermbg=0   ctermfg=4
 " Make new line after current line without entering insert mode
 nmap <S-Enter> o<Esc>
 
-inoremap <C-s> <esc>:w<cr>a
-nnoremap <C-s> :w<cr>a
-
 "================================================
 " Vundle configuration
 "================================================
