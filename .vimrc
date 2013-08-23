@@ -21,7 +21,8 @@ set backspace=eol,start,indent  " Configure backspace to work properly.
 set number                      " Always show line numbers.
 set showmatch                   " Show matching bracket when cursor is on one.
 set mat=2                       " How many tenths of a second to blink when matching brackets.
-set scrolloff=4                 " Minimum lines above/below cursor.
+set scrolloff=8                 " Minimum lines above/below cursor.
+set colorcolumn=80              " Line length marker
 set gcr=a:blinkon0              " Disable cursor blink.
 set visualbell                  " Turn off sounds.
 set splitbelow                  " Horizontal splits below.
