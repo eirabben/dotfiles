@@ -4,10 +4,10 @@
 # TODO: Make update mode for bootstrap.sh
 
 # Add vundle to vim folder
-git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+#git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 
 # Copy vim color scheme to vim folder
-cp ~/.dotfiles/vim/base16-railscasts.vim ~/.vim/colors/
+#cp ~/.dotfiles/vim/base16-railscasts.vim ~/.vim/colors/
 
 # Create symlinks
 for file in ~/.{bash_profile,bashrc,vimrc,tmux.conf}; do
