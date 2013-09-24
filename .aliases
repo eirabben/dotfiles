@@ -1,9 +1,10 @@
 
 # Navigation shortcuts
+alias ls="ls --color=auto"
+alias la="ls -lah --color=auto"
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
-alias la="ls -lah"
 alias c="clear"
 
 # Folder shortcuts
