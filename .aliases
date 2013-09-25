@@ -1,7 +1,6 @@
 
 # Navigation shortcuts
-alias ls="ls --color=auto"
-alias la="ls -lah --color=auto"
+alias la="ls -lah"
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
