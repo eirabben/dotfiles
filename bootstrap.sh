@@ -3,6 +3,14 @@
 # TODO: Copy color schemes for terminals, vim and tmux
 # TODO: Make update mode for bootstrap.sh
 
+if [! -d "$HOME/.vim" ]; then
+    mkdir $HOME/.vim
+fi
+
+if [! -d "$HOME/.vim/bundle" ]; then
+    mkdir $HOME/.vim/bundle
+fi
+
 # Add vundle to vim folder
 #git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 
