@@ -1,12 +1,12 @@
 #!/bin/bash
 
 # Create symlinks, move backups to backup directory
-for file in ~/.{bash_profile,bashrc,vimrc,tmux.conf,gitconfig}; do
+for file in $HOME/.{bash_profile,bashrc,vimrc,tmux.conf,gitconfig}; do
     if [ -f $file ]; then
-         mv "$file" "~/.dotfiles/backup/" 
+         mv "$file" "$HOME/.dotfiles/backup/" 
     fi
 
-    ln -s ~/.dotfiles/$(basename $file) $file
+    ln -s $HOME/.dotfiles/$(basename $file) $file
 done
 unset file
 
@@ -14,7 +14,7 @@ unset file
 if [ -d "$HOME/.vim" ]; then
     mv $HOME/.vim $HOME/.dotfiles/backup/.vim
 fi
-cp -r ~/.dotfiles/.vim ~/.vim
+cp -r $HOME/.dotfiles/.vim $HOME/.vim
 
 # Add vundle to vim folder
 git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
