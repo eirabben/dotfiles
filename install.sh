@@ -3,7 +3,7 @@
 # Create symlinks, move backups to backup directory
 for file in ~/.{bash_profile,bashrc,vimrc,tmux.conf,gitconfig}; do
     if [ -f $file ]; then
-         mv "$file" "~/.dotfiles/backup/${file}_backup" 
+         mv "$file" "~/.dotfiles/backup/" 
     fi
 
     ln -s ~/.dotfiles/$(basename $file) $file
@@ -11,7 +11,7 @@ done
 unset file
 
 # Copy vim folder to home directory
-if [ -d "$HOME/.vim" ] then
+if [ -d "$HOME/.vim" ]; then
     mv $HOME/.vim $HOME/.dotfiles/backup/.vim
 fi
 cp -r ~/.dotfiles/.vim ~/.vim
