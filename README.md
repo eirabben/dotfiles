@@ -4,7 +4,7 @@ A collection of dotfiles for OSX and Linux. Optimized for iTerm and XFCE termina
 #Content
 **Bash**
 
-Highly customized bash shell with a custom $PS1 as well as helpful aliases with
+Highly customized bash shell with a custom `$PS1` as well as helpful aliases with
 nice color output. These are divided into their own files, which makes them easy
 to maintain.
 
