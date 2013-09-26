@@ -29,7 +29,7 @@ The beautiful base16 theme is included in this repository. The default in use is
 base16-railscasts, but feel free to change to one of the other flavours also
 included.
 
-This repository currently provide color schemes for Vim, iTerm (Mac OSX) and 
+This repository currently provides color schemes for Vim, iTerm (Mac OSX) and 
 XFCE terminal (Linux). The terminal themes are required for the Vim theme to
 work properly. `install.sh` automatically detects and installs the XFCE version,
 while Mac users need to manually add the themes located in `.dotfiles/base16/base16-iterm-master`
