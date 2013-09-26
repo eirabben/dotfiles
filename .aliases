@@ -4,6 +4,7 @@ alias la="ls -lah"
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
+alias --="cd -"
 alias c="clear"
 
 # Folder shortcuts
@@ -29,6 +30,7 @@ alias work="tmux attach -t work"
 
 # Other shortcuts
 alias pingg="ping -c 4 www.google.com"
+alias week="date+%V"
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
