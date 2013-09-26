@@ -42,8 +42,7 @@ Easily install and update your dotfiles with the *install* and *update* scripts.
 
 Clone the git repository:
 ```bash
-    git clone https://github.com/eirabben/dotfiles.git ~/
-    mv ~/dotfiles ~/.dotfiles
+    git clone https://github.com/eirabben/dotfiles.git ~/.dotfiles
 ```
 
 cd into the .dotfiles directory and run the install.sh script:
@@ -52,6 +51,9 @@ cd into the .dotfiles directory and run the install.sh script:
     ./install.sh
 ```
 
+This script will move any conflicting files into `~/.dotfiles/backup` to make it
+easy to revert to your old configuration if you wish.
+
 **To update:**
 
 cd into the .dotfiles directory and run update.sh:
@@ -59,5 +61,8 @@ cd into the .dotfiles directory and run update.sh:
     cd ~/.dotfiles
     ./update.sh
 ```
+
+The update script simply issues a pull request for this repo as well as the Vundle
+repo, located in `~/.vim/bundle/vundle` after installation.
 
 
