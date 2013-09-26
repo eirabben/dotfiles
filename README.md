@@ -65,4 +65,9 @@ cd into the .dotfiles directory and run update.sh:
 The update script simply issues a pull request for this repo as well as the Vundle
 repo, located in `~/.vim/bundle/vundle` after installation.
 
+##Uninstall
+Run the `uninstall.sh` script to uninstall. This will remove links and directories
+made by the installer, and move the original files (if any) from the backup folder
+to the home directory.
+
 
