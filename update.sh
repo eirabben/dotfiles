@@ -7,4 +7,4 @@ git pull origin master
 cd ~/.vim/bundle/vundle
 git pull
 
-source ~/.bashrc
+source $HOME/.bashrc
