@@ -4,7 +4,6 @@ alias la="ls -lah"
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
-alias --="cd -"
 alias c="clear"
 
 # Folder shortcuts
