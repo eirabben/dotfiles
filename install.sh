@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Create symlinks, move backups to backup directory
-for file in ~/.{bash_profile,bashrc,vimrc,tmux.conf}; do
+for file in ~/.{bash_profile,bashrc,vimrc,tmux.conf,gitconfig}; do
     if [ -f $file ]; then
          mv "$file" "~/.dotfiles/backup/${file}_backup" 
     fi
