@@ -1,10 +1,10 @@
 #dotfiles
 A collection of dotfiles for OSX and Linux. Optimized for iTerm and XFCE terminal.
 
-#Content
+##Content
 **Bash**
 
-Highly customized bash shell with a custom $PS1 as well as helpful aliases with
+Highly customized bash shell with a custom `$PS1` as well as helpful aliases with
 nice color output. These are divided into their own files, which makes them easy
 to maintain.
 
@@ -35,7 +35,7 @@ work properly. `install.sh` automatically detects and installs the XFCE version,
 while Mac users need to manually add the themes located in `.dotfiles/base16/base16-iterm-master`
 to their iTerm installation.
 
-#Installation
+##Installation
 Easily install and update your dotfiles with the *install* and *update* scripts.
 
 **To install:**
