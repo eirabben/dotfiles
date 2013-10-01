@@ -18,7 +18,8 @@ set backspace=eol,start,indent  " Configure backspace to work properly.
 " User interface
 "================================================
 
-set number                      " Always show line numbers.
+" set number                      " Always show line numbers.
+set relativenumber              " Show relative line numbers.
 set showmatch                   " Show matching bracket when cursor is on one.
 set mat=2                       " How many tenths of a second to blink when matching brackets.
 set scrolloff=8                 " Minimum lines above/below cursor.
