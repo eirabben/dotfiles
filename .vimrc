@@ -88,8 +88,14 @@ highlight ModeMsg      ctermbg=0   ctermfg=4
 " Navigation, tabs and windows
 "================================================
 
+" Map leader to ,
+let mapleader=","
+
 " Map JK to Escape key
 :imap jk <Esc>
+
+" Clear search highlighting
+nnoremap <silent> <Leader>/ :nohlsearch<CR>
 
 " Make new line after current line without entering insert mode
 nmap <S-Enter> o<Esc>
@@ -104,6 +110,8 @@ call vundle#rc()
 " Let Vundle manage Vundle
 " Required
 Bundle 'gmarik/vundle'
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'Raimondi/delimitMate'
 
 " ========== Bundles ========== "
 
@@ -111,6 +119,7 @@ Bundle 'kien/ctrlp.vim'
 let g:ctrlp_show_hidden = 1
 
 filetype plugin indent on       " Required for Vundle
+filetype plugin on
 
 
 
