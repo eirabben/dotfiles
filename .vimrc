@@ -111,8 +111,6 @@ call vundle#rc()
 " Required
 Bundle 'gmarik/vundle'
 Bundle 'scrooloose/nerdcommenter'
-Bundle 'Raimondi/delimitMate'
-"Bundle 'surround'
 
 " ========== Bundles ========== "
 
