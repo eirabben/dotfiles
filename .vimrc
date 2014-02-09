@@ -18,7 +18,7 @@ set backspace=eol,start,indent  " Configure backspace to work properly.
 " User interface
 "================================================
 
-" set number                      " Always show line numbers.
+" set number                    " Always show line numbers.
 set relativenumber              " Show relative line numbers.
 set showmatch                   " Show matching bracket when cursor is on one.
 set mat=2                       " How many tenths of a second to blink when matching brackets.
@@ -37,6 +37,7 @@ set showmode                    " Show current mode.
 set cmdheight=2                 " Height of command bar.
 set laststatus=2                " Always show status line.
 set cursorline                  " Highlight current line.
+
 if version >= 700               " Highlight statusbar in insert mode.
   au InsertEnter * hi StatusLine ctermfg=235 ctermbg=2
   au InsertLeave * hi StatusLine ctermbg=240 ctermfg=12
@@ -65,6 +66,7 @@ set wrap            " Wrap lines that are longer than the window.
 syntax on               " Turn on syntax highlighting.
 
 " ========== Theme ========== "
+set t_Co=256
 set background=dark
 colorscheme base16-railscasts
 
@@ -104,18 +106,18 @@ nmap <S-Enter> o<Esc>
 " Vundle configuration
 "================================================
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+"set rtp+=~/.vim/bundle/vundle/
+"call vundle#rc()
 
 " Let Vundle manage Vundle
 " Required
-Bundle 'gmarik/vundle'
+"Bundle 'gmarik/vundle'
 
 " ========== Bundles ========== "
 
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'kien/ctrlp.vim'
-let g:ctrlp_show_hidden = 1
+"Bundle 'scrooloose/nerdcommenter'
+"Bundle 'kien/ctrlp.vim'
+"let g:ctrlp_show_hidden = 1
 
 filetype plugin indent on       " Required for Vundle
 filetype plugin on
