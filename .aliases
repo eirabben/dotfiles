@@ -15,20 +15,16 @@ alias dot="cd ~/.dotfiles"
 alias o="open"
 alias oo="open ."
 
-# Git shortcuts
-alias gs="git status"
-alias gp="git pull origin master"
-alias ga="git add ."
-alias gca="git add -A && git commit -av"
-alias gps="git push origin master"
+# Create directory and enter it
+function mkd() {
+    mkdir -p "$@" && cd "$@"
+}
 
 # Tmux shortcuts
-alias play="tmux attach -t play"
-alias work="tmux attach -t work"
+# TODO
 
 # Other shortcuts
 alias pingg="ping -c 4 www.google.com"
-alias week="date+%V"
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`

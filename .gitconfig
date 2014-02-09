@@ -1,3 +1,14 @@
 [user]
 	name = Eirik Igland
 	email = eirabben@gmail.com
+[core]
+	editor = vim
+[alias]
+	a = add -A
+	s = status
+	c = commit
+	ca = git add -A && git commit -av
+	p = pull origin master
+	ps = push origin master
+	go = checkout -B
+

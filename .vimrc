@@ -110,10 +110,10 @@ call vundle#rc()
 " Let Vundle manage Vundle
 " Required
 Bundle 'gmarik/vundle'
-Bundle 'scrooloose/nerdcommenter'
 
 " ========== Bundles ========== "
 
+Bundle 'scrooloose/nerdcommenter'
 Bundle 'kien/ctrlp.vim'
 let g:ctrlp_show_hidden = 1
 
