@@ -9,5 +9,5 @@ rm $HOME/.gitconfig
 rm $HOME/.vim
 
 # Move original files back to home directory
-mv $HOME/.dotfiles/backup/* $HOME/
+mv $HOME/.dotfiles/backup/.* $HOME/
 
