@@ -28,6 +28,7 @@ set gcr=a:blinkon0              " Disable cursor blink.
 set visualbell                  " Turn off sounds.
 set splitbelow                  " Horizontal splits below.
 set splitright                  " Vertical splits to the right.
+set nrformats=hex               " Let <C-a> and <C-x> work on decimal numbers
 
 " ========== Status bar ========== "
 set wildmenu                    " Turn on WiLd menu.
@@ -106,18 +107,18 @@ nmap <S-Enter> o<Esc>
 " Vundle configuration
 "================================================
 
-"set rtp+=~/.vim/bundle/vundle/
-"call vundle#rc()
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
 
 " Let Vundle manage Vundle
 " Required
-"Bundle 'gmarik/vundle'
+Bundle 'gmarik/vundle'
 
 " ========== Bundles ========== "
 
-"Bundle 'scrooloose/nerdcommenter'
-"Bundle 'kien/ctrlp.vim'
-"let g:ctrlp_show_hidden = 1
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'kien/ctrlp.vim'
+let g:ctrlp_show_hidden = 1
 
 filetype plugin indent on       " Required for Vundle
 filetype plugin on
