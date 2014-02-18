@@ -117,6 +117,7 @@ Bundle 'gmarik/vundle'
 " ========== Bundles ========== "
 
 Bundle 'scrooloose/nerdcommenter'
+Bundle 'tpope/vim-surround'
 Bundle 'kien/ctrlp.vim'
 let g:ctrlp_show_hidden = 1
 
