@@ -21,10 +21,16 @@ function mkd() {
 }
 
 # Tmux shortcuts
-# TODO
 
 # Other shortcuts
+# Ping google
 alias pingg="ping -c 4 www.google.com"
+
+# Print a source file
+enprint() {
+    enscript --line-numbers -p - --word-wrap $1 | pstopdf -i -o ~/Documents/$2.pdf
+}
+alias en=enprint
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`

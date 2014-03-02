@@ -16,3 +16,6 @@ if [ ! -d $HOME/.dotfiles/.vim/bundle/vundle ]; then
 fi
 # Install bundles
 vim +BundleInstall +qall
+
+# Source the changes
+source $HOME/.bashrc
