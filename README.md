@@ -16,7 +16,7 @@ key-bindings and `Vundle` setup.
 
 **Git**
 
-Git customization is currently located in `.aliases`.
+Customized gitconfig with simple aliases.
 
 **Tmux**
 
@@ -29,11 +29,9 @@ The beautiful base16 theme is included in this repository. The default in use is
 base16-railscasts, but feel free to change to one of the other flavours also
 included.
 
-This repository currently provides color schemes for Vim, iTerm (Mac OSX) and 
-XFCE terminal (Linux). The terminal themes are required for the Vim theme to
-work properly. `install.sh` automatically detects and installs the XFCE version,
-while Mac users need to manually add the themes located in `.dotfiles/base16/base16-iterm-master`
-to their iTerm installation.
+This repository currently provides color schemes for Vim and iTerm (Mac OSX).
+The terminal themes are required for the Vim theme to work properly. You will
+need to manually add the iTerm color scheme via the iTerm settings panel.
 
 ##Installation
 Easily install and update your dotfiles with the *install* and *update* scripts.
