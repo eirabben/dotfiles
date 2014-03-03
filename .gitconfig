@@ -1,7 +1,6 @@
-[user]
-
 [core]
 	editor = vim
+
 [alias]
 	a = add -A
 	s = status
