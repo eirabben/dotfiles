@@ -52,7 +52,6 @@ set hlsearch            " Highlight search phrase.
 
 " ========== Tabs and indents ========== "
 set autoindent      " Auto indent
-set smartindent     " Smart indent
 set smarttab        " Smart tabs.
 set expandtab       " Use spaces instead of tabs.
 set shiftwidth=4    " Number of spaces for autoindent.
