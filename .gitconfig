@@ -1,6 +1,5 @@
 [core]
 	editor = vim
-
 [alias]
 	a = add -A
 	s = status
@@ -9,4 +8,6 @@
 	p = pull origin master
 	ps = push origin master
 	go = checkout -B
-
+    lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
+[credential]
+	helper = osxkeychain
