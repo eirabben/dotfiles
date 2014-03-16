@@ -10,6 +10,7 @@ alias c="clear"
 alias dl="cd ~/Downloads"
 alias db="cd ~/Dropbox"
 alias dt="cd ~/Desktop"
+alias dc="cd ~/Documents"
 alias pr="cd ~/Projects"
 alias dot="cd ~/.dotfiles"
 alias o="open"
@@ -31,6 +32,12 @@ enprint() {
     enscript --line-numbers -p - --word-wrap $1 | pstopdf -i -o ~/Documents/$2.pdf
 }
 alias en=enprint
+
+# Enprint with color highlighting
+enprintColor() {
+    enscript --line-numbers --highlight --color -p - --word-wrap $1 | pstopdf -i -o ~/Documents/$2.pdf
+}
+alias enc=enprintColor
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
