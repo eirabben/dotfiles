@@ -10,4 +10,4 @@ git pull
 # Install bundles
 vim +BundleInstall +qall
 
-source $HOME/.bashrc
+source $HOME/.bash_profile

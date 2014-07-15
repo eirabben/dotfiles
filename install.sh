@@ -18,4 +18,4 @@ fi
 vim +BundleInstall +qall
 
 # Source the changes
-source $HOME/.bashrc
+source $HOME/.bash_profile
