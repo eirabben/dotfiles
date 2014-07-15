@@ -123,13 +123,21 @@ Bundle 'gmarik/vundle'
 " ========== Bundles ========== "
 
 Bundle 'scrooloose/nerdcommenter'
-Bundle 'cakebaker/scss-syntax.vim'
 Bundle 'tpope/vim-surround'
 Bundle 'kien/ctrlp.vim'
 let g:ctrlp_show_hidden = 1
 
 filetype plugin indent on       " Required for Vundle
 filetype plugin on
+
+" Better syntax
+Bundle 'cakebaker/scss-syntax.vim'
+Bundle "pangloss/vim-javascript"
+
+" Vim snimpate and dependencies
+Bundle "MarcWeber/vim-addon-mw-utils"
+Bundle "tomtom/tlib_vim"
+Bundle "garbas/vim-snipmate"
 
 "================================================
 " Plugin config

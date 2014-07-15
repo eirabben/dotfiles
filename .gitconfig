@@ -2,12 +2,17 @@
 	editor = vim
 [alias]
 	a = add -A
-	s = status
-	c = commit
+	s = status -s
+	cm = commit
+    cl = clone
     ca = !git add -A && git commit -av
-	p = pull origin master
-	ps = push origin master
-	go = checkout -B
+	p = pull
+    f = fetch
+	ps = push
+    po = push origin
+	co = checkout -B
+    go = checkout
     lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
 [credential]
 	helper = osxkeychain
+[user]
