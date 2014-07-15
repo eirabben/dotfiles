@@ -5,3 +5,4 @@
 
 backup/*
 .vim/bundle/*
+.vim/tmp

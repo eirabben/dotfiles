@@ -13,8 +13,9 @@ set history=500                 " Remember 500 lines of history.
 set autoread                    " Autoread files when changed outside of Vim.
 set hidden                      " Buffer becomes hidden when abandoned instead of unloaded.
 set backspace=eol,start,indent  " Configure backspace to work properly.
-set backupdir=~/.vim_tmp
-set directory=~/.vim_tmp
+set backupdir=~/.vim/tmp
+set directory=~/.vim/tmp
+set mouse=a                     " Allow mouse navigation.
 
 "================================================
 " User interface
@@ -98,6 +99,10 @@ let mapleader=","
 " Map JK to Escape key
 :imap jk <Esc>
 
+" Go to next line even if wrapped.
+nnoremap j gj
+nnoremap k gk
+
 " Clear search highlighting
 nnoremap <silent> <Leader>/ :nohlsearch<CR>
 
@@ -118,6 +123,7 @@ Bundle 'gmarik/vundle'
 " ========== Bundles ========== "
 
 Bundle 'scrooloose/nerdcommenter'
+Bundle 'cakebaker/scss-syntax.vim'
 Bundle 'tpope/vim-surround'
 Bundle 'kien/ctrlp.vim'
 let g:ctrlp_show_hidden = 1
@@ -125,6 +131,13 @@ let g:ctrlp_show_hidden = 1
 filetype plugin indent on       " Required for Vundle
 filetype plugin on
 
+"================================================
+" Plugin config
+"================================================
 
+" ========== CtrlP ========== "
+
+set wildignore+=*/vendor/**
+set wildignore+=*/public/forum/**
 
 
