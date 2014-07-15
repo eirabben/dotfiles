@@ -7,4 +7,7 @@ git pull origin master
 cd ~/.vim/bundle/vundle
 git pull
 
+# Install bundles
+vim +BundleInstall +qall
+
 source $HOME/.bashrc
