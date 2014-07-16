@@ -22,6 +22,11 @@ function mkd() {
     mkdir -p "$@" && cd "$@"
 }
 
+# Vagrant aliases
+alias vup="vagrant up"
+alias vhalt="vagrant halt"
+alias vssh="vagrant ssh"
+
 # Tmux shortcuts
 
 # Other shortcuts
