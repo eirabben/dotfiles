@@ -2,3 +2,13 @@ snippet r::g
 	Route::get('${1:}', function() {
 		${0}
 	});
+snippet r::r
+	Route::resource('${1:}', '${2:}');
+snippet method
+	public function ${1:}() {
+		${0}
+	}
+snippet f::o
+	{{ Form::open(array('${1:}' => '${2:}')) }}
+		${0}
+	{{ Form::close() }}
