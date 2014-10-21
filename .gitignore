@@ -5,3 +5,5 @@
 
 backup/*
 .vim/bundle/*
+.vim/backups/*
+.vim/swaps/*
