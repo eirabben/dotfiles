@@ -13,8 +13,8 @@ set history=500                 " Remember 500 lines of history.
 set autoread                    " Autoread files when changed outside of Vim.
 set hidden                      " Buffer becomes hidden when abandoned instead of unloaded.
 set backspace=eol,start,indent  " Configure backspace to work properly.
-set backupdir=~/.vim/tmp
-set directory=~/.vim/tmp
+set backupdir=~/.vim/backups	" Centralize backups.
+set directory=~/.vim/swaps	" Centralize swap files.
 set mouse=a                     " Allow mouse navigation.
 
 "================================================
