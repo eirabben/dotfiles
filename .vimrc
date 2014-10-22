@@ -67,6 +67,12 @@ set wrap            " Wrap lines that are longer than the window.
 "================================================
 
 syntax on               " Turn on syntax highlighting.
+syntax enable
+
+" ========== Solarized theme ========== "
+
+set background=dark
+colorscheme solarized
 
 "================================================
 " Navigation, tabs and windows
