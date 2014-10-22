@@ -41,4 +41,3 @@
 	helper = osxkeychain
 [push]
 	default = simple
-[user]
