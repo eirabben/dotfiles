@@ -1,19 +1,44 @@
 [core]
 	editor = vim
 [alias]
-	a = add -A
+    # 20 latest commits with pretty output
+    l = log --pretty=oneline -n 20 --graph --abbrev-commit
+
+    # View status using short format
 	s = status -s
-	cm = commit
-    cl = clone
+
+    # Diff alias
+    d = diff
+
+    # Pull repo and all submodules
+    p = !"git pull; git submodule foreach git pull origin master"
+
+    # Commit with message
+	cm = commit -m
+    
+    # Commit all changes
     ca = !git add -A && git commit -av
-	p = pull
-    f = fetch
+
+    # Clone repo
+    c = clone
+
+    # Go to branch, or create if necessary
+    go = "!f() { git checkout -b \"$1\" 2> /dev/null || git checkout \"$1\"; }; f"
+
+    # Amend staged files to latest commit
+    amend = commit --amend --reuse-message=HEAD
+
+    # Add all files
+	aa = add -A
+
+    # Push to master
 	ps = push
+
+    # Push to other origin
     po = push origin
-	co = checkout -B
-    go = checkout
-    lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
+
 [credential]
 	helper = osxkeychain
 [push]
 	default = simple
+[user]
