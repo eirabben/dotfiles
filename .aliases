@@ -12,7 +12,8 @@ alias dt="cd ~/Desktop"
 alias dc="cd ~/Documents"
 alias pr="cd ~/Projects"
 alias dot="cd ~/.dotfiles"
-alias vag="cd ~/Projects/vagrant"
+alias vg="cd ~/Projects/vagrant"
+alias tl="cd ~/Tools"
 alias o="open"
 alias oo="open ."
 
@@ -32,18 +33,6 @@ alias vssh="vagrant ssh"
 # Other shortcuts
 # Ping google
 alias pingg="ping -c 4 www.google.com"
-
-# Print a source file
-enprint() {
-    enscript --line-numbers -p - --word-wrap $1 | pstopdf -i -o ~/Documents/$2.pdf
-}
-alias en=enprint
-
-# Enprint with color highlighting
-enprintColor() {
-    enscript --line-numbers --highlight --color -p - --word-wrap $1 | pstopdf -i -o ~/Documents/$2.pdf
-}
-alias enc=enprintColor
 
 # Colors on ls
 # Detect which `ls` flavor is in use
