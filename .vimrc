@@ -14,7 +14,7 @@ set autoread                    " Autoread files when changed outside of Vim.
 set hidden                      " Buffer becomes hidden when abandoned instead of unloaded.
 set backspace=eol,start,indent  " Configure backspace to work properly.
 set backupdir=~/.vim/backups	" Centralize backups.
-set directory=~/.vim/swaps	" Centralize swap files.
+set directory=~/.vim/swaps	    " Centralize swap files.
 set mouse=a                     " Allow mouse navigation.
 
 "================================================
@@ -72,7 +72,7 @@ syntax enable
 " ========== Solarized theme ========== "
 
 set background=dark
-colorscheme solarized
+colorscheme base16-railscasts
 
 "================================================
 " Navigation, tabs and windows
@@ -116,14 +116,14 @@ filetype plugin indent on       " Required for Vundle
 filetype plugin on
 
 " Better syntax
-" Bundle 'cakebaker/scss-syntax.vim'
-" Bundle "pangloss/vim-javascript"
+Bundle 'cakebaker/scss-syntax.vim'
+Bundle "pangloss/vim-javascript"
 
 " Vim snimpate and dependencies
-" Bundle "MarcWeber/vim-addon-mw-utils"
-" Bundle "tomtom/tlib_vim"
-" Bundle "garbas/vim-snipmate"
-" Bundle "honza/vim-snippets"
+Bundle "MarcWeber/vim-addon-mw-utils"
+Bundle "tomtom/tlib_vim"
+Bundle "garbas/vim-snipmate"
+Bundle "honza/vim-snippets"
 
 "================================================
 " Plugin config
