@@ -1,18 +1,18 @@
 #dotfiles
-A collection of dotfiles for OSX and Linux. Optimized for iTerm and XFCE terminal.
+A collection of dotfiles, with colors for vim and iTerm.
 
 ##Content
 **Bash**
 
-Highly customized bash shell with a custom `$PS1` as well as helpful aliases with
-nice color output. These are divided into their own files, which makes them easy
-to maintain.
+Highly customized bash shell with a custom `$PS1` stolen from Mathias Bynens.
+Helpful aliases for navigation and applications.
+The files are structured in a logical way.
 
 **Vim**
 
-A very clean and easy to understand `.vimrc` with superb documentation.
+A very clean and easy to understand `.vimrc` with good documentation.
 This file includes a set of sensible standards, as well as color scheme settings,
-key-bindings and `Vundle` setup.
+key-bindings and `Vundle` setup. The current color scheme is base16.
 
 **Git**
 
@@ -20,17 +20,15 @@ Customized gitconfig with simple aliases.
 
 **Tmux**
 
-Tmux is customized to work well with the base16 color theme (also included) along
-with the Vim configuration.
+Tmux customization with vim-like bindings and color scheme integration.
 
 **Color scheme**
 
 The beautiful base16 theme is included in this repository. The default in use is
-base16-railscasts, but feel free to change to one of the other flavours also
-included.
+base16-railscasts, but feel free to change to one of the other flavours.
 
 This repository currently provides color schemes for Vim and iTerm (Mac OSX).
-The terminal themes are required for the Vim theme to work properly. You will
+The terminal theme is required for the Vim theme to work properly. You will
 need to manually add the iTerm color scheme via the iTerm settings panel.
 
 ##Installation
@@ -65,7 +63,6 @@ repo, located in `~/.vim/bundle/vundle` after installation.
 
 ##Uninstall
 Run the `uninstall.sh` script to uninstall. This will remove links and directories
-made by the installer, and move the original files (if any) from the backup folder
-to the home directory.
+made by the installer. Any old files are found in the ~/.dotfiles/backup/ folder.
 
 
