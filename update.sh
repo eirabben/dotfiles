@@ -8,6 +8,6 @@ cd ~/.vim/bundle/vundle
 git pull
 
 # Install bundles
-vim +BundleInstall +qall
+vim +PluginInstall +qall
 
 source $HOME/.bash_profile

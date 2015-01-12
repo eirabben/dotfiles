@@ -15,7 +15,7 @@ if [ ! -d $HOME/.dotfiles/.vim/bundle/vundle ]; then
     git clone https://github.com/gmarik/vundle.git ~/.dotfiles/.vim/bundle/vundle
 fi
 # Install bundles
-vim +BundleInstall +qall
+vim +PluginInstall +qall
 
 # Source the changes
 source $HOME/.bash_profile
