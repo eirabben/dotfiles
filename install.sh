@@ -12,7 +12,7 @@ unset file
 
 # Add vundle to vim folder
 if [ ! -d $HOME/.dotfiles/.vim/bundle/vundle ]; then
-    git clone https://github.com/gmarik/vundle.git ~/.dotfiles/.vim/bundle/vundle
+    git clone https://github.com/gmarik/Vundle.vim.git ~/.dotfiles/.vim/bundle/Vundle.vim
 fi
 # Install bundles
 vim +PluginInstall +qall

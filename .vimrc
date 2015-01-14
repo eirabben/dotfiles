@@ -98,32 +98,32 @@ nmap <S-Enter> o<Esc>
 " Vundle configuration
 "================================================
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 " Let Vundle manage Vundle
 " Required
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/vundle'
 
 " ========== Bundles ========== "
 
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'tpope/vim-surround'
-Bundle 'kien/ctrlp.vim'
-let g:ctrlp_show_hidden = 1
-
-filetype plugin indent on       " Required for Vundle
-filetype plugin on
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'tpope/vim-surround'
+Plugin 'kien/ctrlp.vim'
 
 " Better syntax
-Bundle 'cakebaker/scss-syntax.vim'
-Bundle "pangloss/vim-javascript"
+Plugin 'cakebaker/scss-syntax.vim'
+Plugin 'pangloss/vim-javascript'
 
 " Vim snimpate and dependencies
-Bundle "MarcWeber/vim-addon-mw-utils"
-Bundle "tomtom/tlib_vim"
-Bundle "garbas/vim-snipmate"
-Bundle "honza/vim-snippets"
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
+Plugin 'honza/vim-snippets'
+
+call vundle#end()
+filetype plugin indent on       " Required for Vundle
+filetype plugin on
 
 "================================================
 " Plugin config
@@ -131,6 +131,7 @@ Bundle "honza/vim-snippets"
 
 " ========== CtrlP ========== "
 
+let g:ctrlp_show_hidden = 1
 set wildignore+=*/vendor/**
 set wildignore+=*/public/forum/**
 
