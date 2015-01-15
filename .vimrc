@@ -84,6 +84,9 @@ let mapleader=","
 " Map JK to Escape key
 :imap jk <Esc>
 
+" Autocomplete brackets
+inoremap {<CR> {<CR><BS>}<Esc>ko
+
 " Go to next line even if wrapped.
 nnoremap j gj
 nnoremap k gk
