@@ -2,83 +2,125 @@
 " This must always be first.
 set nocompatible
 
-"filetype on                     " Fix problem with filetype off with git
-filetype off                    " Required for Vundle
-
 "================================================
 " General
 "================================================
 
-set history=500                 " Remember 500 lines of history.
-set autoread                    " Autoread files when changed outside of Vim.
-set fileformats+=mac            " In case we are on Linux
-set hidden                      " Buffer becomes hidden when abandoned instead of unloaded.
-set backupdir=~/.vim/backups	" Centralize backups.
-set directory=~/.vim/swaps	    " Centralize swap files.
-set mouse=a                     " Allow mouse navigation.
-set ttimeout
-set ttimeoutlen=100
+" Remember 500 lines of history.
+set history=500                 
+
+" Autoread files when changed outside of Vim.
+set autoread                    
+
+" Buffer becomes hidden when abandoned instead of unloaded.
+set hidden                      
+
+" Allow mouse navigation.
+set mouse=a                     
+
+" Centralize backups, swapfiles and undo history
+set backupdir=~/.vim/backups
+set directory=~/.vim/swaps
+if exists("&undodir")
+    set undodir=~/.vim/undo
+endif
+
+" Use the OS clipboard by default (on versions compiled with `+clipboard`)
+set clipboard=unnamed
 
 "================================================
 " User interface
 "================================================
 
-set number                      " Always show line numbers.
+" Allow backspace in insert mode
+set esckeys                     
+
+" Configure backspace to work properly.
+set backspace=indent,eol,start
+
+" Always show line numbers.
+set number                      
+
+" Minimum lines above/below cursor.
+set scrolloff=5                 
+
+" Line length marker
+set colorcolumn=80              
+
 "set showmatch                  " Show matching bracket when cursor is on one.
 "set mat=2                      " How many tenths of a second to blink when matching brackets.
-set scrolloff=5                 " Minimum lines above/below cursor.
-set colorcolumn=80              " Line length marker
 "set gcr=a:blinkon0             " Disable cursor blink.
-set visualbell                  " Turn off sounds.
-"set splitbelow                 " Horizontal splits below.
-"set splitright                 " Vertical splits to the right.
-set nrformats-=octal            " Let <C-a> and <C-x> work on decimal numbers
-set display+=lastline
+"set visualbell                  " Turn off sounds.
 
-" ========== Status bar ========== "
-set cmdheight=2                 " Height of command bar.
-set laststatus=2                " Always show status line.
-set ruler                       " Always show current cursor position.
-set showcmd                     " Always show command bar.
-set wildmenu                    " Turn on WiLd menu.
-set showmode                    " Show current mode.
-"set cursorline                  " Highlight current line.
+" Horizontal splits below, vertical splits to the right.
+set splitbelow
+set splitright                 
 
-"if version >= 700               " Highlight statusbar in insert mode.
-  "au InsertEnter * hi StatusLine ctermfg=235 ctermbg=2
-  "au InsertLeave * hi StatusLine ctermbg=240 ctermfg=12
+" Let <C-a> and <C-x> work on decimal numbers.
+set nrformats-=octal            
+
+" Display last line in window even if it does not fit.
+set display+=lastline           
+
+" Turn on syntax highlighting.
+"syntax on               
+syntax enable
+
+" Show the filename in the window titlebar
+set title
+
+" Don’t reset cursor to start of line when moving around.
+"set nostartofline
+
+" Always show the status line and command bar
+set cmdheight=2
+set laststatus=2
+set showcmd
+
+" Always show current cursor position.
+set ruler                       
+
+" Turn on WiLd menu.
+set wildmenu                    
+
+" Show current mode.
+set showmode                    
+
+" Highlight current line.
+"set cursorline
+
+" Highlight statusbar in insert mode.
+"if version >= 700
+    "au InsertEnter * hi StatusLine ctermfg=235 ctermbg=2
+    "au InsertLeave * hi StatusLine ctermbg=240 ctermfg=12
 "endif
 
-" ========== Searching ========== "
-set ignorecase          " Ignore case when searching.
-set smartcase           " Be smart about case when searching.
-set incsearch           " Incremental searching.
-set hlsearch            " Highlight search phrase.
+" Ignore case when searching, use incremental search, and highlight
+" search phrase.
+set ignorecase
+set incsearch
+set hlsearch
 
-" ========== Tabs and indents ========== "
-set autoindent      " Auto indent
-set backspace=indent,eol,start  " Configure backspace to work properly.
-set smarttab        " Smart tabs.
-set expandtab       " Use spaces instead of tabs.
-set shiftwidth=4    " Number of spaces for autoindent.
-set softtabstop=4   " Number of spaces a tab counts for (when editing).
-set tabstop=4       " Number of spaces a tab counts for (in a file).
-set wrap            " Wrap lines that are longer than the window.
+" Autoindent, use spaces instead of tabs, use 4 spaces.
+set autoindent
+set smarttab
+set expandtab
+set shiftwidth=4
+set softtabstop=4
+set tabstop=4
+
+" Wrap lines that are longer than the window.
+set wrap
 
 "================================================
 " Colors and fonts
 "================================================
 
-syntax on               " Turn on syntax highlighting.
-syntax enable
-
-" ========== Solarized theme ========== "
-
 "set background=dark
 "colorscheme base16-railscasts
 
 "================================================
-" Navigation, tabs and windows
+" Keybindings
 "================================================
 
 " Map leader to ,
@@ -98,14 +140,15 @@ nnoremap <silent> <Leader>/ :nohlsearch<CR>
 " Vundle configuration
 "================================================
 
+" Required for Vundle
+filetype off
+
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " Let Vundle manage Vundle
 " Required
 Plugin 'gmarik/vundle'
-
-" ========== Bundles ========== "
 
 "Plugin 'scrooloose/nerdcommenter'
 "Plugin 'tpope/vim-surround'
@@ -123,13 +166,12 @@ Plugin 'scrooloose/nerdtree'
 "Plugin 'honza/vim-snippets'
 
 call vundle#end()
-filetype plugin indent on       " Required for Vundle
+
+" Required for Vundle
+filetype plugin indent on
 filetype plugin on
 
 "================================================
-" Plugin config
+" Plugin configuration
 "================================================
 
-" ========== CtrlP ========== "
-
-"let g:ctrlp_show_hidden = 1
