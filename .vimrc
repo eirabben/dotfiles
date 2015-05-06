@@ -1,6 +1,7 @@
 " Use vim settings instead of Vi settings to enable functionality.
 " This must always be first.
 set nocompatible
+
 "filetype on                     " Fix problem with filetype off with git
 filetype off                    " Required for Vundle
 
