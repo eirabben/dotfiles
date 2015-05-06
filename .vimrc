@@ -113,8 +113,10 @@ set wrap
 " Colors and fonts
 "================================================
 
-"set background=dark
-"colorscheme base16-railscasts
+" Use the Solarized Dark theme
+set background=dark
+colorscheme solarized
+let g:solarized_termtrans=1
 
 "================================================
 " Keybindings
