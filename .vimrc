@@ -41,7 +41,7 @@ set ruler                       " Always show current cursor position.
 set showcmd                     " Always show command bar.
 set wildmenu                    " Turn on WiLd menu.
 set showmode                    " Show current mode.
-set cursorline                  " Highlight current line.
+"set cursorline                  " Highlight current line.
 
 "if version >= 700               " Highlight statusbar in insert mode.
   "au InsertEnter * hi StatusLine ctermfg=235 ctermbg=2
@@ -109,6 +109,7 @@ Plugin 'gmarik/vundle'
 "Plugin 'scrooloose/nerdcommenter'
 "Plugin 'tpope/vim-surround'
 Plugin 'kien/ctrlp.vim'
+Plugin 'scrooloose/nerdtree'
 
 " Better syntax
 "Plugin 'cakebaker/scss-syntax.vim'
