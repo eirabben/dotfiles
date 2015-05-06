@@ -28,6 +28,9 @@ endif
 " Use the OS clipboard by default (on versions compiled with `+clipboard`)
 set clipboard=unnamed
 
+" Disable error bells
+set noerrorbells
+
 "================================================
 " User interface
 "================================================
@@ -47,11 +50,6 @@ set scrolloff=5
 " Line length marker
 set colorcolumn=80              
 
-"set showmatch                  " Show matching bracket when cursor is on one.
-"set mat=2                      " How many tenths of a second to blink when matching brackets.
-"set gcr=a:blinkon0             " Disable cursor blink.
-"set visualbell                  " Turn off sounds.
-
 " Horizontal splits below, vertical splits to the right.
 set splitbelow
 set splitright                 
@@ -63,8 +61,7 @@ set nrformats-=octal
 set display+=lastline           
 
 " Turn on syntax highlighting.
-"syntax on               
-syntax enable
+syntax on               
 
 " Show the filename in the window titlebar
 set title
@@ -87,7 +84,7 @@ set wildmenu
 set showmode                    
 
 " Highlight current line.
-"set cursorline
+set cursorline
 
 " Highlight statusbar in insert mode.
 "if version >= 700
@@ -153,7 +150,7 @@ Plugin 'gmarik/vundle'
 "Plugin 'scrooloose/nerdcommenter'
 "Plugin 'tpope/vim-surround'
 Plugin 'kien/ctrlp.vim'
-Plugin 'scrooloose/nerdtree'
+"Plugin 'scrooloose/nerdtree'
 
 " Better syntax
 "Plugin 'cakebaker/scss-syntax.vim'
