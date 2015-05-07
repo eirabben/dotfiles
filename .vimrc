@@ -198,12 +198,14 @@ filetype plugin on
 
 " CtrlP
 let g:ctrlp_show_hidden=1
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.DS_Store,*/config.codekit/*,*/.sass-cache/*
 
 " NERDTree
 map <C-b> :NERDTreeToggle<CR>
 let NERDTreeMapActivateNode='l'
 let NERDTreeMapCloseDir='h'
 let NERDTreeShowHidden=1
+let NERDTreeIgnore=['\.DS_Store$']
 
 " Emmet
 imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
