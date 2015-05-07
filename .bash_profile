@@ -1,8 +1,8 @@
 # Load prompt config and aliases
 for file in ~/.dotfiles/.{bash_prompt,aliases}; do
-  [ -r "$file" ] && [ -f "$file" ] && source "$file"
-done
-unset file
+    [ -r "$file" ] && [ -f "$file" ] && source "$file";
+done;
+unset file;
 
 # Case-insensitive globbing (used in pathname expansion)
 shopt -s nocaseglob;
