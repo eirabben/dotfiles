@@ -10,7 +10,9 @@ git pull origin master;
 rsync --exclude ".git/" --exclude ".DS_Store" --exclude "install.sh" \
     --exclude "README.md" --exclude "iterm2-colors/" -avh --no-perms . ~;
 
-Source the new changes
+# Source the new changes
 source ~/.bash_profile;
 
-
+# Install Vundle and all configured plugins
+git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+vim +PluginInstall +qall

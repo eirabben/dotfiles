@@ -147,7 +147,7 @@ call vundle#begin()
 
 " Let Vundle manage Vundle
 " Required
-Plugin 'gmarik/vundle'
+Plugin 'gmarik/Vundle.vim'
 
 "Plugin 'scrooloose/nerdcommenter'
 "Plugin 'tpope/vim-surround'
@@ -168,7 +168,6 @@ call vundle#end()
 
 " Required for Vundle
 filetype plugin indent on
-filetype plugin on
 
 "================================================
 " Plugin configuration
