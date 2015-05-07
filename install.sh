@@ -1,21 +1,16 @@
 #!/bin/bash
 
-# Create symlinks, move backups to backup directory
-for file in $HOME/.{bash_profile,bashrc,vimrc,tmux.conf,gitconfig,vim}; do
-    if [ -f $file ]; then
-         mv "$file" "$HOME/.dotfiles/backup/" 
-    fi
+# Go into the dotfiles directory
+cd "$(dirname "${BASH_SOURCE}")";
 
-    ln -s $HOME/.dotfiles/$(basename $file) $file
-done
-unset file
+# Update the repository
+git pull origin master;
 
-# Add vundle to vim folder
-if [ ! -d $HOME/.dotfiles/.vim/bundle/vundle ]; then
-    git clone https://github.com/gmarik/Vundle.vim.git ~/.dotfiles/.vim/bundle/Vundle.vim
-fi
-# Install bundles
-vim +PluginInstall +qall
+# Rsync all the files into the home directory
+rsync --exclude ".git/" --exclude ".DS_Store" --exclude "install.sh" \
+    --exclude "README.md" --exclude "iterm2-colors/" -avh --no-perms . ~;
 
-# Source the changes
-source $HOME/.bash_profile
+Source the new changes
+source ~/.bash_profile;
+
+
