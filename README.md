@@ -47,8 +47,10 @@ cd into the .dotfiles directory and run the `install.sh` script:
 
 WARNING: The script will overwrite dotfiles in your home directory. 
 The install script will fetch the latest version of this repository. It will
-then rsync the dotfiles into your home directory, install Vundle for Vim, 
-and get all plugins configured in `.vimrc`.
+then rsync the dotfiles into your home directory.
+
+To install Vundle for Vim, and get all plugins configured in `.vimrc`, run the
+`extras-install.sh` script.
 
 **To update:**
 
