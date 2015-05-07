@@ -174,15 +174,16 @@ Plugin 'mattn/emmet-vim'
 Plugin 'Raimondi/delimitMate'
 
 
-" Better syntax
+" Better syntax.
 
-" HTML5 Syntax
+" HTML5 Syntax.
 Plugin 'othree/html5.vim'
 
-" SCSS Syntax
+" Better CSS3, and SCSS Syntax.
+Plugin 'hail2u/vim-css3-syntax'
 Plugin 'cakebaker/scss-syntax.vim'
 
-" Javascript syntax
+" Javascript syntax.
 Plugin 'jelera/vim-javascript-syntax'
 
 call vundle#end()
@@ -203,3 +204,6 @@ map <C-b> :NERDTreeToggle<CR>
 let NERDTreeMapActivateNode='l'
 let NERDTreeMapCloseDir='h'
 let NERDTreeShowHidden=1
+
+" Emmet
+imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
