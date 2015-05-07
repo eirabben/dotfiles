@@ -152,29 +152,44 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-" Let Vundle manage Vundle
-" Required
+" Let Vundle manage Vundle. Required.
 Plugin 'gmarik/Vundle.vim'
 
-"Plugin 'scrooloose/nerdcommenter'
-"Plugin 'tpope/vim-surround'
+" Use fuzzy search to find files.
 Plugin 'kien/ctrlp.vim'
-"Plugin 'scrooloose/nerdtree'
+
+" Add useful comment functionality.
+Plugin 'scrooloose/nerdcommenter'
+
+" Easily surround stuff.
+Plugin 'tpope/vim-surround'
+
+" NERDTree sidebar.
+Plugin 'scrooloose/nerdtree'
+
+" Emmet expansion.
+Plugin 'mattn/emmet-vim'
+
+" Automatic bracket closing in insert mode.
+Plugin 'Raimondi/delimitMate'
+
 
 " Better syntax
-"Plugin 'cakebaker/scss-syntax.vim'
-"Plugin 'pangloss/vim-javascript'
 
-" Vim snimpate and dependencies
-"Plugin 'MarcWeber/vim-addon-mw-utils'
-"Plugin 'tomtom/tlib_vim'
-"Plugin 'garbas/vim-snipmate'
-"Plugin 'honza/vim-snippets'
+" HTML5 Syntax
+Plugin 'othree/html5.vim'
+
+" SCSS Syntax
+Plugin 'cakebaker/scss-syntax.vim'
+
+" Javascript syntax
+Plugin 'jelera/vim-javascript-syntax'
 
 call vundle#end()
 
 " Required for Vundle
 filetype plugin indent on
+filetype plugin on
 
 "-------------------------------------------------
 " Plugin config
@@ -182,3 +197,9 @@ filetype plugin indent on
 
 " CtrlP
 let g:ctrlp_show_hidden=1
+
+" NERDTree
+map <C-b> :NERDTreeToggle<CR>
+let NERDTreeMapActivateNode='l'
+let NERDTreeMapCloseDir='h'
+let NERDTreeShowHidden=1
