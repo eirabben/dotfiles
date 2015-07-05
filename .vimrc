@@ -208,4 +208,4 @@ let NERDTreeShowHidden=1
 let NERDTreeIgnore=['\.DS_Store', '\config.codekit', '\.sass-cache']
 
 " Emmet
-imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
+"imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
