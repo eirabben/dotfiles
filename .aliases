@@ -35,7 +35,7 @@ alias vssh="vagrant ssh"
 # Other shortcuts
 # Ping google
 alias pingg="ping -c 4 www.google.com"
-
+alias brc="source ~/.bashrc"
 
 # Colors on ls
 # Detect which `ls` flavor is in use

@@ -15,4 +15,4 @@ for file in .bash_profile .bashrc .gitconfig .tmux.conf .vim .vimrc; do
 	ln -s ~/.dotfiles/$file ~/$file
 done
 
-source ~/.bashrc
+vim +PluginInstall +qall
