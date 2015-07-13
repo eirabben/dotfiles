@@ -4,7 +4,6 @@
 *.swp
 
 backup/*
-.vim/bundle/*
 .vim/backups/*
 .vim/swaps/*
 .vim/.netrwhist
