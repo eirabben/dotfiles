@@ -37,7 +37,12 @@
     # Push to other origin
     po = push origin
 
+    m = merge --no-ff
+
 [credential]
 	helper = osxkeychain
 [push]
 	default = simple
+[user]
+	name = Eirik Igland
+	email = eirabben@gmail.com
