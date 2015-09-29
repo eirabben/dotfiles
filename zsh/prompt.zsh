@@ -10,7 +10,9 @@ else
 fi
 
 git_branch() {
-  echo $($git symbolic-ref HEAD 2>/dev/null | awk -F/ {'print $NF'})
+	branchName="$(git symbolic-ref --quiet --short HEAD 2> /dev/null || \
+		git rev-parse --short HEAD 2> /dev/null || \
+		echo '(unknown)')";
 }
 
 git_dirty() {
@@ -50,8 +52,12 @@ user_name() {
   echo "%{$fg_bold[magenta]%}%n%{$reset_color%}"
 }
 
+#directory_name() {
+  #echo "%{$fg_bold[yellow]%}%1/%\/%{$reset_color%}"
+#}
+
 directory_name() {
-  echo "%{$fg_bold[yellow]%}%1/%\/%{$reset_color%}"
+  echo "%{$fg_bold[yellow]%}%~%{$reset_color%}"
 }
 
 export PROMPT=$'\n$(user_name) in $(directory_name) $(git_dirty)$(need_push)\n› '
