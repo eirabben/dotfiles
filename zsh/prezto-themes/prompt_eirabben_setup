@@ -1,0 +1,14 @@
+#
+#
+#
+
+function prompt_eirabben_precmd {
+	if (( $+functions[git-info] )); then
+		git-info
+	fi
+}
+
+function prompt_eirabben_setup {
+	PROMPT='%m%# '
+	RPROMPT=''
+}
