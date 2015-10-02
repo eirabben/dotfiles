@@ -4,6 +4,8 @@ else
   export PS1='%3~$(git_info_for_prompt)%# '
 fi
 
+unset SSH_ASKPASS
+
 export LSCOLORS="exfxcxdxbxegedabagacad"
 export CLICOLOR=true
 
