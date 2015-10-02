@@ -4,8 +4,8 @@
 *.swp
 
 backup/*
-.vim/bundle/*
-!.vim/bundle/Vundle.vim
-.vim/backups/*
-.vim/swaps/*
-.vim/.netrwhist
+vim/vim.symlink/bundle/*
+!vim/vim.symlink/bundle/Vundle.vim
+vim/vim.symlink/backups/*
+vim/vim.symlink/swaps/*
+vim/vim.symlink/.netrwhist
