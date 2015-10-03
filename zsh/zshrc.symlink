@@ -6,10 +6,10 @@
 # https://wiki.archlinux.org/index.php/Zsh
 
 # shortcut to this dotfiles path is $ZSH
-export ZSH=$HOME/Projects/dotfiles
+export ZSH=$HOME/.dotfiles
 
 # Source Antigen for plugins
-source ~/Projects/dotfiles/zsh/antigen/antigen.zsh
+source $ZSH/zsh/antigen/antigen.zsh
 
 antigen bundle git
 antigen apply
