@@ -8,6 +8,12 @@
 # shortcut to this dotfiles path is $ZSH
 export ZSH=$HOME/Projects/dotfiles
 
+# Source Antigen for plugins
+source ~/Projects/dotfiles/zsh/antigen/antigen.zsh
+
+antigen bundle git
+antigen apply
+
 # Stash your environment variables in ~/.localrc. This means they'll stay out
 # of your main dotfiles repository (which may be public, like this one), but
 # you'll have access to them in your scripts.
