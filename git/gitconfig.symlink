@@ -40,8 +40,8 @@
     m = merge --no-ff
 
 [credential]
-	#helper = osxkeychain
-	helper = cache --timeout=7200
+	helper = osxkeychain
+	#helper = cache --timeout=7200
 [push]
 	default = simple
 [user]
