@@ -23,12 +23,6 @@ else
   git="/usr/bin/git"
 fi
 
-git_branch() {
-	branchName="$(git symbolic-ref --quiet --short HEAD 2> /dev/null || \
-		git rev-parse --short HEAD 2> /dev/null || \
-		echo '(unknown)')";
-}
-
 git_dirty() {
   if $(! $git status -s &> /dev/null)
   then
@@ -45,7 +39,6 @@ git_dirty() {
 
 git_prompt_info () {
  ref=$($git symbolic-ref HEAD 2>/dev/null) || return
-# echo "(%{\e[0;33m%}${ref#refs/heads/}%{\e[0m%})"
  echo "${ref#refs/heads/}"
 }
 
