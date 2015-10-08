@@ -24,35 +24,56 @@ else
 fi
 
 git_dirty() {
-  if $(! $git status -s &> /dev/null)
-  then
-    echo ""
-  else
-    if [[ $($git status --porcelain) == "" ]]
-    then
-      echo "on %{$fg_bold[green]%}$(git_prompt_info)%{$reset_color%}"
+    if $(! $git status -s &> /dev/null); then
+        return;
     else
-      echo "on %{$fg_bold[red]%}$(git_prompt_info)%{$reset_color%}"
+        #if [[ $($git status --porcelain) == "" ]]; then
+            echo "on ${violet}$(git_prompt_info) ${blue}$(prompt_git)${reset}";
+        #else
+            #echo "on %{$fg_bold[red]%}$(git_prompt_info)%{$reset_color%}"
+        #fi
     fi
-  fi
 }
 
 git_prompt_info () {
- ref=$($git symbolic-ref HEAD 2>/dev/null) || return
- echo "${ref#refs/heads/}"
+    ref=$($git symbolic-ref HEAD 2>/dev/null) || return;
+    echo "${ref#refs/heads/}";
 }
 
-unpushed () {
-  $git cherry -v @{upstream} 2>/dev/null;
-}
+prompt_git() {
+    local s='';
 
-need_push () {
-  if [[ $(unpushed) == "" ]]
-  then
-    echo " ";
-  else
-    echo " with %{$fg_bold[magenta]%}unpushed%{$reset_color%} ";
-  fi
+    # Ensure the index is up to date
+    $git update-index --really-refresh -q &>/dev/null;
+
+    # Check for uncommitted changes
+    if ! $($git diff --quiet --ignore-submodules --cached); then
+        s+='+';
+    fi;
+
+    # Check for unstaged changes
+    if ! $($git diff-files --quiet --ignore-submodules --); then
+        s+='!';
+    fi;
+
+    # Check for untracked files
+    if [ -n "$($git ls-files --others --exclude-standard)" ]; then
+        s+='?';
+    fi;
+
+    # Check for stashed files
+    if $($git rev-parse --verify refs/stash &>/dev/null); then
+        s+='$';
+    fi;
+
+    # Check for unpushed changes
+    if [[ $($git cherry -v @{upstream} 2>/dev/null) != "" ]]; then
+        s+='^';
+    fi;
+
+    #[ -n "${s}" ] && s=" [${s}]";
+
+    echo "[$s]";
 }
 
 user_name() {
@@ -75,7 +96,8 @@ directory_name() {
   echo "${bold}${green}%~${reset}"
 }
 
-export PROMPT=$'\n$(user_name) at $(host_name) in $(directory_name) $(git_dirty)$(need_push)\n$ ';
+#export PROMPT=$'\n$(user_name) at $(host_name) in $(directory_name) $(git_dirty)$(need_push)\n$ ';
+export PROMPT=$'\n$(user_name) at $(host_name) in $(directory_name) $(git_dirty)\n$ ';
 set_prompt () {
   export RPROMPT="%{$fg_bold[cyan]%}%{$reset_color%}";
 }
