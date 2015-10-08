@@ -2,11 +2,9 @@
 A collection of dotfiles, with colors for vim and iTerm.
 
 ##Content
-**Bash**
+**Zsh**
 
-Highly customized bash shell with a custom `$PS1` stolen from Mathias Bynens.
-Helpful aliases for navigation and applications.
-The files are structured in a logical way.
+Custom Zsh prompt, and some useful aliases
 
 **Vim**
 
@@ -47,10 +45,7 @@ cd into the .dotfiles directory and run the `install.sh` script:
 
 WARNING: The script will overwrite dotfiles in your home directory. 
 The install script will fetch the latest version of this repository. It will
-then rsync the dotfiles into your home directory.
-
-To install Vundle for Vim, and get all plugins configured in `.vimrc`, run the
-`extras-install.sh` script.
+then symlink the dotfiles into your home directory.
 
 **To update:**
 
