@@ -1,7 +1,7 @@
+# Load colors
 autoload -U colors && colors
-# cheers, @ehrenmurdick
-# http://github.com/ehrenmurdick/config/blob/master/zsh/prompt.zsh
 
+# Colors from Solarized
 bold="%B";
 endbold="%b"
 reset="%f%b";
@@ -18,29 +18,32 @@ yellow="%F{136}";
 
 if (( $+commands[git] ))
 then
-  git="$commands[git]"
+  git="$commands[git]";
 else
-  git="/usr/bin/git"
+  git="/usr/bin/git";
 fi
 
 git_dirty() {
     if $(! $git status -s &> /dev/null); then
         return;
     else
+        echo "on ${violet}$(git_branch_name)${blue}$(git_status_prompt)${reset}";
+
+        # This use this for different prompt if dirty
         #if [[ $($git status --porcelain) == "" ]]; then
-            echo "on ${violet}$(git_prompt_info) ${blue}$(prompt_git)${reset}";
+            #echo "on ${green}$(git_branch_name)${reset}";
         #else
-            #echo "on %{$fg_bold[red]%}$(git_prompt_info)%{$reset_color%}"
+            #echo "on ${red}$(git_branch_name)${reset}";
         #fi
     fi
 }
 
-git_prompt_info () {
+git_branch_name() {
     ref=$($git symbolic-ref HEAD 2>/dev/null) || return;
     echo "${ref#refs/heads/}";
 }
 
-prompt_git() {
+git_status_prompt() {
     local s='';
 
     # Ensure the index is up to date
@@ -71,12 +74,13 @@ prompt_git() {
         s+='^';
     fi;
 
-    #[ -n "${s}" ] && s=" [${s}]";
+    [ -n "${s}" ] && s=" [${s}]";
 
-    echo "[$s]";
+    echo "$s";
 }
 
 user_name() {
+    # Highlight username when logged in as root
     if [[ "${USER}" == "root" ]]; then
         echo "${red}%n${reset}";
     else
@@ -85,6 +89,7 @@ user_name() {
 }
 
 host_name() {
+    # Highlight hostname when connected via SSH
     if [[ "${SSH_TTY}" ]]; then
         echo "${bold}${red}%m${reset}";
     else
@@ -93,10 +98,9 @@ host_name() {
 }
 
 directory_name() {
-  echo "${bold}${green}%~${reset}"
+  echo "${bold}${green}%~${reset}";
 }
 
-#export PROMPT=$'\n$(user_name) at $(host_name) in $(directory_name) $(git_dirty)$(need_push)\n$ ';
 export PROMPT=$'\n$(user_name) at $(host_name) in $(directory_name) $(git_dirty)\n$ ';
 set_prompt () {
   export RPROMPT="%{$fg_bold[cyan]%}%{$reset_color%}";
