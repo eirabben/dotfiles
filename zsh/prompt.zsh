@@ -98,16 +98,16 @@ host_name() {
 }
 
 directory_name() {
-  echo "${bold}${green}%~${reset}";
+    echo "${bold}${green}%~${reset}";
 }
 
 export PROMPT=$'\n$(user_name) at $(host_name) in $(directory_name) $(git_dirty)\n$ ';
 set_prompt () {
-  export RPROMPT="%{$fg_bold[cyan]%}%{$reset_color%}";
+    export RPROMPT="";
 }
 
 precmd() {
-  title "zsh" "%m" "%55<...<%~";
-  set_prompt;
+    title "zsh" "%m" "%55<...<%~";
+    set_prompt;
 }
 
