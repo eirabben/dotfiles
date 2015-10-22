@@ -5,11 +5,11 @@
 	default = simple
 
 [credential]
-	helper = osxkeychain
+	helper = GIT_CREDENTIAL_HELPER
 
 [user]
-	name = Eirik Igland
-	email = eirabben@gmail.com
+	name = AUTHORNAME
+	email = AUTHOREMAIL
 
 [alias]
     # 20 latest commits with pretty output
