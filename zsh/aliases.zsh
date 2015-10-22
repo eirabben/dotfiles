@@ -38,6 +38,9 @@ alias vssh="vagrant ssh"
 alias pingg="ping -c 4 www.google.com"
 alias brc="source ~/.bashrc"
 
+# Pipe my public key to my clipboard.
+alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy | echo '=> Public key copied to pasteboard.'"
+
 # Colors on ls
 # Detect which `ls` flavor is in use
 #if ls --color > /dev/null 2>&1; then # GNU `ls`
