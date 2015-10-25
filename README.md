@@ -4,7 +4,7 @@ A collection of dotfiles, with colors for vim and iTerm.
 ##Content
 **Zsh**
 
-Custom Zsh prompt, and some useful aliases
+Custom Zsh prompt with completion and some useful aliases
 
 **Vim**
 
