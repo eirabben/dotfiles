@@ -97,16 +97,18 @@ set hlsearch
 " Colors
 "-------------------------------------------------
 
+" Use 256 colors
+set t_Co=256
+
 " Turn on syntax highlighting.
 syntax on
 
 " Highlight current line.
 set cursorline
 
-" Use the Solarized Dark theme
+" Set the color scheme
+color base16-monokai
 set background=dark
-colorscheme solarized
-let g:solarized_termtrans=1
 
 "-------------------------------------------------
 " Scrolling
