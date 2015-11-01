@@ -5,7 +5,7 @@ My dotfiles for OSX. Customization for Zsh, Tmux and Vim
 ## Content
 **Zsh**
 
-Custom Zsh prompt, and some useful aliases
+Custom Zsh prompt with completion and some useful aliases
 
 **Vim**
 
