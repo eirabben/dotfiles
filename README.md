@@ -1,7 +1,8 @@
-#dotfiles
+# dotfiles
 A collection of dotfiles, with colors for vim and iTerm.
+My dotfiles for OSX. Customization for Zsh, Tmux and Vim
 
-##Content
+## Content
 **Zsh**
 
 Custom Zsh prompt, and some useful aliases
@@ -43,17 +44,13 @@ cd into the .dotfiles directory and run the `install.sh` script:
     ./install.sh
 ```
 
+**Set up Zsh**
+Edit /etc/shells
+Add /usr/local/bin/zsh to the end of the file.
+
+Then run chsh -s $(which zsh)
+
 WARNING: The script will overwrite dotfiles in your home directory. 
-The install script will fetch the latest version of this repository. It will
-then symlink the dotfiles into your home directory.
-
-**To update:**
-
-cd into the .dotfiles directory and run `install.sh`:
-```bash
-    cd ~/.dotfiles
-    ./install.sh
-```
 
 ##Uninstall
 Delete the dotfiles you wish to remove from your home folder, along with the
