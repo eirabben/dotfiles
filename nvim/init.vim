@@ -35,7 +35,8 @@ nnoremap j gj
 nnoremap k gk
 
 " Colorscheme
-
+" colorscheme base16-default
+" set background=dark
 
 " Plugins
 " call plug#begin()
