@@ -38,8 +38,8 @@ nnoremap k gk
 
 
 " Plugins
-call plug#begin()
+" call plug#begin()
 " Example command:
 " Plug 'scrooloose/nerdree'
-call plug#end()
+" call plug#end()
 
