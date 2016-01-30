@@ -8,6 +8,7 @@ Dotfiles for OSX. iTerm, Fish, Neovim, Tmux, Git.
     - install extras: cmake, ctags, tree
 - set fish as default shell (echo (which fish) >> /etc/shells; chsh -s (which fish))
 - update fish completions
+- use neovim as default editor: export EDITOR=nvim
 - generate gitconfig
 - download vim-plug
 curl -fLo ~/.dotfiles/nvim/autoload/plug.vim --create-dirs \
