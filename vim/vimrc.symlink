@@ -24,7 +24,7 @@ set hidden
 set mouse=a
 
 " Use the OS clipboard by default (on versions compiled with `+clipboard`)
-set clipboard=unnamed
+"set clipboard=unnamed
 
 " Disable error bells
 set noerrorbells
