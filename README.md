@@ -1,3 +1,20 @@
+# Modernized dotfiles
+
+Dotfiles for OSX. iTerm, Fish, Neovim, Tmux, Git.
+
+## Script for install
+- install Homebrew
+- install fish, neovim (python, python3), tmux, git
+    - install extras: cmake, ctags, tree
+- set fish as default shell (echo (which fish) >> /etc/shells; chsh -s (which fish))
+- update fish completions
+- generate gitconfig
+- download vim-plug
+curl -fLo ~/.dotfiles/nvim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+- symlink dotfiles
+
+
 # dotfiles
 A collection of dotfiles, with colors for vim and iTerm.
 My dotfiles for OSX. Customization for Zsh, Tmux and Vim
