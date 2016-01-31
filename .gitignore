@@ -3,9 +3,6 @@
 .Trashes
 *.swp
 
-backup/*
-vim/vim.symlink/bundle/*
-!vim/vim.symlink/bundle/Vundle.vim
-vim/vim.symlink/backups/*
-vim/vim.symlink/swaps/*
-vim/vim.symlink/.netrwhist
+fish_history
+git/config
+
