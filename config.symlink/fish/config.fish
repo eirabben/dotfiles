@@ -26,4 +26,4 @@ set __fish_git_prompt_char_upstream_diverged '<>'
 
 # Separators
 set __fish_git_prompt_char_stateseparator " ["
-set __fish_git_prompt_char_upstream_prefix " | "
+set __fish_git_prompt_char_upstream_prefix "|"

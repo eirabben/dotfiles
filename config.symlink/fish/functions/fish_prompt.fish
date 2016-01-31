@@ -13,6 +13,8 @@ function fish_prompt
     set -l git_before (__fish_git_prompt)
     if echo $git_before | grep -q " \["
         set git_status (echo $git_before | sed -e 's/(/on /g' | sed -e 's/)/\]/g')
+    else if echo $git_before | grep -q "\|"
+        set git_status (echo $git_before | sed -e 's/(/on /g' | sed -e 's/\|/\[/g' | sed -e 's/)/\]/g')
     else
         set git_status (echo $git_before | sed -e 's/(/on /g' | sed -e 's/)//g')
     end
