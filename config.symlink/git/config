@@ -5,7 +5,7 @@
 	default = simple
 
 [credential]
-	helper = osxkeychain
+	helper = GIT_CREDENTIAL_HELPER
 
 [user]
 	name = Eirik Igland
