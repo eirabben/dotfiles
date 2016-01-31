@@ -39,8 +39,20 @@ set background=dark
 colorscheme solarized
 
 " Plugins
-call plug#begin()
-" Example command:
-" Plug 'scrooloose/nerdree'
+call plug#begin('~/.vim/plugged')
+
+Plug 'scrooloose/nerdtree' " Sidebar and file browser
+Plug 'Shougo/deoplete.nvim' " Completion
+
 call plug#end()
+
+" NERDTree
+map <C-b> :NERDTreeToggle<CR>
+let NERDTreeMapActivateNode='l'
+let NERDTreeMapCloseDir='h'
+let NERDTreeShowHidden=1
+let NERDTreeIgnore=['\.DS_Store', '\config.codekit', '\.sass-cache']
+
+" Deoplete
+let g:deoplete#enable_at_startup = 1
 

@@ -7,4 +7,5 @@ fish_history
 git/config
 fishd.*
 .netrwhist
+.init.vim-rplugin*
 
