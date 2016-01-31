@@ -1,9 +1,8 @@
 #!/bin/bash
 
-# @TODO: Use nvim as default editor
 
 # Dotfiles directory
-DOTFILES_ROOT=$(pwd)
+DOTFILES_DIR=$HOME/.dotfiles
 
 # Colors
 RESET=$(tput sgr0)
@@ -48,7 +47,48 @@ function print_newline {
 	printf "\n"
 }
 
-# Actual functions
+function clone_repo {
+	if [ ! -d $DOTFILES_DIR ]; then
+        action "Cloning dotfiles repo"
+		git clone https://github.com/eirabben/dotfiles.git $DOTFILES_DIR
+        print_ok
+	fi
+}
+
+function install_homebrew {
+	if test ! $(which brew)
+	then
+        action "Installing Homebrew"
+		/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+        print_ok
+	fi
+}
+
+function install_formulae {
+		brew update
+
+		install_formula neovim/neovim/neovim
+		install_formula fish
+		install_formula tmux
+		install_formula cmake
+		install_formula ctags
+		install_formula tree
+		install_formula python
+		install_formula python3
+}
+
+function install_formula {
+	brew list $1 > /dev/null 2>&1 | true
+	if [[ ${PIPESTATUS[0]} != 0 ]]; then
+		action "Installing $1"
+		brew install $1 $2
+		if [[ $? != 0 ]]; then
+			echo "Failed to install $1"
+        else 
+            print_ok
+		fi
+	fi
+}
 
 function gen_pub_key {
 	pub=$HOME/.ssh/id_rsa.pub
@@ -102,50 +142,29 @@ function symlink_dotfile {
 	print_info "File $dst created."
 }
 
-# @TODO: This does not work
-function install_homebrew {
-	#if [ !$(which -s brew) ]; then
-		#print_action "Installing Homebrew"
-		#/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-		#print_ok
-	#fi
-}
-
-# @TODO: This does not work
-function install_formulae {
-	#formulae=(neovim/neovim/neovim fish tmux cmake ctags python python3 tree)
-	#brew update
-
-	#print_action "Installing brew formulae"
-	#for formula in $formulae; do
-		#if [[ ! -n $(brew ls --versions $formula) ]]; then
-			#brew install $formula
-		#fi
-	#done
-	#print_ok
-}
-
-# @TODO: This does not work
-function change_shell {
-	#if [ $SHELL = "/bin/bash" ]; then
-		#print_action "Setting Fish as default shell"
-		#echo $(which fish) | sudo tee -a /etc/shells
-		#chsh -s $(which fish) $(whoami)
-		#print_ok
-	#fi
-}
-
 function bootstrap {
 	print_heading "Bootstrapping dotfiles"
 	
-	#install_homebrew
-	#install_formulae
-	gen_pub_key
-	install_vim_plug
-	update_gitconfig
-	symlink_dotfiles
-	#change_shell
+    # Install homebrew and required formulae
+	install_homebrew
+	install_formulae
 
+    # Clone the repo
+    clone_repo
+    
+    # Generate a public SSH key
+	gen_pub_key
+
+    # Install Vim Plug for neovim
+	install_vim_plug
+
+    # Update the gitconfig
+	update_gitconfig
+
+    # Symlink the dotfiles
+	symlink_dotfiles
+
+    # Finished
 	print_info "All done!"
 	print_newline
 }
