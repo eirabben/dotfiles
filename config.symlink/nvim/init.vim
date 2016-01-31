@@ -3,8 +3,8 @@ syntax on " Use syntax highlighting
 set number " Always show line numbers
 " set relativenumber " Use relative numbering
 set scrolloff=5 " Minimum number of screen lines above or below the cursor
-" set cursorline " Hightlight the current line
-" set colorcolumn=80 " Highlight where the line should end
+set cursorline " Hightlight the current line
+set colorcolumn=80 " Highlight where the line should end
 set splitbelow " New windows will be put below the current one
 set splitright " New windows will be put to the right of the current one
 
@@ -35,12 +35,12 @@ nnoremap j gj
 nnoremap k gk
 
 " Colorscheme
-" colorscheme base16-default
-" set background=dark
+set background=dark
+colorscheme solarized
 
 " Plugins
-" call plug#begin()
+call plug#begin()
 " Example command:
 " Plug 'scrooloose/nerdree'
-" call plug#end()
+call plug#end()
 
