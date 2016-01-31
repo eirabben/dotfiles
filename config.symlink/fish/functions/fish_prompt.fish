@@ -10,7 +10,12 @@ function fish_prompt
     set -l working_directory (set_color green)(echo -n $PWD | sed "s/^$home_escaped/~/" | sed 's/ /%20/g')(set_color normal)
 
     # Git status
-    set -l git_status (__fish_git_prompt | sed -e 's/(/on /g' | sed -e 's/)/\]/g')
+    set -l git_before (__fish_git_prompt)
+    if echo $git_before | grep -q " \["
+        set git_status (echo $git_before | sed -e 's/(/on /g' | sed -e 's/)/\]/g')
+    else
+        set git_status (echo $git_before | sed -e 's/(/on /g' | sed -e 's/)//g')
+    end
 
     # Suffix
     set -l suffix '$'
