@@ -1,88 +1,66 @@
-
-# ===============================================
 # General settings
-# ===============================================
 
-set -g default-terminal "screen-256color"   # Use 256 term for pretty colors
-set -g history-limit 5000                   # Increase scrollback history
-set -g base-index 1                         # Start window index at 1
-set -g pane-base-index 1                    # Start pane index at 1
-set -g renumber-windows on                  # Re-number windows when one is closed
+# Fix window numbering
+set -g base-index 1
+set -g pane-base-index 1
+set -g renumber-windows on
 
-# Highlight window when it has new activity
+# Activity monitoring
 setw -g monitor-activity on
 set -g visual-activity on
 
-# ===============================================
 # Key bindings
-# ===============================================
 
-# Use vim key bindings
-setw -g mode-keys vi 
-
-# Tmux prefix
+# Change prefix
 unbind C-b
 set -g prefix C-a
-bind-key C-a send-prefix
+bind C-a send-prefix
 
-#set -g prefix `
-#bind-key ` send-prefix
+# Reload config
+bind r source-file ~/.tmux.conf
+
+# Use vim key bindings
+setw -g mode-keys vi
+bind-key -t vi-copy 'v' begin-selection
+bind-key -t vi-copy 'y' copy-selection
+
+# hjkl pane traversal
+bind h select-pane -L
+bind j select-pane -D
+bind k select-pane -U
+bind l select-pane -R
+
+# Resize panes with hjkl
+bind-key J resize-pane -D 10
+bind-key K resize-pane -U 10
+bind-key H resize-pane -L 10
+bind-key L resize-pane -R 10
+
+# Make splitting windows easier
+bind-key v split-window -h -c '#{pane_current_path}'
+bind-key b split-window -v -c '#{pane_current_path}'
 
 # Disable confirmation when closing windows and panes
 bind-key & kill-window
 bind-key x kill-pane
 
-# Reload config
-bind r source-file ~/.tmux.conf
+# Status line
 
-# Use hjkl to navigate panes
-unbind-key h
-bind h select-pane -L
-unbind-key j
-bind j select-pane -D
-unbind-key k
-bind k select-pane -U
-unbind-key l
-bind l select-pane -R 
- 
-# Resize panes with hjkl
-bind-key J resize-pane -D 5
-bind-key K resize-pane -U 5
-bind-key H resize-pane -L 5
-bind-key L resize-pane -R 5
-
-# ===============================================
-# Status bar
-# ===============================================
-
-# Enable UTF-8 support in status bar
-set -g status-utf8 on
-
-# Set refresh interval for status bar
-set -g status-interval 30
-
-# Center the status bar
-set -g status-justify left
-
-# Show session, window, pane in left status bar
 set -g status-left-length 40
-set -g status-left ' #S | #I:#P |'
+set -g status-left ' #S | #I:#P | '
 
-# Show 
 set -g status-right-length 60
 set -g status-right '#h | %d.%m.%y %H:%M '
 
-# ===============================================
 # Colors
-# ===============================================
 
 # Set statusbar colors
-set -g status-bg colour11
-set -g status-fg white
+set -g status-bg default
+set -g status-fg default
 
 # Set status line message colors
-set -g message-bg default
-set -g message-fg default
+set -g message-bg yellow
+set -g message-fg black
 
 # Pane border color
 set -g pane-border-bg default
@@ -91,9 +69,8 @@ set -g pane-active-border-bg default
 set -g pane-active-border-fg default
 
 # Window color in status bar
-set -g window-status-bg colour11
+set -g window-status-bg default
 set -g window-status-fg default
-set -g window-status-current-bg colour13
-set -g window-status-current-fg colour11
-
+set -g window-status-current-bg yellow
+set -g window-status-current-fg black
 

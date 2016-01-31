@@ -1,4 +1,31 @@
+# Aliases
+
+# Navigation
+alias .. "cd .."
+alias ... "cd ../.."
+alias .... "cd ../../.."
+alias c "clear"
+
+# Folders
+alias dl "cd ~/Downloads"
+alias db "cd ~/Dropbox"
+alias pr "cd ~/Projects"
+alias dot "cd ~/.dotfiles"
+alias o "open"
+alias oo "open ."
+
+# Applications
+# Editor
 alias vim "nvim"
+
+# Vagrant aliases
+alias vs "vagrant status"
+alias vup "vagrant up"
+alias vhalt "vagrant halt"
+alias vssh "vagrant ssh"
+
+# Pipe my public key to my clipboard.
+alias pubkey "more ~/.ssh/id_rsa.pub | pbcopy | echo '=> Public key copied to pasteboard.'"
 
 # Fish git prompt
 # Documentation here:
