@@ -2,7 +2,7 @@
 
 
 # Dotfiles directory
-DOTFILES_DIR=$HOME/.dotfiles
+DOTFILES_ROOT=$HOME/.dotfiles
 
 # Colors
 RESET=$(tput sgr0)
@@ -48,9 +48,9 @@ function print_newline {
 }
 
 function clone_repo {
-	if [ ! -d $DOTFILES_DIR ]; then
+	if [ ! -d $DOTFILES_ROOT ]; then
         action "Cloning dotfiles repo"
-		git clone https://github.com/eirabben/dotfiles.git $DOTFILES_DIR
+		git clone https://github.com/eirabben/dotfiles.git $DOTFILES_ROOT
         print_ok
 	fi
 }
@@ -138,7 +138,7 @@ function symlink_dotfile {
 	src=$1
 	dst=$HOME/.$(basename "${1%.*}")
 
-	ln -s $src $dst
+	ln -sf $src $dst
 	print_info "File $dst created."
 }
 
@@ -153,9 +153,9 @@ function bootstrap {
     clone_repo
     
     # Generate a public SSH key
-	gen_pub_key
+    gen_pub_key
 
-    # Install Vim Plug for neovim
+	# Install Vim Plug for neovim
 	install_vim_plug
 
     # Update the gitconfig
