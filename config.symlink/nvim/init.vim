@@ -47,6 +47,7 @@ Plug 'tpope/vim-repeat' " Repeat plugin actions
 Plug 'tpope/vim-surround' " Surround things
 Plug 'Shougo/deoplete.nvim' " Completion
 Plug 'benekastah/neomake' " Linting
+Plug 'jiangmiao/auto-pairs' " Auto close brackets
 
 call plug#end()
 
