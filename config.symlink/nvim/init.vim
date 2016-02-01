@@ -42,8 +42,11 @@ colorscheme solarized
 call plug#begin('~/.vim/plugged')
 
 Plug 'scrooloose/nerdtree' " Sidebar and file browser
-Plug 'Shougo/deoplete.nvim' " Completion
-Plug 'benekastah/neomake' " Linting
+Plug 'tpope/vim-commentary' " Commenting
+Plug 'tpope/vim-repeat' " Repeat plugin actions
+Plug 'tpope/vim-surround' " Surround things
+" Plug 'Shougo/deoplete.nvim' " Completion
+" Plug 'benekastah/neomake' " Linting
 
 call plug#end()
 
@@ -55,10 +58,9 @@ let NERDTreeShowHidden=1
 let NERDTreeIgnore=['\.DS_Store', '\config.codekit', '\.sass-cache']
 
 " Deoplete
-let g:deoplete#enable_at_startup = 1
+" let g:deoplete#enable_at_startup = 1
 
 " Neomake
-autocmd! BufWritePost * Neomake
-
-let g:neomake_open_list = 2
-let g:neomake_cpp_clang_args = ['--std=c++14']
+" autocmd! BufWritePost * Neomake
+" let g:neomake_open_list = 2
+" let g:neomake_cpp_clang_args = ['--std=c++14']
