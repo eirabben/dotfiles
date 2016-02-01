@@ -43,6 +43,7 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'scrooloose/nerdtree' " Sidebar and file browser
 Plug 'Shougo/deoplete.nvim' " Completion
+Plug 'benekastah/neomake' " Linting
 
 call plug#end()
 
@@ -56,3 +57,8 @@ let NERDTreeIgnore=['\.DS_Store', '\config.codekit', '\.sass-cache']
 " Deoplete
 let g:deoplete#enable_at_startup = 1
 
+" Neomake
+autocmd! BufWritePost * Neomake
+
+let g:neomake_open_list = 2
+let g:neomake_cpp_clang_args = ['--std=c++14']
