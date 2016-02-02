@@ -62,6 +62,6 @@ let NERDTreeIgnore=['\.DS_Store', '\config.codekit', '\.sass-cache']
 let g:deoplete#enable_at_startup = 1
 
 " Neomake
-autocmd! BufWritePost * Neomake
+" autocmd! BufWritePost * Neomake
 let g:neomake_open_list = 2
 let g:neomake_cpp_clang_args = ['--std=c++14']

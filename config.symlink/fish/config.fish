@@ -1,12 +1,10 @@
 # Aliases
 
-# Navigation
+# Navigation and folders
 alias .. "cd .."
 alias ... "cd ../.."
 alias .... "cd ../../.."
 alias c "clear"
-
-# Folders
 alias dl "cd ~/Downloads"
 alias db "cd ~/Dropbox"
 alias pr "cd ~/Projects"
@@ -27,9 +25,11 @@ alias vssh "vagrant ssh"
 # Pipe my public key to my clipboard.
 alias pubkey "more ~/.ssh/id_rsa.pub | pbcopy | echo '=> Public key copied to pasteboard.'"
 
+
 # Fish git prompt
 # Documentation here:
 # https://github.com/fish-shell/fish-shell/blob/master/share/functions/__fish_git_prompt.fish
+
 # What to show
 set __fish_git_prompt_showdirtystate 'yes'
 set __fish_git_prompt_showuntrackedfiles 'yes'
