@@ -4,6 +4,7 @@ Dotfiles for OSX. iTerm, Fish, Neovim, Tmux, Git.
 
 ## Installation
 NOTE: This will overwrite conflicting files
+`$ curl -fsSL https://raw.githubusercontent.com/eirabben/dotfiles/modernize/bootstrap.sh`
 
 ```bash
 	git clone https://github.com/eirabben/dotfiles.git ~/.dotfiles
