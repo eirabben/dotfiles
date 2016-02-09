@@ -18,6 +18,9 @@ set tabstop=4 " Number of spaces that a <Tab> counts for
 set softtabstop=4 " Number of spaces that a <Tab> counts for when editing
 set shiftwidth=4 " Number of spaces to use for (auto)indent
 
+" Indentation by file type
+autocmd FileType html setlocal shiftwidth=2 tabstop=2 softtabstop=2
+
 " Search options
 set ignorecase " Ignore case when searching
 set smartcase " Override ignorecase if search pattern contains upper case characters
@@ -33,6 +36,8 @@ let mapleader=','
 " Next and previous line includes wrapped lines
 nnoremap j gj
 nnoremap k gk
+" Clear search highlight
+nnoremap <silent> <Leader>/ :nohlsearch<CR>
 
 " Colorscheme
 set background=dark
