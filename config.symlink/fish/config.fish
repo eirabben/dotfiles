@@ -12,6 +12,11 @@ alias dot "cd ~/.dotfiles"
 alias o "open"
 alias oo "open ."
 
+function mkd
+    mkdir $argv
+    cd $argv
+end
+
 # Applications
 # Editor
 alias vim "nvim"
