@@ -93,7 +93,9 @@ function bootstrap {
 	print_info "Add '/usr/local/bin/fish' (which fish) to /etc/shells"
 	print_info "Then run 'chsh -s /usr/local/bin/fish'"
 	print_newline
-	print_heading "Run 'sudo pip3 install neovim' to enable python plugins for Neovim"
+	print_heading "Install neovim plugins"
+	print_info "Run 'sudo pip3 install neovim' to enable python plugins for Neovim"
+	print_info "Start Neovim and run ':PlugInstall'"
 	print_newline
 }
 
