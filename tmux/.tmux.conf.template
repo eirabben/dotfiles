@@ -73,4 +73,3 @@ set -g window-status-bg default
 set -g window-status-fg default
 set -g window-status-current-bg yellow
 set -g window-status-current-fg black
-
