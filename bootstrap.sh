@@ -1,8 +1,10 @@
 #!/bin/bash
 
-# Dotfiles directory
-# DOTFILES_ROOT=$HOME/.dotfiles
-DOTFILES_ROOT=$HOME/Projects/dotfiles
+# Directories
+dotfiles_dir="$HOME/.dotfiles"
+home_dir="$HOME"
+script_dir="$dotfiles_dir/script"
+symlink_dir="$dotfiles_dir/symlink"
 
 # Colors
 RESET=$(tput sgr0)
@@ -16,7 +18,6 @@ CYAN=$(tput setaf 6)
 WHITE=$(tput setaf 7)
 
 # Formatting functions
-
 function print_heading {
 	printf "\n${UNDERLINE}${1}${RESET}\n"
 }
@@ -47,130 +48,53 @@ function print_newline {
 	printf "\n"
 }
 
-function clone_repo {
-	if [ ! -d $DOTFILES_ROOT ]; then
-		print_action "Cloning dotfiles repo"
-		git clone https://github.com/eirabben/dotfiles.git $DOTFILES_ROOT
-  	print_ok
-	fi
-}
-
-function install_homebrew {
-	if test ! $(which brew)
-	then
-  	print_action "Installing Homebrew"
-		/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-    print_ok
-	fi
-}
-
-function install_formulae {
-		brew update
-
-		install_formula neovim/neovim/neovim
-		install_formula fish
-		install_formula tmux
-		install_formula cmake
-		install_formula tree
-}
-
-function install_formula {
-	brew list $1 > /dev/null 2>&1 | true
-	if [[ ${PIPESTATUS[0]} != 0 ]]; then
-		action "Installing $1"
-		brew install $1 $2
-		if [[ $? != 0 ]]; then
-			echo "Failed to install $1"
-    else
-      print_ok
-		fi
-	fi
-}
-
-function gen_pub_key {
-	pub=$HOME/.ssh/id_rsa.pub
-
-	# Create it only if it does not exist
-	if [ ! -f $pub ]; then
-		print_action "Generating SSH key"
-		ssh-keygen -t rsa
-		print_ok
+# File generation and linking
+function generate_file {
+	# Create destination directory if it does not exist
+	if [[ ! -d "$2" ]]; then
+		mkdir -p "$2"
 	fi
 
-	# Copy to clipboard
-	if [ -f $pub ]; then
-		cat $pub | pbcopy
-		print_info "SSH public key copied to clipboard."
-	fi
+	# Strip template extension and path for destination file
+	local dest_file=$(basename "${1%.template}")
+
+	# Perform substitutions and save file to the symlink directory
+	sed -e "$3" "$1" > "$symlink_dir/$dest_file"
+
+	# Link the file
+	ln -sf "$symlink_dir/$dest_file" "$2/$dest_file"
 }
 
-function update_gitconfig {
-	print_question "What is your Github author name?"
-	get_answer git_authorname
-	print_question "What is your Github author email?"
-	get_answer git_authoremail
-
-	print_action "Generating git config"
-	sed -e "s/AUTHORNAME/$git_authorname/g" -e "s/AUTHOREMAIL/$git_authoremail/g" $DOTFILES_ROOT/config.symlink/git/config.example > $DOTFILES_ROOT/config.symlink/git/config
-	print_ok
-}
-
-function install_vim_plug {
-	PLUG_FILE=$DOTFILES_ROOT/config.symlink/nvim/autoload/plug.vim
-
-	print_action "Downloading vim-plug"
-	[[ -f $PLUG_FILE ]] || curl -fLo $PLUG_FILE --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-	print_ok
-}
-
-function symlink_dotfiles {
-	print_heading "Linking dotfiles"
-	for dotfile in $(find -H $DOTFILES_ROOT -name '*.symlink'); do
-		symlink_dotfile $dotfile
+# Call config scripts
+# Change execution order by changing the number before the filename
+function run_install_scripts {
+	for script in $(find -H "$script_dir" -name "*.sh"); do
+		source $script
 	done
 }
 
-function symlink_dotfile {
-	print_action "Linking file $1 "
-	src=$1
-	subdir=$(dirname "${1}")
-	subdir=${subdir#${DOTFILES_ROOT}}
-	if [ ! -d $subdir ]; then
-		mkdir -p ${DOTFILES_ROOT}${subdir}
-	fi
-
-	filename=$(basename "${1%.*}")
-	dst=${HOME}${subdir}/${filename}
-
-	ln -sf $src $dst
-	print_ok
-}
+# function clone_repo {
+# 	if [ ! -d $dotfiles_dir ]; then
+# 		print_action "Cloning dotfiles repo"
+# 		git clone https://github.com/eirabben/dotfiles.git $dotfiles_dir
+#   	print_ok
+# 	fi
+# }
 
 function bootstrap {
 	print_heading "Bootstrapping dotfiles"
 
-  # Install homebrew and required formulae
-	# install_homebrew
-	# install_formulae
-
-  # Clone the repo
-  # clone_repo
-
-  # Generate a public SSH key
-  # gen_pub_key
-
-	# Install Vim Plug for neovim
-	# install_vim_plug
-
-  # Update the gitconfig
-	# update_gitconfig
-
-  # Symlink the dotfiles
-	symlink_dotfiles
+	run_install_scripts
 
   # Finished
-	# print_info "All done!"
-	# print_newline
+	print_info "All done!"
+	print_newline
+	print_heading "Don't forget to set Fish as your default shell:"
+	print_info "Add '/usr/local/bin/fish' (which fish) to /etc/shells"
+	print_info "Then run 'chsh -s /usr/local/bin/fish'"
+	print_newline
+	print_heading "Run 'sudo pip3 install neovim' to enable python plugins for Neovim"
+	print_newline
 }
 
 bootstrap

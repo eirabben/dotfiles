@@ -1,12 +1,6 @@
 .DS_Store
-.DS_Store?
 .Trashes
 *.swp
 
-fish_history
-git/config
-fishd.*
-.netrwhist
-.init.vim-rplugin*
-
-Unreal Engine/
+symlink/*
+!symlink/.gitignore
