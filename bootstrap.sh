@@ -1,8 +1,8 @@
 #!/bin/bash
 
-
 # Dotfiles directory
-DOTFILES_ROOT=$HOME/.dotfiles
+# DOTFILES_ROOT=$HOME/.dotfiles
+DOTFILES_ROOT=$HOME/Projects/dotfiles
 
 # Colors
 RESET=$(tput sgr0)
@@ -49,18 +49,18 @@ function print_newline {
 
 function clone_repo {
 	if [ ! -d $DOTFILES_ROOT ]; then
-        action "Cloning dotfiles repo"
+		print_action "Cloning dotfiles repo"
 		git clone https://github.com/eirabben/dotfiles.git $DOTFILES_ROOT
-        print_ok
+  	print_ok
 	fi
 }
 
 function install_homebrew {
 	if test ! $(which brew)
 	then
-        action "Installing Homebrew"
+  	print_action "Installing Homebrew"
 		/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-        print_ok
+    print_ok
 	fi
 }
 
@@ -71,10 +71,7 @@ function install_formulae {
 		install_formula fish
 		install_formula tmux
 		install_formula cmake
-		install_formula ctags
 		install_formula tree
-		install_formula python
-		install_formula python3
 }
 
 function install_formula {
@@ -84,8 +81,8 @@ function install_formula {
 		brew install $1 $2
 		if [[ $? != 0 ]]; then
 			echo "Failed to install $1"
-        else 
-            print_ok
+    else
+      print_ok
 		fi
 	fi
 }
@@ -122,8 +119,7 @@ function install_vim_plug {
 	PLUG_FILE=$DOTFILES_ROOT/config.symlink/nvim/autoload/plug.vim
 
 	print_action "Downloading vim-plug"
-	[[ -f $PLUG_FILE ]] || curl -fLo $PLUG_FILE --create-dirs \
-	    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	[[ -f $PLUG_FILE ]] || curl -fLo $PLUG_FILE --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 	print_ok
 }
 
@@ -135,38 +131,46 @@ function symlink_dotfiles {
 }
 
 function symlink_dotfile {
+	print_action "Linking file $1 "
 	src=$1
-	dst=$HOME/.$(basename "${1%.*}")
+	subdir=$(dirname "${1}")
+	subdir=${subdir#${DOTFILES_ROOT}}
+	if [ ! -d $subdir ]; then
+		mkdir -p ${DOTFILES_ROOT}${subdir}
+	fi
+
+	filename=$(basename "${1%.*}")
+	dst=${HOME}${subdir}/${filename}
 
 	ln -sf $src $dst
-	print_info "File $dst created."
+	print_ok
 }
 
 function bootstrap {
 	print_heading "Bootstrapping dotfiles"
-	
-    # Install homebrew and required formulae
-	install_homebrew
-	install_formulae
 
-    # Clone the repo
-    clone_repo
-    
-    # Generate a public SSH key
-    gen_pub_key
+  # Install homebrew and required formulae
+	# install_homebrew
+	# install_formulae
+
+  # Clone the repo
+  # clone_repo
+
+  # Generate a public SSH key
+  # gen_pub_key
 
 	# Install Vim Plug for neovim
-	install_vim_plug
+	# install_vim_plug
 
-    # Update the gitconfig
-	update_gitconfig
+  # Update the gitconfig
+	# update_gitconfig
 
-    # Symlink the dotfiles
+  # Symlink the dotfiles
 	symlink_dotfiles
 
-    # Finished
-	print_info "All done!"
-	print_newline
+  # Finished
+	# print_info "All done!"
+	# print_newline
 }
 
 bootstrap
