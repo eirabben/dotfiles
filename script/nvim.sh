@@ -10,7 +10,7 @@ function install_vim_plug {
 }
 
 function link_vim_colors {
-	ln -s "$dotfiles_dir/nvim/colors" "$home_dir/.config/nvim/colors"
+	ln -sf "$dotfiles_dir/nvim/colors" "$home_dir/.config/nvim/colors"
 }
 
 function generate_nvim_config {
