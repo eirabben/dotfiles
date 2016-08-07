@@ -64,6 +64,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'rstacruz/vim-closer' " Auto close braces, but only when pressing <CR>
 Plug 'tikhomirov/vim-glsl' " GLSL syntax
 Plug 'nelsyeung/twig.vim' " Twix syntax
+Plug 'jwalton512/vim-blade' " Blade syntax
 " Plug 'Shougo/deoplete.nvim' " Completion
 " Plug 'benekastah/neomake' " Linting
 Plug 'mattn/emmet-vim' " HTML and CSS expansion
