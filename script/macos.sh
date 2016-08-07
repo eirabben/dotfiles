@@ -1,5 +1,17 @@
 #!/bin/bash
 
+function set_computer_name {
+    print_question "Enter a name for this computer (no spaces or special characters)"
+    get_answer computer_name
+
+    print_action "Setting computer name"
+    scutil --set ComputerName $computer_name
+    scutil --set LocalHostName $computer_name
+    scutil --set HostName $computer_name
+    print_ok
+}
+
+
 function generate_public_key {
 	pub=$home_dir/.ssh/id_rsa.pub
 
@@ -17,4 +29,5 @@ function generate_public_key {
 	fi
 }
 
+set_computer_name
 generate_public_key
