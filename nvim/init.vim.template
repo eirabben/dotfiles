@@ -1,7 +1,7 @@
 " UI options
 syntax on " Use syntax highlighting
 set number " Always show line numbers
-" set relativenumber " Use relative numbering
+set relativenumber " Use relative numbering
 set scrolloff=5 " Minimum number of screen lines above or below the cursor
 set cursorline " Hightlight the current line
 set colorcolumn=80 " Highlight where the line should end
@@ -53,20 +53,26 @@ colorscheme onedark
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
 " Plugins
-call plug#begin('~/.vim/plugged')
+call plug#begin()
 
+" Essentials
 Plug 'scrooloose/nerdtree' " Sidebar and file browser
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " Fuzzy finder
+Plug 'junegunn/fzf.vim'
+
+" Functionality
 Plug 'tpope/vim-commentary' " Commenting
 Plug 'tpope/vim-repeat' " Repeat plugin actions
 Plug 'tpope/vim-surround' " Surround things
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " Fuzzy finder
-Plug 'junegunn/fzf.vim'
 Plug 'rstacruz/vim-closer' " Auto close braces, but only when pressing <CR>
-Plug 'tikhomirov/vim-glsl' " GLSL syntax
-Plug 'nelsyeung/twig.vim' " Twix syntax
-Plug 'jwalton512/vim-blade' " Blade syntax
+
+" Completion
+" Plug 'SirVer/ultisnips' " Snippet engine
+" Plug 'honza/vim-snippets' " Snippets
 " Plug 'Shougo/deoplete.nvim' " Completion
-" Plug 'benekastah/neomake' " Linting
+
+" Language and syntax
+" Plug 'jwalton512/vim-blade' " Blade syntax
 Plug 'mattn/emmet-vim' " HTML and CSS expansion
 
 call plug#end()
@@ -78,18 +84,8 @@ let NERDTreeMapCloseDir='h'
 let NERDTreeShowHidden=1
 let NERDTreeIgnore=['\.DS_Store', '\config.codekit', '\.sass-cache']
 
-" Deoplete
-" let g:deoplete#enable_at_startup = 1
-
-" GLSL.vim
-let g:glsl_file_extensions = '*.glsl,*.vsh,*.fsh,*.vert,*.frag'
-
 " FZF
 nnoremap <c-p> :Files<cr>
 nnoremap <silent> <C-p> :FZF -m<cr>
 let g:fzf_action = {'ctrl-s': 'split', 'ctrl-v': 'vsplit'}
 
-" Neomake
-" autocmd! BufWritePost * Neomake
-" let g:neomake_open_list = 2
-" let g:neomake_cpp_clang_args = ['--std=c++14']
