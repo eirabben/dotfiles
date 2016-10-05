@@ -42,15 +42,9 @@ let mapleader=','
 nnoremap j gj
 nnoremap k gk
 " Clear search highlight
-nnoremap <silent> <Leader>/ :nohlsearch<CR>
+nnoremap <silent> <leader>/ :nohlsearch<CR>
 
-" Colorscheme
-set background=dark
-let g:onedark_termcolors=256
-let g:onedark_terminal_italics=1
-colorscheme onedark
-
-let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+nmap <leader>r :checkt<CR>
 
 " Plugins
 call plug#begin()
@@ -61,10 +55,11 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " Fuzzy finder
 Plug 'junegunn/fzf.vim'
 
 " Functionality
+Plug 'tpope/vim-fugitive' " Vim integration
 Plug 'tpope/vim-commentary' " Commenting
 Plug 'tpope/vim-repeat' " Repeat plugin actions
 Plug 'tpope/vim-surround' " Surround things
-Plug 'rstacruz/vim-closer' " Auto close braces, but only when pressing <CR>
+Plug 'jiangmiao/auto-pairs' " Auto close brackets and stuff
 
 " Completion
 " Plug 'SirVer/ultisnips' " Snippet engine
@@ -72,10 +67,14 @@ Plug 'rstacruz/vim-closer' " Auto close braces, but only when pressing <CR>
 " Plug 'Shougo/deoplete.nvim' " Completion
 
 " Language and syntax
-" Plug 'jwalton512/vim-blade' " Blade syntax
+Plug 'jwalton512/vim-blade' " Blade syntax
 Plug 'mattn/emmet-vim' " HTML and CSS expansion
 
 call plug#end()
+
+" Colorscheme
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+colorscheme dracula
 
 " NERDTree
 map <C-b> :NERDTreeToggle<CR>
