@@ -2,5 +2,4 @@
 .Trashes
 *.swp
 
-symlink/*
 !symlink/.gitignore
