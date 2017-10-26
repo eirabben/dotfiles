@@ -61,6 +61,7 @@ Plug 'mattn/emmet-vim' " HTML and CSS expansion
 " Plug 'sheerun/vim-polyglot' " Language packs
 Plug 'posva/vim-vue' " Vue syntax
 Plug 'lumiliet/vim-twig' " Twig syntax
+Plug 'jwalton512/vim-blade' " Blade syntax
 
 call plug#end()
 
