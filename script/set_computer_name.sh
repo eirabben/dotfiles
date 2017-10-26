@@ -2,8 +2,7 @@
 
 function change_computer_name {
   read -p "Computer name: " computer_name
-
-  host_name=${computer_name,,}
+  read -p "Host name: " host_name
 
   sudo scutil --set ComputerName $computer_name
   sudo scutil --set HostName $host_name

@@ -1,5 +1,4 @@
-# Variables
-set -x PATH $PATH $HOME/.composer/vendor/bin
+# Path
 
 
 # Aliases
@@ -30,7 +29,7 @@ function mkd
 end
 
 function homestead
-  cd ~/Homestead
+  cd ~/Code/Homestead
   vagrant $argv
   cd -
 end
