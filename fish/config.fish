@@ -1,5 +1,5 @@
 # Path
-
+set -x PATH $PATH ~/.composer/vendor/bin
 
 # Aliases
 alias vim "nvim"
