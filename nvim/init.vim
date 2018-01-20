@@ -21,6 +21,7 @@ set shiftwidth=2 " Number of spaces to use for autoindent
 
 " Indentation by file type
 autocmd FileType php setlocal shiftwidth=4 tabstop=4 softtabstop=4
+autocmd FileType blade setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
 " Search options
 set ignorecase " Ignore case when searching
@@ -58,9 +59,10 @@ Plug 'tpope/vim-surround' " Surround things
 Plug 'jiangmiao/auto-pairs' " Automatic pair closing
 
 Plug 'mattn/emmet-vim' " HTML and CSS expansion
-Plug 'posva/vim-vue' " Vue syntax
-Plug 'lumiliet/vim-twig' " Twig syntax
-Plug 'jwalton512/vim-blade' " Blade syntax
+Plug 'sheerun/vim-polyglot' " Syntax packages
+" Plug 'posva/vim-vue' " Vue syntax
+" Plug 'lumiliet/vim-twig' " Twig syntax
+" Plug 'jwalton512/vim-blade' " Blade syntax
 
 call plug#end()
 
