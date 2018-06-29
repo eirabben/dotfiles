@@ -8,7 +8,7 @@ alias c "clear"
 
 # Navigation
 alias dot "cd ~/.dotfiles"
-alias code "cd ~/Code"
+# alias code "cd ~/Code"
 alias dt "cd ~/Desktop"
 alias dl "cd ~/Downloads"
 alias db "cd ~/Dropbox"

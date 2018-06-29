@@ -53,18 +53,20 @@ Plug 'scrooloose/nerdtree' " Sidebar and file browser
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " Fuzzy finder
 Plug 'junegunn/fzf.vim'
 
-Plug 'tpope/vim-commentary' " Commenting
+"Plug 'tpope/vim-commentary' " Commenting
+Plug 'tomtom/tcomment_vim' " Better commenting ?
 Plug 'tpope/vim-repeat' " Repeat plugin actions
 Plug 'tpope/vim-surround' " Surround things
 Plug 'jiangmiao/auto-pairs' " Automatic pair closing
 
 Plug 'mattn/emmet-vim' " HTML and CSS expansion
 Plug 'sheerun/vim-polyglot' " Syntax packages
-" Plug 'posva/vim-vue' " Vue syntax
-" Plug 'lumiliet/vim-twig' " Twig syntax
-" Plug 'jwalton512/vim-blade' " Blade syntax
+" Plug 'Shougo/context_filetype.vim' " Context aware filetype for vue
 
 call plug#end()
+
+" Emmet
+imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
 
 " NERDTree
 map <C-b> :NERDTreeToggle<CR>
@@ -80,3 +82,7 @@ let g:fzf_action = {'ctrl-s': 'split', 'ctrl-v': 'vsplit'}
 
 " Twig
 autocmd FileType html.twig setlocal commentstring={#\ %s\ #}
+
+" Scan syntax from start in vue files to avoid syntax highlighting errors
+autocmd FileType vue syntax sync fromstart
+let g:vue_disable_pre_processors=1
