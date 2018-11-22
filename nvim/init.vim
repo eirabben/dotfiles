@@ -8,6 +8,7 @@ set colorcolumn=80 " Highlight column length
 set splitbelow " New windows below current one
 set splitright " New windows to the right of current one
 set linebreak " Don't split words when breaking lines
+" set backupcopy=yes " Disable safe write to enable hmr
 
 " Status line
 set cmdheight=2 " Always show command line
@@ -61,7 +62,6 @@ Plug 'jiangmiao/auto-pairs' " Automatic pair closing
 
 Plug 'mattn/emmet-vim' " HTML and CSS expansion
 Plug 'sheerun/vim-polyglot' " Syntax packages
-" Plug 'Shougo/context_filetype.vim' " Context aware filetype for vue
 
 call plug#end()
 
@@ -81,7 +81,12 @@ nnoremap <silent> <C-p> :FZF -m<cr>
 let g:fzf_action = {'ctrl-s': 'split', 'ctrl-v': 'vsplit'}
 
 " Twig
-autocmd FileType html.twig setlocal commentstring={#\ %s\ #}
+autocmd FileType html.twig setlocal commentstring=\{#%s#\}
+autocmd FileType twig setlocal commentstring=\{#%s#\}
+autocmd FileType twig.html setlocal commentstring=\{#%s#\}
+let g:tcomment#filetype#guess_html_twig=0
+let g:tcomment#filetype#guess_twig_html=0
+let g:tcomment#filetype#guess_twig=0
 
 " Scan syntax from start in vue files to avoid syntax highlighting errors
 autocmd FileType vue syntax sync fromstart

@@ -1,6 +1,6 @@
 [user]
   name = Eirik Igland
-	email = eirabben@gmail.com
+  email = eirabben@gmail.com
 
 [alias]
   # 20 latest commits with pretty output
