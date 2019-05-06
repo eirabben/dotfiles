@@ -54,7 +54,7 @@ Plug 'scrooloose/nerdtree' " Sidebar and file browser
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " Fuzzy finder
 Plug 'junegunn/fzf.vim'
 
-"Plug 'tpope/vim-commentary' " Commenting
+" Plug 'tpope/vim-commentary' " Commenting
 Plug 'tomtom/tcomment_vim' " Better commenting ?
 Plug 'tpope/vim-repeat' " Repeat plugin actions
 Plug 'tpope/vim-surround' " Surround things
@@ -78,15 +78,18 @@ let NERDTreeIgnore=['\.DS_Store', '\config.codekit', '\.sass-cache']
 " FZF
 nnoremap <c-p> :Files<cr>
 nnoremap <silent> <C-p> :FZF -m<cr>
+nnoremap <silent> <C-t> :Ag <cr>
 let g:fzf_action = {'ctrl-s': 'split', 'ctrl-v': 'vsplit'}
 
 " Twig
+" This is a fix for tcomment, which does not use twig style comments when
+" the file consists of mixed html and twig code
 autocmd FileType html.twig setlocal commentstring=\{#%s#\}
-autocmd FileType twig setlocal commentstring=\{#%s#\}
-autocmd FileType twig.html setlocal commentstring=\{#%s#\}
-let g:tcomment#filetype#guess_html_twig=0
-let g:tcomment#filetype#guess_twig_html=0
-let g:tcomment#filetype#guess_twig=0
+autocmd FileType html.twig TComment
+autocmd FileType html.twig TComment
+autocmd FileType html.twig let g:tcomment#filetype#map['html.twig'] = 'twig'
+" Blade comments
+let g:tcomment#filetype#guess_blade=0
 
 " Scan syntax from start in vue files to avoid syntax highlighting errors
 autocmd FileType vue syntax sync fromstart

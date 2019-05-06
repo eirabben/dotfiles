@@ -1,10 +1,11 @@
 # Path
-set -x PATH $PATH ~/.composer/vendor/bin
 
 
 # Editor
 set -Ux EDITOR nvim
 
+# FZF
+set -x FZF_DEFAULT_COMMAND 'ag --hidden --ignore .git -g ""' 
 
 # Aliases
 alias vim "nvim"
