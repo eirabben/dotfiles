@@ -1,5 +1,8 @@
 # Path
+set -g fish_user_paths "/usr/local/opt/ruby/bin" $fish_user_paths
 
+# Fix for vim complaining about locale
+set -x LC_ALL en_US.UTF-8
 
 # Editor
 set -Ux EDITOR nvim
