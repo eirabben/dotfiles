@@ -16,6 +16,7 @@ function link_dotfiles {
     link_dotfile nvim/init.vim .config/nvim/init.vim
     link_dotfile nvim/colors .config/nvim/colors
     link_dotfile nvim/autoload .config/nvim/autoload
+    link_dotfile nvim/coc-settings.json .config/nvim/coc-settings.json
 
     link_dotfile tmux/tmux.conf .tmux.conf
 }

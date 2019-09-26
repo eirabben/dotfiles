@@ -1,0 +1,7 @@
+{
+  "emmet.includeLanguages": {
+    "html.twig": "html",
+    "vue-html": "html"
+  }
+}
+
