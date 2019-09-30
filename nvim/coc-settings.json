@@ -1,7 +1,15 @@
 {
+  "css.validate": false,
+  "scss.validate": false,
   "emmet.includeLanguages": {
     "html.twig": "html",
     "vue-html": "html"
-  }
+  },
+  "html.filetypes": [
+    "html",
+    "html.twig",
+    "handlebars"
+  ],
+  "vetur.validation.style": false
 }
 

@@ -15,6 +15,8 @@ set nowritebackup
 set cmdheight=2 " Always show command line
 set ruler " Show cursor position
 
+set signcolumn=yes
+
 " Indentation
 set expandtab " Use spaces instead of tabs
 set tabstop=2 " Number of spaces that a tab counts for
@@ -109,7 +111,6 @@ let g:vue_disable_pre_processors=1
 
 " Coc Autocomplete
 inoremap <silent><expr> <Tab> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<Tab>"
-
 " hi Pmenu ctermfg=NONE ctermbg=NONE cterm=NONE guifg=NONE guibg=NONE gui=NONE
 hi PmenuSel ctermbg=234 cterm=NONE guifg=NONE guibg=#44475a gui=NONE
 
