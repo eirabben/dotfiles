@@ -39,5 +39,5 @@ function fish_prompt --description 'Write out the prompt'
       set suffix '>'
     end
 
-  echo -n -s "$USER" @ (prompt_hostname) ' ' (set_color $color_cwd) (prompt_pwd) (set_color normal) (__fish_git_prompt) "$suffix "
+  echo -n -s (set_color normal) "$USER" (set_color normal) @ (set_color normal) (prompt_hostname) ' ' (set_color blue) (prompt_pwd) (set_color brblack) (__fish_git_prompt) (set_color normal) "$suffix "
 end

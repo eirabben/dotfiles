@@ -2,7 +2,7 @@
 
 " base16-vim (https://github.com/chriskempson/base16-vim)
 " by Chris Kempson (http://chriskempson.com)
-" Railscasts scheme by Ryan Bates (http://railscasts.com)
+" Monokai scheme by Wimer Hazenberg (http://www.monokai.nl)
 
 " This enables the coresponding base16-shell script to run so that
 " :colorscheme works in terminals supported by base16-shell scripts
@@ -10,43 +10,43 @@
 "   let g:base16_shell_path=base16-builder/output/shell/
 if !has("gui_running")
   if exists("g:base16_shell_path")
-    execute "silent !/bin/sh ".g:base16_shell_path."/base16-railscasts.sh"
+    execute "silent !/bin/sh ".g:base16_shell_path."/base16-monokai.sh"
   endif
 endif
 
 " GUI color definitions
-let s:gui00        = "2b2b2b"
-let g:base16_gui00 = "2b2b2b"
-let s:gui01        = "272935"
-let g:base16_gui01 = "272935"
-let s:gui02        = "3a4055"
-let g:base16_gui02 = "3a4055"
-let s:gui03        = "5a647e"
-let g:base16_gui03 = "5a647e"
-let s:gui04        = "d4cfc9"
-let g:base16_gui04 = "d4cfc9"
-let s:gui05        = "e6e1dc"
-let g:base16_gui05 = "e6e1dc"
-let s:gui06        = "f4f1ed"
-let g:base16_gui06 = "f4f1ed"
-let s:gui07        = "f9f7f3"
-let g:base16_gui07 = "f9f7f3"
-let s:gui08        = "da4939"
-let g:base16_gui08 = "da4939"
-let s:gui09        = "cc7833"
-let g:base16_gui09 = "cc7833"
-let s:gui0A        = "ffc66d"
-let g:base16_gui0A = "ffc66d"
-let s:gui0B        = "a5c261"
-let g:base16_gui0B = "a5c261"
-let s:gui0C        = "519f50"
-let g:base16_gui0C = "519f50"
-let s:gui0D        = "6d9cbe"
-let g:base16_gui0D = "6d9cbe"
-let s:gui0E        = "b6b3eb"
-let g:base16_gui0E = "b6b3eb"
-let s:gui0F        = "bc9458"
-let g:base16_gui0F = "bc9458"
+let s:gui00        = "272822"
+let g:base16_gui00 = "272822"
+let s:gui01        = "383830"
+let g:base16_gui01 = "383830"
+let s:gui02        = "49483e"
+let g:base16_gui02 = "49483e"
+let s:gui03        = "75715e"
+let g:base16_gui03 = "75715e"
+let s:gui04        = "a59f85"
+let g:base16_gui04 = "a59f85"
+let s:gui05        = "f8f8f2"
+let g:base16_gui05 = "f8f8f2"
+let s:gui06        = "f5f4f1"
+let g:base16_gui06 = "f5f4f1"
+let s:gui07        = "f9f8f5"
+let g:base16_gui07 = "f9f8f5"
+let s:gui08        = "f92672"
+let g:base16_gui08 = "f92672"
+let s:gui09        = "fd971f"
+let g:base16_gui09 = "fd971f"
+let s:gui0A        = "f4bf75"
+let g:base16_gui0A = "f4bf75"
+let s:gui0B        = "a6e22e"
+let g:base16_gui0B = "a6e22e"
+let s:gui0C        = "a1efe4"
+let g:base16_gui0C = "a1efe4"
+let s:gui0D        = "66d9ef"
+let g:base16_gui0D = "66d9ef"
+let s:gui0E        = "ae81ff"
+let g:base16_gui0E = "ae81ff"
+let s:gui0F        = "cc6633"
+let g:base16_gui0F = "cc6633"
 
 " Terminal color definitions
 let s:cterm00        = "00"
@@ -99,22 +99,22 @@ endif
 
 " Neovim terminal colours
 if has("nvim")
-  let g:terminal_color_0 =  "#2b2b2b"
-  let g:terminal_color_1 =  "#da4939"
-  let g:terminal_color_2 =  "#a5c261"
-  let g:terminal_color_3 =  "#ffc66d"
-  let g:terminal_color_4 =  "#6d9cbe"
-  let g:terminal_color_5 =  "#b6b3eb"
-  let g:terminal_color_6 =  "#519f50"
-  let g:terminal_color_7 =  "#e6e1dc"
-  let g:terminal_color_8 =  "#5a647e"
-  let g:terminal_color_9 =  "#da4939"
-  let g:terminal_color_10 = "#a5c261"
-  let g:terminal_color_11 = "#ffc66d"
-  let g:terminal_color_12 = "#6d9cbe"
-  let g:terminal_color_13 = "#b6b3eb"
-  let g:terminal_color_14 = "#519f50"
-  let g:terminal_color_15 = "#f9f7f3"
+  let g:terminal_color_0 =  "#272822"
+  let g:terminal_color_1 =  "#f92672"
+  let g:terminal_color_2 =  "#a6e22e"
+  let g:terminal_color_3 =  "#f4bf75"
+  let g:terminal_color_4 =  "#66d9ef"
+  let g:terminal_color_5 =  "#ae81ff"
+  let g:terminal_color_6 =  "#a1efe4"
+  let g:terminal_color_7 =  "#f8f8f2"
+  let g:terminal_color_8 =  "#75715e"
+  let g:terminal_color_9 =  "#f92672"
+  let g:terminal_color_10 = "#a6e22e"
+  let g:terminal_color_11 = "#f4bf75"
+  let g:terminal_color_12 = "#66d9ef"
+  let g:terminal_color_13 = "#ae81ff"
+  let g:terminal_color_14 = "#a1efe4"
+  let g:terminal_color_15 = "#f9f8f5"
   let g:terminal_color_background = g:terminal_color_0
   let g:terminal_color_foreground = g:terminal_color_5
   if &background == "light"
@@ -123,29 +123,29 @@ if has("nvim")
   endif
 elseif has("terminal")
   let g:terminal_ansi_colors = [
-        \ "#2b2b2b",
-        \ "#da4939",
-        \ "#a5c261",
-        \ "#ffc66d",
-        \ "#6d9cbe",
-        \ "#b6b3eb",
-        \ "#519f50",
-        \ "#e6e1dc",
-        \ "#5a647e",
-        \ "#da4939",
-        \ "#a5c261",
-        \ "#ffc66d",
-        \ "#6d9cbe",
-        \ "#b6b3eb",
-        \ "#519f50",
-        \ "#f9f7f3",
+        \ "#272822",
+        \ "#f92672",
+        \ "#a6e22e",
+        \ "#f4bf75",
+        \ "#66d9ef",
+        \ "#ae81ff",
+        \ "#a1efe4",
+        \ "#f8f8f2",
+        \ "#75715e",
+        \ "#f92672",
+        \ "#a6e22e",
+        \ "#f4bf75",
+        \ "#66d9ef",
+        \ "#ae81ff",
+        \ "#a1efe4",
+        \ "#f9f8f5",
         \ ]
 endif
 
 " Theme setup
 hi clear
 syntax reset
-let g:colors_name = "base16-railscasts"
+let g:colors_name = "base16-monokai"
 
 " Highlighting function
 " Optional variables are attributes and guisp
@@ -179,7 +179,7 @@ fun <sid>hi(group, guifg, guibg, ctermfg, ctermbg, attr, guisp)
 endfun
 
 " Vim editor colors
-call <sid>hi("Normal",        s:gui05, s:gui00, s:cterm05, s:cterm00, "", "")
+call <sid>hi("Normal",        s:gui05, "", s:cterm05, "", "", "")
 call <sid>hi("Bold",          "", "", "", "", "bold", "")
 call <sid>hi("Debug",         s:gui08, "", s:cterm08, "", "", "")
 call <sid>hi("Directory",     s:gui0D, "", s:cterm0D, "", "", "")
@@ -208,11 +208,12 @@ call <sid>hi("Title",         s:gui0D, "", s:cterm0D, "", "none", "")
 call <sid>hi("Conceal",       s:gui0D, s:gui00, s:cterm0D, s:cterm00, "", "")
 call <sid>hi("Cursor",        s:gui00, s:gui05, s:cterm00, s:cterm05, "", "")
 call <sid>hi("NonText",       s:gui03, "", s:cterm03, "", "", "")
-call <sid>hi("LineNr",        s:gui03, s:gui01, s:cterm03, s:cterm01, "", "")
-call <sid>hi("SignColumn",    s:gui03, s:gui01, s:cterm03, s:cterm01, "", "")
-call <sid>hi("StatusLine",    s:gui04, s:gui02, s:cterm04, s:cterm02, "none", "")
+
+call <sid>hi("LineNr",        s:gui03, s:gui00, s:cterm03, s:cterm00, "", "")
+call <sid>hi("SignColumn",    s:gui03, s:gui00, s:cterm03, s:cterm00, "", "")
+call <sid>hi("StatusLine",    s:gui04, s:gui01, s:cterm04, s:cterm01, "none", "")
 call <sid>hi("StatusLineNC",  s:gui03, s:gui01, s:cterm03, s:cterm01, "none", "")
-call <sid>hi("VertSplit",     s:gui02, s:gui02, s:cterm02, s:cterm02, "none", "")
+call <sid>hi("VertSplit",     s:gui02, s:gui00, s:cterm02, s:cterm00, "none", "")
 call <sid>hi("ColorColumn",   "", s:gui01, "", s:cterm01, "none", "")
 call <sid>hi("CursorColumn",  "", s:gui01, "", s:cterm01, "none", "")
 call <sid>hi("CursorLine",    "", s:gui01, "", s:cterm01, "none", "")
@@ -220,9 +221,9 @@ call <sid>hi("CursorLineNr",  s:gui04, s:gui01, s:cterm04, s:cterm01, "", "")
 call <sid>hi("QuickFixLine",  "", s:gui01, "", s:cterm01, "none", "")
 call <sid>hi("PMenu",         s:gui05, s:gui01, s:cterm05, s:cterm01, "none", "")
 call <sid>hi("PMenuSel",      s:gui01, s:gui05, s:cterm01, s:cterm05, "", "")
-call <sid>hi("TabLine",       s:gui03, s:gui01, s:cterm03, s:cterm01, "none", "")
-call <sid>hi("TabLineFill",   s:gui03, s:gui01, s:cterm03, s:cterm01, "none", "")
-call <sid>hi("TabLineSel",    s:gui0B, s:gui01, s:cterm0B, s:cterm01, "none", "")
+call <sid>hi("TabLine",       s:gui03, s:gui00, s:cterm03, s:cterm00, "none", "")
+call <sid>hi("TabLineFill",   s:gui03, s:gui00, s:cterm03, s:cterm00, "none", "")
+call <sid>hi("TabLineSel",    s:gui05, s:gui01, s:cterm05, s:cterm01, "none", "")
 
 " Standard syntax highlighting
 call <sid>hi("Boolean",      s:gui09, "", s:cterm09, "", "", "")

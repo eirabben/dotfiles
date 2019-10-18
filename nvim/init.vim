@@ -1,10 +1,9 @@
 " UI options
 syntax on " Syntax highlighting
 set number " Alsays show line numbers
-set relativenumber " Relative line numbers
+" set relativenumber " Relative line numbers
 set scrolloff=5 " Padding betwewn cursor and top/bottom
 set cursorline " Highlight current line
-" set colorcolumn=80 " Highlight column length
 set splitbelow " New windows below current one
 set splitright " New windows to the right of current one
 set linebreak " Don't split words when breaking lines
@@ -12,10 +11,11 @@ set nobackup " Don't backup
 set nowritebackup
 
 " Status line
-set cmdheight=2 " Always show command line
+set cmdheight=1 " Always show command line
 set ruler " Show cursor position
+set noshowcmd " Don't show last command
 
-set signcolumn=yes
+set signcolumn=yes " Show sign column all the time, so it doesn't jump when signs are shown
 
 " Indentation
 set expandtab " Use spaces instead of tabs
@@ -46,9 +46,10 @@ nnoremap k gk
 nnoremap <silent> <leader>/ :nohlsearch<CR>
 
 " Colorscheme
+" set termguicolors
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 set background=dark
-colorscheme dracula
+colorscheme base16-monokai
 
 " Plugins
 call plug#begin()
@@ -56,6 +57,7 @@ call plug#begin()
 Plug 'scrooloose/nerdtree' " Sidebar and file browser
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " Fuzzy finder
 Plug 'junegunn/fzf.vim'
+Plug 'christoomey/vim-tmux-navigator' " Integrate pane switching with tmux
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " Intellisense
 
@@ -64,12 +66,13 @@ Plug 'tpope/vim-repeat' " Repeat plugin actions
 Plug 'tpope/vim-surround' " Surround things
 Plug 'jiangmiao/auto-pairs' " Automatic pair closing
 
-" Plug 'mattn/emmet-vim' " HTML and CSS expansion
+Plug 'mattn/emmet-vim' " HTML and CSS expansion
 Plug 'sheerun/vim-polyglot' " Syntax packages
 
 " Plug 'prettier/vim-prettier', {
 "   \ 'do': 'yarn install',
 "   \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
+
 
 call plug#end()
 
@@ -80,7 +83,7 @@ call plug#end()
 
 
 " Emmet
-" imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
+imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
 
 " NERDTree
 map <C-b> :NERDTreeToggle<CR>
@@ -110,7 +113,7 @@ autocmd FileType vue syntax sync fromstart
 let g:vue_disable_pre_processors=1
 
 " Coc Autocomplete
-inoremap <silent><expr> <Tab> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<Tab>"
+" inoremap <silent><expr> <Tab> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<Tab>"
 " hi Pmenu ctermfg=NONE ctermbg=NONE cterm=NONE guifg=NONE guibg=NONE gui=NONE
-hi PmenuSel ctermbg=234 cterm=NONE guifg=NONE guibg=#44475a gui=NONE
+" hi PmenuSel ctermbg=234 cterm=NONE guifg=NONE guibg=#44475a gui=NONE
 
