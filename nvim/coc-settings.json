@@ -1,11 +1,12 @@
 {
-  "css.validate": false,
-  "scss.validate": false,
+  "css.validate": true,
+  "eslint.filetypes": ["javascript", "typescript", "typescriptreact", "javascriptreact", "typescript.tsx"],
   "html.filetypes": [
     "html",
-    "html.twig",
-    "handlebars"
+    "html.twig"
   ],
-  "vetur.validation.style": false
+  "coc.preferences.formatOnSaveFiletypes": ["css", "scss", "vue", "javascript", "typescript", "typescriptreact", "json", "javascriptreact", "typescript.tsx"],
+  "scss.validate": true,
+  "vetur.validation.style": true
 }
 

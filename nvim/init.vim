@@ -69,18 +69,13 @@ Plug 'jiangmiao/auto-pairs' " Automatic pair closing
 Plug 'mattn/emmet-vim' " HTML and CSS expansion
 Plug 'sheerun/vim-polyglot' " Syntax packages
 
-" Plug 'prettier/vim-prettier', {
-"   \ 'do': 'yarn install',
-"   \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
-
+Plug 'honza/vim-snippets'
 
 call plug#end()
 
 
 " Prettier
-" let g:prettier#autoformat = 0
-" autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
-
+" command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 " Emmet
 imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
@@ -116,4 +111,17 @@ let g:vue_disable_pre_processors=1
 " inoremap <silent><expr> <Tab> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<Tab>"
 " hi Pmenu ctermfg=NONE ctermbg=NONE cterm=NONE guifg=NONE guibg=NONE gui=NONE
 " hi PmenuSel ctermbg=234 cterm=NONE guifg=NONE guibg=#44475a gui=NONE
+
+" inoremap <silent><expr> <TAB>
+"       \ pumvisible() ? coc#_select_confirm() :
+"       \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+"       \ <SID>check_back_space() ? "\<TAB>" :
+"       \ coc#refresh()
+"
+" function! s:check_back_space() abort
+"   let col = col('.') - 1
+"   return !col || getline('.')[col - 1]  =~# '\s'
+" endfunction
+"
+" let g:coc_snippet_next = '<tab>'
 
