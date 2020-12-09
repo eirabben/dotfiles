@@ -60,6 +60,7 @@ Plug 'sheerun/vim-polyglot' " Syntax packages
 Plug 'mattn/emmet-vim' " HTML and CSS expansion
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'honza/vim-snippets'
+Plug 'yggdroot/indentline'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
@@ -110,6 +111,8 @@ let g:lightline.tabline_separator = { 'left': " ", 'right': "" }
 let g:lightline.tabline_subseparator = { 'left': "/", 'right': "/" }
 let g:lightline.subseparator = { 'left': '\\', 'right': '\\' }
 
+" INdentLine
+let g:indentLine_char = '|'
 
 " CoC {{
 
