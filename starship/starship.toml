@@ -1,0 +1,21 @@
+[package]
+disabled = true
+
+[php]
+disabled = true
+
+[nodejs]
+disabled = true
+
+[directory]
+style = "cyan"
+
+[git_branch]
+style = "purple"
+
+[git_status]
+style = "red"
+
+[character]
+success_symbol = "[❯](green)"
+error_symbol = "[❯](red)"

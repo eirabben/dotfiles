@@ -8,15 +8,15 @@ function link_dotfile {
 }
 
 function link_dotfiles {
-    link_dotfile git/config .config/git/config
-
     link_dotfile fish/config.fish .config/fish/config.fish
-    link_dotfile fish/functions/fish_prompt.fish .config/fish/functions/fish_prompt.fish
+
+    link_dotfile git/config .config/git/config
 
     link_dotfile nvim/init.vim .config/nvim/init.vim
     link_dotfile nvim/colors .config/nvim/colors
     link_dotfile nvim/autoload .config/nvim/autoload
-    link_dotfile nvim/coc-settings.json .config/nvim/coc-settings.json
+
+    link_dotfile starship/starship.toml .config/starship.toml
 
     link_dotfile tmux/tmux.conf .tmux.conf
 }

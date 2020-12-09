@@ -1,7 +1,3 @@
-[user]
-  name = Eirik Igland
-  email = eirabben@gmail.com
-
 [alias]
   # 20 latest commits with pretty output
   l = log --pretty=oneline -n 20 --graph --abbrev-commit
@@ -9,50 +5,65 @@
   # View status using short format
   s = status
 
-  # Diff alias
-  d = diff
+  # Show the diff between the latest commit and the current state.
+	d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
 
-  # Pull repo and all submodules
-  p = !"git pull; git submodule foreach git pull origin master"
-
-  # Commit
-  c = commit
+  # Pull in remote changes for the current repository and all its submodules.
+  p = pull --recurse-submodules
 
   # Commit with message
   cm = commit -m
-  
+
   # Commit all changes
   ca = !git add -A && git commit -av
 
   # Go to branch, or create if necessary
   go = "!f() { git checkout -b \"$1\" 2> /dev/null || git checkout \"$1\"; }; f"
 
-  # Amend staged files to latest commit
-  amend = commit --amend
+  # Show verbose output about tags, branches or remotes
+	tags = tag -l
+	branches = branch --all
+	remotes = remote --verbose
 
-  # Add all files
-  aa = add -A
+  # Amend the currently staged files to the latest commit.
+	amend = commit --amend --reuse-message=HEAD
 
-  # Push to master
-  ps = push
+  # Interactive rebase with the given number of latest commits.
+	reb = "!r() { git rebase -i HEAD~$1; }; r"
 
-  # Push to other origin
-  po = push origin
+[apply]
+  whitespace = fix
 
-  # Push and make upstream
-  pu = push -u origin
-
-  m = merge --no-ff
+[branch]
+	# Show most recently changed branches first.
+	sort = -committerdate
 
 [core]
-	editor = nvim
+  editor = nvim
+
+  # Make `git rebase` safer on macOS.
+	# More info: <http://www.git-tower.com/blog/make-git-rebase-safe-on-osx/>
+	trustctime = false
+
+  # Prevent showing files whose names contain non-ASCII symbols as unversioned.
+	# http://michael-kuehnel.de/git/2014/11/21/git-mac-osx-and-german-umlaute.html
+	precomposeunicode = false
+
+	# Speed up commands involving untracked files such as `git status`.
+	# https://git-scm.com/docs/git-update-index#_untracked_cache
+	untrackedCache = true
 
 [push]
+  # https://git-scm.com/docs/git-config#git-config-pushdefault
 	default = simple
 
 [credential]
-	helper = osxkeychain
+  helper = osxkeychain
 
-#[merge]
-  #ff = only
+[init]
+	defaultBranch = main
+
+[user]
+  name = Eirik Igland
+  email = eirabben@gmail.com
 
