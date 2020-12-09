@@ -52,6 +52,7 @@ nnoremap <silent> <leader>h :split<CR>
 "=================================================
 
 call plug#begin()
+
 Plug 'tpope/vim-repeat' " Repeat plugin actions
 Plug 'tpope/vim-surround' " Surround things
 Plug 'tomtom/tcomment_vim' " Better commenting
@@ -74,9 +75,6 @@ Plug 'tpope/vim-fugitive'
 
 " File explorer
 " Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': ':UpdateRemotePlugins'}
-" Plug 'lambdalisue/fern.vim'
-
-" Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
