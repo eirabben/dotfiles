@@ -7,6 +7,9 @@ disabled = true
 [nodejs]
 disabled = true
 
+[python]
+disabled = true
+
 [directory]
 style = "cyan"
 
