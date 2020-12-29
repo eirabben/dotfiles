@@ -150,6 +150,6 @@ autocmd FileType html.twig let g:tcomment#filetype#map['html.twig'] = 'twig'
 " let g:tcomment#filetype#guess_blade=0
 
 " Scan syntax from start in vue files to avoid syntax highlighting errors
-" autocmd FileType vue syntax sync fromstart
-" let g:vue_disable_pre_processors=1
+autocmd FileType vue syntax sync fromstart
+let g:vue_disable_pre_processors=1
 
