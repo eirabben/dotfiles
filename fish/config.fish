@@ -2,8 +2,10 @@
 # Path
 #################################################
 
+set -g fish_user_paths "/Users/eirik/.composer/vendor/bin" $fish_user_paths
+
+# Old versions, may not be needed
 # set -g fish_user_paths "/Users/eirik/.composer/vendor/bin" "/usr/local/bin" "/usr/local/sbin" $fish_user_paths
-# set -g fish_user_paths "/usr/local/opt/mariadb@10.4/bin" $fish_user_paths
 
 #################################################
 # Customization
