@@ -9,6 +9,7 @@ function link_dotfile {
 
 function link_dotfiles {
     link_dotfile fish/config.fish .config/fish/config.fish
+    link_dotfile fish/tmuxinator.fish .config/fish/completions/tmuxinator.fish
 
     link_dotfile git/config .config/git/config
 

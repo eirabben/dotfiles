@@ -18,6 +18,7 @@ brew 'starship'
 brew 'tmux'
 brew 'tmuxinator'
 brew 'tree'
+brew 'wget'
 brew 'yarn'
 
 cask '1password'

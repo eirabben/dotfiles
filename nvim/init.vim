@@ -1,12 +1,12 @@
 "=================================================
-" Sensible defaults
+" Defaults 
 "=================================================
 
-" set hidden " Default is off
+set hidden " Default is off
 set number relativenumber " Enable line numbers
 set scrolloff=5 " Padding betwewn cursor and top/bottom
 set cursorline " Highlight current line
-set splitbelow " New windows below current one
+" set splitbelow " New windows below current one
 set splitright " New windows to the right of current one
 " set linebreak " Don't split words when breaking lines
 set cmdheight=2 " Always show command line
@@ -19,13 +19,12 @@ set smartcase " Override ignorecase if search term contains uppercase letters
 "=================================================
 " Indentation
 "=================================================
-set expandtab " Use spaces instead of tabs
+
 set tabstop=2 " Number of spaces that a tab counts for
 set softtabstop=2 " Number of spaces that a tab counts for when editing
 set shiftwidth=2 " Number of spaces to use for autoindent
-
-" autocmd FileType php setlocal shiftwidth=4 tabstop=4 softtabstop=4
-" autocmd FileType blade setlocal shiftwidth=2 tabstop=2 softtabstop=2
+set expandtab " Use spaces instead of tabs
+set smartindent
 
 "=================================================
 " Key mappings
@@ -43,9 +42,17 @@ nnoremap k gk
 
 " Clear search highlight
 nnoremap <silent> <leader>/ :nohlsearch<CR>
+
+" Faster tab and split navigation
 nnoremap <silent> <leader>t :tabedit<CR>
 nnoremap <silent> <leader>v :vsplit<CR>
 nnoremap <silent> <leader>h :split<CR>
+
+"=================================================
+" Commands
+"=================================================
+
+:command FormatJson %!jq " Requires jq
 
 "=================================================
 " Plugins
@@ -53,31 +60,36 @@ nnoremap <silent> <leader>h :split<CR>
 
 call plug#begin()
 
-Plug 'tpope/vim-repeat' " Repeat plugin actions
-Plug 'tpope/vim-surround' " Surround things
-Plug 'tomtom/tcomment_vim' " Better commenting
-Plug 'jiangmiao/auto-pairs' " Automatic pair closing
-Plug 'sheerun/vim-polyglot' " Syntax packages
-Plug 'mattn/emmet-vim' " HTML and CSS expansion
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'honza/vim-snippets'
-Plug 'yggdroot/indentline'
+" Plug 'tpope/vim-repeat' " Repeat plugin actions
+" Plug 'tpope/vim-surround' " Surround things
+" Plug 'tomtom/tcomment_vim' " Better commenting
+" Plug 'jiangmiao/auto-pairs' " Automatic pair closing
+" Plug 'sheerun/vim-polyglot' " Syntax packages
+" Plug 'mattn/emmet-vim' " HTML and CSS expansion
+" Plug 'christoomey/vim-tmux-navigator'
+" Plug 'honza/vim-snippets'
+" Plug 'yggdroot/indentline'
 
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+
 
 " Colors
 Plug 'embark-theme/vim', { 'as': 'embark' }
-Plug 'chriskempson/base16-vim'
+" Plug 'chriskempson/base16-vim'
+"
+" Plug 'itchyny/lightline.vim'
+"
+" Plug 'tpope/vim-fugitive'
+"
+" Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+" Plug 'junegunn/fzf.vim'
 
-Plug 'itchyny/lightline.vim'
 
-Plug 'tpope/vim-fugitive'
+" Experiments
+Plug 'terrortylor/nvim-comment'
+require('nvim_comment').setup()
 
-" File explorer
-" Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': ':UpdateRemotePlugins'}
-
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
 
 call plug#end()
 
@@ -100,56 +112,49 @@ colorscheme embark
 " nnoremap <c-b> <cmd>CHADopen<cr>
 
 " Lightline
-set noshowmode
-let g:lightline = {
-      \ 'colorscheme': 'embark',
-      \ }
-let g:lightline.separator = { 'left': " ", 'right': " " }
-let g:lightline.tabline_separator = { 'left': " ", 'right': "" }
-let g:lightline.tabline_subseparator = { 'left': "/", 'right': "/" }
-let g:lightline.subseparator = { 'left': '\\', 'right': '\\' }
+" set noshowmode
+" let g:lightline = {
+"       \ 'colorscheme': 'embark',
+"       \ }
+" let g:lightline.separator = { 'left': "", 'right': "" }
+" let g:lightline.tabline_separator = { 'left': "", 'right': "" }
+" let g:lightline.tabline_subseparator = { 'left': "/", 'right': "/" }
+" let g:lightline.subseparator = { 'left': '\\', 'right': '\\' }
 
 " INdentLine
-let g:indentLine_char = '|'
+" let g:indentLine_char = '|'
 
-" CoC {{
+" CoC
 
-:nmap <c-b> :CocCommand explorer<CR>
+" :nmap <c-b> :CocCommand explorer<CR>
 
 " use <tab> for trigger completion and navigate to the next complete item
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~ '\s'
-endfunction
-
-inoremap <silent><expr> <Tab>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<Tab>" :
-      \ coc#refresh()
-
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-" }}
+" function! s:check_back_space() abort
+"   let col = col('.') - 1
+"   return !col || getline('.')[col - 1]  =~ '\s'
+" endfunction
+"
+" inoremap <silent><expr> <Tab>
+"       \ pumvisible() ? "\<C-n>" :
+"       \ <SID>check_back_space() ? "\<Tab>" :
+"       \ coc#refresh()
+"
+" inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 
 " FZF {{
-nnoremap <c-p> :Files<cr>
-" nnoremap <silent> <C-p> :FZF -m<cr>
-nnoremap <silent> <C-t> :Ag <cr>
-" let g:fzf_action = {'ctrl-s': 'split', 'ctrl-v': 'vsplit'}
-" }}
+" nnoremap <c-p> :Files<cr>
+" nnoremap <silent> <C-t> :Ag <cr>
 
 " Twig
 " This is a fix for tcomment, which does not use twig style comments when
 " the file consists of mixed html and twig code
-autocmd FileType html.twig setlocal commentstring=\{#%s#\}
-autocmd FileType html.twig TComment
-autocmd FileType html.twig TComment
-autocmd FileType html.twig let g:tcomment#filetype#map['html.twig'] = 'twig'
-
-" Blade comments
-" let g:tcomment#filetype#guess_blade=0
+" autocmd FileType html.twig setlocal commentstring=\{#%s#\}
+" autocmd FileType html.twig TComment
+" autocmd FileType html.twig TComment
+" autocmd FileType html.twig let g:tcomment#filetype#map['html.twig'] = 'twig'
 
 " Scan syntax from start in vue files to avoid syntax highlighting errors
-autocmd FileType vue syntax sync fromstart
-let g:vue_disable_pre_processors=1
+" autocmd FileType vue syntax sync fromstart
+" let g:vue_disable_pre_processors=1
 
