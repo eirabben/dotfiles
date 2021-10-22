@@ -12,6 +12,9 @@ return require('packer').startup(function()
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
+  -- Tmux navigation integration
+  use 'christoomey/vim-tmux-navigator'
+
   -- LSP and autocomplete
   use 'neovim/nvim-lspconfig'
   use 'kabouzeid/nvim-lspinstall'
@@ -25,7 +28,25 @@ return require('packer').startup(function()
   use 'mattn/emmet-vim'
 
   -- File explorer
-  use 'kyazdani42/nvim-tree.lua'
+  use {
+    'kyazdani42/nvim-tree.lua',
+    requires = 'kyazdani42/nvim-web-devicons',
+    config = function()
+      local tree_cb = require'nvim-tree.config'.nvim_tree_callback
+      require'nvim-tree'.setup {
+        view = {
+          mappings = {
+            custom_only = false,
+            list = {
+              { key = { 'l', 'e' }, cb = tree_cb('edit') },
+              { key = 'h', cb = tree_cb('close_node') },
+              { key = 's', cb = tree_cb('vsplit') },
+            }
+          }
+        }
+      }
+    end
+  }
 
   -- Fuzzy finder
   use {
@@ -38,12 +59,22 @@ return require('packer').startup(function()
   use {
     'nvim-treesitter/nvim-treesitter',
     branch = '0.5-compat',
-    run = ':TSUpdate'
+    run = ':TSUpdate',
+    config = function()
+      require'nvim-treesitter.configs'.setup {
+        -- ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+        -- ignore_install = { "javascript" }, -- List of parsers to ignore installing
+        highlight = {
+          enable = true,              -- false will disable the whole extension
+          additional_vim_regex_highlighting = true,
+        },
+      }
+    end
   }
 
   -- Markdown syntax
-  use 'godlygeek/tabular'
-  use 'plasticboy/vim-markdown'
+  -- use 'godlygeek/tabular'
+  -- use 'plasticboy/vim-markdown'
 
   -- Auto pairs and surround
   use {
@@ -74,4 +105,5 @@ return require('packer').startup(function()
 
   -- Color schemes
   use { 'embark-theme/vim', as = 'embark' }
+  use "rafamadriz/neon"
 end)

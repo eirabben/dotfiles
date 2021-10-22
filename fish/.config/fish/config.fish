@@ -2,7 +2,7 @@
 # Path
 #################################################
 
-set -g fish_user_paths "/Users/eirik/.composer/vendor/bin" $fish_user_paths
+set -g fish_user_paths "/Users/eirik/.cargo/bin" "/Users/eirik/.composer/vendor/bin" $fish_user_paths
 
 # Old versions, may not be needed
 # set -g fish_user_paths "/Users/eirik/.composer/vendor/bin" "/usr/local/bin" "/usr/local/sbin" $fish_user_paths

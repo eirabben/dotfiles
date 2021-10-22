@@ -86,6 +86,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/eirik/.local/share/nvim/site/pack/packer/start/gitsigns.nvim"
   },
+  neon = {
+    loaded = true,
+    path = "/Users/eirik/.local/share/nvim/site/pack/packer/start/neon"
+  },
   ["nvim-autopairs"] = {
     config = { "\27LJ\2\n<\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\19nvim-autopairs\frequire\0" },
     loaded = true,
@@ -109,12 +113,18 @@ _G.packer_plugins = {
     path = "/Users/eirik/.local/share/nvim/site/pack/packer/start/nvim-lspinstall"
   },
   ["nvim-tree.lua"] = {
+    config = { "\27LJ\2\n»\2\0\0\v\0\20\0%6\0\0\0'\2\1\0B\0\2\0029\0\2\0006\1\0\0'\3\3\0B\1\2\0029\1\4\0015\3\18\0005\4\16\0005\5\5\0004\6\4\0005\a\a\0005\b\6\0=\b\b\a\18\b\0\0'\n\t\0B\b\2\2=\b\n\a>\a\1\0065\a\v\0\18\b\0\0'\n\f\0B\b\2\2=\b\n\a>\a\2\0065\a\r\0\18\b\0\0'\n\14\0B\b\2\2=\b\n\a>\a\3\6=\6\15\5=\5\17\4=\4\19\3B\1\2\1K\0\1\0\tview\1\0\0\rmappings\1\0\0\tlist\vvsplit\1\0\1\bkey\6s\15close_node\1\0\1\bkey\6h\acb\tedit\bkey\1\0\0\1\3\0\0\6l\6e\1\0\1\16custom_only\1\nsetup\14nvim-tree\23nvim_tree_callback\21nvim-tree.config\frequire\0" },
     loaded = true,
     path = "/Users/eirik/.local/share/nvim/site/pack/packer/start/nvim-tree.lua"
   },
   ["nvim-treesitter"] = {
+    config = { "\27LJ\2\nŒ\1\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\2B\0\2\1K\0\1\0\14highlight\1\0\0\1\0\2&additional_vim_regex_highlighting\2\venable\2\nsetup\28nvim-treesitter.configs\frequire\0" },
     loaded = true,
     path = "/Users/eirik/.local/share/nvim/site/pack/packer/start/nvim-treesitter"
+  },
+  ["nvim-web-devicons"] = {
+    loaded = true,
+    path = "/Users/eirik/.local/share/nvim/site/pack/packer/start/nvim-web-devicons"
   },
   ["packer.nvim"] = {
     loaded = true,
@@ -128,10 +138,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/eirik/.local/share/nvim/site/pack/packer/start/popup.nvim"
   },
-  tabular = {
-    loaded = true,
-    path = "/Users/eirik/.local/share/nvim/site/pack/packer/start/tabular"
-  },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/Users/eirik/.local/share/nvim/site/pack/packer/start/telescope.nvim"
@@ -140,13 +146,13 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/eirik/.local/share/nvim/site/pack/packer/start/vim-fugitive"
   },
-  ["vim-markdown"] = {
-    loaded = true,
-    path = "/Users/eirik/.local/share/nvim/site/pack/packer/start/vim-markdown"
-  },
   ["vim-surround"] = {
     loaded = true,
     path = "/Users/eirik/.local/share/nvim/site/pack/packer/start/vim-surround"
+  },
+  ["vim-tmux-navigator"] = {
+    loaded = true,
+    path = "/Users/eirik/.local/share/nvim/site/pack/packer/start/vim-tmux-navigator"
   },
   ["vim-vsnip"] = {
     loaded = true,
@@ -155,18 +161,26 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: nvim-treesitter
+time([[Config for nvim-treesitter]], true)
+try_loadstring("\27LJ\2\nŒ\1\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\2B\0\2\1K\0\1\0\14highlight\1\0\0\1\0\2&additional_vim_regex_highlighting\2\venable\2\nsetup\28nvim-treesitter.configs\frequire\0", "config", "nvim-treesitter")
+time([[Config for nvim-treesitter]], false)
 -- Config for: nvim-comment
 time([[Config for nvim-comment]], true)
 try_loadstring("\27LJ\2\n:\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\17nvim_comment\frequire\0", "config", "nvim-comment")
 time([[Config for nvim-comment]], false)
--- Config for: gitsigns.nvim
-time([[Config for gitsigns.nvim]], true)
-try_loadstring("\27LJ\2\n6\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\rgitsigns\frequire\0", "config", "gitsigns.nvim")
-time([[Config for gitsigns.nvim]], false)
+-- Config for: nvim-tree.lua
+time([[Config for nvim-tree.lua]], true)
+try_loadstring("\27LJ\2\n»\2\0\0\v\0\20\0%6\0\0\0'\2\1\0B\0\2\0029\0\2\0006\1\0\0'\3\3\0B\1\2\0029\1\4\0015\3\18\0005\4\16\0005\5\5\0004\6\4\0005\a\a\0005\b\6\0=\b\b\a\18\b\0\0'\n\t\0B\b\2\2=\b\n\a>\a\1\0065\a\v\0\18\b\0\0'\n\f\0B\b\2\2=\b\n\a>\a\2\0065\a\r\0\18\b\0\0'\n\14\0B\b\2\2=\b\n\a>\a\3\6=\6\15\5=\5\17\4=\4\19\3B\1\2\1K\0\1\0\tview\1\0\0\rmappings\1\0\0\tlist\vvsplit\1\0\1\bkey\6s\15close_node\1\0\1\bkey\6h\acb\tedit\bkey\1\0\0\1\3\0\0\6l\6e\1\0\1\16custom_only\1\nsetup\14nvim-tree\23nvim_tree_callback\21nvim-tree.config\frequire\0", "config", "nvim-tree.lua")
+time([[Config for nvim-tree.lua]], false)
 -- Config for: nvim-autopairs
 time([[Config for nvim-autopairs]], true)
 try_loadstring("\27LJ\2\n<\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\19nvim-autopairs\frequire\0", "config", "nvim-autopairs")
 time([[Config for nvim-autopairs]], false)
+-- Config for: gitsigns.nvim
+time([[Config for gitsigns.nvim]], true)
+try_loadstring("\27LJ\2\n6\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\rgitsigns\frequire\0", "config", "gitsigns.nvim")
+time([[Config for gitsigns.nvim]], false)
 if should_profile then save_profiles() end
 
 end)
