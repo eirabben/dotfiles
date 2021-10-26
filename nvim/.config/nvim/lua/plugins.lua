@@ -1,80 +1,59 @@
-local execute = vim.api.nvim_command
 local fn = vim.fn
-
 local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
-
 if fn.empty(fn.glob(install_path)) > 0 then
-  fn.system({'git', 'clone', 'https://github.com/wbthomason/packer.nvim', install_path})
-  execute 'packadd packer.nvim'
+  packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
 end
 
-return require('packer').startup(function()
+return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
   -- Tmux navigation integration
   use 'christoomey/vim-tmux-navigator'
 
-  -- LSP and autocomplete
-  use 'neovim/nvim-lspconfig'
-  use 'kabouzeid/nvim-lspinstall'
-  use 'hrsh7th/nvim-compe'
-  use 'hrsh7th/vim-vsnip'
+  -- LSP
+  use {
+    'neovim/nvim-lspconfig',
+    'williamboman/nvim-lsp-installer',
+  }
+
+  -- Autocomplete
+  use 'hrsh7th/cmp-nvim-lsp'
+  use 'hrsh7th/cmp-buffer'
+  use 'hrsh7th/cmp-path'
+  use 'hrsh7th/nvim-cmp'
 
   -- Snippets
+  use 'hrsh7th/cmp-vsnip'
+  use 'hrsh7th/vim-vsnip'
+  use 'hrsh7th/vim-vsnip-integ'
   use "rafamadriz/friendly-snippets"
-
-  -- HTML expansion
-  use 'mattn/emmet-vim'
 
   -- File explorer
   use {
     'kyazdani42/nvim-tree.lua',
     requires = 'kyazdani42/nvim-web-devicons',
-    config = function()
-      local tree_cb = require'nvim-tree.config'.nvim_tree_callback
-      require'nvim-tree'.setup {
-        view = {
-          mappings = {
-            custom_only = false,
-            list = {
-              { key = { 'l', 'e' }, cb = tree_cb('edit') },
-              { key = 'h', cb = tree_cb('close_node') },
-              { key = 's', cb = tree_cb('vsplit') },
-            }
-          }
-        }
-      }
-    end
+  }
+
+  -- Status line
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = {'kyazdani42/nvim-web-devicons', opt = true}
   }
 
   -- Fuzzy finder
+  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   use {
     'nvim-telescope/telescope.nvim',
     requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
   }
 
   -- Syntax highlighting
-  -- TODO: Find something for twig
   use {
     'nvim-treesitter/nvim-treesitter',
     branch = '0.5-compat',
     run = ':TSUpdate',
-    config = function()
-      require'nvim-treesitter.configs'.setup {
-        -- ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-        -- ignore_install = { "javascript" }, -- List of parsers to ignore installing
-        highlight = {
-          enable = true,              -- false will disable the whole extension
-          additional_vim_regex_highlighting = true,
-        },
-      }
-    end
   }
-
-  -- Markdown syntax
-  -- use 'godlygeek/tabular'
-  -- use 'plasticboy/vim-markdown'
 
   -- Auto pairs and surround
   use {
@@ -82,6 +61,7 @@ return require('packer').startup(function()
     config = function() require('nvim-autopairs').setup() end
   }
   use 'tpope/vim-surround'
+  use 'tpope/vim-repeat'
 
   -- Comments
   use {
@@ -105,5 +85,12 @@ return require('packer').startup(function()
 
   -- Color schemes
   use { 'embark-theme/vim', as = 'embark' }
-  use "rafamadriz/neon"
+  use 'sainnhe/sonokai'
+  use { 'rose-pine/neovim', as = 'rose-pine' }
+  use 'EdenEast/nightfox.nvim'
+  use 'shaunsingh/nord.nvim'
+
+  if packer_bootstrap then
+    require('packer').sync()
+  end
 end)

@@ -6,7 +6,7 @@ vim.g.mapleader = ' '
 vim.api.nvim_set_keymap('i', 'jk', '<ESC>', { noremap = true })
 
 -- Turn off hlsearch
-vim.api.nvim_set_keymap('n', '<Leader>/', ':set hlsearch!<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>/', ':nohls<CR>', { noremap = true, silent = true })
 
 -- Better window navigation
 vim.api.nvim_set_keymap('n', '<C-h>', '<C-w>h', { silent = true })
