@@ -8,12 +8,6 @@ vim.api.nvim_set_keymap('i', 'jk', '<ESC>', { noremap = true })
 -- Turn off hlsearch
 vim.api.nvim_set_keymap('n', '<Leader>/', ':nohls<CR>', { noremap = true, silent = true })
 
--- Better window navigation
-vim.api.nvim_set_keymap('n', '<C-h>', '<C-w>h', { silent = true })
-vim.api.nvim_set_keymap('n', '<C-j>', '<C-w>j', { silent = true })
-vim.api.nvim_set_keymap('n', '<C-k>', '<C-w>k', { silent = true })
-vim.api.nvim_set_keymap('n', '<C-l>', '<C-w>l', { silent = true })
-
 -- Open splits and tabs
 vim.api.nvim_set_keymap('n', '<Leader>t', ':tabedit<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Leader>v', ':vsplit<CR>', { noremap = true, silent = true })
@@ -31,3 +25,9 @@ vim.api.nvim_set_keymap('n', '<Leader>k', ':m .-2<CR>==', { noremap = true })
 -- Make J and K work on wrapped lines
 vim.api.nvim_set_keymap('n', 'j', 'gj', { noremap = true })
 vim.api.nvim_set_keymap('n', 'k', 'gk', { noremap = true })
+
+-- TODO: Resize panes with arrow keys?
+-- map("n", "<Left>", ":vertical resize +1<CR>", options)
+-- map("n", "<Right>", ":vertical resize -1<CR>", options)
+-- map("n", "<Up>", ":resize -1<CR>", options)
+-- map("n", "<Down>", ":resize +1<CR>", options)

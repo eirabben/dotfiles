@@ -9,7 +9,7 @@ return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
   -- Tmux navigation integration
-  use 'christoomey/vim-tmux-navigator'
+  use 'numToStr/Navigator.nvim'
 
   -- LSP
   use {
@@ -69,6 +69,7 @@ return require('packer').startup(function(use)
 
   -- Git fugitive
   use 'tpope/vim-fugitive'
+  -- TODO: Maybe use https://github.com/TimUntersberger/neogit
 
   -- Git decorations
   use {

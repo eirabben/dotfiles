@@ -7,12 +7,3 @@
 
 ## Window management
 - [ ] Test Amethyst
-
-## Terminal improvements
-- [ ] Replace iTerm with Alacritty?
-- [ ] ...or Integrate tmux with iTerm?
-
-## Neovim setup
-- [ ] Finish lua setup
-- [ ] Fix hlsearch shortcut so it doesn't turn off hlsearch forever
-- [ ] Configure markdown plugin

@@ -73,6 +73,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/eirik/.local/share/nvim/site/pack/packer/start/Comment.nvim"
   },
+  ["Navigator.nvim"] = {
+    loaded = true,
+    path = "/Users/eirik/.local/share/nvim/site/pack/packer/start/Navigator.nvim"
+  },
   ["cmp-buffer"] = {
     loaded = true,
     path = "/Users/eirik/.local/share/nvim/site/pack/packer/start/cmp-buffer"
@@ -180,10 +184,6 @@ _G.packer_plugins = {
   ["vim-surround"] = {
     loaded = true,
     path = "/Users/eirik/.local/share/nvim/site/pack/packer/start/vim-surround"
-  },
-  ["vim-tmux-navigator"] = {
-    loaded = true,
-    path = "/Users/eirik/.local/share/nvim/site/pack/packer/start/vim-tmux-navigator"
   },
   ["vim-vsnip"] = {
     loaded = true,
