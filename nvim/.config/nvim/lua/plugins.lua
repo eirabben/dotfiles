@@ -58,15 +58,13 @@ return require('packer').startup(function(use)
   -- Auto pairs and surround
   use {
     'windwp/nvim-autopairs',
-    config = function() require('nvim-autopairs').setup() end
   }
   use 'tpope/vim-surround'
   use 'tpope/vim-repeat'
 
   -- Comments
   use {
-    'terrortylor/nvim-comment',
-    config = function() require('nvim_comment').setup() end
+    'numToStr/Comment.nvim',
   }
 
   -- Git fugitive
@@ -78,9 +76,6 @@ return require('packer').startup(function(use)
     requires = {
       'nvim-lua/plenary.nvim'
     },
-    config = function()
-      require('gitsigns').setup()
-    end
   }
 
   -- Color schemes
