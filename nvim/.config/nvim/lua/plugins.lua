@@ -67,6 +67,12 @@ return require('packer').startup(function(use)
     'numToStr/Comment.nvim',
   }
 
+  -- Todo comments
+  use {
+    "folke/todo-comments.nvim",
+    requires = "nvim-lua/plenary.nvim",
+  }
+
   -- Git fugitive
   use 'tpope/vim-fugitive'
   -- TODO: Maybe use https://github.com/TimUntersberger/neogit
