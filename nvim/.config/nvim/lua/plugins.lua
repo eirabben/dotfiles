@@ -18,16 +18,13 @@ return require('packer').startup(function(use)
   }
 
   -- Autocomplete
+  use "rafamadriz/friendly-snippets"
   use 'hrsh7th/cmp-nvim-lsp'
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/cmp-path'
-  use 'hrsh7th/nvim-cmp'
-
-  -- Snippets
   use 'hrsh7th/cmp-vsnip'
   use 'hrsh7th/vim-vsnip'
-  use 'hrsh7th/vim-vsnip-integ'
-  use "rafamadriz/friendly-snippets"
+  use 'hrsh7th/nvim-cmp'
 
   -- File explorer
   use {
@@ -66,31 +63,27 @@ return require('packer').startup(function(use)
   use {
     'numToStr/Comment.nvim',
   }
-
-  -- Todo comments
   use {
     "folke/todo-comments.nvim",
     requires = "nvim-lua/plenary.nvim",
   }
 
-  -- Git fugitive
-  use 'tpope/vim-fugitive'
-  -- TODO: Maybe use https://github.com/TimUntersberger/neogit
-
-  -- Git decorations
+  -- Git integration
+  use {
+    'TimUntersberger/neogit',
+    requires = 'nvim-lua/plenary.nvim'
+  }
   use {
     'lewis6991/gitsigns.nvim',
-    requires = {
-      'nvim-lua/plenary.nvim'
-    },
+    requires = 'nvim-lua/plenary.nvim'
   }
 
   -- Color schemes
-  use { 'embark-theme/vim', as = 'embark' }
-  use 'sainnhe/sonokai'
+  -- use { 'embark-theme/vim', as = 'embark' }
+  -- use 'sainnhe/sonokai'
   use { 'rose-pine/neovim', as = 'rose-pine' }
-  use 'EdenEast/nightfox.nvim'
-  use 'shaunsingh/nord.nvim'
+  -- use 'EdenEast/nightfox.nvim'
+  -- use 'shaunsingh/nord.nvim'
 
   if packer_bootstrap then
     require('packer').sync()

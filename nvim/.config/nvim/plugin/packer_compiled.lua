@@ -93,10 +93,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/eirik/.local/share/nvim/site/pack/packer/start/cmp-vsnip"
   },
-  embark = {
-    loaded = true,
-    path = "/Users/eirik/.local/share/nvim/site/pack/packer/start/embark"
-  },
   ["friendly-snippets"] = {
     loaded = true,
     path = "/Users/eirik/.local/share/nvim/site/pack/packer/start/friendly-snippets"
@@ -109,13 +105,9 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/eirik/.local/share/nvim/site/pack/packer/start/lualine.nvim"
   },
-  ["nightfox.nvim"] = {
+  neogit = {
     loaded = true,
-    path = "/Users/eirik/.local/share/nvim/site/pack/packer/start/nightfox.nvim"
-  },
-  ["nord.nvim"] = {
-    loaded = true,
-    path = "/Users/eirik/.local/share/nvim/site/pack/packer/start/nord.nvim"
+    path = "/Users/eirik/.local/share/nvim/site/pack/packer/start/neogit"
   },
   ["nvim-autopairs"] = {
     loaded = true,
@@ -161,10 +153,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/eirik/.local/share/nvim/site/pack/packer/start/rose-pine"
   },
-  sonokai = {
-    loaded = true,
-    path = "/Users/eirik/.local/share/nvim/site/pack/packer/start/sonokai"
-  },
   ["telescope-fzf-native.nvim"] = {
     loaded = true,
     path = "/Users/eirik/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim"
@@ -177,10 +165,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/eirik/.local/share/nvim/site/pack/packer/start/todo-comments.nvim"
   },
-  ["vim-fugitive"] = {
-    loaded = true,
-    path = "/Users/eirik/.local/share/nvim/site/pack/packer/start/vim-fugitive"
-  },
   ["vim-repeat"] = {
     loaded = true,
     path = "/Users/eirik/.local/share/nvim/site/pack/packer/start/vim-repeat"
@@ -192,10 +176,6 @@ _G.packer_plugins = {
   ["vim-vsnip"] = {
     loaded = true,
     path = "/Users/eirik/.local/share/nvim/site/pack/packer/start/vim-vsnip"
-  },
-  ["vim-vsnip-integ"] = {
-    loaded = true,
-    path = "/Users/eirik/.local/share/nvim/site/pack/packer/start/vim-vsnip-integ"
   }
 }
 
