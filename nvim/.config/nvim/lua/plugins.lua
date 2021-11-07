@@ -18,13 +18,16 @@ return require('packer').startup(function(use)
   }
 
   -- Autocomplete
-  use "rafamadriz/friendly-snippets"
+  use 'rafamadriz/friendly-snippets'
   use 'hrsh7th/cmp-nvim-lsp'
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/cmp-path'
-  use 'hrsh7th/cmp-vsnip'
-  use 'hrsh7th/vim-vsnip'
   use 'hrsh7th/nvim-cmp'
+  use 'L3MON4D3/LuaSnip'
+  use 'saadparwaiz1/cmp_luasnip'
+
+  -- Emmet
+  use 'mattn/emmet-vim'
 
   -- File explorer
   use {
@@ -53,9 +56,7 @@ return require('packer').startup(function(use)
   }
 
   -- Auto pairs and surround
-  use {
-    'windwp/nvim-autopairs',
-  }
+  use 'windwp/nvim-autopairs'
   use 'tpope/vim-surround'
   use 'tpope/vim-repeat'
 
@@ -67,6 +68,9 @@ return require('packer').startup(function(use)
     "folke/todo-comments.nvim",
     requires = "nvim-lua/plenary.nvim",
   }
+
+  -- Markdown
+  use 'dkarter/bullets.vim'
 
   -- Git integration
   use {
