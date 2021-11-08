@@ -22,9 +22,12 @@ return require('packer').startup(function(use)
   use 'hrsh7th/cmp-nvim-lsp'
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/cmp-path'
+  use 'hrsh7th/cmp-cmdline'
   use 'hrsh7th/nvim-cmp'
   use 'L3MON4D3/LuaSnip'
   use 'saadparwaiz1/cmp_luasnip'
+
+  use 'onsails/lspkind-nvim'
 
   -- Emmet
   use 'mattn/emmet-vim'
@@ -73,6 +76,7 @@ return require('packer').startup(function(use)
   use 'dkarter/bullets.vim'
 
   -- Git integration
+  use 'tpope/vim-fugitive'
   use {
     'TimUntersberger/neogit',
     requires = 'nvim-lua/plenary.nvim'
@@ -81,6 +85,8 @@ return require('packer').startup(function(use)
     'lewis6991/gitsigns.nvim',
     requires = 'nvim-lua/plenary.nvim'
   }
+
+  -- TODO: Try https://github.com/andymass/vim-matchup
 
   -- Color schemes
   -- use { 'embark-theme/vim', as = 'embark' }

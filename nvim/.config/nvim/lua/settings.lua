@@ -1,6 +1,7 @@
 local options = {
   backup = false, -- Creates a backup file
   cmdheight = 2, -- More space for messages in cmd line
+  completeopt = 'menu,menuone,noselect',
   conceallevel = 0, -- EXPERIMENTAL So `` is visible in markdown
   cursorline = true, -- Highlight current line
   expandtab = true, -- Use spaces instead of tabs
