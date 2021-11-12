@@ -57,6 +57,7 @@ return require('packer').startup(function(use)
     branch = '0.5-compat',
     run = ':TSUpdate',
   }
+  use 'nvim-treesitter/playground'
 
   -- Auto pairs and surround
   use 'windwp/nvim-autopairs'
