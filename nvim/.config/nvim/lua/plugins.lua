@@ -29,6 +29,9 @@ return require('packer').startup(function(use)
 
   use 'onsails/lspkind-nvim'
 
+  -- Formatting
+  use 'mhartington/formatter.nvim'
+
   -- Emmet
   use 'mattn/emmet-vim'
 
@@ -86,6 +89,9 @@ return require('packer').startup(function(use)
     'lewis6991/gitsigns.nvim',
     requires = 'nvim-lua/plenary.nvim'
   }
+
+  -- Color highlights
+  use 'norcalli/nvim-colorizer.lua'
 
   -- TODO: Try https://github.com/andymass/vim-matchup
 
