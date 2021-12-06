@@ -6,6 +6,9 @@ font:
   normal:
     family: FiraCode Nerd Font Mono
   size: 15.0
+  offset:
+    x: 0
+    y: 3
 
 import:
   - ~/.config/alacritty/themes/rose-pine.yml

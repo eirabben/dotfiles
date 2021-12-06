@@ -8,17 +8,19 @@ return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
+  -- Common utilities
+  use 'nvim-lua/plenary.nvim'
+  use 'kyazdani42/nvim-web-devicons'
+
   -- Tmux navigation integration
   use 'numToStr/Navigator.nvim'
 
   -- LSP
-  use {
-    'neovim/nvim-lspconfig',
-    'williamboman/nvim-lsp-installer',
-  }
+  use 'neovim/nvim-lspconfig'
+  use 'williamboman/nvim-lsp-installer'
+  use 'onsails/lspkind-nvim'
 
-  -- Autocomplete
-  use 'rafamadriz/friendly-snippets'
+  -- Autocomplete and snippets
   use 'hrsh7th/cmp-nvim-lsp'
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/cmp-path'
@@ -26,83 +28,61 @@ return require('packer').startup(function(use)
   use 'hrsh7th/nvim-cmp'
   use 'L3MON4D3/LuaSnip'
   use 'saadparwaiz1/cmp_luasnip'
-
-  use 'onsails/lspkind-nvim'
-
-  -- Formatting
-  use 'mhartington/formatter.nvim'
-
-  -- Emmet
-  use 'mattn/emmet-vim'
-
-  -- File explorer
-  use {
-    'kyazdani42/nvim-tree.lua',
-    requires = 'kyazdani42/nvim-web-devicons',
-  }
-
-  -- Status line
-  use {
-    'nvim-lualine/lualine.nvim',
-    requires = {'kyazdani42/nvim-web-devicons', opt = true}
-  }
-
-  -- Fuzzy finder
-  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
-  use {
-    'nvim-telescope/telescope.nvim',
-    requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
-  }
+  use 'rafamadriz/friendly-snippets'
 
   -- Syntax highlighting
   use {
     'nvim-treesitter/nvim-treesitter',
-    branch = '0.5-compat',
-    run = ':TSUpdate',
+    run = ':TSUpdate'
   }
-  use 'nvim-treesitter/playground'
+  use 'JoosepAlviste/nvim-ts-context-commentstring'
+
+  -- Tree, tabline, statusline
+  -- TODO: Find a tabline
+  use 'kyazdani42/nvim-tree.lua'
+  use 'nvim-lualine/lualine.nvim'
+
+  -- Fuzzy finding
+  use 'nvim-telescope/telescope.nvim'
+  use 'nvim-telescope/telescope-fzy-native.nvim'
+
+  -- Comments
+  use 'numToStr/Comment.nvim'
+  use 'folke/todo-comments.nvim'
+
+  -- Git
+  use 'lewis6991/gitsigns.nvim'
+  use 'TimUntersberger/neogit'
 
   -- Auto pairs and surround
   use 'windwp/nvim-autopairs'
-  use 'tpope/vim-surround'
-  use 'tpope/vim-repeat'
+  use 'blackCauldron7/surround.nvim'
 
-  -- Comments
-  use {
-    'numToStr/Comment.nvim',
-  }
-  use {
-    "folke/todo-comments.nvim",
-    requires = "nvim-lua/plenary.nvim",
-  }
-
-  -- Markdown
-  use 'dkarter/bullets.vim'
-
-  -- Git integration
-  use 'tpope/vim-fugitive'
-  use {
-    'TimUntersberger/neogit',
-    requires = 'nvim-lua/plenary.nvim'
-  }
-  use {
-    'lewis6991/gitsigns.nvim',
-    requires = 'nvim-lua/plenary.nvim'
-  }
-
-  -- Color highlights
-  use 'norcalli/nvim-colorizer.lua'
-
-  -- TODO: Try https://github.com/andymass/vim-matchup
-
-  -- Color schemes
+  -- Colorschemes
   -- use { 'embark-theme/vim', as = 'embark' }
   -- use 'sainnhe/sonokai'
   use { 'rose-pine/neovim', as = 'rose-pine' }
   -- use 'EdenEast/nightfox.nvim'
   -- use 'shaunsingh/nord.nvim'
 
+  -- Automatically set up your configuration after cloning packer.nvim
+  -- Put this at the end after all plugins
   if packer_bootstrap then
     require('packer').sync()
   end
 end)
+
+  -- use 'mhartington/formatter.nvim'
+
+  -- Markdown
+  -- use 'dkarter/bullets.vim'
+
+  -- Git integration
+  -- use 'tpope/vim-fugitive'
+
+  -- Color highlights
+  -- use 'norcalli/nvim-colorizer.lua'
+
+  -- TODO: Try https://github.com/andymass/vim-matchup
+
+
