@@ -21,6 +21,8 @@ set -Ux EDITOR nvim
 #################################################
 
 alias vim "nvim"
+alias lg "lazygit"
+
 alias c "clear"
 
 alias dot "cd ~/.dotfiles"
