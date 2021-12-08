@@ -23,6 +23,7 @@ local options = {
   -- Misc
   swapfile = false,
   updatetime = 300,
+  completeopt= 'menu,menuone,noselect',
 }
 
 for k, v in pairs(options) do

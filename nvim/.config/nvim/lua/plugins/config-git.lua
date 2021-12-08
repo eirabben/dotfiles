@@ -7,3 +7,7 @@ require('neogit').setup({
   },
   kind = "split_above",
 })
+
+vim.api.nvim_set_keymap('n', '<Leader>ng', ':Neogit<CR>', { noremap = true, silent = true })
+
+require('diffview').setup()

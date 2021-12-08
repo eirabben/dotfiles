@@ -30,6 +30,9 @@ return require('packer').startup(function(use)
   use 'saadparwaiz1/cmp_luasnip'
   use 'rafamadriz/friendly-snippets'
 
+  -- Formatting
+  use 'mhartington/formatter.nvim'
+
   -- Syntax highlighting
   use {
     'nvim-treesitter/nvim-treesitter',
@@ -53,10 +56,14 @@ return require('packer').startup(function(use)
   -- Git
   use 'lewis6991/gitsigns.nvim'
   use 'TimUntersberger/neogit'
+  use 'sindrets/diffview.nvim'
 
   -- Auto pairs and surround
   use 'windwp/nvim-autopairs'
   use 'blackCauldron7/surround.nvim'
+
+  -- Terminal
+  use 'akinsho/toggleterm.nvim'
 
   -- Colorschemes
   -- use { 'embark-theme/vim', as = 'embark' }
@@ -72,7 +79,6 @@ return require('packer').startup(function(use)
   end
 end)
 
-  -- use 'mhartington/formatter.nvim'
 
   -- Markdown
   -- use 'dkarter/bullets.vim'
