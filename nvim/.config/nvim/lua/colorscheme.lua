@@ -9,8 +9,8 @@
 -- vim.cmd('colorscheme sonokai')
 
 -- Rose Pine
-vim.g.rose_pine_variant = 'base'
-vim.cmd('colorscheme rose-pine')
+vim.g.rose_pine_variant = "base"
+vim.cmd("colorscheme rose-pine")
 
 -- Nightfox
 -- vim.cmd('colorscheme nightfox') -- Can also be nordfox, palefox
