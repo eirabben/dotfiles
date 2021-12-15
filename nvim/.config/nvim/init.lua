@@ -15,6 +15,5 @@ require('plugins/config-tabline')
 require('plugins/config-statusline')
 require('plugins/config-surround')
 require('plugins/config-todo')
-require('plugins/config-formatting')
+-- require('plugins/config-formatting')
 require('plugins/config-terminal')
-

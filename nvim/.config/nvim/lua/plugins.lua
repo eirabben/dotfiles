@@ -28,10 +28,12 @@ return require('packer').startup(function(use)
   use 'hrsh7th/nvim-cmp'
   use 'L3MON4D3/LuaSnip'
   use 'saadparwaiz1/cmp_luasnip'
+  use 'pedro757/emmet'
   use 'rafamadriz/friendly-snippets'
+  use 'mattn/emmet-vim'
 
   -- Formatting
-  use 'mhartington/formatter.nvim'
+  -- use 'mhartington/formatter.nvim'
 
   -- Syntax highlighting
   use {

@@ -114,10 +114,15 @@ _G.packer_plugins = {
     path = "/Users/eirik/.local/share/nvim/site/pack/packer/start/diffview.nvim",
     url = "https://github.com/sindrets/diffview.nvim"
   },
-  ["formatter.nvim"] = {
+  emmet = {
     loaded = true,
-    path = "/Users/eirik/.local/share/nvim/site/pack/packer/start/formatter.nvim",
-    url = "https://github.com/mhartington/formatter.nvim"
+    path = "/Users/eirik/.local/share/nvim/site/pack/packer/start/emmet",
+    url = "https://github.com/pedro757/emmet"
+  },
+  ["emmet-vim"] = {
+    loaded = true,
+    path = "/Users/eirik/.local/share/nvim/site/pack/packer/start/emmet-vim",
+    url = "https://github.com/mattn/emmet-vim"
   },
   ["friendly-snippets"] = {
     loaded = true,
