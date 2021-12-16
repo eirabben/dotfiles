@@ -114,11 +114,6 @@ _G.packer_plugins = {
     path = "/Users/eirik/.local/share/nvim/site/pack/packer/start/diffview.nvim",
     url = "https://github.com/sindrets/diffview.nvim"
   },
-  emmet = {
-    loaded = true,
-    path = "/Users/eirik/.local/share/nvim/site/pack/packer/start/emmet",
-    url = "https://github.com/pedro757/emmet"
-  },
   ["emmet-vim"] = {
     loaded = true,
     path = "/Users/eirik/.local/share/nvim/site/pack/packer/start/emmet-vim",
@@ -148,6 +143,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/eirik/.local/share/nvim/site/pack/packer/start/neogit",
     url = "https://github.com/TimUntersberger/neogit"
+  },
+  ["nightfox.nvim"] = {
+    loaded = true,
+    path = "/Users/eirik/.local/share/nvim/site/pack/packer/start/nightfox.nvim",
+    url = "https://github.com/EdenEast/nightfox.nvim"
   },
   ["null-ls.nvim"] = {
     loaded = true,
@@ -204,10 +204,20 @@ _G.packer_plugins = {
     path = "/Users/eirik/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
+  ["popup.nvim"] = {
+    loaded = true,
+    path = "/Users/eirik/.local/share/nvim/site/pack/packer/start/popup.nvim",
+    url = "https://github.com/nvim-lua/popup.nvim"
+  },
   ["rose-pine"] = {
     loaded = true,
     path = "/Users/eirik/.local/share/nvim/site/pack/packer/start/rose-pine",
     url = "https://github.com/rose-pine/neovim"
+  },
+  sonokai = {
+    loaded = true,
+    path = "/Users/eirik/.local/share/nvim/site/pack/packer/start/sonokai",
+    url = "https://github.com/sainnhe/sonokai"
   },
   ["surround.nvim"] = {
     loaded = true,

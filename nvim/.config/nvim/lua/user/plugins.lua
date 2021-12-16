@@ -1,4 +1,5 @@
 local fn = vim.fn
+
 local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 if fn.empty(fn.glob(install_path)) > 0 then
 	packer_bootstrap = fn.system({
@@ -11,12 +12,26 @@ if fn.empty(fn.glob(install_path)) > 0 then
 	})
 end
 
-return require("packer").startup(function(use)
+local status_ok, packer = pcall(require, "packer")
+if not status_ok then
+	return
+end
+
+packer.init({
+	display = {
+		open_fn = function()
+			return require("packer.util").float({ border = "rounded" })
+		end,
+	},
+})
+
+return packer.startup(function(use)
 	-- Packer can manage itself
 	use("wbthomason/packer.nvim")
 
 	-- Common utilities
 	use("nvim-lua/plenary.nvim")
+	use("nvim-lua/popup.nvim")
 	use("kyazdani42/nvim-web-devicons")
 
 	-- Tmux navigation integration
@@ -36,12 +51,8 @@ return require("packer").startup(function(use)
 	use("hrsh7th/nvim-cmp")
 	use("L3MON4D3/LuaSnip")
 	use("saadparwaiz1/cmp_luasnip")
-	use("pedro757/emmet")
 	use("rafamadriz/friendly-snippets")
 	use("mattn/emmet-vim")
-
-	-- Formatting
-	-- use 'mhartington/formatter.nvim'
 
 	-- Syntax highlighting
 	use({
@@ -77,9 +88,9 @@ return require("packer").startup(function(use)
 
 	-- Colorschemes
 	-- use { 'embark-theme/vim', as = 'embark' }
-	-- use 'sainnhe/sonokai'
+	use("sainnhe/sonokai")
 	use({ "rose-pine/neovim", as = "rose-pine" })
-	-- use 'EdenEast/nightfox.nvim'
+	use("EdenEast/nightfox.nvim")
 	-- use 'shaunsingh/nord.nvim'
 
 	-- Automatically set up your configuration after cloning packer.nvim
@@ -88,14 +99,3 @@ return require("packer").startup(function(use)
 		require("packer").sync()
 	end
 end)
-
--- Markdown
--- use 'dkarter/bullets.vim'
-
--- Git integration
--- use 'tpope/vim-fugitive'
-
--- Color highlights
--- use 'norcalli/nvim-colorizer.lua'
-
--- TODO: Try https://github.com/andymass/vim-matchup

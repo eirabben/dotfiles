@@ -8,6 +8,8 @@ local options = {
 	splitbelow = false,
 	splitright = true,
 	scrolloff = 5,
+	pumheight = 10,
+	showtabline = 2,
 
 	-- Indentation
 	expandtab = true,
@@ -21,6 +23,7 @@ local options = {
 	smartcase = true,
 
 	-- Misc
+	fileencoding = "utf-8",
 	swapfile = false,
 	updatetime = 300,
 	completeopt = "menu,menuone,noselect",
