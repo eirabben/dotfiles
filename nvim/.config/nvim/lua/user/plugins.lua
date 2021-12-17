@@ -68,6 +68,10 @@ return packer.startup(function(use)
 	})
 	use("JoosepAlviste/nvim-ts-context-commentstring")
 
+	-- Autopairs and surround
+	use("windwp/nvim-autopairs")
+	use("blackCauldron7/surround.nvim")
+
 	-- Tree, tabline, statusline
 	-- TODO: Find a tabline
 	use("kyazdani42/nvim-tree.lua")
@@ -81,10 +85,6 @@ return packer.startup(function(use)
 	use("lewis6991/gitsigns.nvim")
 	use("TimUntersberger/neogit")
 	use("sindrets/diffview.nvim")
-
-	-- Auto pairs and surround
-	use("windwp/nvim-autopairs")
-	use("blackCauldron7/surround.nvim")
 
 	-- Terminal
 	use("akinsho/toggleterm.nvim")
