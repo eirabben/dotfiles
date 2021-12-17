@@ -68,6 +68,10 @@ return packer.startup(function(use)
 	})
 	use("JoosepAlviste/nvim-ts-context-commentstring")
 
+	-- Comments
+	use("numToStr/Comment.nvim")
+	use("folke/todo-comments.nvim")
+
 	-- Autopairs and surround
 	use("windwp/nvim-autopairs")
 	use("blackCauldron7/surround.nvim")
@@ -76,10 +80,6 @@ return packer.startup(function(use)
 	-- TODO: Find a tabline
 	use("kyazdani42/nvim-tree.lua")
 	use("nvim-lualine/lualine.nvim")
-
-	-- Comments
-	use("numToStr/Comment.nvim")
-	use("folke/todo-comments.nvim")
 
 	-- Git
 	use("lewis6991/gitsigns.nvim")
