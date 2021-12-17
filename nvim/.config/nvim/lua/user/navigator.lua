@@ -1,4 +1,9 @@
-require("Navigator").setup()
+local status_ok, navigator = pcall(require, "navigator")
+if not status_ok then
+	return
+end
+
+navigator.setup()
 
 -- Keybindings
 local map = vim.api.nvim_set_keymap

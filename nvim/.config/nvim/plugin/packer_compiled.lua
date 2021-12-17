@@ -238,6 +238,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/eirik/.local/share/nvim/site/pack/packer/start/toggleterm.nvim",
     url = "https://github.com/akinsho/toggleterm.nvim"
+  },
+  ["which-key.nvim"] = {
+    loaded = true,
+    path = "/Users/eirik/.local/share/nvim/site/pack/packer/start/which-key.nvim",
+    url = "https://github.com/folke/which-key.nvim"
   }
 }
 

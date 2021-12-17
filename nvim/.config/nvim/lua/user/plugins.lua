@@ -34,8 +34,7 @@ return packer.startup(function(use)
 	use("nvim-lua/popup.nvim")
 	use("kyazdani42/nvim-web-devicons")
 	use("lewis6991/impatient.nvim")
-
-	-- Tmux navigation integration
+	use("folke/which-key.nvim")
 	use("numToStr/Navigator.nvim")
 
 	-- Completion
