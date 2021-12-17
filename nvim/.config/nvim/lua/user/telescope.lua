@@ -11,6 +11,7 @@ telescope.setup({
 		selection_caret = " ",
 		path_display = { "smart" },
 
+		-- TODO: Check if these are default, and can be removed
 		mappings = {
 			i = {
 				["<C-n>"] = actions.cycle_history_next,
