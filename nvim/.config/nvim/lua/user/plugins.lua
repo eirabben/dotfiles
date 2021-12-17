@@ -68,6 +68,9 @@ return packer.startup(function(use)
 	})
 	use("JoosepAlviste/nvim-ts-context-commentstring")
 
+	-- NvimTree
+	use("kyazdani42/nvim-tree.lua")
+
 	-- Comments
 	use("numToStr/Comment.nvim")
 	use("folke/todo-comments.nvim")
@@ -79,9 +82,8 @@ return packer.startup(function(use)
 	-- Git
 	use("lewis6991/gitsigns.nvim")
 
-	-- Tree, tabline, statusline
 	-- TODO: Find a tabline
-	use("kyazdani42/nvim-tree.lua")
+	-- Lualine
 	use("nvim-lualine/lualine.nvim")
 
 	-- Terminal
