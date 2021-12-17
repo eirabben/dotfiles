@@ -37,24 +37,31 @@ return packer.startup(function(use)
 	-- Tmux navigation integration
 	use("numToStr/Navigator.nvim")
 
-	-- LSP
-	use("neovim/nvim-lspconfig")
-	use("williamboman/nvim-lsp-installer")
-	use("onsails/lspkind-nvim")
-	use("jose-elias-alvarez/null-ls.nvim")
-
-	-- Autocomplete and snippets
-	use("hrsh7th/cmp-nvim-lsp")
+	-- Completion
+	use("hrsh7th/nvim-cmp")
 	use("hrsh7th/cmp-buffer")
 	use("hrsh7th/cmp-path")
 	use("hrsh7th/cmp-cmdline")
-	use("hrsh7th/nvim-cmp")
-	use("L3MON4D3/LuaSnip")
 	use("saadparwaiz1/cmp_luasnip")
+	use("hrsh7th/cmp-nvim-lsp")
+
+	-- Snippets
+	use("L3MON4D3/LuaSnip")
 	use("rafamadriz/friendly-snippets")
 	use("mattn/emmet-vim")
 
-	-- Syntax highlighting
+	-- LSP
+	use("neovim/nvim-lspconfig")
+	use("williamboman/nvim-lsp-installer")
+	use("tamago324/nlsp-settings.nvim")
+	use("jose-elias-alvarez/null-ls.nvim")
+	-- use("onsails/lspkind-nvim")
+
+	-- Telescope
+	use("nvim-telescope/telescope.nvim")
+	use("nvim-telescope/telescope-fzy-native.nvim")
+
+	-- Treesitter
 	use({
 		"nvim-treesitter/nvim-treesitter",
 		run = ":TSUpdate",
@@ -65,10 +72,6 @@ return packer.startup(function(use)
 	-- TODO: Find a tabline
 	use("kyazdani42/nvim-tree.lua")
 	use("nvim-lualine/lualine.nvim")
-
-	-- Fuzzy finding
-	use("nvim-telescope/telescope.nvim")
-	use("nvim-telescope/telescope-fzy-native.nvim")
 
 	-- Comments
 	use("numToStr/Comment.nvim")
