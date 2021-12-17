@@ -88,8 +88,7 @@ M.on_attach = function(client, bufnr)
 		client.resolved_capabilities.document_formatting = false
 	end
 	lsp_keymaps(bufnr)
-	-- Turn this on if you want word below cursor to be
-	-- lsp_highlight_document(client)
+	lsp_highlight_document(client)
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -100,27 +99,5 @@ if not status_ok then
 end
 
 M.capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
-
--- TODO: move into its own file
-local null_ls = require("null-ls")
-
--- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/formatting
-local formatting = null_ls.builtins.formatting
--- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
-local diagnostics = null_ls.builtins.diagnostics
-
-null_ls.setup({
-	debug = false,
-	sources = {
-		formatting.prettierd,
-		formatting.stylua,
-	},
-	on_attach = function(client)
-		if client.resolved_capabilities.document_formatting then
-			vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")
-		end
-	end,
-})
--- End todo
 
 return M
