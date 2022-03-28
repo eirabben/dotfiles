@@ -3,6 +3,7 @@
 #################################################
 
 set -g fish_user_paths "/opt/homebrew/bin" "/opt/homebrew/sbin" "/usr/local/bin" "/usr/local/sbin" "$HOME/.composer/vendor/bin" $fish_user_paths
+fish_add_path "/opt/homebrew/opt/mysql-client/bin"
 
 #################################################
 # Customization

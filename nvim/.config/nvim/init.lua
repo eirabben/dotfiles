@@ -1,4 +1,5 @@
-local colorscheme = "rose-pine"
+-- local colorscheme = "rose-pine"
+local colorscheme = "nightfox"
 
 require("user.options")
 require("user.keymaps")
@@ -12,10 +13,10 @@ require("user.autopairs")
 require("user.comment")
 require("user.gitsigns")
 require("user.nvim-tree")
+-- require("user.neo-tree")
 require("user.lualine")
 require("user.toggleterm")
 require("user.impatient")
 require("user.whichkey")
 require("user.navigator")
-require("user.surround")
 require("user.todo-comments")

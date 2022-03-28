@@ -13,6 +13,7 @@ null_ls.setup({
 	sources = {
 		formatting.prettierd,
 		formatting.stylua,
+		formatting.phpcbf,
 	},
 	on_attach = function(client)
 		if client.resolved_capabilities.document_formatting then

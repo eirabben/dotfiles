@@ -33,9 +33,13 @@ return packer.startup(function(use)
 	use("nvim-lua/plenary.nvim")
 	use("nvim-lua/popup.nvim")
 	use("kyazdani42/nvim-web-devicons")
+	use("MunifTanjim/nui.nvim")
 	use("lewis6991/impatient.nvim")
 	use("folke/which-key.nvim")
-	use("numToStr/Navigator.nvim")
+	use({
+		"numToStr/Navigator.nvim",
+		commit = "6bfcf7da965a03fd1e170aa6870b92b16bf739ee",
+	})
 
 	-- Completion
 	use("hrsh7th/nvim-cmp")
@@ -62,6 +66,7 @@ return packer.startup(function(use)
 	use("nvim-telescope/telescope-fzy-native.nvim")
 
 	-- Treesitter
+	-- TODO: Add twig syntax
 	use({
 		"nvim-treesitter/nvim-treesitter",
 		run = ":TSUpdate",
@@ -69,8 +74,9 @@ return packer.startup(function(use)
 	use("JoosepAlviste/nvim-ts-context-commentstring")
 	use("nvim-treesitter/playground")
 
-	-- NvimTree
+	-- Explorer
 	use("kyazdani42/nvim-tree.lua")
+	use("nvim-neo-tree/neo-tree.nvim")
 
 	-- Comments
 	use("numToStr/Comment.nvim")
@@ -78,10 +84,11 @@ return packer.startup(function(use)
 
 	-- Autopairs and surround
 	use("windwp/nvim-autopairs")
-	use("blackCauldron7/surround.nvim")
+	use("tpope/vim-surround")
 
 	-- Git
 	use("lewis6991/gitsigns.nvim")
+	use("tpope/vim-fugitive")
 
 	-- TODO: Find a tabline
 	-- Lualine
@@ -91,11 +98,14 @@ return packer.startup(function(use)
 	use("akinsho/toggleterm.nvim")
 
 	-- Colorschemes
-	-- use { 'embark-theme/vim', as = 'embark' }
+	use({ "embark-theme/vim", as = "embark" })
 	use("sainnhe/sonokai")
 	use({ "rose-pine/neovim", as = "rose-pine" })
 	use("EdenEast/nightfox.nvim")
-	-- use 'shaunsingh/nord.nvim'
+	use({
+		"catppuccin/nvim",
+		as = "catppuccin",
+	})
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins

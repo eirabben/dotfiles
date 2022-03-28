@@ -25,6 +25,11 @@ M.init = function(colorscheme)
 
 	-- Nord
 	-- vim.cmd('colorscheme nord')
+
+	-- Kanagawa
+	if colorscheme == "catppuccin" then
+		vim.cmd("colorscheme catppuccin")
+	end
 end
 
 return M

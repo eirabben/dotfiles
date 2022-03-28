@@ -87,6 +87,15 @@ M.on_attach = function(client, bufnr)
 	if client.name == "tsserver" then
 		client.resolved_capabilities.document_formatting = false
 	end
+	if client.name == "intelephense" then
+		client.resolved_capabilities.document_formatting = false
+	end
+	if client.name == "html" then
+		client.resolved_capabilities.document_formatting = false
+	end
+	-- local disable_formatting = {"tsserver", "intelephense", "jsonls"}
+	-- for k,v in pairs(disable_formatting) do
+	-- end
 	lsp_keymaps(bufnr)
 	lsp_highlight_document(client)
 end

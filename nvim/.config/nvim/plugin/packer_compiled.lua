@@ -84,6 +84,11 @@ _G.packer_plugins = {
     path = "/Users/eirik/.local/share/nvim/site/pack/packer/start/Navigator.nvim",
     url = "https://github.com/numToStr/Navigator.nvim"
   },
+  catppuccin = {
+    loaded = true,
+    path = "/Users/eirik/.local/share/nvim/site/pack/packer/start/catppuccin",
+    url = "https://github.com/catppuccin/nvim"
+  },
   ["cmp-buffer"] = {
     loaded = true,
     path = "/Users/eirik/.local/share/nvim/site/pack/packer/start/cmp-buffer",
@@ -108,6 +113,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/eirik/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
+  },
+  embark = {
+    loaded = true,
+    path = "/Users/eirik/.local/share/nvim/site/pack/packer/start/embark",
+    url = "https://github.com/embark-theme/vim"
   },
   ["emmet-vim"] = {
     loaded = true,
@@ -134,6 +144,11 @@ _G.packer_plugins = {
     path = "/Users/eirik/.local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
   },
+  ["neo-tree.nvim"] = {
+    loaded = true,
+    path = "/Users/eirik/.local/share/nvim/site/pack/packer/start/neo-tree.nvim",
+    url = "https://github.com/nvim-neo-tree/neo-tree.nvim"
+  },
   ["nightfox.nvim"] = {
     loaded = true,
     path = "/Users/eirik/.local/share/nvim/site/pack/packer/start/nightfox.nvim",
@@ -143,6 +158,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/eirik/.local/share/nvim/site/pack/packer/start/nlsp-settings.nvim",
     url = "https://github.com/tamago324/nlsp-settings.nvim"
+  },
+  ["nui.nvim"] = {
+    loaded = true,
+    path = "/Users/eirik/.local/share/nvim/site/pack/packer/start/nui.nvim",
+    url = "https://github.com/MunifTanjim/nui.nvim"
   },
   ["null-ls.nvim"] = {
     loaded = true,
@@ -219,11 +239,6 @@ _G.packer_plugins = {
     path = "/Users/eirik/.local/share/nvim/site/pack/packer/start/sonokai",
     url = "https://github.com/sainnhe/sonokai"
   },
-  ["surround.nvim"] = {
-    loaded = true,
-    path = "/Users/eirik/.local/share/nvim/site/pack/packer/start/surround.nvim",
-    url = "https://github.com/blackCauldron7/surround.nvim"
-  },
   ["telescope-fzy-native.nvim"] = {
     loaded = true,
     path = "/Users/eirik/.local/share/nvim/site/pack/packer/start/telescope-fzy-native.nvim",
@@ -244,6 +259,16 @@ _G.packer_plugins = {
     path = "/Users/eirik/.local/share/nvim/site/pack/packer/start/toggleterm.nvim",
     url = "https://github.com/akinsho/toggleterm.nvim"
   },
+  ["vim-fugitive"] = {
+    loaded = true,
+    path = "/Users/eirik/.local/share/nvim/site/pack/packer/start/vim-fugitive",
+    url = "https://github.com/tpope/vim-fugitive"
+  },
+  ["vim-surround"] = {
+    loaded = true,
+    path = "/Users/eirik/.local/share/nvim/site/pack/packer/start/vim-surround",
+    url = "https://github.com/tpope/vim-surround"
+  },
   ["which-key.nvim"] = {
     loaded = true,
     path = "/Users/eirik/.local/share/nvim/site/pack/packer/start/which-key.nvim",
@@ -257,5 +282,6 @@ if should_profile then save_profiles() end
 end)
 
 if not no_errors then
+  error_msg = error_msg:gsub('"', '\\"')
   vim.api.nvim_command('echohl ErrorMsg | echom "Error in packer_compiled: '..error_msg..'" | echom "Please check your config for correctness" | echohl None')
 end
