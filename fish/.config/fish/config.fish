@@ -47,3 +47,20 @@ end
 function mux
   tmuxinator $argv
 end
+
+# DDEV aliases
+function dphp
+  ddev php $argv
+end
+
+function dcomposer
+  ddev composer $argv
+end
+
+function dcraft
+  ddev php ./craft $argv
+end
+
+function dyarn
+  ddev yarn $argv
+end
