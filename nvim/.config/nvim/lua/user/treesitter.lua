@@ -4,9 +4,9 @@ if not status_ok then
 end
 
 configs.setup({
-	ensure_installed = "maintained",
+	ensure_installed = "all",
 	sync_install = false,
-	ignore_install = {},
+	ignore_install = { "phpdoc" },
 	highlight = {
 		enable = true,
 		disable = {},
@@ -35,19 +35,3 @@ configs.setup({
 		},
 	},
 })
-
-local ft_to_parser = require("nvim-treesitter.parsers").filetype_to_parsername
-ft_to_parser.twig = "html" -- the someft filetype will use the python parser and queries.
-
--- local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
--- parser_config.twig = {
--- 	install_info = {
--- 		url = "~/Code/tree-sitter-twig", -- local path or git repo
--- 		files = { "src/parser.c" },
--- 		-- optional entries:
--- 		branch = "html", -- default branch in case of git repo if different from master
--- 		-- generate_requires_npm = false, -- if stand-alone parser without npm dependencies
--- 		-- requires_generate_from_grammar = false, -- if folder contains pre-generated src/parser.c
--- 	},
--- 	filetype = "twig", -- if filetype does not match the parser name
--- }
