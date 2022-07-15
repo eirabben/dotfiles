@@ -66,7 +66,6 @@ return packer.startup(function(use)
 	use("nvim-telescope/telescope-fzy-native.nvim")
 
 	-- Treesitter
-	-- TODO: Add twig syntax
 	use({
 		"nvim-treesitter/nvim-treesitter",
 		run = ":TSUpdate",
@@ -84,14 +83,17 @@ return packer.startup(function(use)
 
 	-- Autopairs and surround
 	use("windwp/nvim-autopairs")
-	use("tpope/vim-surround")
+	use("kylechui/nvim-surround")
+
+	-- Indentation
+	use("lukas-reineke/indent-blankline.nvim")
 
 	-- Git
 	use("lewis6991/gitsigns.nvim")
 	use("tpope/vim-fugitive")
 
-	-- TODO: Find a tabline
-	-- Lualine
+	-- Tabs and statusline
+	use({ "akinsho/bufferline.nvim", tag = "*" })
 	use("nvim-lualine/lualine.nvim")
 
 	-- Terminal

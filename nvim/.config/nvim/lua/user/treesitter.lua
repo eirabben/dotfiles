@@ -35,3 +35,16 @@ configs.setup({
 		},
 	},
 })
+
+local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
+parser_config.twig = {
+	install_info = {
+		url = "https://github.com/eirabben/tree-sitter-twig", -- local path or git repo
+		files = { "src/parser.c", "src/scanner.cc" },
+		-- optional entries:
+		branch = "main", -- default branch in case of git repo if different from master
+		-- generate_requires_npm = true, -- if stand-alone parser without npm dependencies
+		-- requires_generate_from_grammar = true, -- if folder contains pre-generated src/parser.c
+	},
+	filetype = "twig", -- if filetype does not match the parser name
+}
