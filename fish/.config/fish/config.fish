@@ -50,7 +50,7 @@ end
 
 # DDEV aliases
 function dphp
-  ddev php $argv
+  ddev exec php $argv
 end
 
 function dcomposer
@@ -58,9 +58,9 @@ function dcomposer
 end
 
 function dcraft
-  ddev php ./craft $argv
+  ddev exec php craft $argv
 end
 
 function dyarn
-  ddev yarn $argv
+  ddev exec yarn $argv
 end
