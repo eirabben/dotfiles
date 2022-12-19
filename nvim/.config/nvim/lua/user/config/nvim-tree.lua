@@ -11,21 +11,22 @@ end
 local tree_cb = nvim_tree_config.nvim_tree_callback
 
 nvim_tree.setup({
+	disable_netrw = true,
 	git = {
 		ignore = false,
 	},
+	renderer = {
+		highlight_git = true,
+	},
 	view = {
-   adaptive_size = true,
+		-- adaptive_size = true,
 		mappings = {
-			custom_only = false,
 			list = {
 				{ key = { "l", "e" }, cb = tree_cb("edit") },
 				{ key = "h", cb = tree_cb("close_node") },
 				{ key = { "v", "s" }, cb = tree_cb("vsplit") },
 			},
 		},
-		number = false,
-		relativenumber = false,
 	},
 })
 

@@ -13,7 +13,12 @@ lualine.setup({
 	sections = {
 		lualine_a = {},
 		lualine_b = { "mode" },
-		lualine_c = { "filename" },
+		lualine_c = {
+			{
+				"filename",
+				path = 1,
+			},
+		},
 		lualine_x = { "progress" },
 		lualine_y = { "location" },
 		lualine_z = {},

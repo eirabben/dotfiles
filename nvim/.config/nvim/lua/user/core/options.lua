@@ -28,6 +28,7 @@ local options = {
 	updatetime = 300,
 	completeopt = "menu,menuone,noselect",
 	timeoutlen = 100,
+	mouse = "",
 }
 
 for k, v in pairs(options) do
