@@ -1,24 +1,35 @@
-local function map(mode, key, command)
-	local opts = { noremap = true, silent = true }
-	vim.api.nvim_set_keymap(mode, key, command, opts)
-end
-
 -- Remap leader
-map("n", "<Space>", "<Nop>")
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
-
--- Exit insert mode faster
-map("i", "jk", "<ESC>")
+vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
 
 -- Turn off hlsearch
-map("n", "<Leader>/", ":nohls<CR>")
+-- vim.keymap.set("n", "<Leader>/", ":nohls<CR>", { silent = true })
+
+-- Paste in visual mode and keep clipboard contents
+vim.keymap.set("x", "<Leader>p", "\"_dP")
+
+-- Copy to system clipboard
+vim.keymap.set("n", "<Leader>y", "\"+y")
+vim.keymap.set("v", "<Leader>y", "\"+y")
+vim.keymap.set("n", "<Leader>Y", "\"+Y")
 
 -- Open splits and tabs
-map("n", "<Leader>t", ":tabedit<CR>")
-map("n", "<Leader>v", ":vsplit<CR>")
-map("n", "<Leader>h", ":split<CR>")
+vim.keymap.set("n", "<Leader>t", ":tabedit<CR>", { silent = true })
+vim.keymap.set("n", "<Leader>v", ":vsplit<CR>", { silent = true })
+vim.keymap.set("n", "<Leader>h", ":split<CR>", { silent = true })
 
 -- Make J and K work on wrapped lines
-map("n", "j", "gj")
-map("n", "k", "gk")
+vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+
+-- [[ Highlight on yank ]]
+-- See `:help vim.highlight.on_yank()`
+local highlight_group = vim.api.nvim_create_augroup("YankHighlight", { clear = true })
+vim.api.nvim_create_autocmd("TextYankPost", {
+	callback = function()
+		vim.highlight.on_yank()
+	end,
+	group = highlight_group,
+	pattern = "*",
+})

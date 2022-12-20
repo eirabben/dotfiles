@@ -1,36 +1,35 @@
-local options = {
-	-- User Interface
-	number = true,
-	termguicolors = true,
-	cmdheight = 2,
-	cursorline = true,
-	signcolumn = "yes",
-	splitbelow = false,
-	splitright = true,
-	scrolloff = 5,
-	pumheight = 10,
-	showtabline = 2,
+-- Options
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 
-	-- Indentation
-	expandtab = true,
-	tabstop = 2,
-	softtabstop = 2,
-	shiftwidth = 2,
-	smartindent = true,
+-- User Interface
+vim.wo.number = true
+vim.o.termguicolors = true
+vim.o.cmdheight = 2
+vim.o.cursorline = true
+vim.wo.signcolumn = "yes"
+vim.o.splitbelow = false
+vim.o.splitright = true
+vim.o.scrolloff = 5
+vim.o.pumheight = 10
+vim.o.showtabline = 2
 
-	-- Searching
-	ignorecase = true,
-	smartcase = true,
+-- Indentation
+vim.o.expandtab = true
+vim.o.tabstop = 2
+vim.o.softtabstop = 2
+vim.o.shiftwidth = 2
+vim.o.smartindent = true
+vim.o.breakindent = true
 
-	-- Misc
-	fileencoding = "utf-8",
-	swapfile = false,
-	updatetime = 300,
-	completeopt = "menu,menuone,noselect",
-	timeoutlen = 100,
-	mouse = "",
-}
+-- Searching
+vim.o.hlsearch = false
+vim.o.ignorecase = true
+vim.o.smartcase = true
 
-for k, v in pairs(options) do
-	vim.opt[k] = v
-end
+-- Misc
+vim.o.timeoutlen = 500
+vim.o.swapfile = false
+vim.o.updatetime = 250
+vim.o.completeopt = "menuone,noselect"
+vim.o.mouse = ""
