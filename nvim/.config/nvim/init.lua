@@ -8,11 +8,9 @@ require("user.core.keymaps")
 require("user.core.plugins")
 
 require("user.lsp")
+require("user.lsp.null-ls")
 
 require("user.theme")
-
--- TODO: Move to lsp folder?
-require("user.plugins.null-ls")
 
 require("user.plugins.lualine")
 require("user.plugins.comment")
