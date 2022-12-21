@@ -7,12 +7,12 @@ vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
 -- vim.keymap.set("n", "<Leader>/", ":nohls<CR>", { silent = true })
 
 -- Paste in visual mode and keep clipboard contents
-vim.keymap.set("x", "<Leader>p", "\"_dP")
+vim.keymap.set("x", "<Leader>p", '"_dP')
 
 -- Copy to system clipboard
-vim.keymap.set("n", "<Leader>y", "\"+y")
-vim.keymap.set("v", "<Leader>y", "\"+y")
-vim.keymap.set("n", "<Leader>Y", "\"+Y")
+vim.keymap.set("n", "<Leader>y", '"+y')
+vim.keymap.set("v", "<Leader>y", '"+y')
+vim.keymap.set("n", "<Leader>Y", '"+Y')
 
 -- Open splits and tabs
 vim.keymap.set("n", "<Leader>t", ":tabedit<CR>", { silent = true })

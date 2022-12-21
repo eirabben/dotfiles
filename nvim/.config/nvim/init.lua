@@ -11,6 +11,9 @@ require("user.lsp")
 
 require("user.theme")
 
+-- TODO: Move to lsp folder?
+require("user.plugins.null-ls")
+
 require("user.plugins.lualine")
 require("user.plugins.comment")
 require("user.plugins.indent-blankline")
@@ -25,3 +28,4 @@ require("user.plugins.better-escape")
 require("user.plugins.todo-comments")
 require("user.plugins.which-key")
 require("user.plugins.surround")
+require("user.plugins.alpha")

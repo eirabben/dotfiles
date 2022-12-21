@@ -81,35 +81,35 @@ end
 require("fidget").setup()
 
 require("lspconfig").emmet_ls.setup({
-  -- on_attach = on_attach,
-  capabilities = capabilities,
-  filetypes = { 'html', 'typescriptreact', 'javascriptreact', 'css', 'sass', 'scss', 'less', 'twig' },
+	-- on_attach = on_attach,
+	capabilities = capabilities,
+	filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "twig" },
 })
 
--- Make runtime files discoverable to the server
-local runtime_path = vim.split(package.path, ";")
-table.insert(runtime_path, "lua/?.lua")
-table.insert(runtime_path, "lua/?/init.lua")
-require("lspconfig").sumneko_lua.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
-	settings = {
-		Lua = {
-			runtime = {
-				-- Tell the language server which version of Lua you're using (most likely LuaJIT)
-				version = "LuaJIT",
-				-- Setup your lua path
-				path = runtime_path,
-			},
-			diagnostics = {
-				globals = { "vim" },
-			},
-			workspace = { library = vim.api.nvim_get_runtime_file("", true) },
-			-- Do not send telemetry data containing a randomized but unique identifier
-			telemetry = { enable = false },
-		},
-	},
-})
+-- -- Make runtime files discoverable to the server
+-- local runtime_path = vim.split(package.path, ";")
+-- table.insert(runtime_path, "lua/?.lua")
+-- table.insert(runtime_path, "lua/?/init.lua")
+-- require("lspconfig").sumneko_lua.setup({
+-- 	on_attach = on_attach,
+-- 	capabilities = capabilities,
+-- 	settings = {
+-- 		Lua = {
+-- 			runtime = {
+-- 				-- Tell the language server which version of Lua you're using (most likely LuaJIT)
+-- 				version = "LuaJIT",
+-- 				-- Setup your lua path
+-- 				path = runtime_path,
+-- 			},
+-- 			diagnostics = {
+-- 				globals = { "vim" },
+-- 			},
+-- 			workspace = { library = vim.api.nvim_get_runtime_file("", true) },
+-- 			-- Do not send telemetry data containing a randomized but unique identifier
+-- 			telemetry = { enable = false },
+-- 		},
+-- 	},
+-- })
 
 -- nvim-cmp setup
 local cmp = require("cmp")
@@ -159,19 +159,19 @@ cmp.setup({
 })
 
 -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
-  cmp.setup.cmdline({ '/', '?' }, {
-    mapping = cmp.mapping.preset.cmdline(),
-    sources = {
-      { name = 'buffer' }
-    }
-  })
+cmp.setup.cmdline({ "/", "?" }, {
+	mapping = cmp.mapping.preset.cmdline(),
+	sources = {
+		{ name = "buffer" },
+	},
+})
 
-  -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
-  cmp.setup.cmdline(':', {
-    mapping = cmp.mapping.preset.cmdline(),
-    sources = cmp.config.sources({
-      { name = 'path' }
-    }, {
-      { name = 'cmdline' }
-    })
-  })
+-- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+cmp.setup.cmdline(":", {
+	mapping = cmp.mapping.preset.cmdline(),
+	sources = cmp.config.sources({
+		{ name = "path" },
+	}, {
+		{ name = "cmdline" },
+	}),
+})

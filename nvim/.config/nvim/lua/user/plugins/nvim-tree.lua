@@ -1,5 +1,5 @@
 require("nvim-tree").setup({
-  view = {
+	view = {
 		mappings = {
 			list = {
 				{ key = { "l", "e" }, action = "edit" },
@@ -7,7 +7,7 @@ require("nvim-tree").setup({
 				{ key = { "v", "s" }, action = "vsplit" },
 			},
 		},
-  }
+	},
 })
 
 vim.keymap.set("n", "<Leader>e", ":NvimTreeToggle<CR>", { silent = true })

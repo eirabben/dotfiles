@@ -7,17 +7,17 @@ require("telescope").setup({
 			},
 		},
 	},
-   extensions = {
-    live_grep_args = {
-      auto_quoting = true, -- enable/disable auto-quoting
-      mappings = {
-        i = {
-          ["<C-k>"] = require("telescope-live-grep-args.actions").quote_prompt(),
-          ["<C-i>"] = require("telescope-live-grep-args.actions").quote_prompt({ postfix = " --iglob " }),
-        },
-      },
-    }
-  }
+	extensions = {
+		live_grep_args = {
+			auto_quoting = true, -- enable/disable auto-quoting
+			mappings = {
+				i = {
+					["<C-k>"] = require("telescope-live-grep-args.actions").quote_prompt(),
+					["<C-i>"] = require("telescope-live-grep-args.actions").quote_prompt({ postfix = " --iglob " }),
+				},
+			},
+		},
+	},
 })
 
 -- Enable telescope fzf native, if installed
@@ -40,6 +40,11 @@ vim.keymap.set("n", "<leader>ff", require("telescope.builtin").find_files, { des
 vim.keymap.set("n", "<leader>fh", require("telescope.builtin").help_tags, { desc = "[F]ind [H]elp" })
 vim.keymap.set("n", "<leader>fw", require("telescope.builtin").grep_string, { desc = "[F]ind current [W]ord" })
 -- vim.keymap.set("n", "<leader>fg", require("telescope.builtin").live_grep, { desc = "[F]ind by [G]rep" })
-vim.keymap.set("n", "<leader>fg", require("telescope").extensions.live_grep_args.live_grep_args, { desc = "[F]ind by [G]rep" })
+vim.keymap.set(
+	"n",
+	"<leader>fg",
+	require("telescope").extensions.live_grep_args.live_grep_args,
+	{ desc = "[F]ind by [G]rep" }
+)
 vim.keymap.set("n", "<leader>fd", require("telescope.builtin").diagnostics, { desc = "[F]ind [D]iagnostics" })
 vim.keymap.set("n", "<leader>fa", require("telescope.builtin").resume, { desc = "[F]ind [A]gain" })
