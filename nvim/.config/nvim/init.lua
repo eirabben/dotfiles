@@ -1,11 +1,6 @@
---[[ local impatient_ok, impatient = pcall(require, "impatient") ]]
---[[ if impatient_ok then ]]
---[[ 	impatient.enable_profile() ]]
---[[ end ]]
-
 require("user.core.options")
 require("user.core.keymaps")
-require("user.core.plugins")
+require("user.core.lazy")
 
 require("user.lsp")
 require("user.lsp.null-ls")
