@@ -1,8 +1,3 @@
--- Remap leader
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
-vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
-
 -- Turn off hlsearch
 -- vim.keymap.set("n", "<Leader>/", ":nohls<CR>", { silent = true })
 

@@ -1,5 +1,4 @@
 require("user.core.options")
-require("user.core.keymaps")
 require("user.core.lazy")
 
 require("user.lsp")
@@ -19,7 +18,9 @@ require("user.plugins.bufferline")
 require("user.plugins.autopairs")
 require("user.plugins.better-escape")
 require("user.plugins.todo-comments")
-require("user.plugins.which-key")
 require("user.plugins.surround")
 require("user.plugins.alpha")
 require("user.plugins.toggleterm")
+require("user.plugins.which-key")
+
+require("user.core.keymaps")

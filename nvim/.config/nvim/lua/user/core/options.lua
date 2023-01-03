@@ -33,3 +33,9 @@ vim.o.swapfile = false
 vim.o.updatetime = 250
 vim.o.completeopt = "menuone,noselect"
 vim.o.mouse = ""
+
+-- Remap leader
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
+
