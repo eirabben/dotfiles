@@ -21,6 +21,7 @@ require("user.plugins.todo-comments")
 require("user.plugins.surround")
 require("user.plugins.alpha")
 require("user.plugins.toggleterm")
+require("user.plugins.diffview")
 require("user.plugins.which-key")
 
 require("user.core.keymaps")

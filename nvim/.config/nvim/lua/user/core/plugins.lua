@@ -82,11 +82,13 @@ return {
 
 	-- Git
 	{ "lewis6991/gitsigns.nvim" },
+	{
+		"sindrets/diffview.nvim",
+		dependencies = { "nvim-lua/plenary.nvim" },
+	},
 	-- TODO: Add a git plugin
 	-- use("tpope/vim-fugitive")
-	-- use({ "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" })
 	-- use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
-	-- https://github.com/kdheepak/lazygit.nvim
 
 	-- Indentation
 	{ "lukas-reineke/indent-blankline.nvim" },
