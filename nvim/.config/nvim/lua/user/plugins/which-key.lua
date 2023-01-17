@@ -1,4 +1,5 @@
-require("which-key").setup()
+local wk = require("which-key")
+wk.setup()
 
 -- TODO: setup mappings
 -- w - window
@@ -6,3 +7,7 @@ require("which-key").setup()
 -- g - go or git
 -- t - tab
 -- s - show?
+
+wk.register({
+	e = { "<cmd>Neotree toggle<cr>", "Open [E]xplorer" },
+}, { prefix = "<leader>" })

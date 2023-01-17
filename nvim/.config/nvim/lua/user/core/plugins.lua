@@ -55,12 +55,20 @@ return {
 	{ "nvim-telescope/telescope-live-grep-args.nvim" },
 
 	-- Explorer
-	{
-		"nvim-tree/nvim-tree.lua",
+  {
+		"nvim-neo-tree/neo-tree.nvim",
 		dependencies = {
-			"nvim-tree/nvim-web-devicons",
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-web-devicons",
+      "MunifTanjim/nui.nvim",
 		},
-	},
+  },
+	-- {
+	-- 	"nvim-tree/nvim-tree.lua",
+	-- 	dependencies = {
+	-- 		"nvim-tree/nvim-web-devicons",
+	-- 	},
+	-- },
 
 	-- Tabs and statusline
 	{ "akinsho/bufferline.nvim", dependencies = { "nvim-tree/nvim-web-devicons" } },
