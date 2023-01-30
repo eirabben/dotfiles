@@ -63,12 +63,12 @@ return {
       "MunifTanjim/nui.nvim",
 		},
   },
-	-- {
-	-- 	"nvim-tree/nvim-tree.lua",
-	-- 	dependencies = {
-	-- 		"nvim-tree/nvim-web-devicons",
-	-- 	},
-	-- },
+	{
+		"nvim-tree/nvim-tree.lua",
+		dependencies = {
+			"nvim-tree/nvim-web-devicons",
+		},
+	},
 
 	-- Tabs and statusline
 	{ "akinsho/bufferline.nvim", dependencies = { "nvim-tree/nvim-web-devicons" } },

@@ -9,5 +9,7 @@ wk.setup()
 -- s - show?
 
 wk.register({
-	e = { "<cmd>Neotree toggle<cr>", "Open [E]xplorer" },
+  -- File Explorer
+	e = { "<cmd>NvimTreeToggle<cr>", "Open [E]xplorer" },
+	r = { "<cmd>NvimTreeFindFile<cr>", "[R]eveal Current File" },
 }, { prefix = "<leader>" })
