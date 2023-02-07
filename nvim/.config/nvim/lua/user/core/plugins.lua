@@ -55,14 +55,14 @@ return {
 	{ "nvim-telescope/telescope-live-grep-args.nvim" },
 
 	-- Explorer
-  {
+	{
 		"nvim-neo-tree/neo-tree.nvim",
 		dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-web-devicons",
-      "MunifTanjim/nui.nvim",
+			"nvim-lua/plenary.nvim",
+			"nvim-tree/nvim-web-devicons",
+			"MunifTanjim/nui.nvim",
 		},
-  },
+	},
 	{
 		"nvim-tree/nvim-tree.lua",
 		dependencies = {
@@ -73,6 +73,10 @@ return {
 	-- Tabs and statusline
 	{ "akinsho/bufferline.nvim", dependencies = { "nvim-tree/nvim-web-devicons" } },
 	{ "nvim-lualine/lualine.nvim", dependencies = { "nvim-tree/nvim-web-devicons" } },
+	{
+		"SmiteshP/nvim-navic",
+		dependencies = "neovim/nvim-lspconfig",
+	},
 
 	-- Terminal
 	{ "akinsho/toggleterm.nvim" },
