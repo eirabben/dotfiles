@@ -9,6 +9,7 @@ fish_add_path "/opt/homebrew/opt/mysql-client/bin"
 # Customization
 #################################################
 
+fish_vi_key_bindings
 starship init fish | source
 
 #################################################
