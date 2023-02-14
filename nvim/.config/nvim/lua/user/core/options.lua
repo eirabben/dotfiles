@@ -5,7 +5,7 @@ vim.g.loaded_netrwPlugin = 1
 -- User Interface
 vim.wo.number = true
 vim.o.termguicolors = true
-vim.o.cmdheight = 2
+vim.o.cmdheight = 1
 vim.o.cursorline = true
 vim.wo.signcolumn = "yes"
 vim.o.splitbelow = false
