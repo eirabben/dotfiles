@@ -35,10 +35,10 @@ return {
 		"nvim-treesitter/nvim-treesitter-textobjects",
 		-- after = "nvim-treesitter",
 	},
-	{
-		"nvim-treesitter/playground",
-		-- after = "nvim-treesitter",
-	},
+	-- {
+	-- 	"nvim-treesitter/playground",
+ --    dependencies = { "nvim-lua/plenary.nvim" },
+	-- },
 	--[[  TODO: Add commentstring? ]]
 	--[[ use("JoosepAlviste/nvim-ts-context-commentstring") ]]
 
