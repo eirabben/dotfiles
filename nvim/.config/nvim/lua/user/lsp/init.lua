@@ -59,7 +59,7 @@ require("mason").setup()
 -- Enable the following language servers
 -- Feel free to add/remove any LSPs that you want here. They will automatically be installed
 --[[ TODO: Add more servers ]]
-local servers = { "tsserver", "sumneko_lua", "tailwindcss", "emmet_ls", "intelephense" }
+local servers = { "tsserver", "lua_ls", "tailwindcss", "emmet_ls", "intelephense" }
 
 -- Ensure the servers above are installed
 require("mason-lspconfig").setup({
