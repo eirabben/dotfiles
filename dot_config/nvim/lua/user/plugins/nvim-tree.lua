@@ -23,5 +23,5 @@ require("nvim-tree").setup({
 	},
 })
 
-vim.keymap.set("n", "<leader>e", '<cmd>NvimTreeToggle<cr>', { desc = "Open [E]xplorer" })
+-- vim.keymap.set("n", "<leader>e", '<cmd>NvimTreeToggle<cr>', { desc = "Open [E]xplorer" })
 	-- r = { "<cmd>NvimTreeFindFile<cr>", "[R]eveal Current File" }, -- Used by rename, find another

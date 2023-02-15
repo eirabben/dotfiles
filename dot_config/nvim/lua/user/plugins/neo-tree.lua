@@ -1,6 +1,8 @@
 require("neo-tree").setup({
 	window = {
 		mappings = {
+      ["/"] = "noop", -- "noop" removes default mapping for fuzzy search
+      ["g/"] = "fuzzy_finder",
 			["l"] = "open",
 			["e"] = "open",
 			["s"] = "open_vsplit",
@@ -12,3 +14,5 @@ require("neo-tree").setup({
 		use_libuv_file_watcher = true, -- This will use the OS level file watchers to detect changes instead of relying on nvim autocmd events.
 	},
 })
+
+vim.keymap.set("n", "<leader>e", '<cmd>Neotree<cr>', { desc = "Open [E]xplorer" })
