@@ -36,7 +36,7 @@ alias lg "lazygit"
 
 alias c "clear"
 
-alias dot "cd ~/.dotfiles"
+alias dot "cd ~/.local/share/chezmoi"
 alias sites "cd ~/Code/Sites"
 alias dt "cd ~/Desktop"
 alias dl "cd ~/Downloads"
