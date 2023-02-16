@@ -15,4 +15,4 @@ require("neo-tree").setup({
 	},
 })
 
-vim.keymap.set("n", "<leader>e", '<cmd>Neotree<cr>', { desc = "Open [E]xplorer" })
+vim.keymap.set("n", "<leader>e", '<cmd>Neotree toggle<cr>', { desc = "Toggle [E]xplorer" })
