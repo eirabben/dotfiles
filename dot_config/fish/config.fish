@@ -2,8 +2,7 @@
 # Path
 #################################################
 
-set -g fish_user_paths "/opt/homebrew/bin" "/opt/homebrew/sbin" "/usr/local/bin" "/usr/local/sbin" "$HOME/.composer/vendor/bin" $fish_user_paths
-fish_add_path "/opt/homebrew/opt/mysql-client/bin"
+set -g fish_user_paths "/opt/homebrew/bin" "/opt/homebrew/sbin" "/usr/local/bin" "/usr/local/sbin" $fish_user_paths
 
 #################################################
 # Customization
@@ -33,15 +32,20 @@ set -Ux EDITOR nvim
 
 alias vim "nvim"
 alias lg "lazygit"
+alias ls "exa -l"
+alias ll "exa -l"
+alias la "exa -la"
+alias tree "exa --tree"
+alias cat "bat"
 
 alias c "clear"
-
 alias dot "cd ~/.local/share/chezmoi"
 alias sites "cd ~/Code/Sites"
 alias dt "cd ~/Desktop"
 alias dl "cd ~/Downloads"
 alias db "cd ~/Dropbox"
 alias ... "cd ../.."
+alias .... "cd ../../.."
 alias o "open"
 alias oo "open ."
 
@@ -58,19 +62,3 @@ function mux
   tmuxinator $argv
 end
 
-# DDEV aliases
-function dphp
-  ddev exec php $argv
-end
-
-function dcomposer
-  ddev composer $argv
-end
-
-function dcraft
-  ddev exec php craft $argv
-end
-
-function dyarn
-  ddev exec yarn $argv
-end
