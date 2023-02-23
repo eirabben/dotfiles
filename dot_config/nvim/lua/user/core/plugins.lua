@@ -27,9 +27,7 @@ return {
 	-- Syntax highlight
 	{
 		"nvim-treesitter/nvim-treesitter",
-		init = function()
-			pcall(require("nvim-treesitter.install").update({ with_sync = true }))
-		end,
+		build = ":TSUpdate",
 	},
 	{
 		"nvim-treesitter/nvim-treesitter-textobjects",
