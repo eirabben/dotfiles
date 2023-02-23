@@ -37,7 +37,7 @@ return {
 	},
 	-- {
 	-- 	"nvim-treesitter/playground",
- --    dependencies = { "nvim-lua/plenary.nvim" },
+	--    dependencies = { "nvim-lua/plenary.nvim" },
 	-- },
 	--[[  TODO: Add commentstring? ]]
 	--[[ use("JoosepAlviste/nvim-ts-context-commentstring") ]]
@@ -61,6 +61,7 @@ return {
 			"nvim-lua/plenary.nvim",
 			"nvim-tree/nvim-web-devicons",
 			"MunifTanjim/nui.nvim",
+			"s1n7ax/nvim-window-picker",
 		},
 	},
 
@@ -101,8 +102,8 @@ return {
 
 	-- Colors
 	{ "catppuccin/nvim", name = "catppuccin" },
-  { 'EdenEast/nightfox.nvim' },
-  { "loctvl842/monokai-pro.nvim" },
+	{ "EdenEast/nightfox.nvim" },
+	{ "loctvl842/monokai-pro.nvim" },
 	--[[ use({ "embark-theme/vim", as = "embark" }) ]]
 	--[[ use("sainnhe/sonokai") ]]
 	--[[ use({ "rose-pine/neovim", as = "rose-pine" }) ]]
