@@ -1,8 +1,7 @@
 require("catppuccin").setup({
-	flavour = "mocha",
+	flavour = "macchiato",
 })
-require("monokai-pro").setup({
-})
-require("nightfox").setup({
-})
+require("monokai-pro").setup({})
+require("nightfox").setup({})
+
 vim.cmd.colorscheme("catppuccin")
