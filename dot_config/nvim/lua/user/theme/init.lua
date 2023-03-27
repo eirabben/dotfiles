@@ -3,5 +3,6 @@ require("catppuccin").setup({
 })
 require("monokai-pro").setup({})
 require("nightfox").setup({})
+require("rose-pine").setup({})
 
 vim.cmd.colorscheme("catppuccin")

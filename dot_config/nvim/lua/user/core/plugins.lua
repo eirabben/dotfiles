@@ -102,9 +102,9 @@ return {
 	{ "catppuccin/nvim", name = "catppuccin" },
 	{ "EdenEast/nightfox.nvim" },
 	{ "loctvl842/monokai-pro.nvim" },
+	{ "rose-pine/neovim", name = "rose-pine" },
 	--[[ use({ "embark-theme/vim", as = "embark" }) ]]
 	--[[ use("sainnhe/sonokai") ]]
-	--[[ use({ "rose-pine/neovim", as = "rose-pine" }) ]]
 	--[[ use("sam4llis/nvim-tundra") ]]
 
 	-- Tmux navigation integration
