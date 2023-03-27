@@ -2,7 +2,7 @@
 # Path
 #################################################
 
-set -g fish_user_paths "/opt/homebrew/bin" "/opt/homebrew/sbin" "/usr/local/bin" "/usr/local/sbin" $fish_user_paths
+set -g fish_user_paths "/opt/homebrew/bin" "/opt/homebrew/sbin" "$HOME/.cargo/bin" "/usr/local/bin" "/usr/local/sbin" $fish_user_paths
 
 #################################################
 # Customization
