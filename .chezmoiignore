@@ -1,4 +1,5 @@
 Brewfile
+Brewfile.lock.json
 README.md
 TODO.md
 script/
