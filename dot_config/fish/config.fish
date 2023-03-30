@@ -8,6 +8,10 @@ set -g fish_user_paths "/opt/homebrew/bin" "/opt/homebrew/sbin" "$HOME/.cargo/bi
 # Customization
 #################################################
 
+set -U fish_cursor_insert line
+set -U fish_cursor_replace_one underscore
+set -U fish_cursor_external block
+
 function fish_user_key_bindings
     # Execute this once per mode that emacs bindings should be used in
     fish_default_key_bindings -M insert
