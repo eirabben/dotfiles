@@ -58,6 +58,8 @@ themes {
 
 theme "catppuccin-mocha"
 
+pane_frames false
+
 keybinds clear-defaults=true {
     scroll {
         bind "e" { EditScrollback; SwitchToMode "Normal"; }
