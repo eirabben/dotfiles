@@ -3,3 +3,4 @@ Brewfile.lock.json
 README.md
 TODO.md
 script/
+dot_config/zellij/default_config.kdl
