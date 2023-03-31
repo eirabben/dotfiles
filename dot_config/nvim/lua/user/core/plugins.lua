@@ -13,6 +13,15 @@ return {
 	},
 	{ "jose-elias-alvarez/null-ls.nvim" },
 
+	-- Copilot
+	{ "zbirenbaum/copilot.lua" },
+	{
+		"zbirenbaum/copilot-cmp",
+		dependencies = {
+			"zbirenbaum/copilot.lua",
+		},
+	},
+
 	-- Autocomplete
 	{
 		"hrsh7th/nvim-cmp",

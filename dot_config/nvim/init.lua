@@ -1,6 +1,7 @@
 require("user.core.options")
 require("user.core.lazy")
 
+require("user.plugins.copilot")
 require("user.lsp")
 require("user.lsp.null-ls")
 
