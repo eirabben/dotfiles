@@ -114,8 +114,9 @@ return {
 	-- Colors
 	{ "catppuccin/nvim", name = "catppuccin" },
 	{ "EdenEast/nightfox.nvim" },
-	{ "loctvl842/monokai-pro.nvim" },
 	{ "rose-pine/neovim", name = "rose-pine" },
+	{ "rebelot/kanagawa.nvim" },
+	-- { "loctvl842/monokai-pro.nvim" },
 	--[[ use({ "embark-theme/vim", as = "embark" }) ]]
 	--[[ use("sainnhe/sonokai") ]]
 	--[[ use("sam4llis/nvim-tundra") ]]
