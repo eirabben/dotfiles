@@ -13,6 +13,7 @@ zoxide init fish | source
 set -U fish_cursor_insert line
 set -U fish_cursor_replace_one underscore
 set -U fish_cursor_external block
+set fish_vi_force_cursor 1
 
 function fish_user_key_bindings
     # Execute this once per mode that emacs bindings should be used in
