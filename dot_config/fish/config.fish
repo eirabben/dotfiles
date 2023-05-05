@@ -8,6 +8,8 @@ set -g fish_user_paths "/opt/homebrew/bin" "/opt/homebrew/sbin" "$HOME/.cargo/bi
 # Customization
 #################################################
 
+zoxide init fish | source
+
 set -U fish_cursor_insert line
 set -U fish_cursor_replace_one underscore
 set -U fish_cursor_external block
@@ -39,6 +41,7 @@ alias lg "lazygit"
 alias ls "exa -l"
 alias ll "exa -l"
 alias la "exa -la"
+alias lt "exa --tree"
 alias tree "exa --tree"
 alias cat "bat"
 
@@ -48,14 +51,23 @@ alias sites "cd ~/Code/Sites"
 alias dt "cd ~/Desktop"
 alias dl "cd ~/Downloads"
 alias db "cd ~/Dropbox"
+alias .. "cd .."
 alias ... "cd ../.."
 alias .... "cd ../../.."
 alias o "open"
 alias oo "open ."
 
+alias dci "ddev composer install"
+alias dcu "ddev craft up"
+alias dcq "ddev craft queue-listen --verbose"
+
 #################################################
 # Functions
 #################################################
+
+function edit
+  fzf -m | xargs $EDITOR
+end
 
 function mkd
   mkdir $argv
