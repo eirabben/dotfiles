@@ -2,7 +2,8 @@ local wezterm = require("wezterm")
 
 return {
 	-- color_scheme = "Catppuccin Macchiato", -- Mocha, Macchiato, Frappe, Latte
-	color_scheme = "Kanagawa (Gogh)",
+	-- color_scheme = "Kanagawa (Gogh)",
+	color_scheme = "rose-pine",
 	font = wezterm.font("JetBrainsMono Nerd Font"),
 	freetype_load_flags = "NO_HINTING", -- Makes fonts smoother. The default is no flag, so maybe change this.
 	font_size = 16,
