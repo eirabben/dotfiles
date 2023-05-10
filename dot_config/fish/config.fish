@@ -60,7 +60,9 @@ alias oo "open ."
 
 alias dci "ddev composer install"
 alias dcu "ddev craft up"
-alias dcq "ddev craft queue-listen --verbose"
+alias dca "ddev composer install && ddev craft up"
+alias dcq "ddev craft queue/listen --verbose"
+alias dyd "ddev yarn run dev"
 
 #################################################
 # Functions
