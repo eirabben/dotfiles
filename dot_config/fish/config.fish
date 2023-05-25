@@ -38,6 +38,10 @@ set -Ux EDITOR nvim
 #################################################
 
 alias vim "nvim"
+alias astrovim "NVIM_APPNAME=astrovim nvim"
+alias lazyvim "NVIM_APPNAME=lazyvim nvim"
+alias lunarvim "NVIM_APPNAME=lunarvim nvim"
+alias nyoomnvim "NVIM_APPNAME=nyoomnvim nvim"
 alias lg "lazygit"
 alias ls "exa -l"
 alias ll "exa -l"
