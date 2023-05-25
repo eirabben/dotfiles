@@ -12,15 +12,16 @@ return {
 		},
 	},
 	{ "jose-elias-alvarez/null-ls.nvim" },
+	{ "folke/neodev.nvim" },
 
 	-- Copilot
-	{ "zbirenbaum/copilot.lua" },
-	{
-		"zbirenbaum/copilot-cmp",
-		dependencies = {
-			"zbirenbaum/copilot.lua",
-		},
-	},
+	-- { "zbirenbaum/copilot.lua" },
+	-- {
+	-- 	"zbirenbaum/copilot-cmp",
+	-- 	dependencies = {
+	-- 		"zbirenbaum/copilot.lua",
+	-- 	},
+	-- },
 
 	-- Autocomplete
 	{
@@ -37,44 +38,6 @@ return {
 		},
 	},
 
-	-- Syntax highlight
-	{
-		"nvim-treesitter/nvim-treesitter",
-		build = ":TSUpdate",
-	},
-	{
-		"nvim-treesitter/nvim-treesitter-textobjects",
-		-- after = "nvim-treesitter",
-	},
-	-- {
-	-- 	"nvim-treesitter/playground",
-	--    dependencies = { "nvim-lua/plenary.nvim" },
-	-- },
-	--[[  TODO: Add commentstring? ]]
-	--[[ use("JoosepAlviste/nvim-ts-context-commentstring") ]]
-
-	-- Fuzzy Finder (files, lsp, etc)
-	{
-		"nvim-telescope/telescope.nvim",
-		dependencies = { "nvim-lua/plenary.nvim" },
-	},
-	{
-		"nvim-telescope/telescope-fzf-native.nvim",
-		-- init = "make",
-		-- cond = vim.fn.executable("make") == 1,
-	},
-	{ "nvim-telescope/telescope-live-grep-args.nvim" },
-
-	-- Explorer
-	{
-		"nvim-neo-tree/neo-tree.nvim",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"nvim-tree/nvim-web-devicons",
-			"MunifTanjim/nui.nvim",
-			"s1n7ax/nvim-window-picker",
-		},
-	},
 
 	-- Tabs and statusline
 	{ "akinsho/bufferline.nvim", dependencies = { "nvim-tree/nvim-web-devicons" } },
@@ -104,22 +67,15 @@ return {
 		"sindrets/diffview.nvim",
 		dependencies = { "nvim-lua/plenary.nvim" },
 	},
-	-- TODO: Add a git plugin
+	-- TODO: Add a git plugin / Maybe not? Just use diffview and lg?
 	-- use("tpope/vim-fugitive")
 	-- use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
 
 	-- Indentation
 	{ "lukas-reineke/indent-blankline.nvim" },
+	{ "RRethy/vim-illuminate" },
 
 	-- Colors
-	{ "catppuccin/nvim", name = "catppuccin" },
-	{ "EdenEast/nightfox.nvim" },
-	{ "rose-pine/neovim", name = "rose-pine" },
-	{ "rebelot/kanagawa.nvim" },
-	-- { "loctvl842/monokai-pro.nvim" },
-	--[[ use({ "embark-theme/vim", as = "embark" }) ]]
-	--[[ use("sainnhe/sonokai") ]]
-	--[[ use("sam4llis/nvim-tundra") ]]
 
 	-- Tmux navigation integration
 	{ "numToStr/Navigator.nvim" },

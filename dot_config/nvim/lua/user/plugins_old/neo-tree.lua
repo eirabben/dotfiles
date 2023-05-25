@@ -17,7 +17,8 @@ require("window-picker").setup({
 require("neo-tree").setup({
 	window = {
 		mappings = {
-			["/"] = "noop", -- "noop" removes default mapping for fuzzy search
+			["/"] = "none", -- "noop" removes default mapping for fuzzy search
+			["<space>"] = "none", -- "noop" removes default mapping for fuzzy search
 			["g/"] = "fuzzy_finder",
 			["l"] = "open",
 			["e"] = "open",
@@ -32,3 +33,4 @@ require("neo-tree").setup({
 })
 
 vim.keymap.set("n", "<leader>e", "<cmd>Neotree toggle<cr>", { desc = "Toggle [E]xplorer" })
+vim.keymap.set("n", "<leader>o", "<cmd>NeoTreeReveal<cr>", { desc = "Show File in Explorer" })

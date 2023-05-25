@@ -53,6 +53,8 @@ local on_attach = function(_, bufnr)
 	end, { desc = "Format current buffer with LSP" })
 end
 
+require("neodev").setup({})
+
 -- Setup mason so it can manage external tooling
 require("mason").setup()
 
