@@ -274,6 +274,39 @@ return {
   {
     'akinsho/toggleterm.nvim', version = "*", 
     cmd = { "ToggleTerm", "TermExec" },
+    keys = {
+      { '<leader>gg', '<cmd>lua _lazygit_toggle()<CR>', desc = 'Open LazyGit' }
+    },
+    init = function ()
+      local Terminal  = require('toggleterm.terminal').Terminal
+      local lazygit = Terminal:new({
+        cmd = "lazygit",
+        dir = "git_dir",
+        direction = "float",
+        float_opts = {
+          border = "single",
+          width = function()
+            return math.floor(vim.o.columns * 0.9)
+          end,
+          height = function()
+            return math.floor(vim.o.lines * 0.9)
+          end,
+        },
+        -- function to run on opening the terminal
+        on_open = function(term)
+          vim.cmd("startinsert!")
+          vim.api.nvim_buf_set_keymap(term.bufnr, "n", "q", "<cmd>close<CR>", {noremap = true, silent = true})
+        end,
+        -- function to run on closing the terminal
+        on_close = function(term)
+          vim.cmd("startinsert!")
+        end,
+      })
+
+      function _lazygit_toggle()
+        lazygit:toggle()
+      end
+    end,
     config = true,
   }
 
