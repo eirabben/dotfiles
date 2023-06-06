@@ -4,7 +4,10 @@ return {
     "neovim/nvim-lspconfig",
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
-      "folke/neodev.nvim",
+      {
+        "folke/neodev.nvim",
+        config = true,
+      },
       "mason.nvim",
       "williamboman/mason-lspconfig.nvim",
       -- TODO: Enable after installing cmp
