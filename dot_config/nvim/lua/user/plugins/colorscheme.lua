@@ -2,16 +2,23 @@ return {
 
 	-- { "catppuccin/nvim", name = "catppuccin" },
 	-- { "EdenEast/nightfox.nvim" },
-	-- { "rose-pine/neovim", name = "rose-pine" },
-	-- { "rebelot/kanagawa.nvim" },
-	{
-		"folke/tokyonight.nvim",
+	{ 
+    "rose-pine/neovim", 
+    name = "rose-pine",
 		lazy = false,
-		opts = { style = "moon" },
 		config = function()
-			vim.cmd.colorscheme("tokyonight")
+			vim.cmd.colorscheme("rose-pine-moon")
 		end,
-	},
+  },
+	-- { "rebelot/kanagawa.nvim" },
+	-- {
+	-- 	"folke/tokyonight.nvim",
+	-- 	lazy = false,
+	-- 	opts = { style = "moon" },
+	-- 	config = function()
+	-- 		vim.cmd.colorscheme("tokyonight")
+	-- 	end,
+	-- },
 	-- {
 	-- 	"loctvl842/monokai-pro.nvim",
 	-- 	config = function()
