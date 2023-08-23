@@ -15,7 +15,7 @@ return {
     },
     opts = {
       servers = {
-         "tsserver", "lua_ls", "tailwindcss", "emmet_ls", "intelephense", 'pylsp'
+         "tsserver", "lua_ls", "tailwindcss", "emmet_ls", "intelephense", 'pylsp', 'jsonls'
       }
     },
     config = function(_, opts)
