@@ -2,11 +2,15 @@ return {
 	-- Explorer
 	{
 		"nvim-neo-tree/neo-tree.nvim",
+    branch = "v3.x",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			"nvim-tree/nvim-web-devicons",
 			"MunifTanjim/nui.nvim",
-			"s1n7ax/nvim-window-picker",
+      {
+        "s1n7ax/nvim-window-picker",
+        tag = "v1.*",
+      }
 		},
 		opts = {
 			window = {
@@ -16,7 +20,8 @@ return {
 					["g/"] = "fuzzy_finder",
 					["l"] = "open",
 					["e"] = "open",
-					["s"] = "vsplit_with_window_picker",
+					["s"] = "open_vsplit",
+					-- ["s"] = "vsplit_with_window_picker",
 					["t"] = "open_tabnew",
 					["h"] = "close_node",
 				},
