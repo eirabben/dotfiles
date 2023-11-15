@@ -2,15 +2,15 @@ return {
 	-- Explorer
 	{
 		"nvim-neo-tree/neo-tree.nvim",
-    branch = "v3.x",
+		branch = "v3.x",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			"nvim-tree/nvim-web-devicons",
 			"MunifTanjim/nui.nvim",
-      {
-        "s1n7ax/nvim-window-picker",
-        tag = "v1.*",
-      }
+			{
+				"s1n7ax/nvim-window-picker",
+				version = "2.*",
+			},
 		},
 		opts = {
 			window = {
@@ -275,45 +275,52 @@ return {
 		},
 	},
 
-  -- Toggleterm
-  {
-    'akinsho/toggleterm.nvim', version = "*", 
-    cmd = { "ToggleTerm", "TermExec" },
-    keys = {
-      { '<leader>gg', '<cmd>lua _lazygit_toggle()<CR>', desc = 'Open LazyGit' }
-    },
-    init = function ()
-      local Terminal  = require('toggleterm.terminal').Terminal
-      local lazygit = Terminal:new({
-        cmd = "lazygit",
-        dir = "git_dir",
-        direction = "float",
-        float_opts = {
-          border = "single",
-          width = function()
-            return math.floor(vim.o.columns * 0.9)
-          end,
-          height = function()
-            return math.floor(vim.o.lines * 0.9)
-          end,
-        },
-        -- function to run on opening the terminal
-        on_open = function(term)
-          vim.cmd("startinsert!")
-          vim.api.nvim_buf_set_keymap(term.bufnr, "n", "q", "<cmd>close<CR>", {noremap = true, silent = true})
-        end,
-        -- function to run on closing the terminal
-        on_close = function(term)
-          vim.cmd("startinsert!")
-        end,
-      })
+	-- Toggleterm
+	{
+		"akinsho/toggleterm.nvim",
+		version = "*",
+		cmd = { "ToggleTerm", "TermExec" },
+		keys = {
+			{ "<leader>gg", "<cmd>lua _lazygit_toggle()<CR>", desc = "Open LazyGit" },
+		},
+		init = function()
+			local Terminal = require("toggleterm.terminal").Terminal
+			local lazygit = Terminal:new({
+				cmd = "lazygit",
+				dir = "git_dir",
+				direction = "float",
+				float_opts = {
+					border = "single",
+					width = function()
+						return math.floor(vim.o.columns * 0.9)
+					end,
+					height = function()
+						return math.floor(vim.o.lines * 0.9)
+					end,
+				},
+				-- function to run on opening the terminal
+				on_open = function(term)
+					vim.cmd("startinsert!")
+					vim.api.nvim_buf_set_keymap(
+						term.bufnr,
+						"n",
+						"q",
+						"<cmd>close<CR>",
+						{ noremap = true, silent = true }
+					)
+				end,
+				-- function to run on closing the terminal
+				on_close = function(term)
+					vim.cmd("startinsert!")
+				end,
+			})
 
-      function _lazygit_toggle()
-        lazygit:toggle()
-      end
-    end,
-    config = true,
-  }
+			function _lazygit_toggle()
+				lazygit:toggle()
+			end
+		end,
+		config = true,
+	},
 
 	-- TODO: Add flit and leap
 }

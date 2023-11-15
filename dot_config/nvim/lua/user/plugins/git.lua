@@ -37,11 +37,11 @@ return {
 			require("gitsigns").setup(opts)
 		end,
 	},
-  {
-    "sindrets/diffview.nvim",
+	{
+		"sindrets/diffview.nvim",
 		cmd = { "DiffviewOpen", "DiffviewFileHistory" },
 		config = function(_, opts)
 			require("diffview").setup(opts)
 		end,
-  }
+	},
 }

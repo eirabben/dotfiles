@@ -36,56 +36,99 @@ return {
 			"hrsh7th/cmp-buffer",
 			"hrsh7th/cmp-path",
 			"saadparwaiz1/cmp_luasnip",
+			"onsails/lspkind.nvim",
 		},
-		opts = function()
+		config = function()
 			local cmp = require("cmp")
-			return {
+			local luasnip = require("luasnip")
+			local lspkind = require("lspkind")
+
+			-- loads vscode style snippets from installed plugins (e.g. friendly-snippets)
+			require("luasnip.loaders.from_vscode").lazy_load()
+
+			cmp.setup({
 				completion = {
-					completeopt = "menu,menuone,noinsert",
+					completeopt = "menu,menuone,preview,noselect",
 				},
-				snippet = {
+				snippet = { -- configure how nvim-cmp interacts with snippet engine
 					expand = function(args)
-						require("luasnip").lsp_expand(args.body)
+						luasnip.lsp_expand(args.body)
 					end,
 				},
 				mapping = cmp.mapping.preset.insert({
-					-- ["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
-					-- ["<C-p>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
+					["<C-k>"] = cmp.mapping.select_prev_item(), -- previous suggestion
+					["<C-j>"] = cmp.mapping.select_next_item(), -- next suggestion
 					["<C-b>"] = cmp.mapping.scroll_docs(-4),
 					["<C-f>"] = cmp.mapping.scroll_docs(4),
-					["<C-Space>"] = cmp.mapping.complete(),
-					["<C-e>"] = cmp.mapping.abort(),
-					["<CR>"] = cmp.mapping.confirm({ 
-            behavior = cmp.ConfirmBehavior.Replace,
-            select = true 
-          }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-					["<S-CR>"] = cmp.mapping.confirm({
-						behavior = cmp.ConfirmBehavior.Replace,
-						select = true,
-					}), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+					["<C-Space>"] = cmp.mapping.complete(), -- show completion suggestions
+					["<C-e>"] = cmp.mapping.abort(), -- close completion window
+					["<CR>"] = cmp.mapping.confirm({ select = false }),
 				}),
+				-- sources for autocompletion
 				sources = cmp.config.sources({
 					{ name = "nvim_lsp" },
-					{ name = "luasnip" },
-					{ name = "buffer" },
-					{ name = "path" },
+					{ name = "luasnip" }, -- snippets
+					{ name = "buffer" }, -- text within current buffer
+					{ name = "path" }, -- file system paths
 				}),
+				-- configure lspkind for vs-code like pictograms in completion menu
 				formatting = {
-					format = function(_, item)
-						-- local icons = require("lazyvim.config").icons.kinds
-						-- if icons[item.kind] then
-						--   item.kind = icons[item.kind] .. item.kind
-						-- end
-						return item
-					end,
+					format = lspkind.cmp_format({
+						maxwidth = 50,
+						ellipsis_char = "...",
+					}),
 				},
-				experimental = {
-					ghost_text = {
-						hl_group = "LspCodeLens",
-					},
-				},
-			}
+			})
 		end,
+		-- opts = function()
+		-- 	local cmp = require("cmp")
+		-- 	return {
+		-- 		completion = {
+		-- 			completeopt = "menu,menuone,noinsert",
+		-- 		},
+		-- 		snippet = {
+		-- 			expand = function(args)
+		-- 				require("luasnip").lsp_expand(args.body)
+		-- 			end,
+		-- 		},
+		-- 		mapping = cmp.mapping.preset.insert({
+		-- 			-- ["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
+		-- 			-- ["<C-p>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
+		-- 			["<C-b>"] = cmp.mapping.scroll_docs(-4),
+		-- 			["<C-f>"] = cmp.mapping.scroll_docs(4),
+		-- 			["<C-Space>"] = cmp.mapping.complete(),
+		-- 			["<C-e>"] = cmp.mapping.abort(),
+		-- 			["<CR>"] = cmp.mapping.confirm({
+		--           behavior = cmp.ConfirmBehavior.Replace,
+		--           select = true
+		--         }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+		-- 			["<S-CR>"] = cmp.mapping.confirm({
+		-- 				behavior = cmp.ConfirmBehavior.Replace,
+		-- 				select = true,
+		-- 			}), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+		-- 		}),
+		-- 		sources = cmp.config.sources({
+		-- 			{ name = "nvim_lsp" },
+		-- 			{ name = "luasnip" },
+		-- 			{ name = "buffer" },
+		-- 			{ name = "path" },
+		-- 		}),
+		-- 		formatting = {
+		-- 			format = function(_, item)
+		-- 				-- local icons = require("lazyvim.config").icons.kinds
+		-- 				-- if icons[item.kind] then
+		-- 				--   item.kind = icons[item.kind] .. item.kind
+		-- 				-- end
+		-- 				return item
+		-- 			end,
+		-- 		},
+		-- 		experimental = {
+		-- 			ghost_text = {
+		-- 				hl_group = "LspCodeLens",
+		-- 			},
+		-- 		},
+		-- 	}
+		-- end,
 	},
 
 	-- Better Escape
