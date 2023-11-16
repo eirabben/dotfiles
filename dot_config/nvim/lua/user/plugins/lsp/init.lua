@@ -34,8 +34,8 @@ return {
 				opts.desc = "Show LSP implementations"
 				keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts) -- show lsp implementations
 
-				opts.desc = "Show LSP type definitions"
-				keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", opts) -- show lsp type definitions
+				-- opts.desc = "Show LSP type definitions"
+				-- keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", opts) -- show lsp type definitions
 
 				opts.desc = "See available code actions"
 				keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts) -- see available code actions, in visual mode will apply to selection
@@ -250,21 +250,7 @@ return {
 						end,
 					})
 				end,
-				desc = "Format Buffer",
-				mode = "n",
-			},
-			{
-				"<leader>lf",
-				function()
-					vim.lsp.buf.range_formatting({
-						filter = function(client)
-							--  only use null-ls for formatting instead of lsp server
-							return client.name == "null-ls"
-						end,
-					})
-				end,
-				desc = "Format Range",
-				mode = "v",
+				desc = "[L]SP [F]ormat",
 			},
 		},
 		dependencies = {
@@ -282,6 +268,7 @@ return {
 					"prettier", -- prettier formatter
 					"stylua", -- lua formatter
 					"black", -- python formatter
+					"pint", -- php formatter
 					"pylint", -- python linter
 					"eslint_d", -- js linter
 				},
@@ -308,6 +295,9 @@ return {
 					formatting.stylua, -- lua formatter
 					formatting.isort,
 					formatting.black,
+					formatting.pint.with({
+						command = "~/.composer/vendor/bin/pint",
+					}),
 					diagnostics.pylint,
 					diagnostics.eslint_d.with({ -- js/ts linter
 						condition = function(utils)
@@ -318,22 +308,22 @@ return {
 
 				-- configure format on save
 				on_attach = function(current_client, bufnr)
-					-- if current_client.supports_method("textDocument/formatting") then
-					--   vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-					--   vim.api.nvim_create_autocmd("BufWritePre", {
-					--     group = augroup,
-					--     buffer = bufnr,
-					--     callback = function()
-					--       vim.lsp.buf.format({
-					--         filter = function(client)
-					--           --  only use null-ls for formatting instead of lsp server
-					--           return client.name == "null-ls"
-					--         end,
-					--         bufnr = bufnr,
-					--       })
-					--     end,
-					--   })
-					-- end
+					if current_client.supports_method("textDocument/formatting") then
+						vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+						vim.api.nvim_create_autocmd("BufWritePre", {
+							group = augroup,
+							buffer = bufnr,
+							callback = function()
+								vim.lsp.buf.format({
+									filter = function(client)
+										--  only use null-ls for formatting instead of lsp server
+										return client.name == "null-ls"
+									end,
+									bufnr = bufnr,
+								})
+							end,
+						})
+					end
 				end,
 			})
 		end,
