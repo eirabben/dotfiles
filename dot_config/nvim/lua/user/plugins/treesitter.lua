@@ -1,6 +1,6 @@
 return {
 	-- Treesitter
-	-- TODO: Turn on incremental selection and text objects. Maybe via mini.ai
+	-- @TODO: Turn on incremental selection and text objects. Maybe via mini.ai
 	{
 		"nvim-treesitter/nvim-treesitter",
 		version = false,

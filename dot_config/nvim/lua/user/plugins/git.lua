@@ -1,7 +1,7 @@
 return {
 	{
 		"lewis6991/gitsigns.nvim",
-		event = { "BufReadPre", "BufNewFile" },
+		event = { "BufReadPost", "BufNewFile", "BufWritePre" },
 		-- opts = {
 		-- signs = {
 		--   add = { text = "▎" },
@@ -19,6 +19,8 @@ return {
 		--   end
 		--
 		--   -- stylua: ignore start
+		--   @TODO: Add more git shortcuts
+		--
 		--   map("n", "]h", gs.next_hunk, "Next Hunk")
 		--   map("n", "[h", gs.prev_hunk, "Prev Hunk")
 		--   map({ "n", "v" }, "<leader>ghs", ":Gitsigns stage_hunk<CR>", "Stage Hunk")
@@ -40,9 +42,9 @@ return {
 	{
 		"sindrets/diffview.nvim",
 		cmd = { "DiffviewOpen", "DiffviewFileHistory" },
-    keys = {
-      { '<leader>gh', '<cmd>DiffviewFileHistory<cr>' }
-    },
+		keys = {
+			{ "<leader>gh", "<cmd>DiffviewFileHistory<cr>" },
+		},
 		config = function(_, opts)
 			require("diffview").setup(opts)
 		end,

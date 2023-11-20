@@ -296,7 +296,7 @@ return {
 					formatting.isort,
 					formatting.black,
 					formatting.pint.with({
-						command = "~/.composer/vendor/bin/pint",
+						command = "pint",
 					}),
 					diagnostics.pylint,
 					diagnostics.eslint_d.with({ -- js/ts linter

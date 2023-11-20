@@ -1,5 +1,4 @@
 return {
-
 	{
 		"catppuccin/nvim",
 		name = "catppuccin",
@@ -17,7 +16,13 @@ return {
 	-- 		vim.cmd.colorscheme("rose-pine-moon")
 	-- 	end,
 	--  },
-	-- { "rebelot/kanagawa.nvim" },
+	{
+		"rebelot/kanagawa.nvim",
+		lazy = false,
+		config = function()
+			-- vim.cmd.colorscheme("kanagawa")
+		end,
+	},
 	-- {
 	-- 	"folke/tokyonight.nvim",
 	-- 	lazy = false,
