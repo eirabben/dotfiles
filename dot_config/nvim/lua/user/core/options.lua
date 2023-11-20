@@ -1,6 +1,7 @@
 -- Options
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
+vim.opt.shortmess:append("I") -- don't show the default intro message
 
 -- User Interface
 vim.wo.number = true
