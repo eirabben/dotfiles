@@ -124,6 +124,15 @@ return {
 		"echasnovski/mini.comment",
 		event = "VeryLazy",
 		opts = {
+			options = {
+				custom_commentstring = function()
+					if vim.bo.filetype == "twig" then
+						return "{# %s #}"
+					end
+
+					return nil
+				end,
+			},
 			hooks = {
 				pre = function()
 					require("ts_context_commentstring.internal").update_commentstring({})
