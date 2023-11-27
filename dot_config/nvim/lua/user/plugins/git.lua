@@ -43,7 +43,8 @@ return {
 		"sindrets/diffview.nvim",
 		cmd = { "DiffviewOpen", "DiffviewFileHistory" },
 		keys = {
-			{ "<leader>gh", "<cmd>DiffviewFileHistory<cr>" },
+			{ "<leader>gd", "<cmd>DiffviewOpen<cr>" },
+			{ "<leader>gh", "<cmd>DiffviewFileHistory %<cr>" },
 		},
 		config = function(_, opts)
 			require("diffview").setup(opts)
