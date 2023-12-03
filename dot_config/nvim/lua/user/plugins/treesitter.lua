@@ -13,10 +13,6 @@ return {
 		opts = {
 			highlight = { enable = true },
 			indent = { enable = true },
-			context_commentstring = {
-				enable = true,
-				enable_autocmd = false,
-			},
 			ensure_installed = {
 				"bash",
 				"html",
@@ -38,6 +34,10 @@ return {
 			},
 		},
 		config = function(_, opts)
+			vim.g.skip_ts_context_commentstring_module = true
+			require("ts_context_commentstring").setup({
+				enable_autocmd = false,
+			})
 			require("nvim-treesitter.configs").setup(opts)
 		end,
 	},

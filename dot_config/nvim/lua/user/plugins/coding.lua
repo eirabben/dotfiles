@@ -130,12 +130,7 @@ return {
 						return "{# %s #}"
 					end
 
-					return nil
-				end,
-			},
-			hooks = {
-				pre = function()
-					require("ts_context_commentstring.internal").update_commentstring({})
+					return require("ts_context_commentstring").calculate_commentstring() or vim.bo.commentstring
 				end,
 			},
 		},
