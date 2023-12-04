@@ -109,6 +109,12 @@ return {
 				on_attach = on_attach,
 			})
 
+			-- configure volar server
+			lspconfig["volar"].setup({
+				capabilities = capabilities,
+				on_attach = on_attach,
+			})
+
 			-- configure svelte server
 			lspconfig["svelte"].setup({
 				capabilities = capabilities,
@@ -297,6 +303,9 @@ return {
 					formatting.black,
 					formatting.pint.with({
 						command = "pint",
+					}),
+					formatting.rustywind.with({
+						extra_filetypes = { "twig" },
 					}),
 					diagnostics.pylint,
 					diagnostics.eslint_d.with({ -- js/ts linter
