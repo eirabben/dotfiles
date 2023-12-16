@@ -153,6 +153,7 @@ return {
 					"less",
 					"svelte",
 					"twig",
+					"vue",
 				},
 			})
 
