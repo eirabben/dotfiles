@@ -21,3 +21,6 @@ vim.keymap.set("n", "<Leader>h", ":split<CR>", { silent = true, desc = "[H]orizo
 -- Make J and K work on wrapped lines
 vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+
+-- Go to last buffer
+vim.keymap.set("n", "<Leader>bb", ":b#<CR>", { silent = true, desc = "Last [B]uffer" })
