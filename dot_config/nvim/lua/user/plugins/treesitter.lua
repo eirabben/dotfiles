@@ -26,6 +26,7 @@ return {
 				"python",
 				"query",
 				"regex",
+				"svelte",
 				"tsx",
 				"typescript",
 				"yaml",
