@@ -18,6 +18,7 @@ return {
 				"html",
 				"javascript",
 				"json",
+				"kdl",
 				"lua",
 				"luadoc",
 				"luap",
