@@ -2,6 +2,7 @@
 theme "catppuccin-macchiato"
 
 pane_frames false
+session_serialization false
 
 keybinds clear-defaults=true {
     scroll {
@@ -57,6 +58,15 @@ keybinds clear-defaults=true {
             SwitchToMode "Normal"
         }
         bind "Space" { NextSwapLayout; }
+        bind "C" {
+          NewTab {
+            name "Editor"
+          };
+          NewTab {
+            name "Browser"
+          };
+          SwitchToMode "Normal";
+        }
         bind "x" { CloseFocus; SwitchToMode "Normal"; }
         bind "q" { Quit; }
     }
