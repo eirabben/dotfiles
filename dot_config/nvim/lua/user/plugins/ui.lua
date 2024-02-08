@@ -120,7 +120,7 @@ return {
 			return {
 				options = {
 					theme = "auto",
-					disabled_filetypes = { statusline = { "dashboard", "alpha" } },
+					disabled_filetypes = { statusline = { "dashboard", "alpha", "neo-tree" } },
 				},
 				extensions = { "neo-tree", "lazy" },
 			}
