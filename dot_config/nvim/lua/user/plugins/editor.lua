@@ -13,14 +13,16 @@ return {
 			},
 		},
 		opts = {
+			open_files_do_not_replace_types = { "terminal", "Trouble", "trouble", "qf", "Outline" },
 			window = {
 				mappings = {
-					["/"] = "none", -- "noop" removes default mapping for fuzzy search
-					["<space>"] = "none", -- "noop" removes default mapping for fuzzy search
+					["/"] = "none", -- "none" removes default mapping for fuzzy search
+					["<space>"] = "none", -- "none" removes default mapping for fuzzy search
 					["g/"] = "fuzzy_finder",
 					["l"] = "open",
 					["e"] = "open",
 					["s"] = "open_vsplit",
+					-- @TODO: Fix window picker
 					-- ["s"] = "vsplit_with_window_picker",
 					["t"] = "open_tabnew",
 					["h"] = "close_node",
@@ -341,6 +343,10 @@ return {
 				-- function to run on closing the terminal
 				on_close = function(term)
 					vim.cmd("startinsert!")
+					if package.loaded["neo-tree.sources.git_status"] then
+						require("neo-tree.sources.git_status").refresh()
+					end
+					-- require("neo-tree.events").fire_event("git_event")
 				end,
 			})
 

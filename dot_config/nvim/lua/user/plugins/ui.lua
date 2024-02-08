@@ -1,14 +1,11 @@
 return {
 	-- Dashboard
 	{
-		"nvimdev/dashboard-nvim",
+		"goolord/alpha-nvim",
 		event = "VimEnter",
 		config = function()
-			require("dashboard").setup({
-				-- config
-			})
+			require("alpha").setup(require("alpha.themes.dashboard").config)
 		end,
-		dependencies = { { "nvim-tree/nvim-web-devicons" } },
 	},
 	-- Indent lines
 	{
