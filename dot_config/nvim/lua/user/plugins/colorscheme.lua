@@ -2,42 +2,50 @@ return {
 	{
 		"catppuccin/nvim",
 		name = "catppuccin",
-		lazy = false,
+		priority = 1000,
 		config = function()
-			vim.cmd.colorscheme("catppuccin")
+			-- vim.cmd.colorscheme("catppuccin")
 		end,
 	},
-	-- { "EdenEast/nightfox.nvim" },
+	{
+		"EdenEast/nightfox.nvim",
+		priority = 1000,
+		config = function()
+			vim.cmd.colorscheme("nightfox")
+		end,
+	},
 	-- {
-	--    "rose-pine/neovim",
-	--    name = "rose-pine",
+	-- 	"rose-pine/neovim",
+	-- 	name = "rose-pine",
 	-- 	lazy = false,
 	-- 	config = function()
-	-- 		vim.cmd.colorscheme("rose-pine-moon")
+	-- 		-- vim.cmd.colorscheme("rose-pine")
 	-- 	end,
-	--  },
-	{
-		"rebelot/kanagawa.nvim",
-		lazy = false,
-		config = function()
-			-- vim.cmd.colorscheme("kanagawa")
-		end,
-	},
+	-- },
+	-- {
+	-- 	"rebelot/kanagawa.nvim",
+	-- 	lazy = false,
+	-- 	priority = 1000,
+	-- 	config = function()
+	-- 		-- vim.cmd.colorscheme("kanagawa")
+	-- 	end,
+	-- },
 	-- {
 	-- 	"folke/tokyonight.nvim",
 	-- 	lazy = false,
-	-- 	opts = { style = "moon" },
+	-- 	priority = 1000,
+	-- 	opts = {},
 	-- 	config = function()
-	-- 		vim.cmd.colorscheme("tokyonight")
+	-- 		-- vim.cmd.colorscheme("tokyonight")
 	-- 	end,
 	-- },
-	-- {
-	-- 	"loctvl842/monokai-pro.nvim",
-	-- 	config = function()
-	-- 		require("monokai-pro").setup()
-	-- 	end,
-	-- },
-	--[[ use({ "embark-theme/vim", as = "embark" }) ]]
-	--[[ use("sainnhe/sonokai") ]]
-	--[[ use("sam4llis/nvim-tundra") ]]
+	{
+		"loctvl842/monokai-pro.nvim",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			require("monokai-pro").setup()
+			-- vim.cmd.colorscheme("monokai-pro")
+		end,
+	},
 }

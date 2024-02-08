@@ -1,5 +1,5 @@
 
-theme "catppuccin-macchiato"
+theme "nightfox"
 
 pane_frames false
 session_serialization false
