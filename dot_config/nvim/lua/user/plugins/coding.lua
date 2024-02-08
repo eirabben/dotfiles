@@ -41,6 +41,7 @@ return {
 	},
 
 	-- auto completion
+	-- @TODO: Add completion to command line
 	{
 		"hrsh7th/nvim-cmp",
 		version = false, -- last release is way too old
