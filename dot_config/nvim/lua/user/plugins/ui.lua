@@ -1,5 +1,6 @@
 return {
-	-- Dashboard
+	-- Alpha dashboard
+	-- @TODO: Customize start screen
 	{
 		"goolord/alpha-nvim",
 		event = "VimEnter",
