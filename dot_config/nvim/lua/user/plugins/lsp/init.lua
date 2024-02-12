@@ -140,19 +140,22 @@ return {
 			})
 
 			-- configure emmet language server
-			lspconfig["emmet_ls"].setup({
+			lspconfig["emmet_language_server"].setup({
 				capabilities = capabilities,
 				on_attach = on_attach,
 				filetypes = {
-					"html",
-					"typescriptreact",
-					"javascriptreact",
 					"css",
+					"eruby",
+					"html",
+					"javascript",
+					"javascriptreact",
+					"less",
+					"pug",
 					"sass",
 					"scss",
-					"less",
 					"svelte",
 					"twig",
+					"typescriptreact",
 					"vue",
 				},
 			})
@@ -215,9 +218,9 @@ return {
 				-- list of servers for mason to install
 				ensure_installed = {
 					"cssls",
-					"emmet_ls",
 					"graphql",
 					"html",
+					"emmet_language_server",
 					"intelephense",
 					"jsonls",
 					"lua_ls",
