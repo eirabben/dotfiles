@@ -48,10 +48,11 @@ keybinds clear-defaults=true {
         bind "l" { MoveFocus "Right"; SwitchToMode "Normal"; }
         bind "j" { MoveFocus "Down"; SwitchToMode "Normal"; }
         bind "k" { MoveFocus "Up"; SwitchToMode "Normal"; }
+        bind "f" { ToggleFloatingPanes; SwitchToMode "Normal"; }
         bind "o" {
             LaunchOrFocusPlugin "file:~/.config/zellij/plugins/zellij-workspace.wasm" {
                 floating true
-                debug false                     // display debug info, config, parse command etc
+                debug true                     // display debug info, config, parse command etc
             }
         }
         bind "d" { Detach; }
