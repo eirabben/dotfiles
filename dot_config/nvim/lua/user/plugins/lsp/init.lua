@@ -280,7 +280,7 @@ return {
 					"black", -- python formatter
 					"pint", -- php formatter
 					"pylint", -- python linter
-					"eslint_d", -- js linter
+					"rustywind", -- tailwind class organizer
 				},
 			})
 
@@ -312,11 +312,6 @@ return {
 						extra_filetypes = { "twig" },
 					}),
 					diagnostics.pylint,
-					diagnostics.eslint_d.with({ -- js/ts linter
-						condition = function(utils)
-							return utils.root_has_file({ ".eslintrc.js", ".eslintrc.cjs" }) -- only enable if root has .eslintrc.js or .eslintrc.cjs
-						end,
-					}),
 				},
 
 				-- configure format on save
