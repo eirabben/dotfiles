@@ -35,7 +35,6 @@ set -Ux EDITOR nvim
 # Aliases
 #################################################
 
-alias cd "z"
 alias ls "exa -l"
 alias ll "exa -l"
 alias la "exa -la"
@@ -83,3 +82,4 @@ end
 
 starship init fish | source
 zoxide init fish | source
+alias cd "z"
