@@ -2,8 +2,9 @@
 -- vim.keymap.set("n", "<Leader>/", ":nohls<CR>", { silent = true })
 
 -- Save and Quit
-vim.keymap.set("n", "<Leader>w", ":w<cr>", { desc = "[W]rite file" })
-vim.keymap.set("n", "<Leader>q", ":q<cr>", { desc = "[Q]uit" })
+vim.keymap.set("n", "<Leader>s", ":wa<cr>", { desc = "[S]ave files" })
+vim.keymap.set("n", "<Leader>q", ":qa<cr>", { desc = "[Q]uit" })
+vim.keymap.set("n", "<Leader>x", ":q<cr>", { desc = "[X] Close buffer" })
 
 -- Paste in visual mode and keep clipboard contents
 vim.keymap.set("x", "<Leader>p", '"_dP')
