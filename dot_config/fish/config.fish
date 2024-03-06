@@ -8,7 +8,6 @@ set -g fish_user_paths "/opt/homebrew/bin" "/opt/homebrew/sbin" "$HOME/.composer
 # Customization
 #################################################
 
-zoxide init fish | source
 
 set -U fish_cursor_insert line
 set -U fish_cursor_replace_one underscore
@@ -25,7 +24,6 @@ function fish_user_key_bindings
     # The argument specifies the initial mode (insert, "default" or visual).
     fish_vi_key_bindings --no-erase insert
 end
-starship init fish | source
 
 #################################################
 # Editor
@@ -37,19 +35,20 @@ set -Ux EDITOR nvim
 # Aliases
 #################################################
 
-alias vim "nvim"
-alias astrovim "NVIM_APPNAME=astrovim nvim"
-alias lazyvim "NVIM_APPNAME=lazyvim nvim"
-alias lunarvim "NVIM_APPNAME=lunarvim nvim"
-alias nyoomnvim "NVIM_APPNAME=nyoomnvim nvim"
-alias lg "lazygit"
-alias gg "lazygit"
+alias cd "z"
 alias ls "exa -l"
 alias ll "exa -l"
 alias la "exa -la"
 alias lt "exa --tree"
 alias tree "exa --tree"
 alias cat "bat"
+alias lg "lazygit"
+alias gg "lazygit"
+alias vim "nvim"
+alias astrovim "NVIM_APPNAME=astrovim nvim"
+alias lazyvim "NVIM_APPNAME=lazyvim nvim"
+alias lunarvim "NVIM_APPNAME=lunarvim nvim"
+alias nyoomnvim "NVIM_APPNAME=nyoomnvim nvim"
 
 alias c "clear"
 alias dot "cd ~/.local/share/chezmoi"
@@ -81,3 +80,6 @@ function mkd
   mkdir $argv
   cd $argv
 end
+
+starship init fish | source
+zoxide init fish | source
