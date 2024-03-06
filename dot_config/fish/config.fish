@@ -43,6 +43,7 @@ alias lazyvim "NVIM_APPNAME=lazyvim nvim"
 alias lunarvim "NVIM_APPNAME=lunarvim nvim"
 alias nyoomnvim "NVIM_APPNAME=nyoomnvim nvim"
 alias lg "lazygit"
+alias gg "lazygit"
 alias ls "exa -l"
 alias ll "exa -l"
 alias la "exa -la"
@@ -80,8 +81,3 @@ function mkd
   mkdir $argv
   cd $argv
 end
-
-function mux
-  tmuxinator $argv
-end
-
