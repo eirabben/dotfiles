@@ -121,23 +121,34 @@ return {
 	} },
 
 	-- Comments
-	{
-		"echasnovski/mini.comment",
-		event = "VeryLazy",
-		opts = {
-			options = {
-				custom_commentstring = function()
-					if vim.bo.filetype == "twig" then
-						return "{# %s #}"
-					end
+  {
+    "folke/ts-comments.nvim",
+    opts = {},
+    event = "VeryLazy",
+  }
+	-- {
+	-- 	"echasnovski/mini.comment",
+	-- 	event = "VeryLazy",
+	-- 	opts = {
+	-- 		options = {
+	-- 			custom_commentstring = function()
+	-- 				if vim.bo.filetype == "twig" then
+	-- 					return "{# %s #}"
+	-- 				end
+	--
+	-- 				return require("ts_context_commentstring").calculate_commentstring() or vim.bo.commentstring
+	-- 			end,
+	-- 		},
+	-- 	},
+	-- 	config = function(_, opts)
+	-- 		require("mini.comment").setup(opts)
+	-- 	end,
+	-- },
 
-					return require("ts_context_commentstring").calculate_commentstring() or vim.bo.commentstring
-				end,
-			},
-		},
-		config = function(_, opts)
-			require("mini.comment").setup(opts)
-		end,
+	{
+		"echasnovski/mini.ai",
+		event = "VeryLazy",
+		config = true,
 	},
 
 	-- Auto pairs
@@ -164,9 +175,6 @@ return {
 		--   mappings = {
 		--   },
 		-- },
-		config = function(_, opts)
-			-- use gz mappings instead of s to prevent conflict with leap
-			require("mini.surround").setup(opts)
-		end,
+		config = true,
 	},
 }

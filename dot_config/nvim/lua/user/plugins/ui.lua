@@ -120,10 +120,41 @@ return {
 			return {
 				options = {
 					theme = "auto",
+					globalstatus = true,
 					disabled_filetypes = { statusline = { "dashboard", "alpha", "neo-tree" } },
 				},
 				extensions = { "neo-tree", "lazy" },
 			}
+		end,
+	},
+
+	{
+		"akinsho/bufferline.nvim",
+		event = "VeryLazy",
+		dependencies = "nvim-tree/nvim-web-devicons",
+		opts = {
+			options = {
+				mode = "tabs",
+				offsets = {
+					{
+						filetype = "neo-tree",
+						text = "Files",
+						highlight = "Directory",
+						text_align = "left",
+					},
+				},
+			},
+		},
+		config = function(_, opts)
+			require("bufferline").setup(opts)
+			-- Fix bufferline when restoring a session
+			vim.api.nvim_create_autocmd("BufAdd", {
+				callback = function()
+					vim.schedule(function()
+						pcall(nvim_bufferline)
+					end)
+				end,
+			})
 		end,
 	},
 }

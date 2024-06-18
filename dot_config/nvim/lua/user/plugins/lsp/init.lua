@@ -115,6 +115,12 @@ return {
 				on_attach = on_attach,
 			})
 
+			-- configure volar server
+			lspconfig["twiggy_language_server"].setup({
+				capabilities = capabilities,
+				on_attach = on_attach,
+			})
+
 			-- configure svelte server
 			lspconfig["svelte"].setup({
 				capabilities = capabilities,
@@ -228,6 +234,7 @@ return {
 					"svelte",
 					"tailwindcss",
 					"tsserver",
+					"twiggy_language_server",
 				},
 				-- auto-install configured servers (with lspconfig)
 				automatic_installation = true, -- not the same as ensure_installed

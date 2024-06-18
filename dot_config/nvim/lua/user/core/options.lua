@@ -6,14 +6,17 @@ vim.opt.shortmess:append("I") -- don't show the default intro message
 -- User Interface
 vim.wo.number = true
 vim.o.termguicolors = true
-vim.o.cmdheight = 1
+-- vim.o.cmdheight = 1
 vim.o.cursorline = true
 vim.wo.signcolumn = "yes"
 vim.o.splitbelow = false
 vim.o.splitright = true
 vim.o.scrolloff = 5
+vim.o.pumblend = 10
 vim.o.pumheight = 10
-vim.o.showtabline = 2
+-- vim.o.showtabline = 2
+vim.o.laststatus = 3
+vim.o.showmode = false
 
 -- Indentation
 vim.o.expandtab = true
