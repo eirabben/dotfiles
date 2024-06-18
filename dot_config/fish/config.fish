@@ -35,11 +35,11 @@ set -Ux EDITOR nvim
 # Aliases
 #################################################
 
-alias ls "exa -l"
-alias ll "exa -l"
-alias la "exa -la"
-alias lt "exa --tree"
-alias tree "exa --tree"
+alias ls "eza -l"
+alias ll "eza -l"
+alias la "eza -la"
+alias lt "eza --tree"
+alias tree "eza --tree"
 alias cat "bat"
 alias lg "lazygit"
 alias gg "lazygit"
