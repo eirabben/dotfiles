@@ -121,29 +121,24 @@ return {
 	} },
 
 	-- Comments
-  {
-    "folke/ts-comments.nvim",
-    opts = {},
-    event = "VeryLazy",
-  }
-	-- {
-	-- 	"echasnovski/mini.comment",
-	-- 	event = "VeryLazy",
-	-- 	opts = {
-	-- 		options = {
-	-- 			custom_commentstring = function()
-	-- 				if vim.bo.filetype == "twig" then
-	-- 					return "{# %s #}"
-	-- 				end
-	--
-	-- 				return require("ts_context_commentstring").calculate_commentstring() or vim.bo.commentstring
-	-- 			end,
-	-- 		},
-	-- 	},
-	-- 	config = function(_, opts)
-	-- 		require("mini.comment").setup(opts)
-	-- 	end,
-	-- },
+	{
+		"echasnovski/mini.comment",
+		event = "VeryLazy",
+		opts = {
+			options = {
+				custom_commentstring = function()
+					if vim.bo.filetype == "twig" then
+						return "{# %s #}"
+					end
+
+					return require("ts_context_commentstring").calculate_commentstring() or vim.bo.commentstring
+				end,
+			},
+		},
+		config = function(_, opts)
+			require("mini.comment").setup(opts)
+		end,
+	},
 
 	{
 		"echasnovski/mini.ai",
