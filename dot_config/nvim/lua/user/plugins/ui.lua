@@ -46,6 +46,10 @@ return {
 			require("mini.indentscope").setup(opts)
 		end,
 	},
+	{
+		"echasnovski/mini.icons",
+		opts = true,
+	},
 
 	-- UI Components
 	-- {
