@@ -116,9 +116,7 @@ return {
 	},
 
 	-- Better Escape
-	{ "max397574/better-escape.nvim", event = "InsertEnter", opts = {
-		mapping = { "jk" },
-	} },
+	{ "max397574/better-escape.nvim", event = "InsertEnter", opts = {} },
 
 	-- Comments
 	{
