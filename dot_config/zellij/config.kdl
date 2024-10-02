@@ -4,6 +4,13 @@ theme "catppuccin-macchiato"
 pane_frames false
 session_serialization false
 
+plugins {
+  filepicker location="zellij:strider" {
+    cwd "/"
+    caller_cwd "/Users/eirik"
+  }
+}
+
 keybinds clear-defaults=true {
     scroll {
         bind "e" { EditScrollback; SwitchToMode "Normal"; }
