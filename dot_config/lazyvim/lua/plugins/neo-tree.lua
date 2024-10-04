@@ -7,13 +7,6 @@ return {
           ["e"] = "open",
         },
       },
-      filesystem = {
-        window = {
-          mappings = {
-            ["/"] = nil,
-          },
-        },
-      },
     },
   },
 }
