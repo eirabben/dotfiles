@@ -46,6 +46,7 @@ alias gg lazygit
 alias vim nvim
 alias astrovim "NVIM_APPNAME=astrovim nvim"
 alias lazyvim "NVIM_APPNAME=lazyvim nvim"
+alias lvim "NVIM_APPNAME=lazyvim nvim"
 # alias lunarvim "NVIM_APPNAME=lunarvim nvim"
 alias lunarvim "~/.local/bin/lvim"
 alias nyoomnvim "NVIM_APPNAME=nyoomnvim nvim"
