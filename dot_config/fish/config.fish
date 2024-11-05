@@ -2,7 +2,7 @@
 # Path
 #################################################
 
-set -g fish_user_paths "/opt/homebrew/bin" "/opt/homebrew/sbin" "$HOME/.composer/vendor/bin" "$HOME/.cargo/bin" "/usr/local/bin" "/usr/local/sbin" $fish_user_paths
+set -g fish_user_paths /opt/homebrew/bin /opt/homebrew/sbin "$HOME/.composer/vendor/bin" "$HOME/.cargo/bin" /usr/local/bin /usr/local/sbin $fish_user_paths
 
 #################################################
 # Customization
@@ -40,17 +40,17 @@ alias ll "eza -l"
 alias la "eza -la"
 alias lt "eza --tree"
 alias tree "eza --tree"
-alias cat "bat"
-alias lg "lazygit"
-alias gg "lazygit"
-alias vim "nvim"
+alias cat bat
+alias lg lazygit
+alias gg lazygit
+alias vim nvim
 alias astrovim "NVIM_APPNAME=astrovim nvim"
 alias lazyvim "NVIM_APPNAME=lazyvim nvim"
 # alias lunarvim "NVIM_APPNAME=lunarvim nvim"
 alias lunarvim "~/.local/bin/lvim"
 alias nyoomnvim "NVIM_APPNAME=nyoomnvim nvim"
 
-alias c "clear"
+alias c clear
 alias dot "cd ~/.local/share/chezmoi"
 alias sites "cd ~/Code/Sites"
 alias dt "cd ~/Desktop"
@@ -59,7 +59,7 @@ alias db "cd ~/Dropbox"
 alias .. "cd .."
 alias ... "cd ../.."
 alias .... "cd ../../.."
-alias o "open"
+alias o open
 alias oo "open ."
 
 alias dci "ddev composer install"
@@ -72,15 +72,25 @@ alias dyd "ddev yarn run dev"
 # Functions
 #################################################
 
+function project
+    set project_dir "$HOME/Code/Sites/$argv"
+    if test -d $project_dir
+        cd $project_dir
+        zellij -s "$argv" --layout project
+    else
+        echo "No project at $project_dir"
+    end
+end
+
 function edit
-  fzf -m | xargs $EDITOR
+    fzf -m | xargs $EDITOR
 end
 
 function mkd
-  mkdir $argv
-  cd $argv
+    mkdir $argv
+    cd $argv
 end
 
 starship init fish | source
 zoxide init fish | source
-alias cd "z"
+alias cd z
