@@ -6,7 +6,7 @@ return {
         follow_current_file = { enabled = false },
         window = {
           mappings = {
-            ["/"] = nil,
+            ["/"] = "none",
           },
         },
       },
