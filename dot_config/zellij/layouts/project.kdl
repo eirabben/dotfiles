@@ -9,7 +9,7 @@ layout {
     }
   }
   tab name="Editor" focus=true {
-      pane command="nvim"
+      pane command="lvim"
   }
   tab name="Browser" {
     pane split_direction="vertical" {
