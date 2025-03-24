@@ -106,6 +106,7 @@ keybinds clear-defaults=true {
         bind "o" { SearchToggleOption "WholeWord"; }
         bind "p" { Search "up"; }
         bind "w" { SearchToggleOption "Wrap"; }
+        bind "q" { SwitchToMode "locked"; }
     }
     session {
         bind "c" {
