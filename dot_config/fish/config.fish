@@ -8,7 +8,6 @@ set -g fish_user_paths /opt/homebrew/bin /opt/homebrew/sbin "$HOME/.composer/ven
 # Customization
 #################################################
 
-
 set -U fish_cursor_insert line
 set -U fish_cursor_replace_one underscore
 set -U fish_cursor_external block
@@ -63,11 +62,11 @@ alias .... "cd ../../.."
 alias o open
 alias oo "open ."
 
-alias dci "ddev composer install"
-alias dcu "ddev craft up"
-alias dca "ddev composer install && ddev craft up"
-alias dcq "ddev craft queue/listen --verbose"
-alias dyd "ddev yarn run dev"
+alias ddci "ddev composer install"
+alias ddcu "ddev craft up"
+alias ddciu "ddev composer install && ddev craft up"
+alias ddcq "ddev craft queue/listen --verbose"
+alias ddyd "ddev yarn run dev"
 
 #################################################
 # Functions
