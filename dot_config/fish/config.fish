@@ -2,7 +2,7 @@
 # Path
 #################################################
 
-set -g fish_user_paths /opt/homebrew/bin /opt/homebrew/sbin "$HOME/.composer/vendor/bin" "$HOME/.cargo/bin" /usr/local/bin /usr/local/sbin $fish_user_paths
+set -g fish_user_paths /opt/homebrew/bin /opt/homebrew/sbin "$HOME/.composer/vendor/bin" "$HOME/.cargo/bin" /usr/local/bin /usr/local/sbin "$HOME/Code/ukeweb_devbox" $fish_user_paths
 
 #################################################
 # Customization
@@ -55,7 +55,7 @@ alias dot "cd ~/.local/share/chezmoi"
 alias sites "cd ~/Code/Sites"
 alias dt "cd ~/Desktop"
 alias dl "cd ~/Downloads"
-alias db "cd ~/Dropbox"
+alias db "cd ~/Library/CloudStorage/Dropbox"
 alias .. "cd .."
 alias ... "cd ../.."
 alias .... "cd ../../.."
