@@ -9,7 +9,10 @@ layout {
     }
   }
   tab name="Editor" focus=true {
-      pane command="NVIM_APPNAME=lazyvim nvim"
+    pane {
+      command "env"
+      args "NVIM_APPNAME=lazyvim" "nvim"
+    } 
   }
   tab name="Browser" {
     pane split_direction="vertical" {
