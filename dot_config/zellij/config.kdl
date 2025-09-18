@@ -1,6 +1,7 @@
 theme "catppuccin-macchiato"
 pane_frames false
 session_serialization false
+show_startup_tips false
 
 keybinds clear-defaults=true {
     locked {
