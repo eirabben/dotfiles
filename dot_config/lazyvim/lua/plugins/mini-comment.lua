@@ -4,7 +4,7 @@ return {
     enabled = false,
   },
   {
-    "echasnovski/mini.comment",
+    "nvim-mini/mini.comment",
     opts = {
       options = {
         custom_commentstring = function()

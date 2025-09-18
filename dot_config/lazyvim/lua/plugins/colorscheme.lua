@@ -1,12 +1,14 @@
 return {
-  --   {
-  --     "rebelot/kanagawa.nvim",
-  --   },
-  --   { "rose-pine/neovim", name = "rose-pine" },
-  --   {
-  --     "LazyVim/LazyVim",
-  --     opts = {
-  --       colorscheme = "rose-pine-moon",
-  --     },
-  --   },
+  {
+    "LazyVim/LazyVim",
+    opts = {
+      colorscheme = "catppuccin",
+    },
+  },
+  {
+    "catppuccin/nvim",
+    opts = {
+      flavour = "frappe",
+    },
+  },
 }
