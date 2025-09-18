@@ -1,3 +1,3 @@
 # To Do
 
--[ ] Add aliases for ddev
+-[ ] Update brewfile with current packages
