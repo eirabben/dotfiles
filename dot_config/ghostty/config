@@ -48,6 +48,6 @@
 # # Just for example:
 # resize-overlay-duration = 4s 200ms
 
-theme = Catppuccin Frappe
+theme = Catppuccin Macchiato
 font-size = 16
 adjust-cell-height = 40%
