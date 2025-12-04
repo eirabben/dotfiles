@@ -44,6 +44,8 @@ cask 'ghostty'
 cask 'orbstack'
 cask 'raycast'
 cask 'spotify'
+cask 'vivaldi'
+cask 'zen'
 
 # Work
 cask 'figma'
