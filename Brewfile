@@ -1,4 +1,3 @@
-tap 'drud/ddev'
 tap 'saulpw/vd'
 
 # Essentials
@@ -9,7 +8,7 @@ brew 'chezmoi'
 brew 'composer'
 brew 'coreutils'
 brew 'curl'
-brew 'ddev'
+brew 'ddev/ddev/ddev'
 brew 'eza'
 brew 'fd'
 brew 'fish'
