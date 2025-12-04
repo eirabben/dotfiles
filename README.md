@@ -2,11 +2,11 @@
 
 ## Configs
 
+- Ghostty
 - Fish
+- Zellij
+- Neovim (Lazyvim)
 - Git
-- Kitty
-- Neovim
-- Tmux
 
 ## How to install
 
