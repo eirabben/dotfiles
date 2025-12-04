@@ -10,6 +10,6 @@
 
 ## How to install
 
-- Install homebrew
-- Install chezmoi
-- Initialize chezmoi with this repo as parameter
+- Install [Homebrew](https://brew.sh)
+- Install chezmoi: `brew install chezmoi`
+- Initialize chezmoi with this repo as a parameter: `chezmoi init https://github.com/eirabben/dotfiles.git`
