@@ -221,7 +221,7 @@ plugins {
     configuration location="zellij:configuration"
     filepicker location="zellij:strider" {
         cwd "/"
-        caller_cwd "/Users/eirik"
+        caller_cwd "{{ .homeDirectoryPath }}"
     }
     plugin-manager location="zellij:plugin-manager"
     session-manager location="zellij:session-manager"

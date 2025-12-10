@@ -1,0 +1,8 @@
+{{- $gitAuthorName := promptStringOnce . "gitAuthorName" "Git author name" -}}
+{{- $gitEmail := promptStringOnce . "gitEmail" "Git email" -}}
+{{- $homeDirectoryPath := promptStringOnce . "homeDirectoryPath" "Home directory path" -}}
+
+[data]
+    gitAuthorName = {{ $gitAuthorName | quote }}
+    gitEmail = {{ $gitEmail | quote }}
+    homeDirectoryPath = {{ $homeDirectoryPath | quote }}
