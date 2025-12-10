@@ -1,3 +1,6 @@
+{{- $name := promptStringOnce . "name" "Name" -}}
+{{- $email := promptStringOnce . "email" "Email address" -}}
+
 [alias]
   # 20 latest commits with pretty output
   l = log --pretty=oneline -n 20 --graph --abbrev-commit
@@ -64,6 +67,8 @@
 	defaultBranch = main
 
 [user]
+  name = {{ $name | quote }}
+  email = {{ $email | quote }}
 
 [pull]
 	rebase = false
