@@ -2,7 +2,7 @@
 # Path
 #################################################
 
-set -g fish_user_paths /opt/homebrew/opt/php@8.3/bin /opt/homebrew/opt/php@8.3/sbin /opt/homebrew/bin /opt/homebrew/sbin "$HOME/.composer/vendor/bin" "$HOME/.cargo/bin" /usr/local/bin /usr/local/sbin "$HOME/Code/ukeweb_devbox" $fish_user_paths
+set -g fish_user_paths /opt/homebrew/opt/php@8.3/bin /opt/homebrew/opt/php@8.3/sbin /opt/homebrew/bin /opt/homebrew/sbin "$HOME/.composer/vendor/bin" "$HOME/.cargo/bin" /usr/local/bin /usr/local/sbin "$HOME/Code/Repos/devbox" $fish_user_paths
 
 #################################################
 # Customization
