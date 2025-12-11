@@ -43,6 +43,7 @@ alias cat bat
 alias lg lazygit
 alias gg lazygit
 alias vim nvim
+alias lvim nvim
 
 alias c clear
 alias dot "cd ~/.local/share/chezmoi"
