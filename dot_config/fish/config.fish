@@ -2,15 +2,15 @@
 # Path
 #################################################
 
-set -g fish_user_paths /opt/homebrew/opt/php@8.3/bin /opt/homebrew/opt/php@8.3/sbin /opt/homebrew/bin /opt/homebrew/sbin "$HOME/.composer/vendor/bin" "$HOME/.cargo/bin" /usr/local/bin /usr/local/sbin "$HOME/Code/Repos/devbox" $fish_user_paths
+fish_add_path /opt/homebrew/opt/php@8.3/bin /opt/homebrew/opt/php@8.3/sbin /opt/homebrew/bin /opt/homebrew/sbin "$HOME/.composer/vendor/bin" "$HOME/.cargo/bin" /usr/local/bin /usr/local/sbin "$HOME/Code/Repos/devbox"
 
 #################################################
 # Customization
 #################################################
 
-set -U fish_cursor_insert line
-set -U fish_cursor_replace_one underscore
-set -U fish_cursor_external block
+set -g fish_cursor_insert line
+set -g fish_cursor_replace_one underscore
+set -g fish_cursor_external block
 set fish_vi_force_cursor 1
 
 function fish_user_key_bindings
@@ -34,7 +34,7 @@ set -Ux EDITOR nvim
 # Aliases
 #################################################
 
-alias ls "eza -l"
+alias ls "eza"
 alias ll "eza -l"
 alias la "eza -la"
 alias lt "eza --tree"
@@ -77,7 +77,7 @@ function project
     end
 end
 
-function edit
+function fe
     fzf -m | xargs $EDITOR
 end
 
