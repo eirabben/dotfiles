@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+# Runs `brew bundle` whenever the Brewfile changes.
+#
+# This script is managed by chezmoi as a `run_onchange_` hook: chezmoi
+# re-runs it only when its rendered content changes. Because the Brewfile
+# is embedded below via `include`, editing the Brewfile changes this
+# script's content and triggers a re-run on the next `chezmoi apply`.
+
+set -euo pipefail
+
+if ! command -v brew >/dev/null 2>&1; then
+	echo "Homebrew not found — skipping brew bundle."
+	echo "Install it first with script/install_brew.sh, then run 'chezmoi apply' again."
+	exit 0
+fi
+
+echo "Brewfile changed — running brew bundle..."
+
+brew bundle --file=/dev/stdin <<'BREWFILE'
+{{ include "Brewfile" }}
+BREWFILE
