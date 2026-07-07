@@ -1,4 +1,4 @@
-#!/usr/local/bin/bash
+#!/usr/bin/env bash
 
 function change_computer_name {
   read -p "Computer name: " computer_name

@@ -1,4 +1,4 @@
-#!/usr/local/bin/bash
+#!/usr/bin/env bash
 
 function change_shell {
     which fish | sudo tee -a /etc/shells

@@ -1,12 +1,13 @@
-#!/usr/local/bin/bash
+#!/usr/bin/env bash
 
 function generate_public_key {
-    pub=$HOME/.ssh/id_rsa.pub
+    key=$HOME/.ssh/id_ed25519
+    pub=$key.pub
 
 	# Create it only if it does not exist
 	if [ ! -f $pub ]; then
 		echo "Generating SSH key"
-		ssh-keygen -t rsa
+		ssh-keygen -t ed25519 -f $key
 	fi
 
 	# Copy to clipboard
