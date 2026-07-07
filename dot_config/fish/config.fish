@@ -25,20 +25,23 @@ function fish_user_key_bindings
 end
 
 #################################################
-# Editor
+# Environment
 #################################################
 
 set -gx EDITOR nvim
+
+# Match the Catppuccin Macchiato theme used everywhere else.
+set -gx BAT_THEME "Catppuccin Macchiato"
 
 #################################################
 # Aliases
 #################################################
 
-alias ls "eza"
-alias ll "eza -l"
-alias la "eza -la"
-alias lt "eza --tree"
-alias tree "eza --tree"
+alias ls "eza --icons --git"
+alias ll "eza --icons --git -l"
+alias la "eza --icons --git -la"
+alias lt "eza --icons --git --tree"
+alias tree "eza --icons --git --tree"
 alias cat bat
 alias lg lazygit
 alias gg lazygit
@@ -77,15 +80,18 @@ function project
     end
 end
 
-function fe
-    fzf -m | xargs $EDITOR
+function fe --description "Fuzzy-find files and open them in the editor"
+    fzf -m --preview 'bat --color=always --style=numbers {}' | xargs $EDITOR
 end
 
-function mkd
-    mkdir $argv
-    cd $argv
+function mkd --description "Create a directory (with parents) and cd into it"
+    mkdir -p $argv[1]
+    and cd $argv[1]
 end
 
 starship init fish | source
 zoxide init fish | source
+fzf --fish | source
+
+# Note: `zi` (interactive fuzzy directory jump) is provided by zoxide's init.
 alias cd z
