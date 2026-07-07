@@ -57,6 +57,24 @@
   # https://git-scm.com/docs/git-config#git-config-pushdefault
 	default = simple
 
+	# `git push` on a new branch sets up the remote automatically (no -u needed).
+	autoSetupRemote = true
+
+[fetch]
+	# Remove remote-tracking refs that no longer exist on the remote.
+	prune = true
+
+[rebase]
+	# Move `--fixup`/`--squash` commits into place automatically.
+	autosquash = true
+
+	# Stash & unstash dirty changes around a rebase.
+	autostash = true
+
+[rerere]
+	# Remember how conflicts were resolved and reapply them automatically.
+	enabled = true
+
 [credential]
   helper = osxkeychain
 [credential "https://github.com"]
@@ -77,12 +95,17 @@
 	rebase = false
 
 [diff]
+	# Better diffs: histogram algorithm and highlight moved lines distinctly.
+	algorithm = histogram
+	colorMoved = default
     tool = nvimdiff
 [difftool]
     prompt = false
 [difftool "nvimdiff"]
     cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
 [merge]
+	# Show the common ancestor in conflict markers (easier 3-way resolution).
+	conflictStyle = zdiff3
     tool = nvimdiff
 [mergetool]
     prompt = true
