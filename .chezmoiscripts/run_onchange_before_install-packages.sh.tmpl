@@ -15,8 +15,19 @@ if ! command -v brew >/dev/null 2>&1; then
 	exit 0
 fi
 
+# The Brewfile is embedded here so this script's content changes with it.
+read -r -d '' BREWFILE <<'EOF' || true
+{{ include "Brewfile" }}
+EOF
+
+# Homebrew requires third-party taps to be trusted before it will load their
+# formulae (HOMEBREW_REQUIRE_TAP_TRUST, on by default). Trust every tap listed
+# in the Brewfile so `brew bundle` doesn't abort on a fresh machine.
+# `brew trust` is idempotent.
+while read -r tap; do
+	[ -n "$tap" ] && brew trust "$tap"
+done < <(printf '%s\n' "$BREWFILE" | sed -n "s/^tap ['\"]\([^'\"]*\)['\"].*/\1/p")
+
 echo "Brewfile changed — running brew bundle..."
 
-brew bundle --file=/dev/stdin <<'BREWFILE'
-{{ include "Brewfile" }}
-BREWFILE
+printf '%s\n' "$BREWFILE" | brew bundle --file=/dev/stdin
