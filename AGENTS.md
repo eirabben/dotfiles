@@ -17,7 +17,7 @@ source, use `chezmoi re-add` — do not hand-copy.
   `dot_config/git/config.tmpl`, `dot_config/zellij/config.kdl.tmpl`,
   `.chezmoi.toml.tmpl`, and the brew hook.
 - Template vars (set once at `chezmoi init` via prompts, defined in
-  `.chezmoi.toml.tmpl`): `.gitAuthorName`, `.gitEmail`, `.homeDirectoryPath`.
+  `.chezmoi.toml.tmpl`): `.gitAuthorName`, `.gitEmail`.
 - `.chezmoiignore` lists files kept in-repo but **not** deployed: `Brewfile`,
   `README.md`, `TODO.md`, `script/`. Adding a managed config? It must live under
   `dot_config/` and not match `.chezmoiignore`.
