@@ -4,3 +4,24 @@ customCommands:
     description: "Checkout (skip hooks)"
     command: "git -c core.hooksPath=/dev/null checkout {{ .SelectedLocalBranch.Name | quote }}"
     loadingText: "Checking out (no hooks)..."
+  - key: "<c-g>"
+    context: "files"
+    description: "AI commit message (opencode)"
+    output: terminal
+    # Wrapped in bash -c because lazygit runs commands via $SHELL (fish).
+    # Avoid single quotes inside the script body.
+    command: |
+      bash -c '
+      if git diff --cached --quiet; then echo "Nothing staged."; exit 1; fi
+      msg=$(mktemp)
+      trap "rm -f $msg" EXIT
+      echo "Generating commit message..."
+      opencode run "Write a Conventional Commits message for the staged diff below.
+      Output ONLY the raw commit message: a subject line under 72 chars (type(scope): summary),
+      optionally a blank line and a short body explaining why. No code fences, no commentary.
+
+      $(git diff --cached --stat)
+
+      $(git diff --cached | head -c 60000)" > "$msg" || exit 1
+      git commit -e -F "$msg"
+      '
