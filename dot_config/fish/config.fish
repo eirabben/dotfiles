@@ -33,6 +33,10 @@ set -gx EDITOR nvim
 # Match the Catppuccin Macchiato theme used everywhere else.
 set -gx BAT_THEME "Catppuccin Macchiato"
 
+# On macOS lazygit reads ~/Library/Application Support/lazygit by default and
+# ignores ~/.config/lazygit entirely. Point it at the chezmoi-managed config.
+set -gx LG_CONFIG_FILE "$HOME/.config/lazygit/config.yml"
+
 #################################################
 # Aliases
 #################################################

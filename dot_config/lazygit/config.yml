@@ -1,0 +1,6 @@
+customCommands:
+  - key: "C"
+    context: "localBranches"
+    description: "Checkout (skip hooks)"
+    command: "git -c core.hooksPath=/dev/null checkout {{ .SelectedLocalBranch.Name | quote }}"
+    loadingText: "Checking out (no hooks)..."
