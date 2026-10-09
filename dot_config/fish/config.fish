@@ -30,6 +30,10 @@ end
 
 set -gx EDITOR nvim
 
+# Many Go tools (e.g. tuios) default to ~/Library/Application Support on macOS
+# unless XDG_CONFIG_HOME is set. Point them at the chezmoi-managed ~/.config.
+set -gx XDG_CONFIG_HOME "$HOME/.config"
+
 # Match the Catppuccin Macchiato theme used everywhere else.
 set -gx BAT_THEME "Catppuccin Macchiato"
 
