@@ -288,6 +288,39 @@ plugins {
     welcome-screen location="zellij:session-manager" {
         welcome_screen true
     }
+    // Catppuccin Macchiato status bar, used by the layouts as plugin location="zjstatus".
+    zjstatus location="https://github.com/dj95/zjstatus/releases/download/v0.25.0/zjstatus.wasm" {
+        format_left   "{mode}#[fg=#8aadf4,bold] {session} "
+        format_center "{tabs}"
+        format_right  "{datetime}"
+        format_space  ""
+
+        border_enabled "false"
+
+        mode_locked        "#[fg=#6e738d] 󰌾 "
+        mode_normal        "#[bg=#a6da95,fg=#24273a,bold] NORMAL "
+        mode_pane          "#[bg=#8aadf4,fg=#24273a,bold] PANE "
+        mode_tab           "#[bg=#c6a0f6,fg=#24273a,bold] TAB "
+        mode_resize        "#[bg=#f5a97f,fg=#24273a,bold] RESIZE "
+        mode_move          "#[bg=#f5a97f,fg=#24273a,bold] MOVE "
+        mode_scroll        "#[bg=#eed49f,fg=#24273a,bold] SCROLL "
+        mode_search        "#[bg=#eed49f,fg=#24273a,bold] SEARCH "
+        mode_enter_search  "#[bg=#eed49f,fg=#24273a,bold] SEARCH "
+        mode_rename_tab    "#[bg=#f5bde6,fg=#24273a,bold] RENAME "
+        mode_rename_pane   "#[bg=#f5bde6,fg=#24273a,bold] RENAME "
+        mode_session       "#[bg=#ed8796,fg=#24273a,bold] SESSION "
+        mode_prompt        "#[bg=#ed8796,fg=#24273a,bold] PROMPT "
+
+        tab_normal              "#[fg=#6e738d] {index} {name}{floating_indicator}{fullscreen_indicator} "
+        tab_active              "#[bg=#363a4f,fg=#cad3f5,bold] {index} {name}{floating_indicator}{fullscreen_indicator} "
+        tab_separator           " "
+        tab_floating_indicator  " 󰉈"
+        tab_fullscreen_indicator " 󰊓"
+
+        datetime          "#[fg=#6e738d] {format} "
+        datetime_format   "%a %d %b  %H:%M"
+        datetime_timezone "Europe/Oslo"
+    }
 }
 
 // Plugins to load in the background when a new session starts

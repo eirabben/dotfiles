@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+# Installs/updates fish plugins with fisher whenever fish_plugins changes.
+# fish_plugins hash: {{ include "dot_config/fish/fish_plugins" | sha256sum }}
+
+set -euo pipefail
+
+if ! command -v fish >/dev/null 2>&1; then
+	echo "fish not found — skipping fisher update."
+	exit 0
+fi
+
+if ! fish -c 'functions -q fisher'; then
+	echo "fisher not found — skipping. It is installed by the Brewfile."
+	exit 0
+fi
+
+echo "fish_plugins changed — running fisher update..."
+fish -c 'fisher update'

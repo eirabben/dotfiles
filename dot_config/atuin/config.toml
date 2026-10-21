@@ -17,3 +17,6 @@ history_filter = [
   "^c$",
   "^clear$",
 ]
+
+[theme]
+name = "catppuccin-macchiato-mauve"

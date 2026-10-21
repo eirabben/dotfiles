@@ -1,0 +1,8 @@
+[misc]
+# system:     macOS softwareupdate. Do OS updates manually.
+# chezmoi:    `chezmoi update` pulls and applies the repo. Apply on purpose instead.
+# containers: would re-pull every local docker image (ddev, project images).
+disable = ["system", "chezmoi", "containers"]
+
+# Remove old Homebrew versions and caches afterwards.
+cleanup = true

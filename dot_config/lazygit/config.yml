@@ -1,7 +1,7 @@
 git:
   diffRenderers:
     - colorArg: always
-      command: delta --paging=never --line-numbers=false
+      command: delta --paging=never
 customCommands:
   - key: "C"
     context: "localBranches"

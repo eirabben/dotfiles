@@ -1,0 +1,13 @@
+# Catppuccin Macchiato (mauve accent), matching lazygit.
+gui:
+  border: rounded
+  theme:
+    activeBorderColor:
+      - "#c6a0f6"
+      - bold
+    inactiveBorderColor:
+      - "#a5adcb"
+    selectedLineBgColor:
+      - "#363a4f"
+    optionsTextColor:
+      - "#8aadf4"

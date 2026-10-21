@@ -72,6 +72,10 @@ Editing the `Brewfile` re-triggers the `brew bundle` hook on the next
 | `Ctrl r` | Search history (atuin) |
 | `Ctrl t` / `Alt c` | fzf: insert file / cd into directory |
 | `fe` | Fuzzy-find files and open in nvim |
+| `y` | yazi file manager; `cd`s to where you quit |
+| `Ctrl Alt f` | fzf.fish: search files |
+| `Ctrl Alt l` / `Ctrl Alt s` | fzf.fish: git log / git status |
+| `Ctrl Alt p` | fzf.fish: processes |
 
 ### Zellij
 
@@ -101,6 +105,14 @@ Fish abbreviations expand inline when you press space. Run `abbr` to list all.
 | `db…` / `dpc` | devbox: `dbx`, `dpc` php craft, `dbc` composer, `dbn` npm, `dbp` pnpm |
 | `dc…` | docker compose: `dc`, `dcu` up -d, `dcd` down, `dcl` logs -f; `dps` docker ps |
 | `b…` / `cz…` / `zj…` | brew (`bi`, `bs`, `bu`), chezmoi (`czd`, `cza`, `cze`), zellij (`zjl`, `zjk`) |
+| `up` | `topgrade`: update brew, nvim plugins, npm/pnpm/composer globals, tldr pages and more |
+
+Other tools: `tldr <cmd>` for quick examples, `dust` for disk usage per
+folder, `duf` for disk overview.
+
+Fish plugins are listed in `dot_config/fish/fish_plugins` and installed by
+fisher on `chezmoi apply`. After `fisher install`/`remove`, run
+`chezmoi re-add ~/.config/fish/fish_plugins`.
 
 Git diffs, `git log -p` and lazygit use [delta](https://github.com/dandavison/delta)
 (`n`/`N` jumps between files in the pager).

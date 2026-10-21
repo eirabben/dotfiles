@@ -2,7 +2,7 @@
 # Path
 #################################################
 
-fish_add_path /opt/homebrew/opt/php@8.3/bin /opt/homebrew/opt/php@8.3/sbin /opt/homebrew/bin /opt/homebrew/sbin "$HOME/.composer/vendor/bin" "$HOME/.cargo/bin" "$HOME/.local/bin" /usr/local/bin /usr/local/sbin "$HOME/Code/Repos/devbox"
+fish_add_path -g /opt/homebrew/bin /opt/homebrew/sbin "$HOME/.composer/vendor/bin" "$HOME/.cargo/bin" "$HOME/.local/bin" /usr/local/bin /usr/local/sbin "$HOME/Code/Repos/devbox"
 
 #################################################
 # Customization
@@ -44,8 +44,23 @@ set -gx XDG_CONFIG_HOME "$HOME/.config"
 set -gx BAT_THEME "Catppuccin Macchiato"
 
 # On macOS lazygit reads ~/Library/Application Support/lazygit by default and
-# ignores ~/.config/lazygit entirely. Point it at the chezmoi-managed config.
-set -gx LG_CONFIG_FILE "$HOME/.config/lazygit/config.yml"
+# ignores ~/.config/lazygit entirely. Point it at the chezmoi-managed config,
+# merged with the Catppuccin theme.
+set -gx LG_CONFIG_FILE "$HOME/.config/lazygit/config.yml,$HOME/.config/lazygit/theme.yml"
+
+# eza also defaults to ~/Library/Application Support on macOS (theme.yml lives here).
+set -gx EZA_CONFIG_DIR "$HOME/.config/eza"
+
+# Catppuccin Macchiato for fzf (and everything built on it, e.g. fzf.fish).
+set -gx FZF_DEFAULT_OPTS "\
+--color=bg+:#363a4f,bg:#24273a,spinner:#f4dbd6,hl:#ed8796 \
+--color=fg:#cad3f5,header:#ed8796,info:#c6a0f6,pointer:#f4dbd6 \
+--color=marker:#b7bdf8,fg+:#cad3f5,prompt:#c6a0f6,hl+:#ed8796 \
+--color=selected-bg:#494d64,border:#6e738d,label:#cad3f5"
+
+# fzf.fish (installed via fisher, see fish_plugins).
+set -g fzf_preview_dir_cmd eza --all --color=always --icons
+set -g fzf_fd_opts --hidden --exclude=.git
 
 #################################################
 # Aliases
@@ -133,6 +148,7 @@ abbr -a dps docker ps
 abbr -a bi brew install
 abbr -a bs brew search
 abbr -a bu 'brew update && brew upgrade'
+abbr -a up topgrade
 
 # chezmoi
 abbr -a cz chezmoi
@@ -189,9 +205,23 @@ function mkd --description "Create a directory (with parents) and cd into it"
     and cd $argv[1]
 end
 
+function y --description "Open yazi and cd into the directory it was in when it quit"
+    set -l tmp (mktemp -t "yazi-cwd.XXXXXX")
+    yazi $argv --cwd-file="$tmp"
+    if read -z cwd <"$tmp"; and test -n "$cwd"; and test "$cwd" != "$PWD"
+        cd "$cwd"
+    end
+    command rm -f -- "$tmp"
+end
+
 starship init fish | source
 # Replaces `cd` with zoxide (`cdi` for the interactive picker).
 zoxide init fish --cmd cd | source
 fzf --fish | source
+# fzf.fish: Ctrl-Alt-F files, Ctrl-Alt-L git log, Ctrl-Alt-S git status, Ctrl-Alt-P processes.
+# History is left to atuin and Ctrl-V to paste.
+if functions -q fzf_configure_bindings
+    fzf_configure_bindings --history= --variables=
+end
 # Loaded after fzf so atuin owns Ctrl-R (history); fzf keeps Ctrl-T / Alt-C.
 atuin init fish --disable-up-arrow | source
