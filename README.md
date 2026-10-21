@@ -67,7 +67,7 @@ Editing the `Brewfile` re-triggers the `brew bundle` hook on the next
 |---|---|
 | `Ctrl h/j/k/l` | Move between nvim splits and zellij panes (left/right wraps to tabs) |
 | `project` | Open a zellij project session (nvim, opencode, shell tabs) for the current folder, or switch to it if it exists |
-| `project <path>` | Same for a folder path, or a zoxide query like `project berte` |
+| `project <path>` | Same for a folder path, or a zoxide query like `project dotfiles` |
 | `Ctrl a`, `w` | Switch between running and saved zellij sessions |
 | `cd <query>` / `cdi` | zoxide jump / interactive picker |
 | `Ctrl r` | Search history (atuin) |
@@ -81,7 +81,16 @@ Editing the `Brewfile` re-triggers the `brew bundle` hook on the next
 ### Zellij
 
 Starts in **locked** mode, so keys go to the app. `Ctrl a` enters normal mode,
-then pick a mode. `Esc`/`Enter` goes back to locked.
+then pick a mode. `Esc`/`Enter` goes back to locked. `Ctrl a`, `?` shows a
+cheatsheet ([`dot_config/zellij/cheatsheet.md`](dot_config/zellij/cheatsheet.md)).
+
+| After `Ctrl a` | Action |
+|---|---|
+| `w` | Switch project session |
+| `f` | Fuzzy-find a tab ([room](https://github.com/rvcas/room)) |
+| `g` | lazygit in a floating pane |
+| `[` `]` | Cycle pane arrangements: side by side, rows, stacked |
+| `?` | Cheatsheet |
 
 | Mode (from normal) | Useful keys |
 |---|---|
@@ -98,6 +107,14 @@ Enter in the pane to start them.
 
 Always available in locked mode: `Alt n` new pane, `Alt f` floating panes,
 `Alt i/o` move tab, `Alt +/-` resize.
+
+**opencode status:** the right side of the status bar shows each project's
+opencode state: `●` working, `▲` waiting for you, `■` done, `×` error. A macOS
+notification is sent when one finishes or needs you, unless you are looking at
+it. This is an opencode plugin
+([`dot_config/opencode/plugins/zellij-agent-state`](dot_config/opencode/plugins/zellij-agent-state))
+reporting to [`zellij-agent-state`](dot_local/bin/executable_zellij-agent-state),
+which zjstatus polls.
 
 ### Abbreviations
 

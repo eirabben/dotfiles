@@ -11,6 +11,42 @@ keybinds clear-defaults=true {
             }
             SwitchToMode "locked"
         }
+        // Ctrl a, f: fuzzy-find a tab by name
+        bind "f" {
+            LaunchOrFocusPlugin "room" {
+                floating true
+                ignore_case true
+                quick_jump true
+            }
+            SwitchToMode "locked"
+        }
+        // Ctrl a, g: lazygit in a floating pane, in the focused pane's folder
+        bind "g" {
+            Run "lazygit" {
+                floating true
+                close_on_exit true
+                width "90%"
+                height "90%"
+                x "5%"
+                y "5%"
+            }
+            SwitchToMode "locked"
+        }
+        // Ctrl a, ?: cheatsheet
+        bind "?" {
+            Run "bash" "-c" "bat --style=plain --paging=always --language=markdown \"$HOME/.config/zellij/cheatsheet.md\"" {
+                floating true
+                close_on_exit true
+                width "80%"
+                height "80%"
+                x "10%"
+                y "10%"
+            }
+            SwitchToMode "locked"
+        }
+        // Ctrl a, [ / ]: cycle pane arrangements (stays in normal mode to repeat)
+        bind "[" { PreviousSwapLayout; }
+        bind "]" { NextSwapLayout; }
     }
     pane {
         bind "left" { MoveFocus "left"; }
@@ -297,11 +333,12 @@ plugins {
     welcome-screen location="zellij:session-manager" {
         welcome_screen true
     }
+    room location="https://github.com/rvcas/room/releases/download/v1.2.1/room.wasm"
     // Catppuccin Macchiato status bar, used by the layouts as plugin location="zjstatus".
     zjstatus location="https://github.com/dj95/zjstatus/releases/download/v0.25.0/zjstatus.wasm" {
         format_left   "{mode}#[fg=#8aadf4,bold] {session} "
         format_center "{tabs}"
-        format_right  "{datetime}"
+        format_right  "{command_agents}{datetime}"
         format_space  ""
 
         border_enabled "false"
@@ -325,6 +362,12 @@ plugins {
         tab_separator           " "
         tab_floating_indicator  " 󰉈"
         tab_fullscreen_indicator " 󰊓"
+
+        // opencode state per session, from ~/.local/bin/zellij-agent-state
+        command_agents_command    "bash -c \"$HOME/.local/bin/zellij-agent-state render\""
+        command_agents_format     "{stdout}"
+        command_agents_interval   "2"
+        command_agents_rendermode "dynamic"
 
         datetime          "#[fg=#6e738d] {format} "
         datetime_format   "%a %d %b  %H:%M"

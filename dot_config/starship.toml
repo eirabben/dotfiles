@@ -2,39 +2,20 @@
 
 palette = "catppuccin_macchiato"
 
+# Only the modules listed here are shown.
 format = """
-$directory$git_branch$git_state$git_status$php$nodejs$cmd_duration
+$directory$git_branch$git_state$git_status$cmd_duration
 $character"""
 
 add_newline = true
 
 [palettes.catppuccin_macchiato]
-rosewater = "#f4dbd6"
-flamingo = "#f0c6c6"
-pink = "#f5bde6"
 mauve = "#c6a0f6"
 red = "#ed8796"
-maroon = "#ee99a0"
-peach = "#f5a97f"
-yellow = "#eed49f"
 green = "#a6da95"
-teal = "#8bd5ca"
-sky = "#91d7e3"
 sapphire = "#7dc4e4"
-blue = "#8aadf4"
-lavender = "#b7bdf8"
-text = "#cad3f5"
-subtext0 = "#a5adcb"
+yellow = "#eed49f"
 overlay0 = "#6e738d"
-
-[package]
-disabled = true
-
-[python]
-disabled = true
-
-[battery]
-disabled = true
 
 [directory]
 style = "bold sapphire"
@@ -42,7 +23,7 @@ truncation_length = 4
 truncate_to_repo = true
 
 [git_branch]
-symbol = " "
+symbol = "\ue0a0 "
 style = "bold mauve"
 format = "[on](overlay0) [$symbol$branch]($style) "
 
@@ -56,18 +37,6 @@ diverged = "⇕⇡${ahead_count}⇣${behind_count}"
 [git_state]
 style = "yellow"
 format = '\([$state( $progress_current/$progress_total)]($style)\) '
-
-[php]
-# Icon only: projects run PHP in DDEV/devbox, so the host version is misleading,
-# and leaving out $version means starship never has to run `php`.
-symbol = " "
-style = "blue"
-format = "[$symbol]($style)"
-
-[nodejs]
-symbol = " "
-style = "green"
-format = "[$symbol($version )]($style)"
 
 [cmd_duration]
 min_time = 3000
