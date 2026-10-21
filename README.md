@@ -130,7 +130,9 @@ Fish abbreviations expand inline when you press space. Run `abbr` to list all.
 | `up` | `topgrade`: update brew, nvim plugins, npm/pnpm/composer globals, tldr pages and more |
 
 Other tools: `tldr <cmd>` for quick examples, `dust` for disk usage per
-folder, `duf` for disk overview.
+folder, `duf` for disk overview, `spf` for superfile (a file manager with
+vim-style keys: `j/k` move, `enter` open, `-` parent folder, `y/x/p` copy/cut/paste,
+`d` delete, `a` new, `r` rename, `q` close panel, `ctrl+c` quit, `?` help).
 
 Fish plugins are listed in `dot_config/fish/fish_plugins` and installed by
 fisher on `chezmoi apply`. After `fisher install`/`remove`, run
