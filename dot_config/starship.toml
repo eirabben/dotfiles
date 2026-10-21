@@ -58,9 +58,11 @@ style = "yellow"
 format = '\([$state( $progress_current/$progress_total)]($style)\) '
 
 [php]
+# Icon only: projects run PHP in DDEV/devbox, so the host version is misleading,
+# and leaving out $version means starship never has to run `php`.
 symbol = " "
 style = "blue"
-format = "[$symbol($version )]($style)"
+format = "[$symbol]($style)"
 
 [nodejs]
 symbol = " "

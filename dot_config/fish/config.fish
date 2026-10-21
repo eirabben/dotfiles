@@ -165,36 +165,32 @@ abbr -a zjk zellij kill-session
 # Functions
 #################################################
 
-function project --description "Open (or attach to) a zellij session for a project in ~/Code/Sites"
-    set -l sites "$HOME/Code/Sites"
-    set -l name $argv[1]
-
-    if test -z "$name"
-        set name (command ls $sites | fzf --height 40% --reverse --prompt "project> " \
-            --preview "eza --icons --git -1 --color=always $sites/{}")
-        or return
+function project --description "Open (or switch to) a zellij project session for a folder"
+    # No argument: the current folder. Otherwise a path, or a zoxide query.
+    set -l dir $PWD
+    if set -q argv[1]
+        if test -d $argv[1]
+            set dir (path resolve $argv[1])
+        else
+            set dir (zoxide query -- $argv)
+            or return 1
+        end
     end
 
-    set -l dir "$sites/$name"
-    if not test -d $dir
-        echo "No project at $dir"
-        return 1
-    end
+    set -l name (path basename $dir)
 
     if set -q ZELLIJ
-        # Already inside zellij: switch sessions instead of nesting one.
-        zellij action switch-session $name --layout project --cwd $dir
-        return
-    end
-
-    cd $dir
-    if contains -- $name (zellij list-sessions --short 2>/dev/null)
-        zellij attach $name
+        # Inside zellij: make sure the session exists (created or resurrected in the
+        # background, in the project folder), then switch to it instead of nesting.
+        fish --no-config -c 'cd $argv[1]; and zellij attach --create-background $argv[2] options --default-layout project' $dir $name &>/dev/null
+        zellij action switch-session $name
     else
-        zellij -s $name --layout project
+        # Attaches if running, resurrects if exited, otherwise creates it with the layout.
+        cd $dir
+        zellij attach --create $name options --default-layout project
     end
 end
-complete -c project -f -a "(command ls ~/Code/Sites)"
+complete -c project -x -a "(__fish_complete_directories (commandline -ct))"
 
 function fe --description "Fuzzy-find files and open them in the editor"
     fzf -m --preview 'bat --color=always --style=numbers {}' | xargs $EDITOR

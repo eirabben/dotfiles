@@ -66,8 +66,9 @@ Editing the `Brewfile` re-triggers the `brew bundle` hook on the next
 | Keys / command | Action |
 |---|---|
 | `Ctrl h/j/k/l` | Move between nvim splits and zellij panes (left/right wraps to tabs) |
-| `project` | Fuzzy-pick a project in `~/Code/Sites` and open/attach its zellij session |
-| `project <name>` | Same, by name (tab-completes) |
+| `project` | Open a zellij project session (nvim, opencode, shell tabs) for the current folder, or switch to it if it exists |
+| `project <path>` | Same for a folder path, or a zoxide query like `project berte` |
+| `Ctrl a`, `w` | Switch between running and saved zellij sessions |
 | `cd <query>` / `cdi` | zoxide jump / interactive picker |
 | `Ctrl r` | Search history (atuin) |
 | `Ctrl t` / `Alt c` | fzf: insert file / cd into directory |
@@ -90,6 +91,10 @@ then pick a mode. `Esc`/`Enter` goes back to locked.
 | `m` move | `h/j/k/l` move pane |
 | `s` scroll | `f` search, `e` edit scrollback in nvim, `c` copy last command output |
 | `o` session | `w` session manager, `d` detach, `l` layouts |
+
+Sessions are saved, so after a reboot they can be brought back from the
+session manager (`Ctrl a`, `w`). Commands like nvim come back paused; press
+Enter in the pane to start them.
 
 Always available in locked mode: `Alt n` new pane, `Alt f` floating panes,
 `Alt i/o` move tab, `Alt +/-` resize.
