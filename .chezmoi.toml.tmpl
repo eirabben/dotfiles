@@ -1,6 +1,8 @@
 {{- $gitAuthorName := promptStringOnce . "gitAuthorName" "Git author name" -}}
 {{- $gitEmail := promptStringOnce . "gitEmail" "Git email" -}}
+{{- $haMcpUrl := promptStringOnce . "haMcpUrl" "Home Assistant MCP webhook URL for opencode (leave empty to skip)" -}}
 
 [data]
     gitAuthorName = {{ $gitAuthorName | quote }}
     gitEmail = {{ $gitEmail | quote }}
+    haMcpUrl = {{ $haMcpUrl | quote }}

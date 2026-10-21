@@ -14,11 +14,13 @@ source, use `chezmoi re-add` — do not hand-copy.
 
 - `dot_config/` → `~/.config/`. `dot_foo` → `~/.foo`.
 - `*.tmpl` files are Go-templated at apply time. Templated files here:
-  `dot_config/git/config.tmpl`, `.chezmoi.toml.tmpl`, the brew and fisher
+  `dot_config/git/config.tmpl`, `dot_config/opencode/opencode.jsonc.tmpl`,
+  `.chezmoi.toml.tmpl`, the brew and fisher
   hooks, and `dot_config/zellij/layouts/*.swap.kdl.tmpl` (both render the shared
   `.chezmoitemplates/zellij-swap-layouts.kdl`).
 - Template vars (set once at `chezmoi init` via prompts, defined in
-  `.chezmoi.toml.tmpl`): `.gitAuthorName`, `.gitEmail`.
+  `.chezmoi.toml.tmpl`): `.gitAuthorName`, `.gitEmail`, `.haMcpUrl` (secret,
+  used by `dot_config/opencode/opencode.jsonc.tmpl`; never commit its value).
 - `.chezmoiignore` lists files kept in-repo but **not** deployed: `Brewfile`,
   `README.md`, `TODO.md`, `script/`. Adding a managed config? It must live under
   `dot_config/` and not match `.chezmoiignore`.

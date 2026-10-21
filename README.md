@@ -22,7 +22,8 @@ Package installation is driven by the [`Brewfile`](Brewfile).
    ```
 
 2. **Install chezmoi and apply this repo.** `chezmoi init` prompts for git
-   name/email and home directory, then applies:
+   name/email and the Home Assistant MCP webhook URL for opencode (secret,
+   stored only in `~/.config/chezmoi/chezmoi.toml`; leave empty to skip), then applies:
 
    ```sh
    brew install chezmoi

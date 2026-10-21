@@ -1,0 +1,18 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "mcp": {
+{{- if .haMcpUrl }}
+    // The URL is asked for by `chezmoi init` and stored outside this repo.
+    "ha-mcp": {
+      "type": "remote",
+      "url": {{ .haMcpUrl | quote }},
+      "enabled": true,
+    },
+{{- end }}
+    "playwright": {
+      "type": "local",
+      "command": ["npx", "-y", "@playwright/mcp@latest"],
+      "enabled": true,
+    },
+  },
+}
