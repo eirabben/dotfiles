@@ -40,6 +40,7 @@
 
 [core]
   editor = nvim
+  pager = delta
 
   # Make `git rebase` safer on macOS.
 	# More info: <http://www.git-tower.com/blog/make-git-rebase-safe-on-osx/>
@@ -93,6 +94,25 @@
 
 [pull]
 	rebase = false
+
+[interactive]
+	diffFilter = delta --color-only
+
+[delta]
+	navigate = true
+	line-numbers = true
+	syntax-theme = Catppuccin Macchiato
+	file-style = bold "#c6a0f6"
+	file-decoration-style = "#c6a0f6" ul
+	hunk-header-style = file line-number syntax
+	hunk-header-decoration-style = "#6e738d" box
+	line-numbers-minus-style = "#ed8796"
+	line-numbers-plus-style = "#a6da95"
+	line-numbers-zero-style = "#6e738d"
+	minus-style = syntax "#4d3a48"
+	minus-emph-style = syntax "#6e4452"
+	plus-style = syntax "#3a4a43"
+	plus-emph-style = syntax "#4b6450"
 
 [diff]
 	# Better diffs: histogram algorithm and highlight moved lines distinctly.

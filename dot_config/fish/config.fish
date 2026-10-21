@@ -190,10 +190,8 @@ function mkd --description "Create a directory (with parents) and cd into it"
 end
 
 starship init fish | source
-zoxide init fish | source
+# Replaces `cd` with zoxide (`cdi` for the interactive picker).
+zoxide init fish --cmd cd | source
 fzf --fish | source
 # Loaded after fzf so atuin owns Ctrl-R (history); fzf keeps Ctrl-T / Alt-C.
 atuin init fish --disable-up-arrow | source
-
-# Note: `zi` (interactive fuzzy directory jump) is provided by zoxide's init.
-alias cd z

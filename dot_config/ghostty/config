@@ -9,4 +9,3 @@ shell-integration-features = cursor,sudo,title
 mouse-hide-while-typing = true
 copy-on-select = clipboard
 window-save-state = always
-macos-titlebar-style = hidden
