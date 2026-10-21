@@ -1,0 +1,9 @@
+# TUIOS config — https://tuios.dev/docs/configuration
+# Only overrides are listed; everything else uses the built-in defaults.
+# Run `tuios list-options` to see every option.
+
+[appearance]
+theme = "catppuccin_macchiato"
+
+[keybindings]
+leader_key = "ctrl+a"

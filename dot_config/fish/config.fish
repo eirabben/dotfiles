@@ -30,6 +30,12 @@ end
 
 set -gx EDITOR nvim
 
+# Apply the Catppuccin syntax theme once (stored in universal variables).
+if status is-interactive; and not set -q __catppuccin_theme_applied
+    fish_config theme choose "Catppuccin Macchiato"
+    and set -U __catppuccin_theme_applied 1
+end
+
 # Many Go tools (e.g. tuios) default to ~/Library/Application Support on macOS
 # unless XDG_CONFIG_HOME is set. Point them at the chezmoi-managed ~/.config.
 set -gx XDG_CONFIG_HOME "$HOME/.config"
@@ -100,6 +106,8 @@ end
 starship init fish | source
 zoxide init fish | source
 fzf --fish | source
+# Loaded after fzf so atuin owns Ctrl-R (history); fzf keeps Ctrl-T / Alt-C.
+atuin init fish --disable-up-arrow | source
 
 # Note: `zi` (interactive fuzzy directory jump) is provided by zoxide's init.
 alias cd z

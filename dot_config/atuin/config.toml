@@ -1,0 +1,19 @@
+# Local-only by default. Run `atuin register` / `atuin login` to enable sync.
+auto_sync = false
+update_check = false
+
+search_mode = "fuzzy"
+filter_mode = "global"
+filter_mode_shell_up_key_binding = "directory"
+style = "compact"
+inline_height = 20
+enter_accept = false
+show_preview = true
+
+# Keep secrets out of history.
+secrets_filter = true
+history_filter = [
+  "^ls$",
+  "^c$",
+  "^clear$",
+]

@@ -2,3 +2,11 @@ theme = Catppuccin Macchiato
 font-family = JetBrainsMono Nerd Font
 font-size = 16
 adjust-cell-height = 40%
+
+cursor-style = bar
+cursor-style-blink = false
+shell-integration-features = cursor,sudo,title
+mouse-hide-while-typing = true
+copy-on-select = clipboard
+window-save-state = always
+macos-titlebar-style = hidden
