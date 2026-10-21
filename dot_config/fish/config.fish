@@ -74,25 +74,111 @@ alias .... "cd ../../.."
 alias o open
 alias oo "open ."
 
-alias ddci "ddev composer install"
-alias ddcu "ddev craft up"
-alias ddciu "ddev composer install && ddev craft up"
-alias ddcq "ddev craft queue/listen --verbose"
-alias ddyd "ddev yarn run dev"
+#################################################
+# Abbreviations (expand inline when you press space)
+#################################################
+
+# Git
+abbr -a g git
+abbr -a gs git status
+abbr -a ga git add
+abbr -a gaa git add --all
+abbr -a gc git commit
+abbr -a gcm --set-cursor 'git commit -m "%"'
+abbr -a gca git commit --amend
+abbr -a gp git push
+abbr -a gpf git push --force-with-lease
+abbr -a gl git pull
+abbr -a gf git fetch
+abbr -a gd git diff
+abbr -a gds git diff --staged
+abbr -a gsw git switch
+abbr -a gswc git switch -c
+abbr -a gco git checkout
+abbr -a glog git log --oneline --graph --decorate -20
+abbr -a gst git stash
+abbr -a gstp git stash pop
+
+# DDEV
+abbr -a dds ddev start
+abbr -a ddx ddev stop
+abbr -a ddr ddev restart
+abbr -a ddl ddev launch
+abbr -a ddsh ddev ssh
+abbr -a ddc ddev craft
+abbr -a ddci ddev composer install
+abbr -a ddcu ddev craft up
+abbr -a ddciu 'ddev composer install && ddev craft up'
+abbr -a ddcq ddev craft queue/listen --verbose
+abbr -a ddn ddev npm
+abbr -a ddyd ddev yarn run dev
+abbr -a ddim ddev import-db --file=
+abbr -a ddex ddev export-db --file=
+
+# devbox
+abbr -a dbx devbox
+abbr -a dpc devbox php craft
+abbr -a dbc devbox composer
+abbr -a dbn devbox npm
+abbr -a dbp devbox pnpm
+
+# Docker
+abbr -a dc docker compose
+abbr -a dcu docker compose up -d
+abbr -a dcd docker compose down
+abbr -a dcl docker compose logs -f
+abbr -a dps docker ps
+
+# Homebrew
+abbr -a bi brew install
+abbr -a bs brew search
+abbr -a bu 'brew update && brew upgrade'
+
+# chezmoi
+abbr -a cz chezmoi
+abbr -a czd chezmoi diff
+abbr -a cza chezmoi apply
+abbr -a cze chezmoi edit
+
+# Zellij
+abbr -a zj zellij
+abbr -a zjl zellij list-sessions
+abbr -a zjk zellij kill-session
 
 #################################################
 # Functions
 #################################################
 
-function project
-    set project_dir "$HOME/Code/Sites/$argv"
-    if test -d $project_dir
-        cd $project_dir
-        zellij -s "$argv" --layout project
+function project --description "Open (or attach to) a zellij session for a project in ~/Code/Sites"
+    set -l sites "$HOME/Code/Sites"
+    set -l name $argv[1]
+
+    if test -z "$name"
+        set name (command ls $sites | fzf --height 40% --reverse --prompt "project> " \
+            --preview "eza --icons --git -1 --color=always $sites/{}")
+        or return
+    end
+
+    set -l dir "$sites/$name"
+    if not test -d $dir
+        echo "No project at $dir"
+        return 1
+    end
+
+    if set -q ZELLIJ
+        # Already inside zellij: switch sessions instead of nesting one.
+        zellij action switch-session $name --layout project --cwd $dir
+        return
+    end
+
+    cd $dir
+    if contains -- $name (zellij list-sessions --short 2>/dev/null)
+        zellij attach $name
     else
-        echo "No project at $project_dir"
+        zellij -s $name --layout project
     end
 end
+complete -c project -f -a "(command ls ~/Code/Sites)"
 
 function fe --description "Fuzzy-find files and open them in the editor"
     fzf -m --preview 'bat --color=always --style=numbers {}' | xargs $EDITOR

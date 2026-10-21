@@ -158,6 +158,35 @@ keybinds clear-defaults=true {
         }
     }
     shared_among "normal" "locked" {
+        // Seamless navigation between zellij panes and nvim splits (smart-splits.nvim)
+        bind "Ctrl h" {
+            MessagePlugin "https://github.com/hiasr/vim-zellij-navigator/releases/download/0.3.0/vim-zellij-navigator.wasm" {
+                name "move_focus_or_tab";
+                payload "left";
+                move_mod "ctrl";
+            };
+        }
+        bind "Ctrl j" {
+            MessagePlugin "https://github.com/hiasr/vim-zellij-navigator/releases/download/0.3.0/vim-zellij-navigator.wasm" {
+                name "move_focus";
+                payload "down";
+                move_mod "ctrl";
+            };
+        }
+        bind "Ctrl k" {
+            MessagePlugin "https://github.com/hiasr/vim-zellij-navigator/releases/download/0.3.0/vim-zellij-navigator.wasm" {
+                name "move_focus";
+                payload "up";
+                move_mod "ctrl";
+            };
+        }
+        bind "Ctrl l" {
+            MessagePlugin "https://github.com/hiasr/vim-zellij-navigator/releases/download/0.3.0/vim-zellij-navigator.wasm" {
+                name "move_focus_or_tab";
+                payload "right";
+                move_mod "ctrl";
+            };
+        }
         bind "Alt left" { MoveFocusOrTab "left"; }
         bind "Alt down" { MoveFocus "down"; }
         bind "Alt up" { MoveFocus "up"; }
