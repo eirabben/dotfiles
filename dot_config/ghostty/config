@@ -9,3 +9,8 @@ shell-integration-features = cursor,sudo,title
 mouse-hide-while-typing = true
 copy-on-select = clipboard
 window-save-state = always
+
+window-padding-x = 12
+window-padding-y = 8
+# Spread leftover space (from the cell grid not fitting exactly) evenly around the edges.
+window-padding-balance = true
