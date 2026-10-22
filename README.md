@@ -82,7 +82,9 @@ Editing the `Brewfile` re-triggers the `brew bundle` hook on the next
 ### Zellij
 
 Starts in **locked** mode, so keys go to the app. `Ctrl a` enters normal mode,
-then pick a mode. `Esc`/`Enter` goes back to locked. `Ctrl a`, `?` shows a
+then pick a mode. `Esc`/`Enter` goes back to locked. In every mode the status
+bar shows the keys you can press next (which-key style; the hints are written
+by hand in the zjstatus `mode_*` settings in `config.kdl`). `Ctrl a`, `?` shows a
 cheatsheet ([`dot_config/zellij/cheatsheet.md`](dot_config/zellij/cheatsheet.md)).
 
 | After `Ctrl a` | Action |

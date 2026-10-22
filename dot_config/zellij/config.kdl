@@ -336,25 +336,30 @@ plugins {
     room location="https://github.com/rvcas/room/releases/download/v1.2.1/room.wasm"
     // Catppuccin Macchiato status bar, used by the layouts as plugin location="zjstatus".
     zjstatus location="https://github.com/dj95/zjstatus/releases/download/v0.25.0/zjstatus.wasm" {
-        format_left   "{mode}#[fg=#8aadf4,bold] {session} "
+        format_left   "#[fg=#8aadf4,bold] {session} {mode}"
         format_center "{tabs}"
         format_right  "{command_agents}{datetime}"
         format_space  ""
 
+        // Long key hints win over the tabs: hide the center first, then the right.
+        format_hide_on_overlength "true"
+        format_precedence         "lrc"
+
         border_enabled "false"
 
-        mode_locked        "#[fg=#6e738d] 󰌾 "
-        mode_normal        "#[bg=#a6da95,fg=#24273a,bold] NORMAL "
-        mode_pane          "#[bg=#8aadf4,fg=#24273a,bold] PANE "
-        mode_tab           "#[bg=#c6a0f6,fg=#24273a,bold] TAB "
-        mode_resize        "#[bg=#f5a97f,fg=#24273a,bold] RESIZE "
-        mode_move          "#[bg=#f5a97f,fg=#24273a,bold] MOVE "
-        mode_scroll        "#[bg=#eed49f,fg=#24273a,bold] SCROLL "
-        mode_search        "#[bg=#eed49f,fg=#24273a,bold] SEARCH "
-        mode_enter_search  "#[bg=#eed49f,fg=#24273a,bold] SEARCH "
-        mode_rename_tab    "#[bg=#f5bde6,fg=#24273a,bold] RENAME "
-        mode_rename_pane   "#[bg=#f5bde6,fg=#24273a,bold] RENAME "
-        mode_session       "#[bg=#ed8796,fg=#24273a,bold] SESSION "
+        mode_locked        "#[fg=#6e738d]󰌾 "
+        // Key hints for each mode (which-key style). Update them when keybindings change.
+        mode_normal        "#[bg=#a6da95,fg=#24273a,bold] NORMAL #[fg=#c6a0f6,bold] w #[fg=#a5adcb]sessions  #[fg=#c6a0f6,bold]f #[fg=#a5adcb]find tab  #[fg=#c6a0f6,bold]g #[fg=#a5adcb]lazygit  #[fg=#c6a0f6,bold][ ] #[fg=#a5adcb]layout  #[fg=#c6a0f6,bold]p #[fg=#a5adcb]pane  #[fg=#c6a0f6,bold]t #[fg=#a5adcb]tab  #[fg=#c6a0f6,bold]r #[fg=#a5adcb]resize  #[fg=#c6a0f6,bold]m #[fg=#a5adcb]move  #[fg=#c6a0f6,bold]s #[fg=#a5adcb]scroll  #[fg=#c6a0f6,bold]o #[fg=#a5adcb]session  #[fg=#c6a0f6,bold]? #[fg=#a5adcb]help  #[fg=#c6a0f6,bold]esc #[fg=#a5adcb]back "
+        mode_pane          "#[bg=#8aadf4,fg=#24273a,bold] PANE #[fg=#c6a0f6,bold] n #[fg=#a5adcb]new  #[fg=#c6a0f6,bold]r #[fg=#a5adcb]right  #[fg=#c6a0f6,bold]d #[fg=#a5adcb]down  #[fg=#c6a0f6,bold]s #[fg=#a5adcb]stacked  #[fg=#c6a0f6,bold]x #[fg=#a5adcb]close  #[fg=#c6a0f6,bold]f #[fg=#a5adcb]fullscreen  #[fg=#c6a0f6,bold]w #[fg=#a5adcb]floating  #[fg=#c6a0f6,bold]e #[fg=#a5adcb]float/embed  #[fg=#c6a0f6,bold]i #[fg=#a5adcb]pin  #[fg=#c6a0f6,bold]c #[fg=#a5adcb]rename  #[fg=#c6a0f6,bold]hjkl #[fg=#a5adcb]focus  #[fg=#c6a0f6,bold]esc #[fg=#a5adcb]back "
+        mode_tab           "#[bg=#c6a0f6,fg=#24273a,bold] TAB #[fg=#c6a0f6,bold] n #[fg=#a5adcb]new  #[fg=#c6a0f6,bold]x #[fg=#a5adcb]close  #[fg=#c6a0f6,bold]r #[fg=#a5adcb]rename  #[fg=#c6a0f6,bold]1-9 #[fg=#a5adcb]go to  #[fg=#c6a0f6,bold]hjkl #[fg=#a5adcb]switch  #[fg=#c6a0f6,bold]tab #[fg=#a5adcb]last  #[fg=#c6a0f6,bold]b #[fg=#a5adcb]break out  #[fg=#c6a0f6,bold][ ] #[fg=#a5adcb]break left/right  #[fg=#c6a0f6,bold]s #[fg=#a5adcb]sync  #[fg=#c6a0f6,bold]esc #[fg=#a5adcb]back "
+        mode_resize        "#[bg=#f5a97f,fg=#24273a,bold] RESIZE #[fg=#c6a0f6,bold] hjkl #[fg=#a5adcb]grow  #[fg=#c6a0f6,bold]HJKL #[fg=#a5adcb]shrink  #[fg=#c6a0f6,bold]+ - #[fg=#a5adcb]size  #[fg=#c6a0f6,bold]esc #[fg=#a5adcb]back "
+        mode_move          "#[bg=#f5a97f,fg=#24273a,bold] MOVE #[fg=#c6a0f6,bold] hjkl #[fg=#a5adcb]move  #[fg=#c6a0f6,bold]n #[fg=#a5adcb]next  #[fg=#c6a0f6,bold]p #[fg=#a5adcb]previous  #[fg=#c6a0f6,bold]esc #[fg=#a5adcb]back "
+        mode_scroll        "#[bg=#eed49f,fg=#24273a,bold] SCROLL #[fg=#c6a0f6,bold] j k #[fg=#a5adcb]line  #[fg=#c6a0f6,bold]d u #[fg=#a5adcb]half page  #[fg=#c6a0f6,bold]h l #[fg=#a5adcb]page  #[fg=#c6a0f6,bold][ ] #[fg=#a5adcb]prompts  #[fg=#c6a0f6,bold]f #[fg=#a5adcb]search  #[fg=#c6a0f6,bold]e #[fg=#a5adcb]open in nvim  #[fg=#c6a0f6,bold]c #[fg=#a5adcb]copy output  #[fg=#c6a0f6,bold]ctrl c #[fg=#a5adcb]bottom  #[fg=#c6a0f6,bold]esc #[fg=#a5adcb]back "
+        mode_search        "#[bg=#eed49f,fg=#24273a,bold] SEARCH #[fg=#c6a0f6,bold] n #[fg=#a5adcb]next  #[fg=#c6a0f6,bold]p #[fg=#a5adcb]previous  #[fg=#c6a0f6,bold]c #[fg=#a5adcb]case  #[fg=#c6a0f6,bold]w #[fg=#a5adcb]wrap  #[fg=#c6a0f6,bold]o #[fg=#a5adcb]whole word  #[fg=#c6a0f6,bold]esc #[fg=#a5adcb]back "
+        mode_enter_search  "#[bg=#eed49f,fg=#24273a,bold] SEARCH #[fg=#c6a0f6,bold] type #[fg=#a5adcb]query  #[fg=#c6a0f6,bold]enter #[fg=#a5adcb]search  #[fg=#c6a0f6,bold]esc #[fg=#a5adcb]cancel "
+        mode_rename_tab    "#[bg=#f5bde6,fg=#24273a,bold] RENAME TAB #[fg=#c6a0f6,bold] type #[fg=#a5adcb]name  #[fg=#c6a0f6,bold]enter #[fg=#a5adcb]save  #[fg=#c6a0f6,bold]esc #[fg=#a5adcb]undo "
+        mode_rename_pane   "#[bg=#f5bde6,fg=#24273a,bold] RENAME PANE #[fg=#c6a0f6,bold] type #[fg=#a5adcb]name  #[fg=#c6a0f6,bold]enter #[fg=#a5adcb]save  #[fg=#c6a0f6,bold]esc #[fg=#a5adcb]undo "
+        mode_session       "#[bg=#ed8796,fg=#24273a,bold] SESSION #[fg=#c6a0f6,bold] w #[fg=#a5adcb]manager  #[fg=#c6a0f6,bold]d #[fg=#a5adcb]detach  #[fg=#c6a0f6,bold]l #[fg=#a5adcb]layouts  #[fg=#c6a0f6,bold]c #[fg=#a5adcb]config  #[fg=#c6a0f6,bold]p #[fg=#a5adcb]plugins  #[fg=#c6a0f6,bold]esc #[fg=#a5adcb]back "
         mode_prompt        "#[bg=#ed8796,fg=#24273a,bold] PROMPT "
 
         tab_normal              "#[fg=#6e738d] {index} {name}{floating_indicator}{fullscreen_indicator} "
