@@ -17,6 +17,11 @@ return {
           },
         },
       },
+      styles = {
+        zen = {
+          backdrop = { transparent = false, blend = 40 },
+        },
+      },
     },
   },
 }
