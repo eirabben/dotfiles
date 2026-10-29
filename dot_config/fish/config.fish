@@ -3,6 +3,8 @@
 #################################################
 
 fish_add_path -g /opt/homebrew/bin /opt/homebrew/sbin "$HOME/.composer/vendor/bin" "$HOME/.cargo/bin" "$HOME/.local/bin" /usr/local/bin /usr/local/sbin "$HOME/Code/Repos/devbox"
+# Rex CLI ships inside the app bundle (fish_add_path skips it if Rex isn't installed).
+fish_add_path -g "/Applications/Rex Beta.app/Contents/Helpers/Rex Server.rex/Contents/MacOS"
 
 #################################################
 # Customization
