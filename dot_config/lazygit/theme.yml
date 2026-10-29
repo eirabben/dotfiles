@@ -1,10 +1,12 @@
 gui:
+  showRandomTip: false
+  showCommandLog: false
   theme:
     activeBorderColor:
       - '#c6a0f6'
       - bold
     inactiveBorderColor:
-      - '#a5adcb'
+      - '#494d64'
     searchingActiveBorderColor:
       - '#eed49f'
     optionsTextColor:
@@ -12,7 +14,7 @@ gui:
     selectedLineBgColor:
       - '#363a4f'
     inactiveViewSelectedLineBgColor:
-      - '#6e738d'
+      - '#363a4f'
     cherryPickedCommitFgColor:
       - '#c6a0f6'
     cherryPickedCommitBgColor:

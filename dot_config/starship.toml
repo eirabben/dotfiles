@@ -18,7 +18,7 @@ yellow = "#eed49f"
 overlay0 = "#6e738d"
 
 [directory]
-style = "bold sapphire"
+style = "sapphire"
 truncation_length = 4
 truncate_to_repo = true
 
@@ -28,7 +28,7 @@ style = "bold mauve"
 format = "[on](overlay0) [$symbol$branch]($style) "
 
 [git_status]
-style = "red"
+style = "overlay0"
 format = '([\[$all_status$ahead_behind\]]($style) )'
 ahead = "⇡${count}"
 behind = "⇣${count}"
