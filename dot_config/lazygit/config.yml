@@ -20,7 +20,7 @@ customCommands:
       msg=$(mktemp)
       trap "rm -f $msg" EXIT
       echo "Generating commit message..."
-      opencode run "Write a Conventional Commits message for the staged diff below.
+      opencode run -m github-copilot/claude-sonnet-5.5 "Write a Conventional Commits message for the staged diff below.
       Output ONLY the raw commit message: a subject line under 72 chars (type(scope): summary),
       optionally a blank line and a short body explaining why. No code fences, no commentary.
 
