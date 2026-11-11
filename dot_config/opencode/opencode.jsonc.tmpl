@@ -1,5 +1,42 @@
 {
   "$schema": "https://opencode.ai/config.json",
+  // Opus for the main session; cheaper models for delegated work.
+  "model": "github-copilot/claude-opus-5.5",
+  "formatter": true,
+  "worktree": { "directory": ".worktrees" },
+  // Everything is allowed by default; ask before destructive or outward-facing commands.
+  "permissions": [
+    { "action": "shell", "resource": "git push *", "effect": "ask" },
+    { "action": "shell", "resource": "git reset --hard*", "effect": "ask" },
+    { "action": "shell", "resource": "git clean *", "effect": "ask" },
+    { "action": "shell", "resource": "rm -r*", "effect": "ask" },
+    { "action": "shell", "resource": "rm -fr*", "effect": "ask" },
+    { "action": "shell", "resource": "sudo *", "effect": "ask" },
+    { "action": "shell", "resource": "chezmoi apply*", "effect": "ask" },
+    { "action": "shell", "resource": "php artisan migrate*", "effect": "ask" },
+    { "action": "shell", "resource": "php artisan db:*", "effect": "ask" },
+    { "action": "shell", "resource": "ddev artisan migrate*", "effect": "ask" },
+    { "action": "shell", "resource": "ddev artisan db:*", "effect": "ask" },
+    { "action": "shell", "resource": "php craft migrate*", "effect": "ask" },
+    { "action": "shell", "resource": "php craft project-config/apply*", "effect": "ask" },
+    { "action": "shell", "resource": "ddev craft migrate*", "effect": "ask" },
+    { "action": "shell", "resource": "ddev craft project-config/apply*", "effect": "ask" },
+  ],
+  "agents": {
+    "explore": { "model": "github-copilot/claude-haiku-5.5" },
+    "general": { "model": "github-copilot/claude-sonnet-5.5" },
+    // A different model family than the default, for second-opinion reviews.
+    "reviewer": {
+      "description": "Reviews code changes without editing files",
+      "mode": "subagent",
+      "model": "github-copilot/gpt-6.1-sol#high",
+      "permissions": [
+        { "action": "edit", "resource": "*", "effect": "deny" },
+        { "action": "question", "resource": "*", "effect": "deny" },
+        { "action": "subagent", "resource": "*", "effect": "deny" },
+      ],
+    },
+  },
   "mcp": {
     "servers": {
 {{- if .haMcpUrl }}
@@ -11,9 +48,15 @@
         "disabled": true,
       },
 {{- end }}
+      // Disabled globally; enable per project with `"disabled": false`.
       "playwright": {
         "type": "local",
         "command": ["npx", "-y", "@playwright/mcp@latest"],
+        "disabled": true,
+      },
+      "noteplan": {
+        "type": "local",
+        "command": ["/Applications/NotePlan.app/Contents/MacOS/NotePlan", "mcp-server"],
       },
     },
   },

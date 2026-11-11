@@ -2,3 +2,5 @@
 .php-cs-fixer.dist.php
 
 **/.claude/.cc-writes/
+
+.worktrees/
