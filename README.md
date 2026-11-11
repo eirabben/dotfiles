@@ -34,6 +34,11 @@ not on Homebrew: install `Rex Beta.app` by hand.
    terminal running chezmoi needs **Full Disk Access** (for Rex: **Rex
    Server**), or the CLI can't see the app.
 
+   SSH logins and commit signing use the **Personal SSH key** item (Personal
+   vault), so there's no key to create. When 1Password offers to edit
+   `~/.ssh/config`, decline; chezmoi manages it. To authorize the key on a new
+   server, add `~/.ssh/personal.pub` to its `~/.ssh/authorized_keys`.
+
 3. **Install chezmoi and apply this repo.** `chezmoi init` prompts for git
    name/email and whether this is a personal or work Mac, then applies:
 
@@ -43,7 +48,8 @@ not on Homebrew: install `Rex Beta.app` by hand.
    ```
 
    On `apply`, a chezmoi hook automatically runs `brew bundle` to install
-   everything in the `Brewfile` (packages, casks, and fonts).
+   everything in the `Brewfile` (packages, casks, and fonts), plus
+   `Brewfile.work` on a work Mac.
 
 4. **Run the remaining one-time setup scripts** (in [`script/`](script/), not
    run automatically):
@@ -51,7 +57,6 @@ not on Homebrew: install `Rex Beta.app` by hand.
    ```sh
    ./script/change_shell.sh          # make fish the default shell
    ./script/set_computer_name.sh     # set the machine's hostname
-   ./script/generate_public_key.sh   # create an SSH key + copy it to the clipboard
    ```
 
 ## Day-to-day
@@ -63,14 +68,17 @@ chezmoi edit <file>      # edit a managed file
 chezmoi re-add           # pull external edits back into the source
 ```
 
-After installing or removing Homebrew packages, update the `Brewfile`:
+To add a package, add it to the `Brewfile` (every Mac) or `Brewfile.work` (work
+Mac only), then run `chezmoi apply` to install it:
 
 ```sh
-brew bundle dump --force --file ~/.local/share/chezmoi/Brewfile
+brew bundle add --cask <name> --file ~/.local/share/chezmoi/Brewfile.work
 ```
 
-Editing the `Brewfile` re-triggers the `brew bundle` hook on the next
-`chezmoi apply`. It only installs: remove dropped packages with `brew uninstall`.
+Leave out `--cask` for command-line tools. Don't use `brew bundle dump`: it
+merges everything into one file. Editing either file re-triggers the
+`brew bundle` hook on the next `chezmoi apply`. It only installs: remove dropped
+packages with `brew bundle remove` and `brew uninstall`.
 
 Configs that used to be managed are listed in [`.chezmoiremove`](.chezmoiremove),
 so `chezmoi apply` deletes them from `~`.

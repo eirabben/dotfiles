@@ -1,6 +1,6 @@
 AGENTS.md
 Brewfile
-Brewfile.lock.json
+Brewfile.*
 README.md
 TODO.md
 script/

@@ -1,5 +1,4 @@
 tap 'anomalyco/tap'
-tap 'ddev/ddev'
 
 # Essentials
 brew 'atuin'
@@ -7,10 +6,8 @@ brew 'bash'
 brew 'bat'
 brew 'btop'
 brew 'chezmoi'
-brew 'composer'
 brew 'coreutils'
 brew 'curl'
-brew 'ddev'
 brew 'duf'
 brew 'dust'
 brew 'eza'
@@ -29,7 +26,6 @@ brew 'lazygit'
 brew 'neovim'
 brew 'node'
 brew 'anomalyco/tap/opencode-v2'
-brew 'php'
 brew 'pnpm'
 brew 'ripgrep'
 brew 'starship'
@@ -52,12 +48,6 @@ cask 'raycast'
 cask 'spotify'
 cask 'tailscale-app'
 cask 'vlc'
-
-# Work
-cask 'figma'
-cask 'slack'
-cask 'tableplus'
-cask 'transmit'
 
 # Fonts
 cask 'font-fira-code-nerd-font'

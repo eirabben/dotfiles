@@ -13,10 +13,9 @@
   - [x] Read `haMcpUrl` from 1Password (`op://Personal/Home Assistant MCP`).
   - [ ] Later secrets the same way. Keep bank-type tokens out of templates (use
         `op run`).
-  - [ ] Replace `script/generate_public_key.sh`.
   - [ ] Work keys (`id_ed25519`, `id_rsa`) into the work 1Password account, once
         IT has set it up.
-  - [ ] Split work/personal apps in the Brewfile by `machine`.
+  - [x] Split work/personal apps in the Brewfile by `machine` (`Brewfile.work`).
   - [ ] Agents vault with a read-only service account.
   - [ ] Tailscale on the Mac mini, then add it to the SSH config.
   - [ ] Hetzner Cloud Firewall for the VPS (22 stays public for Dokploy Cloud).

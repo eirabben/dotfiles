@@ -1,0 +1,11 @@
+# Installed only when chezmoi's `machine` is "work", on top of Brewfile.
+tap 'ddev/ddev'
+
+brew 'composer'
+brew 'ddev'
+brew 'php'
+
+cask 'figma'
+cask 'slack'
+cask 'tableplus'
+cask 'transmit'

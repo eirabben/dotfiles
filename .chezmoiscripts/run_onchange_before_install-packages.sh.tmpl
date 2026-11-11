@@ -3,9 +3,12 @@
 # Runs `brew bundle` whenever the Brewfile changes.
 #
 # This script is managed by chezmoi as a `run_onchange_` hook: chezmoi
-# re-runs it only when its rendered content changes. Because the Brewfile
-# is embedded below via `include`, editing the Brewfile changes this
-# script's content and triggers a re-run on the next `chezmoi apply`.
+# re-runs it only when its rendered content changes. Because the Brewfiles
+# are embedded below via `include`, editing them changes this script's
+# content and triggers a re-run on the next `chezmoi apply`.
+#
+# Brewfile is installed on every Mac; Brewfile.<machine> (e.g. Brewfile.work)
+# only where chezmoi's `machine` matches.
 
 set -euo pipefail
 
@@ -15,9 +18,14 @@ if ! command -v brew >/dev/null 2>&1; then
 	exit 0
 fi
 
-# The Brewfile is embedded here so this script's content changes with it.
+# The Brewfiles are embedded here so this script's content changes with them.
 read -r -d '' BREWFILE <<'EOF' || true
 {{ include "Brewfile" }}
+{{- $machineBrewfile := printf "Brewfile.%s" .machine }}
+{{- if stat (joinPath .chezmoi.sourceDir $machineBrewfile) }}
+
+{{ include $machineBrewfile }}
+{{- end }}
 EOF
 
 # Homebrew requires third-party taps to be trusted before it will load their
