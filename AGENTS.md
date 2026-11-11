@@ -18,10 +18,12 @@ source, use `chezmoi re-add` — do not hand-copy.
   `.chezmoi.toml.tmpl` and the brew hook.
 - Template vars (set once at `chezmoi init` via prompts, defined in
   `.chezmoi.toml.tmpl`): `.gitAuthorName`, `.gitEmail`, `.haMcpUrl` (secret,
-  used by `dot_config/opencode/opencode.jsonc.tmpl`; never commit its value).
+  used by `dot_config/opencode/opencode.jsonc.tmpl`; never commit its value),
+  `.machine` (`personal` or `work`; gates per-machine apps and secrets),
+  `.vpsAddress` (kept out of the public repo; used by `private_dot_ssh/private_config.tmpl`).
 - `.chezmoiignore` lists files kept in-repo but **not** deployed: `Brewfile`,
   `README.md`, `TODO.md`, `script/`. Adding a managed config? It must live under
-  `dot_config/` and not match `.chezmoiignore`.
+  `dot_config/` (SSH: `private_dot_ssh/`) and not match `.chezmoiignore`.
 - Removing a managed config? Deleting it from the source leaves the deployed
   copy in `~`. Also list its target path in `.chezmoiremove`.
 

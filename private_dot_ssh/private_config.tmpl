@@ -1,0 +1,26 @@
+# Added by OrbStack: 'orb' SSH host for Linux machines
+# This only works if it's at the top of ssh_config (before any Host blocks).
+Include ~/.orbstack/ssh/config
+
+# Personal servers use the personal key from 1Password's SSH agent
+# (personal.pub selects it). Everything else (GitHub, work servers) keeps the
+# default agent and the keys in ~/.ssh.
+
+# Unraid. "homeserver" is its Tailscale name; it also resolves on the home network.
+Host homeserver unraid
+  HostName homeserver
+  User root
+  IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+  IdentitiesOnly yes
+  IdentityFile ~/.ssh/personal.pub
+{{- $vpsAddress := dig "vpsAddress" "" . }}
+{{- if $vpsAddress }}
+
+# Hetzner VPS. The address is asked for at `chezmoi init`; this repo is public.
+Host vps
+  HostName {{ $vpsAddress }}
+  User eirabben
+  IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+  IdentitiesOnly yes
+  IdentityFile ~/.ssh/personal.pub
+{{- end }}

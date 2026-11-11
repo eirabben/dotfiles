@@ -23,8 +23,10 @@ not on Homebrew: install `Rex Beta.app` by hand.
    ```
 
 2. **Install chezmoi and apply this repo.** `chezmoi init` prompts for git
-   name/email and the Home Assistant MCP webhook URL for opencode (secret,
-   stored only in `~/.config/chezmoi/chezmoi.toml`; leave empty to skip), then applies:
+   name/email, the Home Assistant MCP webhook URL for opencode (secret,
+   stored only in `~/.config/chezmoi/chezmoi.toml`; leave empty to skip),
+   whether this is a personal or work Mac, and the VPS address (kept out of
+   this public repo), then applies:
 
    ```sh
    brew install chezmoi
