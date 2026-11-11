@@ -10,13 +10,15 @@
         `vps`. Authorized on both.
   - [x] Sign commits with the personal key (`gpg.format ssh`, `op-ssh-sign`).
   - [x] Add the personal key to the `eirabben` GitHub account as a signing key.
-  - [x] Read `haMcpUrl` from 1Password (`op://Personal/Home Assistant MCP`).
+  - [x] Read `haMcpUrl` from 1Password (now `op://Agents/Home Assistant MCP`).
   - [ ] Later secrets the same way. Keep bank-type tokens out of templates (use
         `op run`).
   - [ ] Work keys (`id_ed25519`, `id_rsa`) into the work 1Password account, once
         IT has set it up.
   - [x] Split work/personal apps in the Brewfile by `machine` (`Brewfile.work`).
-  - [ ] Agents vault with a read-only service account.
+  - [x] Agents vault for agent and MCP secrets; MCP secrets in opencode's
+        service env (`opencode service set env`, see README). Agents use `op`
+        with Eirik's account and approval (no service account).
   - [ ] Tailscale on the Mac mini, then add it to the SSH config.
   - [ ] Hetzner Cloud Firewall for the VPS (22 stays public for Dokploy Cloud).
 - [ ] **Seamless Ctrl h/j/k/l:** one set of keys across nvim splits and Rex panes.

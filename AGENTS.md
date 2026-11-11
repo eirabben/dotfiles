@@ -14,15 +14,18 @@ source, use `chezmoi re-add` — do not hand-copy.
 
 - `dot_config/` → `~/.config/`. `dot_foo` → `~/.foo`.
 - `*.tmpl` files are Go-templated at apply time. Templated files here:
-  `dot_config/git/config.tmpl`, `dot_config/opencode/opencode.jsonc.tmpl`,
+  `dot_config/git/config.tmpl`, `dot_config/git/allowed_signers.tmpl`,
   `.chezmoi.toml.tmpl` and the brew hook.
 - Template vars (set once at `chezmoi init` via prompts, defined in
   `.chezmoi.toml.tmpl`): `.gitAuthorName`, `.gitEmail`,
   `.machine` (`personal` or `work`; gates per-machine apps and secrets).
-- Secrets come from 1Password at apply time, never from the repo or prompts:
-  `onepasswordRead "op://Personal/<item>/<field>" "my.1password.com"` (the
-  personal account; this Mac also has others). Requires 1Password unlocked, so
-  `chezmoi diff`/`apply` may trigger an approval prompt.
+- Secrets never go in the repo, in prompts or in rendered files. Secrets opencode
+  needs (MCP servers, API tokens for agents) live in the **Agents** vault of the
+  personal 1Password account (`my.1password.com`). MCP secrets reach opencode's
+  config as environment variables set per Mac with `opencode service set env
+  NAME VALUE` (stored in `~/.config/opencode/service.json`, which must never be
+  added to this repo); config uses `"{env:NAME}"`. How agents read secrets is in
+  the global instructions, `dot_config/opencode/AGENTS.md`.
 - `.chezmoiignore` lists files kept in-repo but **not** deployed: `Brewfile`,
   `Brewfile.*`, `README.md`, `TODO.md`, `script/`. Adding a managed config? It
   must live under `dot_config/` (SSH: `private_dot_ssh/`) and not match

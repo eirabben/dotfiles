@@ -40,9 +40,10 @@
   "mcp": {
     "servers": {
       // Disabled globally; enabled by a project config in the HA folder.
+      // The URL is in opencode's service environment (`opencode service set env`).
       "ha-mcp": {
         "type": "remote",
-        "url": {{ onepasswordRead "op://Personal/Home Assistant MCP/credential" "my.1password.com" | quote }},
+        "url": "{env:HA_MCP_URL}",
         "disabled": true,
       },
       // Disabled globally; enable per project with `"disabled": false`.

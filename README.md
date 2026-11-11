@@ -22,8 +22,7 @@ not on Homebrew: install `Rex Beta.app` by hand.
    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
    ```
 
-2. **Set up 1Password.** Install the app and the CLI first, since chezmoi reads
-   secrets before its `brew bundle` hook runs:
+2. **Set up 1Password.** Install the app and the CLI:
 
    ```sh
    brew install --cask 1password 1password-cli
@@ -31,8 +30,8 @@ not on Homebrew: install `Rex Beta.app` by hand.
 
    Sign in to the personal account (`my.1password.com`) and turn on **Settings ›
    Developer › Use the SSH agent** and **Integrate with 1Password CLI**. The
-   terminal running chezmoi needs **Full Disk Access** (for Rex: **Rex
-   Server**), or the CLI can't see the app.
+   terminal needs **Full Disk Access** (for Rex: **Rex Server**), or the CLI
+   can't see the app.
 
    SSH logins and commit signing use the **Personal SSH key** item (Personal
    vault), so there's no key to create. When 1Password offers to edit
@@ -58,6 +57,8 @@ not on Homebrew: install `Rex Beta.app` by hand.
    ./script/change_shell.sh          # make fish the default shell
    ./script/set_computer_name.sh     # set the machine's hostname
    ```
+
+   Then give opencode its secrets (see [Secrets for opencode](#secrets-for-opencode)).
 
 ## Day-to-day
 
@@ -105,6 +106,25 @@ so `chezmoi apply` deletes them from `~`.
 Configured in [`dot_config/rex/init.lua`](dot_config/rex/init.lua). After
 `chezmoi apply`, run `rex config reload`. Tabs show opencode's state
 (working, waiting for you, done) without any extra setup.
+
+### Secrets for opencode
+
+Secrets for opencode's agents and MCP servers live in the **Agents** vault in
+1Password.
+
+MCP servers get theirs as environment variables of opencode's background
+service, set once per Mac. They're stored in `~/.config/opencode/service.json`
+(readable only by you, not part of this repo):
+
+```sh
+opencode service set env HA_MCP_URL (op read --account my.1password.com "op://Agents/Home Assistant MCP/credential")
+```
+
+Setting one stops the service; the next opencode starts it with the new value.
+Use it in `opencode.jsonc` as `"{env:NAME}"`.
+
+Agents read other secrets with `op read --account my.1password.com
+"op://Agents/<item>/<field>"`, which asks you to approve in 1Password.
 
 ### Abbreviations
 

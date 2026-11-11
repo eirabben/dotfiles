@@ -16,3 +16,6 @@
 
 # neoconf.nvim is no longer part of LazyVim
 .config/nvim/.neoconf.json
+
+# opencode secrets moved to `opencode service set env`
+.config/opencode/agent-secrets.env
