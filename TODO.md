@@ -3,12 +3,11 @@
 - [ ] **1Password** (this Mac is the work Mac; it has both the personal and work
       accounts). Don't touch the existing key files until Eirik says so.
   - [x] `machine` value (`personal`/`work`) in `.chezmoi.toml.tmpl`.
-  - [x] Managed `~/.ssh/config`: `homeserver` (alias `unraid`, Tailscale name)
-        and `vps` (address from `chezmoi init`, user `eirabben`).
+  - [x] Managed `~/.ssh/config`: `homeserver` (alias `unraid`) and `vps`, both by
+        Tailscale name.
   - [x] Personal SSH key in 1Password ("Personal SSH key", personal account),
         public key in `private_dot_ssh/personal.pub`, used for `homeserver` and
-        `vps`. Authorized on homeserver.
-  - [ ] Authorize the personal key on the VPS (through Hetzner's console).
+        `vps`. Authorized on both.
   - [x] Sign commits with the personal key (`gpg.format ssh`, `op-ssh-sign`).
   - [ ] Add the personal key to the `eirabben` GitHub account as a signing key.
   - [ ] Delete `~/.ssh/unraid` and `~/.ssh/vps` once nothing needs them.
@@ -19,7 +18,8 @@
         IT has set it up.
   - [ ] Split work/personal apps in the Brewfile by `machine`.
   - [ ] Agents vault with a read-only service account.
-  - [ ] Tailscale on the VPS and the Mac mini, then add them to the SSH config.
+  - [ ] Tailscale on the Mac mini, then add it to the SSH config.
+  - [ ] Hetzner Cloud Firewall for the VPS (22 stays public for Dokploy Cloud).
 - [ ] **Seamless Ctrl h/j/k/l:** one set of keys across nvim splits and Rex panes.
       Rex binding passes the key to nvim when nvim runs in the pane (the
       `com.superlogical.terminal.process` API shows the process); nvim hands off to

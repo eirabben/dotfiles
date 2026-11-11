@@ -13,14 +13,11 @@ Host homeserver unraid
   IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
   IdentitiesOnly yes
   IdentityFile ~/.ssh/personal.pub
-{{- $vpsAddress := dig "vpsAddress" "" . }}
-{{- if $vpsAddress }}
 
-# Hetzner VPS. The address is asked for at `chezmoi init`; this repo is public.
+# Hetzner VPS, by its Tailscale name.
 Host vps
-  HostName {{ $vpsAddress }}
+  HostName vps
   User eirabben
   IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
   IdentitiesOnly yes
   IdentityFile ~/.ssh/personal.pub
-{{- end }}
