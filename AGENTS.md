@@ -17,9 +17,12 @@ source, use `chezmoi re-add` — do not hand-copy.
   `dot_config/git/config.tmpl`, `dot_config/opencode/opencode.jsonc.tmpl`,
   `.chezmoi.toml.tmpl` and the brew hook.
 - Template vars (set once at `chezmoi init` via prompts, defined in
-  `.chezmoi.toml.tmpl`): `.gitAuthorName`, `.gitEmail`, `.haMcpUrl` (secret,
-  used by `dot_config/opencode/opencode.jsonc.tmpl`; never commit its value),
+  `.chezmoi.toml.tmpl`): `.gitAuthorName`, `.gitEmail`,
   `.machine` (`personal` or `work`; gates per-machine apps and secrets).
+- Secrets come from 1Password at apply time, never from the repo or prompts:
+  `onepasswordRead "op://Personal/<item>/<field>" "my.1password.com"` (the
+  personal account; this Mac also has others). Requires 1Password unlocked, so
+  `chezmoi diff`/`apply` may trigger an approval prompt.
 - `.chezmoiignore` lists files kept in-repo but **not** deployed: `Brewfile`,
   `README.md`, `TODO.md`, `script/`. Adding a managed config? It must live under
   `dot_config/` (SSH: `private_dot_ssh/`) and not match `.chezmoiignore`.

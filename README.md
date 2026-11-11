@@ -22,10 +22,20 @@ not on Homebrew: install `Rex Beta.app` by hand.
    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
    ```
 
-2. **Install chezmoi and apply this repo.** `chezmoi init` prompts for git
-   name/email, the Home Assistant MCP webhook URL for opencode (secret,
-   stored only in `~/.config/chezmoi/chezmoi.toml`; leave empty to skip) and
-   whether this is a personal or work Mac, then applies:
+2. **Set up 1Password.** Install the app and the CLI first, since chezmoi reads
+   secrets before its `brew bundle` hook runs:
+
+   ```sh
+   brew install --cask 1password 1password-cli
+   ```
+
+   Sign in to the personal account (`my.1password.com`) and turn on **Settings ›
+   Developer › Use the SSH agent** and **Integrate with 1Password CLI**. The
+   terminal running chezmoi needs **Full Disk Access** (for Rex: **Rex
+   Server**), or the CLI can't see the app.
+
+3. **Install chezmoi and apply this repo.** `chezmoi init` prompts for git
+   name/email and whether this is a personal or work Mac, then applies:
 
    ```sh
    brew install chezmoi
@@ -35,7 +45,7 @@ not on Homebrew: install `Rex Beta.app` by hand.
    On `apply`, a chezmoi hook automatically runs `brew bundle` to install
    everything in the `Brewfile` (packages, casks, and fonts).
 
-3. **Run the remaining one-time setup scripts** (in [`script/`](script/), not
+4. **Run the remaining one-time setup scripts** (in [`script/`](script/), not
    run automatically):
 
    ```sh

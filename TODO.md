@@ -9,10 +9,10 @@
         public key in `private_dot_ssh/personal.pub`, used for `homeserver` and
         `vps`. Authorized on both.
   - [x] Sign commits with the personal key (`gpg.format ssh`, `op-ssh-sign`).
-  - [ ] Add the personal key to the `eirabben` GitHub account as a signing key.
-  - [ ] Delete `~/.ssh/unraid` and `~/.ssh/vps` once nothing needs them.
-  - [ ] Read `haMcpUrl` and later secrets from 1Password in templates, gated by
-        `machine`. Keep bank-type tokens out of templates (use `op run`).
+  - [x] Add the personal key to the `eirabben` GitHub account as a signing key.
+  - [x] Read `haMcpUrl` from 1Password (`op://Personal/Home Assistant MCP`).
+  - [ ] Later secrets the same way. Keep bank-type tokens out of templates (use
+        `op run`).
   - [ ] Replace `script/generate_public_key.sh`.
   - [ ] Work keys (`id_ed25519`, `id_rsa`) into the work 1Password account, once
         IT has set it up.

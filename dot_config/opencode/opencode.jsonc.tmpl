@@ -39,15 +39,12 @@
   },
   "mcp": {
     "servers": {
-{{- if .haMcpUrl }}
-      // The URL is asked for by `chezmoi init` and stored outside this repo.
       // Disabled globally; enabled by a project config in the HA folder.
       "ha-mcp": {
         "type": "remote",
-        "url": {{ .haMcpUrl | quote }},
+        "url": {{ onepasswordRead "op://Personal/Home Assistant MCP/credential" "my.1password.com" | quote }},
         "disabled": true,
       },
-{{- end }}
       // Disabled globally; enable per project with `"disabled": false`.
       "playwright": {
         "type": "local",
