@@ -20,7 +20,8 @@ editor = ""
 dir_editor = ""
 
 #-- Auto check for update
-auto_check_update = true
+# Off: Homebrew (topgrade) handles updates.
+auto_check_update = false
 
 #-- cd on quit
 # Should we cd the shell to the last directory open in superfile when the
@@ -168,7 +169,7 @@ enable_md5_checksum = false
 #
 #-- Zoxide Support - Smart directory navigation!
 # Requires: zoxide
-zoxide_support = false
+zoxide_support = true
 
 #-- File opening rules
 # Map file extensions to commands used to open them.

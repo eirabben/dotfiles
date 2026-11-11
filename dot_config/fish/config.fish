@@ -38,31 +38,25 @@ if status is-interactive; and not set -q __catppuccin_theme_applied
     and set -U __catppuccin_theme_applied 1
 end
 
-# Many Go tools (e.g. tuios) default to ~/Library/Application Support on macOS
-# unless XDG_CONFIG_HOME is set. Point them at the chezmoi-managed ~/.config.
+# Many tools (e.g. superfile, lazygit) default to ~/Library/Application Support
+# on macOS unless XDG_CONFIG_HOME is set. Point them at the chezmoi-managed ~/.config.
 set -gx XDG_CONFIG_HOME "$HOME/.config"
 
 # Match the Catppuccin Macchiato theme used everywhere else.
 set -gx BAT_THEME "Catppuccin Macchiato"
 
-# On macOS lazygit reads ~/Library/Application Support/lazygit by default and
-# ignores ~/.config/lazygit entirely. Point it at the chezmoi-managed config,
-# merged with the Catppuccin theme.
+# Load lazygit's config merged with the Catppuccin theme.
 set -gx LG_CONFIG_FILE "$HOME/.config/lazygit/config.yml,$HOME/.config/lazygit/theme.yml"
 
 # eza also defaults to ~/Library/Application Support on macOS (theme.yml lives here).
 set -gx EZA_CONFIG_DIR "$HOME/.config/eza"
 
-# Catppuccin Macchiato for fzf (and everything built on it, e.g. fzf.fish).
+# Catppuccin Macchiato for fzf.
 set -gx FZF_DEFAULT_OPTS "\
 --color=bg+:#363a4f,bg:#24273a,spinner:#f4dbd6,hl:#ed8796 \
 --color=fg:#cad3f5,header:#ed8796,info:#c6a0f6,pointer:#f4dbd6 \
 --color=marker:#b7bdf8,fg+:#cad3f5,prompt:#c6a0f6,hl+:#ed8796 \
 --color=selected-bg:#494d64,border:#6e738d,label:#cad3f5"
-
-# fzf.fish (installed via fisher, see fish_plugins).
-set -g fzf_preview_dir_cmd eza --all --color=always --icons
-set -g fzf_fd_opts --hidden --exclude=.git
 
 #################################################
 # Aliases
@@ -158,16 +152,11 @@ abbr -a czd chezmoi diff
 abbr -a cza chezmoi apply
 abbr -a cze chezmoi edit
 
-# Zellij
-abbr -a zj zellij
-abbr -a zjl zellij list-sessions
-abbr -a zjk zellij kill-session
-
 #################################################
 # Functions
 #################################################
 
-function project --description "Open (or switch to) a zellij project session for a folder"
+function project --description "Lay out the current Rex session for a project: nvim, lazygit, opencode + shell"
     # No argument: the current folder. Otherwise a path, or a zoxide query.
     set -l dir $PWD
     if set -q argv[1]
@@ -179,18 +168,23 @@ function project --description "Open (or switch to) a zellij project session for
         end
     end
 
-    set -l name (path basename $dir)
-
-    if set -q ZELLIJ
-        # Inside zellij: make sure the session exists (created or resurrected in the
-        # background, in the project folder), then switch to it instead of nesting.
-        fish --no-config -c 'cd $argv[1]; and zellij attach --create-background $argv[2] options --default-layout project' $dir $name &>/dev/null
-        zellij action switch-session $name
-    else
-        # Attaches if running, resurrects if exited, otherwise creates it with the layout.
-        cd $dir
-        zellij attach --create $name options --default-layout project
+    if not set -q REX_SESSION REX_BLOCK
+        echo "project: run this inside Rex" >&2
+        return 1
     end
+
+    # Tabs 2 and 3 open in the background, so this tab keeps focus and becomes nvim.
+    rex window new -s $REX_SESSION lazygit -c $dir --focus=false -- lazygit >/dev/null
+    or return 1
+    set -l opencode (rex window new -s $REX_SESSION opencode -c $dir --focus=false --json -- opencode | jq -r '.block_ids[0]')
+    and rex split -s $REX_SESSION -b $opencode --split=right -c $dir --focus=false >/dev/null
+    or return 1
+
+    set -l tab (rex block inspect $REX_BLOCK --json | jq -r '.block.window_id')
+    rex window rename -s $REX_SESSION $tab nvim >/dev/null
+
+    cd $dir
+    nvim
 end
 complete -c project -x -a "(__fish_complete_directories (commandline -ct))"
 
@@ -212,14 +206,18 @@ function y --description "Open yazi and cd into the directory it was in when it 
     command rm -f -- "$tmp"
 end
 
+function spf --description "Open superfile; quitting with Q cds into its directory"
+    set -l lastdir "$HOME/Library/Application Support/superfile/lastdir"
+    command spf $argv
+    if test -f $lastdir
+        source $lastdir
+        command rm -f -- $lastdir
+    end
+end
+
 starship init fish | source
 # Replaces `cd` with zoxide (`cdi` for the interactive picker).
 zoxide init fish --cmd cd | source
 fzf --fish | source
-# fzf.fish: Ctrl-Alt-F files, Ctrl-Alt-L git log, Ctrl-Alt-S git status, Ctrl-Alt-P processes.
-# History is left to atuin and Ctrl-V to paste.
-if functions -q fzf_configure_bindings
-    fzf_configure_bindings --history= --variables=
-end
 # Loaded after fzf so atuin owns Ctrl-R (history); fzf keeps Ctrl-T / Alt-C.
 atuin init fish --disable-up-arrow | source

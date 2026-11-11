@@ -2,9 +2,8 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     opts = function(_, opts)
-      -- add tsx and treesitter
+      -- twig comes from the twig extra.
       vim.list_extend(opts.ensure_installed, {
-        "twig",
         "blade",
       })
     end,

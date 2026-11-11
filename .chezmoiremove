@@ -1,0 +1,18 @@
+# Targets `chezmoi apply` deletes from ~: configs that used to be managed here.
+# Safe to prune once every machine has applied them.
+
+# Zellij and tuios (replaced by Rex)
+.config/zellij
+.config/tuios
+.config/fish/completions/zellij.fish
+.config/opencode/plugins/zellij-agent-state
+.local/bin/zellij-agent-state
+.local/state/zellij-agents
+.config/nvim/lua/plugins/smart-splits.lua
+.config/nvim/lua/plugins/sidekick.lua
+
+# fisher and fzf.fish (run `fisher remove patrickf1/fzf.fish` first)
+.config/fish/fish_plugins
+
+# neoconf.nvim is no longer part of LazyVim
+.config/nvim/.neoconf.json
