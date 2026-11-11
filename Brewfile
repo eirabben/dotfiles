@@ -49,6 +49,7 @@ cask 'ghostty'
 cask 'orbstack'
 cask 'raycast'
 cask 'spotify'
+cask 'tailscale-app'
 cask 'vlc'
 
 # Work

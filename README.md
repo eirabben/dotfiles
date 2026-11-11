@@ -100,7 +100,10 @@ Fish abbreviations expand inline when you press space. Run `abbr` to list all.
 | `b…` / `cz…` | brew (`bi`, `bs`, `bu`), chezmoi (`czd`, `cza`, `cze`) |
 | `up` | `topgrade`: update brew, nvim plugins, npm/pnpm/composer globals, tldr pages and more |
 
-Other tools: `tldr <cmd>` for quick examples, `dust` for disk usage per
+Other tools: `gh dash` for a dashboard of your GitHub PRs and issues
+([gh-dash](https://www.gh-dash.dev); gh extensions are listed in
+[`.chezmoiscripts/run_onchange_after_gh-extensions.sh`](.chezmoiscripts/run_onchange_after_gh-extensions.sh)),
+`tldr <cmd>` for quick examples, `dust` for disk usage per
 folder, `duf` for disk overview, `spf` for superfile (vim-style keys: `j/k` move,
 `enter` open, `-` parent folder, `y/x/p` copy/cut/paste, `d` delete, `a` new,
 `r` rename, `z` zoxide, `/` search, `q` close panel, `Q` quit and cd, `ctrl+c` quit,
