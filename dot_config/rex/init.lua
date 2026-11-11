@@ -135,3 +135,7 @@ rex.bind("alt+h", "focus_pane_or_tab", { direction = "left" })
 rex.bind("alt+l", "focus_pane_or_tab", { direction = "right" })
 rex.bind("alt+j", "pane.focus", { direction = "down" })
 rex.bind("alt+k", "pane.focus", { direction = "up" })
+
+-- Pass these through to the terminal instead of moving between panes.
+rex.unbind("alt+cmd+left")
+rex.unbind("alt+cmd+right")
