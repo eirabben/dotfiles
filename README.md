@@ -92,7 +92,7 @@ so `chezmoi apply` deletes them from `~`.
 |---|---|
 | `Alt h/j/k/l` | Move between Rex panes (left/right moves to the next tab at the edge) |
 | `Ctrl h/j/k/l` | Move between nvim splits |
-| `project` | Set up the current Rex session for the current folder: nvim here, lazygit in tab 2, opencode and a shell side by side in tab 3 |
+| `project` | Set up the current Rex session for the current folder: nvim here, lazygit in tab 2, opencode and a shell side by side (3/4 and 1/4) in tab 3 |
 | `project <path>` | Same for a folder path, or a zoxide query like `project dotfiles` |
 | `cd <query>` / `cdi` | zoxide jump / interactive picker |
 | `Ctrl r` | Search history (atuin) |

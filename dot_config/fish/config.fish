@@ -174,14 +174,11 @@ function project --description "Lay out the current Rex session for a project: n
     end
 
     # Tabs 2 and 3 open in the background, so this tab keeps focus and becomes nvim.
-    rex window new -s $REX_SESSION lazygit -c $dir --focus=false -- lazygit >/dev/null
+    rex window new -s $REX_SESSION -c $dir --focus=false -- lazygit >/dev/null
     or return 1
-    set -l opencode (rex window new -s $REX_SESSION opencode -c $dir --focus=false --json -- opencode | jq -r '.block_ids[0]')
-    and rex split -s $REX_SESSION -b $opencode --split=right -c $dir --focus=false >/dev/null
+    set -l opencode (rex window new -s $REX_SESSION -c $dir --focus=false --json -- opencode | jq -r '.block_ids[0]')
+    and rex split -s $REX_SESSION -b $opencode --split=right --ratio 25 -c $dir --focus=false >/dev/null
     or return 1
-
-    set -l tab (rex block inspect $REX_BLOCK --json | jq -r '.block.window_id')
-    rex window rename -s $REX_SESSION $tab nvim >/dev/null
 
     cd $dir
     nvim
