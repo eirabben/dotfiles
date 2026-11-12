@@ -1,0 +1,19 @@
+# Only overrides; gh-dash merges this with its defaults (sections, keys, layout).
+include:
+  - theme.yml
+
+keybindings:
+  prs:
+    - key: ctrl+g
+      name: lazygit in new Rex tab
+      command: ~/.config/gh-dash/open-in-rex {{.RepoName}} lazygit
+    - key: ctrl+e
+      name: nvim in new Rex tab
+      command: ~/.config/gh-dash/open-in-rex {{.RepoName}} nvim
+  issues:
+    - key: ctrl+g
+      name: lazygit in new Rex tab
+      command: ~/.config/gh-dash/open-in-rex {{.RepoName}} lazygit
+    - key: ctrl+e
+      name: nvim in new Rex tab
+      command: ~/.config/gh-dash/open-in-rex {{.RepoName}} nvim

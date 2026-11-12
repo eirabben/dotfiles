@@ -19,24 +19,17 @@
   - [x] Agents vault for agent and MCP secrets; MCP secrets in opencode's
         service env (`opencode service set env`, see README). Agents use `op`
         with Eirik's account and approval (no service account).
-  - [ ] Tailscale on the Mac mini, then add it to the SSH config.
+  - [ ] Mac mini in the SSH config. It's on Tailscale as `mac-mini`; still to do:
+        turn on Remote Login (System Settings → General → Sharing), find the
+        username (`whoami` on the mini), then add a `Host mac-mini` like `vps`
+        and authorize `personal.pub` in its `~/.ssh/authorized_keys`.
   - [ ] Hetzner Cloud Firewall for the VPS (22 stays public for Dokploy Cloud).
 - [ ] **Seamless Ctrl h/j/k/l:** one set of keys across nvim splits and Rex panes.
       Rex binding passes the key to nvim when nvim runs in the pane (the
       `com.superlogical.terminal.process` API shows the process); nvim hands off to
       Rex at the edge of its splits.
-- [ ] **atuin sync:** share shell history between Macs; self-host the sync server
-      on the homeserver over Tailscale, or use atuin's encrypted cloud.
 - [ ] **Rex on the homeserver:** run the Rex server there and add it with
       `rex.host{}` in `init.lua`, reached over Tailscale.
-- [ ] **gh-dash:** Catppuccin Macchiato theme, and a key that opens a PR's repo in
-      a new Rex tab with lazygit or nvim.
-- [ ] **difftastic in lazygit:** add as a second diff renderer next to delta
-      (cycle with `|`).
 - [ ] **Unused tools:** httpie, htmlq, visidata, duf, dust, tealdeer, btop and
       topgrade never show up in shell history; try them or drop them. Swap httpie
       for `xh` if keeping an HTTP client. `font-fira-code-nerd-font` isn't used.
-- [ ] **Rex font:** switch from JetBrains Mono to JetBrainsMono Nerd Font (in the
-      Brewfile, and has the icons eza, yazi, superfile and starship use).
-- [ ] **Node versions (maybe):** `mise` for per-project Node from `.nvmrc`, if
-      devbox doesn't already cover it.

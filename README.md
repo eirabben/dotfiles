@@ -141,7 +141,9 @@ Fish abbreviations expand inline when you press space. Run `abbr` to list all.
 
 Other tools: `gh dash` for a dashboard of your GitHub PRs and issues
 ([gh-dash](https://www.gh-dash.dev); gh extensions are listed in
-[`.chezmoiscripts/run_onchange_after_gh-extensions.sh`](.chezmoiscripts/run_onchange_after_gh-extensions.sh)),
+[`.chezmoiscripts/run_onchange_after_gh-extensions.sh`](.chezmoiscripts/run_onchange_after_gh-extensions.sh);
+on a PR or issue, `Ctrl g` opens the repo's clone under `~/code` in lazygit in a
+new Rex tab, `Ctrl e` in nvim),
 `tldr <cmd>` for quick examples, `dust` for disk usage per
 folder, `duf` for disk overview, `spf` for superfile (vim-style keys: `j/k` move,
 `enter` open, `-` parent folder, `y/x/p` copy/cut/paste, `d` delete, `a` new,
@@ -149,4 +151,5 @@ folder, `duf` for disk overview, `spf` for superfile (vim-style keys: `j/k` move
 `?` help).
 
 Git diffs, `git log -p` and lazygit use [delta](https://github.com/dandavison/delta)
-(`n`/`N` jumps between files in the pager).
+(`n`/`N` jumps between files in the pager). In lazygit, `|` switches to
+[difftastic](https://difftastic.wilfred.me.uk), which compares syntax instead of lines.

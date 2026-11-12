@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+# Open a GitHub repo's local clone in a new Rex tab: open-in-rex OWNER/REPO PROGRAM
+# Finds the clone under ~/code by its origin remote, since folder names differ
+# from repo names and each Mac has different clones.
+set -uo pipefail
+
+repo=$1
+program=$2
+
+fail() {
+  echo "$*" >&2
+  read -rsn1 -p "Press any key to go back."
+  exit 1
+}
+
+normalize() {
+  local url=${1%.git}
+  url=${url#*github.com[:/]}
+  printf '%s' "$url" | tr '[:upper:]' '[:lower:]'
+}
+
+want=$(normalize "$repo")
+dir=
+while IFS= read -r gitdir; do
+  candidate=${gitdir%/.git}
+  if [[ $(normalize "$(git -C "$candidate" remote get-url origin 2>/dev/null)") == "$want" ]]; then
+    dir=$candidate
+    break
+  fi
+done < <(find "$HOME/code" -maxdepth 3 -name .git -type d 2>/dev/null)
+
+[[ -n $dir ]] || fail "No clone of $repo found under ~/code."
+
+if [[ -n ${REX_SESSION:-} ]]; then
+  rex window new -s "$REX_SESSION" "${repo#*/}" -c "$dir" -- "$program" >/dev/null ||
+    fail "Couldn't open a Rex tab."
+else
+  # Outside Rex: run it here; gh-dash comes back when it exits.
+  cd "$dir" && exec "$program"
+fi

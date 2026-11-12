@@ -2,6 +2,9 @@ git:
   diffRenderers:
     - colorArg: always
       command: delta --paging=never
+    # Cycle with `|`. difftastic compares syntax, so moved or reformatted code shows less noise.
+    - type: extDiff
+      command: difft --color=always --background={{colorScheme}} --context={{diffContext}}
 customCommands:
   - key: "C"
     context: "localBranches"
