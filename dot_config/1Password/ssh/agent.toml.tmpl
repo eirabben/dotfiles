@@ -1,0 +1,20 @@
+# Keys the 1Password SSH agent offers, in this order. Servers allow about six
+# tries, so keep the list short.
+# https://developer.1password.com/docs/ssh/agent/config
+
+[[ssh-keys]]
+item = "Personal SSH key"
+account = "my.1password.com"
+{{- if eq .machine "work" }}
+
+# Work keys, in the twoday account's Employee vault.
+[[ssh-keys]]
+item = "Work SSH key"
+vault = "Employee"
+account = "twoday.1password.eu"
+
+[[ssh-keys]]
+item = "Work GitHub SSH key"
+vault = "Employee"
+account = "twoday.1password.eu"
+{{- end }}

@@ -2,15 +2,13 @@
 # This only works if it's at the top of ssh_config (before any Host blocks).
 Include ~/.orbstack/ssh/config
 
-# Personal servers use the personal key from 1Password's SSH agent
-# (personal.pub selects it). Everything else (GitHub, work servers) keeps the
-# default agent and the keys in ~/.ssh.
+# All keys come from 1Password's SSH agent (see `Host *` at the end). Hosts
+# below pin the key they need with a .pub file, so the agent offers only that one.
 
 # Unraid. "homeserver" is its Tailscale name; it also resolves on the home network.
 Host homeserver unraid
   HostName homeserver
   User root
-  IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
   IdentitiesOnly yes
   IdentityFile ~/.ssh/personal.pub
 
@@ -18,6 +16,16 @@ Host homeserver unraid
 Host vps
   HostName vps
   User eirabben
-  IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
   IdentitiesOnly yes
   IdentityFile ~/.ssh/personal.pub
+{{- if eq .machine "work" }}
+
+# GitHub as eirik-igland_twoday.
+Host github.com
+  IdentitiesOnly yes
+  IdentityFile ~/.ssh/work-github.pub
+{{- end }}
+
+# Last, so the hosts above can override it (ssh uses the first value it finds).
+Host *
+  IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"

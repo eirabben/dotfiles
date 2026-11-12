@@ -38,6 +38,11 @@ not on Homebrew: install `Rex Beta.app` by hand.
    `~/.ssh/config`, decline; chezmoi manages it. To authorize the key on a new
    server, add `~/.ssh/personal.pub` to its `~/.ssh/authorized_keys`.
 
+   On a work Mac, also sign in to the twoday account (`twoday.1password.eu`).
+   Its Employee vault holds **Work SSH key** (work servers) and **Work GitHub
+   SSH key** (GitHub). All SSH goes through 1Password's agent; there are no
+   private keys in `~/.ssh`.
+
 3. **Install chezmoi and apply this repo.** `chezmoi init` prompts for git
    name/email and whether this is a personal or work Mac, then applies:
 

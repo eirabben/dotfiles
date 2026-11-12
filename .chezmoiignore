@@ -4,3 +4,7 @@ Brewfile.*
 README.md
 TODO.md
 script/
+{{- if ne .machine "work" }}
+.ssh/work.pub
+.ssh/work-github.pub
+{{- end }}

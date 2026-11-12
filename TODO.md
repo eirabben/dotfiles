@@ -13,8 +13,10 @@
   - [x] Read `haMcpUrl` from 1Password (now `op://Agents/Home Assistant MCP`).
   - [ ] Later secrets the same way. Keep bank-type tokens out of templates (use
         `op run`).
-  - [ ] Work keys (`id_ed25519`, `id_rsa`) into the work 1Password account, once
-        IT has set it up.
+  - [x] Work keys into the twoday account's Employee vault: "Work SSH key"
+        (servers) and "Work GitHub SSH key" (GitHub as `eirik-igland_twoday`).
+        All SSH goes through 1Password's agent. Old `unraid` key removed from
+        the homeserver.
   - [x] Split work/personal apps in the Brewfile by `machine` (`Brewfile.work`).
   - [x] Agents vault for agent and MCP secrets; MCP secrets in opencode's
         service env (`opencode service set env`, see README). Agents use `op`

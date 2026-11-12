@@ -1,6 +1,0 @@
-# Keys the 1Password SSH agent offers. Only the personal key for now; the work
-# keys move to the work account later.
-# https://developer.1password.com/docs/ssh/agent/config
-
-[[ssh-keys]]
-item = "Personal SSH key"
