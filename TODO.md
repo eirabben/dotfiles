@@ -25,7 +25,6 @@
         turn on Remote Login (System Settings → General → Sharing), find the
         username (`whoami` on the mini), then add a `Host mac-mini` like `vps`
         and authorize `personal.pub` in its `~/.ssh/authorized_keys`.
-  - [ ] Hetzner Cloud Firewall for the VPS (22 stays public for Dokploy Cloud).
 - [ ] **Seamless Ctrl h/j/k/l:** one set of keys across nvim splits and Rex panes.
       Rex binding passes the key to nvim when nvim runs in the pane (the
       `com.superlogical.terminal.process` API shows the process); nvim hands off to

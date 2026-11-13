@@ -3,6 +3,21 @@
 macOS dotfiles managed by **chezmoi**. The source of truth is this repo; chezmoi
 renders it into `~` on `chezmoi apply`. Apple Silicon only (`/opt/homebrew`).
 
+## Related repos
+
+| Repo | Path on the Macs | Owns |
+|---|---|---|
+| `dotfiles` (this one) | `~/.local/share/chezmoi` | How the Macs and the agents are set up: shell, SSH config, Opencode config, global agent instructions, MCP servers, environment variables. |
+| `homelab` | `~/Code/Repos/homelab` | Servers, services, network, runbooks, the roadmap and the task briefs. Its `AGENTS.md` describes how agents work on tasks (briefs, gates, review). |
+
+- Read the homelab `AGENTS.md` and `docs/decisions.md` before recommending a
+  change to agent setup or workflow, so the setup here serves how work is done
+  there.
+- Anything about a server belongs in homelab. This repo only holds the client
+  side: the SSH host entry, the key, the environment variable.
+- Planned work is tracked in homelab's `docs/roadmap.md`. `TODO.md` here is for
+  dotfiles-only items; do not track server work in it.
+
 ## The one thing to not get wrong
 
 Files in `~/.config` are **generated**. Editing them directly is wrong — changes
