@@ -126,7 +126,16 @@ opencode service set env HA_MCP_URL (op read --account my.1password.com "op://Ag
 ```
 
 Setting one stops the service; the next opencode starts it with the new value.
-Use it in `opencode.jsonc` as `"{env:NAME}"`.
+Run it from your own terminal, not from an agent: stopping the service kills
+the agent's command before the value is saved. Use it in `opencode.jsonc` as
+`"{env:NAME}"`.
+
+The homelab repo's `just notify` (agents messaging your phone) needs the ntfy
+topic URL. Agent commands inherit the service's environment:
+
+```sh
+opencode service set env HOMELAB_NTFY_URL "https://ntfy.sh/"(op read --account my.1password.com "op://Agents/Ntfy Homeserver Topic/credential")
+```
 
 Agents read other secrets with `op read --account my.1password.com
 "op://Agents/<item>/<field>"`, which asks you to approve in 1Password.
